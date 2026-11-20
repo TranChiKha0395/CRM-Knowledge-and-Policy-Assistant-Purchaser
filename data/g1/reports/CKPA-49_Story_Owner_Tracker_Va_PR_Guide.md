@@ -8,15 +8,15 @@
 
 Trên dự án Jira chính thức **`CKPA` (Board 2)**, `[P3]` Trần Chí Kha được gán làm **Assignee (Story Owner)** của **`CKPA-49`** (`[G1][WP02] Biên tập Họ 1 & 2 Bộ Validator CSV` — `CRM-G1-ST02`, Sprint 3 - G1 Impl W1).
 
-| Sub-task | Mã Excel | Assignee | Trạng thái live (19/11 21:30) | Phụ thuộc | Vai trò theo dõi của Story Owner (`[P3]`) |
+| Sub-task | Mã Excel | Assignee | Trạng thái live (`20/11/2026 20:22`) | Phụ thuộc | Vai trò theo dõi của Story Owner (`[P3]`) |
 |---|---|---|---|---|---|
-| **`CKPA-50`** | `CRM-G1-SUB04` | **Chí Kha (`[P3]`)** | `To Do` *(ĐÃ LÀM XONG 100% — sẵn sàng chuyển `In Review`)* | Không có | Tự thực hiện, chạy validator, nộp PR/bằng chứng & chuyển `In Review`, thông báo `[P2]` Hữu Tài |
-| **`CKPA-51`** | `CRM-G1-SUB05` | **Hữu Tài (`[P2]`)** | `To Do` | Bị block bởi `CKPA-50` | Đôn đốc `[P2]` ký duyệt nội dung, trạng thái `KNW 03` & ngưỡng Họ 1 (không tự duyệt thay `[P2]`) |
-| **`CKPA-52`** | `CRM-G1-SUB06` | **Quốc Hưng (`[S2]`)** | `To Do` | Bị block bởi `CKPA-51` | Bàn giao bộ CSV + Test Fixtures + 4 cảnh báo schema `develop`; kiểm tra khớp đối soát `Expected = Accepted + Quarantined` |
+| **`CKPA-50`** | `CRM-G1-SUB04` | **Chí Kha (`[P3]`)** | **`Done`** *(PR #11 đã merge vào `Purchaser/develop` tại `477922d`; PR #18 đang mở trên `ho4ngTien/CRM-Knowledge-and-Policy-Assistant`)* | Không có | Đã hoàn tất biên tập, pass `validate_g1_repo.ps1`, nộp PR & evidence lên Jira |
+| **`CKPA-51`** | `CRM-G1-SUB05` | **Hữu Tài (`[P2]`)** | **`In Progress`** *(Đã có biên bản nghiệm thu `PASSED` từ `[P1]` Mỹ Vân lúc `17:52 20/11` — comment `10062`, chờ chuyển `Done`)* | Đã gỡ block từ `CKPA-50` | Theo dõi đóng ticket `CKPA-51` trên Jira |
+| **`CKPA-52`** | `CRM-G1-SUB06` | **Quốc Hưng (`[S2]`)** | **`In Progress`** *(cập nhật `19:30 20/11`)* | Đã gỡ block từ `CKPA-51` | Đã bàn giao bộ CSV + Quarantine Test Fixtures + 3 cảnh báo schema `develop`; theo dõi đối soát `Expected = Accepted + Quarantined` |
 
 ### Checklist DoD của Story `CKPA-49` (Onboarding Guide §22 & Global DoD)
-- [ ] `CKPA-50` xong, pass `validate_corpus_g1.ps1` (`0` lỗi, `0` PII hits), có PR & evidence gắn lên Jira.
-- [ ] `CKPA-51` được `[P2]` Hữu Tài ký duyệt chính thức (SoD: `Assignee != Reviewer`).
+- [x] `CKPA-50` xong, pass `validate_g1_repo.ps1` (`0` lỗi, `0` PII hits), đã merge PR #11 (`Purchaser/develop`) và gắn evidence lên Jira (`Done`).
+- [x] `CKPA-51` đã được `[P2]` Hữu Tài rà soát và `[P1]` Mỹ Vân ký duyệt `PASSED` (comment `10062` ngày `20/11/2026`; chờ chuyển trạng thái ticket sang `Done`).
 - [ ] `CKPA-52` được `[S2]` Quốc Hưng code 2 Validator CSV + Quarantine và đối soát khớp 100% (`Passages: 40 = 39 Accepted + 1 Quarantined`; `CriticalFields: 16 = 16 Accepted + 0 Quarantined`).
 - [ ] Không gán `[S4]` Quý Hải làm reviewer PR nhánh `feat/` hoặc tham gia code cùng `[S2]`/`[S3]`.
 - [ ] Tổng hợp bằng chứng đạt `G1-AC01` & `G1-AC02`, báo `[P2]`/`[P1]` nghiệm thu Story `CKPA-49` trước khi chuyển `Done`.
@@ -25,7 +25,8 @@ Trên dự án Jira chính thức **`CKPA` (Board 2)**, `[P3]` Trần Chí Kha �
 
 ## 2. Quy trình GitHub Workflow cho `[P3]` (Onboarding Guide §11–19)
 
-- **Repository:** `https://github.com/ho4ngTien/CRM-Knowledge-and-Policy-Assistant`
+- **Purchaser Repository:** `https://github.com/TranChiKha0395/CRM-Knowledge-and-Policy-Assistant-Purchaser` (PR #10 `CKPA-25` & PR #11 `CKPA-50` đã merge vào `develop` tại `477922d`)
+- **Build/Code Repository:** `https://github.com/ho4ngTien/CRM-Knowledge-and-Policy-Assistant` (PR #18 `data/CKPA-50-curate-family1-dat01-08` đang mở chờ CI/merge)
 - **Branch prefix của `[P3]` (§12):** `data/`
 - **⚠️ Lưu ý cần chốt nhanh với `[S1]` Hoàng Tiến trước khi tạo nhánh:**
   - **Onboarding Guide §15** quy định `<prefix>/<JIRA-ID>-<short-description>` → `data/CKPA-50-curate-family1-dat01-08` và `data/CKPA-58-curate-family2-3-ceilings`.

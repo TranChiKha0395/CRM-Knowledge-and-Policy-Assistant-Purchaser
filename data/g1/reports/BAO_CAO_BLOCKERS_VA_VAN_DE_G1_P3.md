@@ -1,8 +1,15 @@
 # BÁO CÁO TÌNH HÌNH JIRA, TIẾN ĐỘ, PHỤ THUỘC (BLOCKERS) & CẢNH BÁO KỸ THUẬT G1 — `[P3]` TRẦN CHÍ KHA
 
 - **Vai trò RFP:** `[P3]` Knowledge and Data Steward (Purchaser)
-- **Thời điểm đối soát live Jira & GitHub `develop`:** `2026-11-19 21:35 (+07)` (`Asia/Ho_Chi_Minh`)
+- **Thời điểm đối soát live Jira & GitHub `develop`:** `2026-11-20 20:22 (+07)` (`Asia/Ho_Chi_Minh`) *(cập nhật từ bản đối soát đầu `2026-11-19 21:35`)*
 - **Phạm vi thực hiện:** Các hạng mục độc lập trong **Gate G1** (theo nền tảng G0 đã chốt, **Base Scope thuần túy — cắt O1**, khớp RFP 28 trang & **SCRM Team Onboarding & Workflow Guide v1.0**).
+
+> **Cập nhật thực tế ngày `2026-11-20`:**
+> - **G0 (`CKPA-10`, `CKPA-15`, `CKPA-24`, `CKPA-25`):** Đều đã chuyển **`Done`** trên Jira `CKPA`. `CKPA-25` đã merge vào `Purchaser/develop` qua **PR #10** (`f490a34`).
+> - **G1 Họ 1 (`CKPA-50`):** Đã chuyển **`Done`** trên Jira, merge vào `Purchaser/develop` qua **PR #11** (`477922d`) và mở **PR #18** sang `ho4ngTien/CRM-Knowledge-and-Policy-Assistant`.
+> - **`CKPA-51` (`[P2]` Hữu Tài):** **`In Progress`** — đã có biên bản nghiệm thu `PASSED` từ `[P1]` Mỹ Vân lúc `17:52` (comment `10062`), chờ chuyển `Done`.
+> - **`CKPA-52` (`[S2]` Quốc Hưng) & `CKPA-49` (Story):** Đều đang **`In Progress`**.
+> - **`CKPA-58`, `CKPA-82`:** Vẫn ở trạng thái **`To Do`** (chờ gỡ block từ `CKPA-52` / Sprint 4–5).
 
 ---
 

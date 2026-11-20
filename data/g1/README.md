@@ -11,6 +11,11 @@ Gói dữ liệu nguồn Base Scope (0% O1, 0% PII thật) do [P3] Trần Chí K
 - [BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md](reports/BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md) — Báo cáo phụ thuộc & cảnh báo kỹ thuật schema develop.
 - [CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md](reports/CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md) — Bảng theo dõi Story CKPA-49 & hướng dẫn PR.
 
+## Trạng thái đồng bộ (`2026-11-20`)
+- **Jira `CKPA-50`:** `Done` (PR #11 đã merge vào `CRM-Knowledge-and-Policy-Assistant-Purchaser` nhánh `develop` tại `477922d`; PR #18 đang mở trên `ho4ngTien/CRM-Knowledge-and-Policy-Assistant`).
+- **Jira `CKPA-51`:** `In Progress` (đã có biên bản nghiệm thu `PASSED` từ `[P1]` Mỹ Vân lúc `17:52 20/11/2026`).
+- **Jira `CKPA-52` & `CKPA-49`:** `In Progress`.
+
 ## Tự kiểm định cục bộ
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File data/g1/scripts/validate_g1_repo.ps1
