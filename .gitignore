@@ -1,0 +1,38 @@
+# Secrets & Environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*.json
+*secret*.json
+
+# Chinese Wall / SoD Hard Guardrails (NEVER commit sealed plaintext or 80 challenges here)
+*100_sealed*
+*sealed_plaintext*
+*sealed_tasks_raw*
+*80_constructed_challenges*
+*raw_pii*
+*unredacted*
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+~$*.docx
+~$*.xlsx
+
+# Python / Cache / Logs
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.tmp
