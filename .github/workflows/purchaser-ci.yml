@@ -4,10 +4,23 @@ on:
   pull_request:
     branches: [develop, main]
   push:
-    branches: [develop, main]
+    branches:
+      - develop
+      - main
+      - "gov/**"
+      - "policy/**"
+      - "data/**"
+      - "uat/**"
+      - "sec/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
   purchaser-guardrails:
+    name: SoD, 0% PII, Secrets & CSV/G1 Contracts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,5 +31,54 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Purchaser Guardrails (SoD, PII, CSV Schema)
+      - name: Run Purchaser Guardrails (Python)
         run: python scripts/ci_purchaser_guard.py
+
+      - name: Run Gate G1 Corpus & P5 PII Validation (PowerShell)
+        run: pwsh -NoProfile -File data/g1/scripts/validate_g1_repo.ps1
+
+  pr-governance-sod:
+    name: Onboarding Guide Branch, Jira Tag & PR Compliance
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Branch Naming, Jira Key & PR Body
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          BASE_REF: ${{ github.base_ref }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python3 - <<'EOF'
+          import os, re, sys
+
+          head = os.environ.get("HEAD_REF", "")
+          base = os.environ.get("BASE_REF", "")
+          title = os.environ.get("PR_TITLE", "")
+          body = os.environ.get("PR_BODY", "").strip()
+
+          errors = []
+          is_release_merge = (head == "develop" and base == "main")
+
+          if not is_release_merge:
+              branch_re = re.compile(r"^(gov|policy|data|uat|sec|docs|chore|ci)/CKPA-\d+-[a-z0-9-]+$")
+              if not branch_re.match(head):
+                  errors.append(
+                      f"Branch '{head}' must follow Onboarding Guide §15: "
+                      "<gov|policy|data|uat|sec|docs|chore|ci>/CKPA-<ID>-<short-slug>"
+                  )
+              if not re.search(r"CKPA-\d+", title):
+                  errors.append(
+                      f"PR title '{title}' must reference a Jira key (e.g., [CKPA-49] ...)."
+                  )
+
+          if len(body) < 20:
+              errors.append("PR description is empty or too short; fill out .github/PULL_REQUEST_TEMPLATE.md.")
+
+          if errors:
+              for e in errors:
+                  print(f"::error::{e}")
+              sys.exit(1)
+
+          print(f"PR governance check PASSED: {head} -> {base} | {title}")
+          EOF
