@@ -29,7 +29,7 @@ Thực hiện thẩm định tính tuân thủ pháp lý, quyền riêng tư và
 
 ## 3. Điều kiện áp dụng & Lưu ý vận hành sau thẩm định
 1. **Bảo lưu nguyên tắc cô lập dữ liệu:** Mọi thay đổi về phân cấp thẩm quyền hoặc phạm vi hợp đồng khách hàng trong các giai đoạn sau (Gate G1/G2) phải được cập nhật đồng bộ vào `DEL01-B` và thông qua rà soát lại của `[P5]` Privacy & Security Owner.
-2. **Tuân thủ Guardrail #1:** Không đính kèm nội dung nguyên văn hợp đồng nhạy cảm hoặc dữ liệu định danh khách hàng (PII) lên các thẻ Jira công khai có sự tham gia của nhóm Supplier (`S1–S6`).
+2. **Tuân thủ Guardrail #1:** Không đính kèm nội dung nguyên văn hợp đồng nhạy cảm hoặc dữ liệu định danh khách hàng (PII) lên các thẻ Jira công khai có sự tham gia của nhóm Supplier (`S1–S5`).
 
 ---
 

@@ -1,8 +1,8 @@
 # HỒ SƠ RÀ SOÁT PHÁP LÝ TRIỂN KHAI & KIỂM KÊ LUỒNG DỮ LIỆU NHÀ CUNG CẤP
 ## SongNhat CRM Knowledge and Policy Assistant (CKPA)
 
-> **Mã công việc:** `CKPA-32` — *CRM-G0-ST08: [G0][DEL06] Hoàn tất Điều khoản Vận hành & Pháp lý* kèm `CKPA-34` (CRM-G0-SUB23) & `CKPA-17` (CRM-G0-SUB10) (Thuộc Epic `CKPA-3`: *CRM-G0-EP01*)  
-> **Cổng phát hành:** `Gate G0 - Ready to Build Discovery` *(Khung cơ sở chuyển tiếp tới `Gate G2` — Task CKPA-32)*  
+> **Mã công việc:** `CKPA-32 (mã lưu trữ CKPAOLD trước 19/11)` — *CRM-G0-ST08: [G0][DEL06] Hoàn tất Điều khoản Vận hành & Pháp lý* kèm `CKPA-34` (CRM-G0-SUB23) & `CKPA-17` (CRM-G0-SUB10) (Thuộc Epic `CKPA-3`: *CRM-G0-EP01*)  
+> **Cổng phát hành:** `Gate G0 - Ready to Build Discovery` *(Khung cơ sở chuyển tiếp tới `Gate G2` — Task CKPA-32 (mã lưu trữ CKPAOLD trước 19/11))*  
 > **Tham chiếu đặc tả & hợp đồng:**  
 > - RFP: `SEC 03`, `SEC 04`, `SEC 07`, `VN 05`, `Phụ lục F` (`R02–R05`, `R10`, `R11`), `Phụ lục C`  
 > - SRS: `SRS-NFR-09`, `SRS-NFR-10`, `SRS-NFR-11`, `Mục 3.1`, `Mục 6.2`, `Mục 8.3`  
@@ -12,7 +12,7 @@
 > **Phối hợp & Xác nhận kỹ thuật:** [S1] **Hoàng Tiến** (Named Lead / Scrum Master), [P4] **Ngô Thị Trà My** (Staff Users Lead)  
 > **Đơn vị thẩm định & Ký duyệt thẩm quyền:** **Legal Owner** & **Privacy/Security Owner** (SongNhat)  
 > **Ngày lập:** `17/11/2026` *(Bản cập nhật sau PM Review của [S1] Hoàng Tiến & đồng bộ cấu hình repo với [S5] Nguyễn Ngọc Duy)*  
-> **Trạng thái:** `Khung cơ sở G0 hoàn thành — Chờ thẩm định & ký duyệt tại Gate G2 (CKPA-32)`
+> **Trạng thái:** `Khung cơ sở G0 hoàn thành — Chờ thẩm định & ký duyệt tại Gate G2 (CKPA-32 (mã lưu trữ CKPAOLD trước 19/11))`
 
 ---
 
@@ -24,7 +24,7 @@
 > Căn cứ theo tuyên bố ràng buộc tại Trang 8, 25, 26 của RFP:
 > 1. **Hosting tại Việt Nam, mã hóa và việc có nhân viên rà soát (staff verification) KHÔNG tự động xác lập sự tuân thủ hay miễn trừ pháp lý.**
 > 2. **Quy chế nội bộ của SongNhat không thay thế pháp luật.** Bất kỳ tương tác pháp lý nào chưa rõ ràng hoặc có mâu thuẫn bắt buộc phải chuyển tới **Legal Owner** được ủy quyền của SongNhat.
-> 3. Tài liệu này đóng vai trò là **Hồ sơ Kiểm kê Kỹ thuật & Khung Checklist Đối chiếu (Baseline & Evaluation Checklist)** do Chủ sở hữu Quyền riêng tư (`P5`) và Kỹ sư Vận hành (`S5`) thiết lập tại Cổng G0, nhằm cung cấp đầy đủ luận cứ kỹ thuật, luồng dữ liệu và ranh giới hệ thống để **Legal Owner và Privacy/Security Owner của SongNhat chính thức thẩm định và ký phê duyệt trước khi hệ thống tiếp cận dữ liệu thật tại Cổng G2 (Task CKPA-32)**.
+> 3. Tài liệu này đóng vai trò là **Hồ sơ Kiểm kê Kỹ thuật & Khung Checklist Đối chiếu (Baseline & Evaluation Checklist)** do Chủ sở hữu Quyền riêng tư (`P5`) và Kỹ sư Vận hành (`S5`) thiết lập tại Cổng G0, nhằm cung cấp đầy đủ luận cứ kỹ thuật, luồng dữ liệu và ranh giới hệ thống để **Legal Owner và Privacy/Security Owner của SongNhat chính thức thẩm định và ký phê duyệt trước khi hệ thống tiếp cận dữ liệu thật tại Cổng G2 (Task CKPA-32 (mã lưu trữ CKPAOLD trước 19/11))**.
 
 ---
 
@@ -42,7 +42,7 @@
    - 2.3 [Luật An ninh mạng số 116/2025/QH15 (R05)](#23-luật-an-ninh-mạng-số-1162025qh15-r05)
    - 2.4 [Danh mục Hệ thống AI Rủi ro cao — Quyết định 33/2026/QĐ-TTg (R11)](#24-danh-mục-hệ-thống-ai-rủi-ro-cao--quyết-định-332026qđ-ttg-r11)
 3. [Phần 3: Đề xuất Lịch Lưu giữ Vận hành & Phân biệt Chặn Truy cập (Phụ lục C)](#phần-3-đề-xuất-lịch-lưu-giữ-vận-hành--phân-biệt-chặn-truy-cập-phụ-lục-c)
-4. [Phần 4: Lộ trình & Thủ tục Trình duyệt Chính thức tại Cổng G2 (CKPA-32)](#phần-4-lộ-trình--thủ-tục-trình-duyệt-chính-thức-tại-cổng-g2-ckpa-32)
+4. [Phần 4: Lộ trình & Thủ tục Trình duyệt Chính thức tại Cổng G2 (CKPA-32 (mã lưu trữ CKPAOLD trước 19/11))](#phần-4-lộ-trình--thủ-tục-trình-duyệt-chính-thức-tại-cổng-g2-ckpa-32)
 
 ---
 
@@ -108,7 +108,7 @@ Căn cứ yêu cầu kiểm toán tại `SEC 04` và `SRS-NFR-09`, bảng kiểm
 |---|---|---|---|---|---|
 | **1. Prompts & Inferences**<br>*(Câu hỏi nhân viên + Ngữ cảnh trích dẫn)* | Sinh câu trả lời giải thích bằng tiếng Việt tự nhiên | - Xử lý trong RAM máy chủ nội bộ.<br>- Gửi qua HTTPS tới LLM Inference API.<br>- **Không lưu trên đĩa bên thứ ba**. | - Máy chủ nội bộ: Việt Nam.<br>- LLM Inference API: Khu vực Đông Á / Đông Nam Á (theo hợp đồng Enterprise). | **Tức thời (In-memory only)**. Không lưu trữ vĩnh viễn trên máy chủ AI; xóa khỏi RAM ngay khi phản hồi hoàn tất. | Phân quyền RBAC theo `UserRole` (`reader`, `policy_owner`, `steward`, `referral_handler`, `administrator`, `privacy_security_owner`, `independent_evaluator`). |
 | **2. Embedding API Calls**<br>*(Vector hóa chính sách & câu hỏi)* | Tạo vector nhúng 1536 chiều phục vụ tìm kiếm ngữ nghĩa (`EMBEDDING_MODEL=text-embedding-3-small`) | - Đoạn văn bản chính sách đã duyệt được gửi qua HTTPS tới Embedding API.<br>- **Không lưu trên đĩa bên thứ ba**. | - Embedding API Gateway: Khu vực Đông Á / Đông Nam Á (theo hợp đồng Enterprise). | **Tức thời (In-memory only)**. Chỉ tính toán vector trả về và giải phóng RAM, không lưu trữ văn bản trên máy chủ của bên thứ ba. | Chỉ tiến trình nội bộ `worker/index_task.py` và backend retrieval thực thi; không mở endpoint ra Internet. |
-| **3. Knowledge Indexes**<br>*(Vector embeddings & Chỉ mục toàn văn)* | Tìm kiếm ngữ nghĩa và trích xuất đoạn văn bản chính sách phù hợp | - Lưu trữ trong bảng **`passage_embeddings`** của PostgreSQL/pgvector.<br>- Bộ nhớ đệm tra cứu trên Redis. | - Máy chủ nội bộ: Việt Nam (100% trong nước). | Theo vòng đời chính sách (`KNW 03`). Khi chính sách bị rút (`withdrawn`), chỉ mục bị xóa/vô hiệu hóa tức thời; cache Redis dọn sạch trong 5 phút. | Chỉ dịch vụ nội bộ Backend và Knowledge Steward (`A2`) được quyền cập nhật; cấm kết nối công cộng từ Internet. |
+| **3. Knowledge Indexes**<br>*(Vector embeddings & Chỉ mục toàn văn)* | Tìm kiếm ngữ nghĩa và trích xuất đoạn văn bản chính sách phù hợp | - Lưu trữ trong bảng **`passage_embeddings`** của PostgreSQL/pgvector.<br>- Bộ nhớ đệm tra cứu trên Redis. | - Máy chủ nội bộ: Việt Nam (100% trong nước). | Theo vòng đời chính sách (`KNW 03`). Khi chính sách bị rút (`withdrawn`), chỉ mục bị xóa/vô hiệu hóa tức thời; cache Redis dọn sạch trong 5 phút. | Chỉ dịch vụ nội bộ Backend và Knowledge Steward (`P3`) được quyền cập nhật; cấm kết nối công cộng từ Internet. |
 | **4. Audit Logs & Telemetry**<br>*(Nhật ký tác vụ, chi phí & kiểm toán)* | Kiểm toán tuân thủ, đo lường nỗ lực Pilot, giám sát chi phí token | - Cơ sở dữ liệu nội bộ PostgreSQL (`audit_logs`).<br>- Log tập trung hệ thống nội bộ (Local syslog). | - Máy chủ nội bộ: Việt Nam (100% trong nước). | Đề xuất tối đa **12 tháng** phục vụ mục đích kiểm toán (`Phụ lục C`); tự động xoay vòng (log rotation) và xóa vật lý sau khi hết hạn. | Chỉ Administrator (`[S5] Ngọc Duy`), Privacy/Security Owner và Quản trị viên Kiểm toán có quyền đọc; cấm sửa/xóa log thủ công (Append-only). |
 | **5. Backups**<br>*(Bản sao lưu cơ sở dữ liệu & cấu hình)* | Khôi phục thảm họa (Disaster Recovery), bảo đảm RTO 4h / RPO 24h (`OPS 07`) | - Ổ đĩa sao lưu mã hóa cục bộ (`AES-256`).<br>- Sao lưu lạnh (Cold storage) tách biệt mạng vật lý. | - Kho lưu trữ nội bộ: Việt Nam (100% trong nước). | Đề xuất chu kỳ xoay vòng **35 ngày** (`Phụ lục C`). Bản sao lưu cũ hơn 35 ngày tự động bị hủy vật lý an toàn. | Khóa mã hóa quản lý độc lập ngoài source code; chỉ SecOps Lead (`[S5] Ngọc Duy`) và người được ủy quyền khôi phục. |
 
@@ -259,7 +259,7 @@ flowchart TD
   1. Hệ thống CKPA chỉ phục vụ việc tra cứu, giải thích văn bản quy chế và định tuyến luồng xử lý nội bộ trong 3 nhóm chính sách phân phối sản phẩm công nghiệp (`[R01]`).
   2. Hệ thống hoàn toàn không áp dụng công nghệ nhận dạng sinh trắc học, không chấm điểm tín dụng, không tuyển dụng/đánh giá nhân sự tự động, và không tự động giao kết hợp đồng hay phê duyệt tài chính.
 * **Đề xuất từ Đội ngũ Kỹ thuật:** Phân loại hệ thống vào nhóm **Hệ thống AI Tri thức Doanh nghiệp Thông thường (Không thuộc Danh mục AI Rủi ro cao)** theo Quyết định 33/2026/QĐ-TTg.
-* **Ranh giới thẩm quyền:** **Legal Owner của SongNhat sẽ chính thức rà soát các tiêu chí áp dụng cụ thể và ký văn bản phân loại pháp lý tại Cổng G2 (CKPA-32).**
+* **Ranh giới thẩm quyền:** **Legal Owner của SongNhat sẽ chính thức rà soát các tiêu chí áp dụng cụ thể và ký văn bản phân loại pháp lý tại Cổng G2 (CKPA-32 (mã lưu trữ CKPAOLD trước 19/11)).**
 
 ---
 
@@ -282,20 +282,20 @@ Căn cứ Phụ lục C của RFP và `SRS-NFR-11`, đội ngũ kỹ thuật đ�
 
 ---
 
-# PHẦN 4: LỘ TRÌNH & THỦ TỤC TRÌNH DUYỆT CHÍNH THỨC TẠI CỔNG G2 (CKPA-32)
+# PHẦN 4: LỘ TRÌNH & THỦ TỤC TRÌNH DUYỆT CHÍNH THỨC TẠI CỔNG G2 (CKPA-32 (mã lưu trữ CKPAOLD trước 19/11))
 
 Để đảm bảo dự án triển khai đúng tiến độ 12 tuần mà vẫn tuân thủ chặt chẽ pháp luật, quy trình phối hợp giữa Đội ngũ Triển khai và Ban Pháp chế SongNhat được thiết lập như sau:
 
 ```mermaid
 flowchart LR
-    G0["Gate G0 (Hiện tại)<br>CKPA-32 / CKPA-34 / CKPA-17 ([P4] Trà My chủ trì)<br>Khung Checklist & Luồng Dữ liệu"] --> G1["Gate G1 (Tuần 3–5)<br>Kiểm thử Ngoại tuyến<br>Chỉ dùng dữ liệu giả lập đã duyệt"]
-    G1 --> G2_PRE["Trước Gate G2 (Tuần 6–7)<br>CKPA-32 (P5, P1, S5, S1)<br>Hoàn thiện Hồ sơ Trình duyệt"]
+    G0["Gate G0 (Hiện tại)<br>CKPA-32 (mã lưu trữ CKPAOLD trước 19/11) / CKPA-34 / CKPA-17 ([P4] Trà My chủ trì)<br>Khung Checklist & Luồng Dữ liệu"] --> G1["Gate G1 (Tuần 3–5)<br>Kiểm thử Ngoại tuyến<br>Chỉ dùng dữ liệu giả lập đã duyệt"]
+    G1 --> G2_PRE["Trước Gate G2 (Tuần 6–7)<br>CKPA-32 (mã lưu trữ CKPAOLD trước 19/11) (P5, P1, S5, S1)<br>Hoàn thiện Hồ sơ Trình duyệt"]
     G2_PRE --> SIGN["LEGAL & PRIVACY SIGN-OFF<br>Legal Owner & Security Owner ký duyệt chính thức"]
     SIGN --> G2_PASS{"ĐẠT ĐIỀU KIỆN G2"}
     G2_PASS -->|"Mở quyền nạp dữ liệu thật có giám sát"| G3["Gate G3: Pilot 20 ngày"]
 ```
 
-### Kế hoạch hành động cụ thể cho Cổng G2 (Task CKPA-32):
+### Kế hoạch hành động cụ thể cho Cổng G2 (Task CKPA-32 (mã lưu trữ CKPAOLD trước 19/11)):
 1. **Tuần 6 (12/12 – 16/12/2026):** 
    - Chuyên viên Vận hành (`S5`) và Quyền riêng tư (`P5`) phối hợp Chuyên viên Vận hành (`S5`) cập nhật số liệu kiểm kê thực tế của hạ tầng Docker/Cloud đã dựng tại G1 vào hồ sơ này.
    - Bổ sung kết quả rà quét an ninh mạng và nhật ký xử lý dữ liệu giả lập.

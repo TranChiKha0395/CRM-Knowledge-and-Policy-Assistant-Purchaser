@@ -14,7 +14,7 @@ Tài liệu này xác lập hợp đồng kỹ thuật bất biến (immutable c
 1. **Khóa cứng danh sách endpoint `/api/v1/*`** cho toàn bộ 12 module backend theo kiến trúc Modular Monolith.
 2. **Khóa cứng cấu trúc JSON 7 phần** của `AnswerPackage` theo chuẩn kiểm chứng an toàn (ANS 01, ANS 03, SRS-FR-06.1).
 3. **Chốt ma trận phân quyền RBAC tối thiểu cho 8 vai trò RFP/SRS** bảo đảm nguyên tắc đặc quyền tối thiểu (Least Privilege) và bức tường ngăn cách (Chinese Wall).
-4. **Thống nhất cấu hình môi trường LLM** giữa backend (`backend/src/config.py`), S4 client (`app/config.py`) và biến môi trường mẫu (`.env.example`).
+4. **Thống nhất cấu hình môi trường LLM** giữa backend (`backend/src/config.py`), S3 / Frontend-App client (`app/config.py`) và biến môi trường mẫu (`.env.example`).
 5. **Ký duyệt Gate G0** giữa Bên Mua (P1-P5) và Nhà Cung Cấp (S1-S5) trước khi triển khai chi tiết Phase G1.
 
 ---
