@@ -13,16 +13,13 @@
 
 ---
 
-## 1. Tình hình Jira Live (Giải thích vì sao có `CKPA-50` & sự tồn tại của 2 dự án)
+## 1. Tình hình Jira Live (Board chính thức `CKPA`)
 
-> **Xác nhận:** Không có bất kỳ thao tác ghi/sửa nào lên Jira từ trợ lý AI. Toàn bộ sự thay đổi trên Jira chiều ngày `2026-11-19` do **`[S1]` Hoàng Tiến** trực tiếp tái cấu trúc sang dự án Scrum chuẩn.
+> **Xác nhận:** Toàn bộ dự án vận hành thống nhất trên duy nhất board chính thức **`CKPA`** (`84` issues `CKPA-1..84`, đúng cấu trúc `Epic -> Story -> Sub-task`).
 
-Hiện tại trên `https://crm-knowledge-and-policy-assistant.atlassian.net` đang tồn tại **2 dự án song song**:
-
-| Dự án / Board | Trạng thái thực tế | Giải thích mã task của `[P3]` Chí Kha |
+| Dự án / Board | Trạng thái thực tế | Danh mục task trọng tâm của `[P3]` |
 |---|---|---|
-| **`CKPAOLD`** (`Board 1: SCRUM board`) | **Dự án CŨ đã đổi tên sang `OLD`** (dữ liệu gốc của file export `CKPA_Jira_Export_2026-11-19` lúc `03:27` và đợt import cũ lúc `13:40`) | • Trong file export sáng `19/11` chỉ có `CKPA-1..62` (khuyết `50..57`) nên **không có `CKPA-50`**.<br>• Đợt import cũ đặt task G1 của Kha là `CKPAOLD-65` (Story), `CKPAOLD-77`, `CKPAOLD-83`, `CKPAOLD-101`. |
-| **`CKPA`** (`Board 2: CKPA board`) | **Dự án CHÍNH THỨC MỚI** (`84` issues `CKPA-1..84`, do `[S1]` Hoàng Tiến dựng lúc `16:36–17:37` chiều `19/11`, đúng cấu trúc `Epic -> Story -> Sub-task`). **Cả team đã chuyển sang làm trên dự án này!** | • **`CKPA-47`** (`[P5]` Anh Khoa) đã chuyển **`In Progress`** lúc `20:47` (kèm chứng nhận 0% PII & `g1_security_audit_runner.py`).<br>• **`CKPA-55`** (`[P4]` Trà My) đã chuyển **`In Progress`** lúc `21:29`.<br>• Task của Kha trên **`CKPA` MỚI**:<br>&nbsp;&nbsp;- **G0 (4 issue đang `To Do` do mới dựng lại cấu trúc):** `CKPA-10`, `CKPA-15`, `CKPA-24`, `CKPA-25`.<br>&nbsp;&nbsp;- **G1 (4 issue trọng tâm):** **`CKPA-49`** *(Story Owner)*, **`CKPA-50`** *(Sub-task Họ 1)*, **`CKPA-58`** *(Sub-task Họ 2–3)*, **`CKPA-82`** *(Sub-task re-verify Sprint 5)*. |
+| **`CKPA`** (`Board 2: CKPA board`) | **Dự án CHÍNH THỨC** (`84` issues `CKPA-1..84`, đúng cấu trúc `Epic -> Story -> Sub-task`). | • **`CKPA-47`** (`[P5]`) đã triển khai chứng nhận 0% PII & `g1_security_audit_runner.py`.<br>• **`CKPA-55`** (`[P4]`) đã bàn giao 100 câu hỏi & từ điển `VN 01`.<br>• Task của `[P3]` trên **`CKPA`**:<br>&nbsp;&nbsp;- **G0:** `CKPA-10`, `CKPA-15`, `CKPA-24`, `CKPA-25`.<br>&nbsp;&nbsp;- **G1:** **`CKPA-49`** *(Story Owner)*, **`CKPA-50`** *(Sub-task Họ 1)*, **`CKPA-58`** *(Sub-task Họ 2–3)*, **`CKPA-82`** *(Sub-task re-verify Sprint 5)*. |
 
 ---
 
@@ -47,20 +44,20 @@ Hiện tại trên `https://crm-knowledge-and-policy-assistant.atlassian.net` đ
 | **`CKPA-58`** *(Biên tập Họ 2–3 Full)* | **Sprint 4** | **Không bị block trực tiếp.**<br>**Gián tiếp qua Story cha `CKPA-57` (`[S2]` Quốc Hưng):**<br>• `CKPA-48` — **Quý Hải (`[S4]`)** *(Lập `sealed-eval-repo`)*<br>• `CKPA-52` — **Quốc Hưng (`[S2]`)** *(Code 2 Validator CSV Họ 1)* | • **`CKPA-62` — Hữu Tài (`[P2]`)** *(Duyệt Họ 2–3, 6 chiều & Hold)*<br>• **`CKPA-60` — Ngọc Duy (`[S5]`)** *(Benchmark OPS 01 500 dòng `<= 30p` & LKG)* | Báo Leader: `[P3]` đã chuẩn bị sẵn 100% file Họ 2–3 sạch lỗi; chỉ chờ Hưng xong `CKPA-52` & Hải xong `CKPA-48` là nạp test và mở khóa ngay cho Tài (`CKPA-62`) + Duy (`CKPA-60`). |
 | **`CKPA-82`** *(Kiểm lại 100% `source_uri` & Ký `G1-AC01`)* | **Sprint 5** | **Không bị block trực tiếp.**<br>**Gián tiếp qua Story cha `CKPA-81` (`[P1]` Mỹ Vân):**<br>• `CKPA-43` — **Hoàng Tiến (`[S1]`)** *(đóng Sprint 2 G0 cuối W2 DUO)*<br>• *Nghiệp vụ thực tế:* chờ chốt Corpus cuối Sprint 4 & `[P4]` Trà My check `source_uri` 200 câu (`CKPA-66`). | **`CKPA-83` — Hữu Tài (`[P2]`)** *(Reviewer #1 xác nhận Ngày, Trường & Hold trước `[P1]` Mỹ Vân ký G1 25% tại `CKPA-84`)* | Đã có sẵn bản nháp & script `validate_corpus_g1.ps1`; giữ `CKPA-82` ký chốt cuối Sprint 5 đúng quy trình. |
 
-### B. Lưu ý phần G0 trên dự án `CKPA` mới (dữ liệu đã chốt từ `CKPAOLD-1..10`)
-- 4 issue G0 của Kha (`CKPA-10`, `CKPA-15`, `CKPA-24`, `CKPA-25`) đang ở `To Do` trên dự án mới:
-  - `CKPA-10` bị block bởi `CKPA-9` (Hữu Tài) → block `CKPA-11` (Anh Khoa).
-  - `CKPA-15` bị block bởi `CKPA-14` (Quốc Hưng) → block `CKPA-24` (Chí Kha).
-  - `CKPA-24` / `CKPA-25` bị block bởi `CKPA-7` (Quý Hải), `CKPA-11` (Anh Khoa), `CKPA-15` (Chí Kha) → `CKPA-25` block `CKPA-26` (Quốc Hưng).
-- *Đề nghị báo `[S1]` Hoàng Tiến & `[P1]` Mỹ Vân:* Do G0 đã chốt và có đủ 32 file nộp ở `CKPAOLD-1..10`, cần thống nhất cách đóng/đồng bộ trạng thái Sprint 1–2 G0 trên board `CKPA` mới để không làm kẹt `CKPA-43` (đang block toàn bộ 3 Story Sprint 5: `CKPA-73`, `CKPA-77`, `CKPA-81`).
+### B. Lưu ý phần G0 trên dự án `CKPA`
+- 4 issue G0 của `[P3]` (`CKPA-10`, `CKPA-15`, `CKPA-24`, `CKPA-25`):
+  - `CKPA-10` bị block bởi `CKPA-9` (`[P2]`) → block `CKPA-11` (`[P5]`).
+  - `CKPA-15` bị block bởi `CKPA-14` (`[S2]`) → block `CKPA-24` (`[P3]`).
+  - `CKPA-24` / `CKPA-25` bị block bởi `CKPA-7` (`[S4]`), `CKPA-11` (`[P5]`), `CKPA-15` (`[P3]`) → `CKPA-25` block `CKPA-26` (`[S2]`).
+- *Đề nghị báo `[S1]` & `[P1]`:* Cần đồng bộ trạng thái đóng Sprint 1–2 G0 trên board `CKPA` để không làm kẹt `CKPA-43` (đang block toàn bộ 3 Story Sprint 5: `CKPA-73`, `CKPA-77`, `CKPA-81`).
 
 ---
 
 ## 4. ⚠️ 7 Vấn đề Kỹ thuật, Codebase `develop` & Jira Cần Báo Team Xử Lý Ngay
 
-1. **[Nghiêm trọng — Báo `[S2]` Quốc Hưng `CKPA-52`] Lỗi trùng Khóa chính `DocumentVersion.id = VER-001` đã xác nhận trên LIVE `develop`:**
+1. **[Nghiêm trọng — Báo `[S2]` `CKPA-52`] Lỗi trùng Khóa chính `DocumentVersion.id = VER-001` đã xác nhận trên LIVE `develop`:**
    - Tại `develop/backend/src/modules/knowledge/models.py` (dòng `31`), bảng `document_versions` khai báo `id: Mapped[str] = mapped_column(String(64), primary_key=True)` ánh xạ trực tiếp từ cột `document_version_id`.
-   - Trong khi đó, dữ liệu mẫu G0 (`CKPAOLD-3`) và 60 Dev Tasks (`CKPAOLD-10`) dùng chung `document_version_id = VER-001` cho cả `DOC-001`, `DOC-002`, `DOC-003` -> nạp thẳng vào PostgreSQL sẽ **trùng PK hoặc ghi đè `document_id`**.
+   - Trong khi đó, dữ liệu mẫu G0 (`CKPA-25`) và 60 Dev Tasks (`CKPA-55` / `CKPA-65`) dùng chung `document_version_id = VER-001` cho cả `DOC-001`, `DOC-002`, `DOC-003` -> nạp thẳng vào PostgreSQL sẽ **trùng PK hoặc ghi đè `document_id`**.
    - *Cách `[P3]` đã giảm thiểu:* Toàn bộ bản mới G1 (`DOC001-VER-000`, `DOC001-VER-002`, `DOC004-VER-001`...) đều duy nhất toàn cục; giữ nguyên `VER-001` trên 3 bản G0 để không gãy 60 Dev Tasks. Đề nghị `[S2]` chuẩn hóa key DB thành `f"{document_id}:{document_version_id}"` hoặc composite unique trong `CKPA-52`.
 
 2. **[Nghiêm trọng — Báo `[S2]` Quốc Hưng & `[S3]` Yến Nhi `CKPA-52`, `CKPA-63`] G0 CSV & `develop` mới có 5 chiều `scope`, thiếu chiều thứ 6 `DAT 04` (`transaction_scope`) & lệch tên `customer_group` vs `customer_category`:**
