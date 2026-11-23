@@ -2,7 +2,7 @@
 **DỰ ÁN: CRM KNOWLEDGE & POLICY ASSISTANT (CKPA / SCRM) — CỔNG G0**  
 *Mã Story cha:* `CKPA-40` (CRM-G0-ST10) | *Mã Sub-task:* `CKPA-42` (CRM-G0-SUB29)  
 *Mã Tiêu chí Cổng G0:* `G0-AC07`  
-*GitHub Branch:* `—` (Tác vụ thẩm định / ban hành văn bản phi mã nguồn)  
+*GitHub Branch:* `gov/CKPA-42-g0-10pct-payment-signoff-md`  
 *Phía RFP:* Purchaser  
 *Priority:* Highest  
 *Components (RFP):* Gate-G0  
@@ -16,53 +16,60 @@
 ---
 
 # BIÊN BẢN NGHIỆM THU CỔNG G0 (READY TO BUILD)
-### QUYẾT ĐỊNH BASE SCOPE, QUYẾT ĐỊNH RIÊNG TÙY CHỌN O1 & LỆNH GIẢI NGÂN THANH TOÁN 10% HỢP ĐỒNG (MỤC 12)
+### QUYẾT ĐỊNH BASE SCOPE, QUYẾT ĐỊNH RIÊNG TÙY CHỌN O1 & XÁC LẬP NGUYÊN TẮC GIẢI NGÂN MỐC 10% G0 THEO BÁO GIÁ DEL 05 (MỤC 12 RFP)
 
 ---
 
-### ĐỐI SOÁT TIÊU CHÍ NGHIỆM THU (ACCEPTANCE CRITERIA BDD: GIVEN - WHEN - THEN)
+### THÔNG TIN NHIỆM VỤ
 
-* **GIVEN (Điều kiện tiền đề):** Đã tiếp nhận Phiếu thẩm định SUB28 (`CKPA-41`) do `[S1] Hoàng Tiến` đệ trình và `[P2] Hữu Tài` chủ trì chuyên môn, xác nhận hồ sơ đề xuất đạt **88.45 / 100 điểm** theo RFP Mục 13 và vượt qua toàn bộ 7 tình huống demo bắt buộc.
-* **WHEN (Hành động thực thi):** `[P1] Mỹ Vân` (Purchaser sponsor / PO) chủ trì Hội đồng thẩm định Cổng G0 cùng toàn thể 10 thành viên hai bên (P1..P5 & S1..S5) vào ngày **20/11/2026** để ra quyết định Go/Stop và Tùy chọn O1.
-* **THEN (Kết quả đầu ra):** Ban hành đầy đủ 3 văn kiện pháp lý bắt buộc:
-  1. **Biên bản G0 Sign-off** phê duyệt Base Scope (Go Route 3 — Bounded Custom Work);
-  2. **Quyết định riêng bằng văn bản số `03/2026/QĐ-P1-OPT1`** về việc Tạm hoãn Tùy chọn O1 nhằm bảo vệ 100% dữ liệu PII;
-  3. **Lệnh giải ngân thanh toán mốc 10% G0** (tương đương 10.000.000 VND) theo đúng Mục 12 RFP.
+| Thuộc tính | Chi tiết |
+|---|---|
+| **Mã nhiệm vụ Jira:** | CKPA-42 (Mã gốc: CRM-G0-SUB29 \| Thuộc Story cha: CKPA-40 / CRM-G0-ST10) |
+| **Mã Tiêu chí Cổng G0:** | G0-AC07 \| Phía RFP: Purchaser \| Priority: Highest \| Branch: `gov/CKPA-42-g0-10pct-payment-signoff-md` |
+| **Hợp phần (Components):** | Gate-G0 |
+| **Căn cứ RFP Traceability ID:** | Mục 9 (G0), Mục 12 (10% payment), Mục 14 (Decisions before award) |
+| **Deliverable / Evidence:** | Biên bản Nghiệm thu G0, Quyết định Base/O1 & Lệnh Thanh toán 10% |
+| **Assignee / Lead (Doer):** | [P1] Mỹ Vân (Purchaser sponsor / Product Owner) |
+| **Reporter / Nghiệm thu (PO/SM):** | [S1] Hoàng Tiến (Named lead / Scrum Master) |
+| **Collaborators / RACI & Lịch:** | Toàn bộ P1..P5 & S1..S5 \| Lịch: 2026-11-20 → 2026-11-20 (4h) |
 
 ---
 
 ### I. ĐỐI SOÁT 7 NHÓM BẰNG CHỨNG SẴN SÀNG CỔNG G0 (RFP MỤC 9 & MỤC 14)
 
-| STT | Nhóm bằng chứng Cổng G0 | Căn cứ RFP | Hồ sơ / Deliverable đối soát | Kết quả thẩm định của P1 |
-|:---:|---|---|---|:---:|
-| **1** | **Xác nhận 3 Họ chính sách** | `DAT 03, VN 04` | POL-001 (Báo giá & Duyệt thương mại), POL-002 (Xử lý thông tin KH), POL-003 (Dịch vụ & Bảo hành). Đã ký Ma trận Thẩm quyền, loại trừ 5 mảng ngoài scope. | **ĐẠT (100%)** |
-| **2** | **Mẫu duyệt 30 passages + 10 critical fields** | `DAT 01, DAT 06` | Bộ mẫu đại diện 30 passages + 10 critical rows đã nghiệm thu tại CKPA-24/27; đối soát toàn vẹn SHA-256 (DEL01-C). | **ĐẠT (100%)** |
-| **3** | **Năng lực Curation & Kinh phí trước G1** | `Mục 2, DEL 05` | Khoản mục 2 trong Báo giá DEL 05 đã duyệt kinh phí 8.000.000 VND hỗ trợ chuẩn hóa nguồn; cam kết hoàn tất trước G1. | **ĐẠT (100%)** |
-| **4** | **Ma trận Thẩm quyền & Quy tắc Ngày** | `DAT 03, DAT 04` | Đã ký Ma trận thẩm quyền 5 lớp nguồn; quy tắc ngày chi phối giao dịch theo múi giờ Việt Nam (`Asia/Ho_Chi_Minh`, UTC+7). | **ĐẠT (100%)** |
-| **5** | **Question Inventory & Baseline Effort** | `WP 01, VN 06` | Hồ sơ 4 tuần câu hỏi thực tế (DEL01-A); đo baseline 7,0 phút thủ công vs 4,0 phút có trợ lý (tiết kiệm 3 phút/tác vụ), 5 NSD chuẩn Mục 11. | **ĐẠT (100%)** |
-| **6** | **So sánh 3 Route có giá & TCO** | `WP 01, DEL 05` | Báo cáo so sánh 3 phương án (searchable library, configured product, custom có giới hạn); phân tích TCO 3 năm (DEL01-I & DEL 05); chọn Route 3. | **ĐẠT (100%)** |
-| **7** | **Quyết định riêng cho Tùy chọn O1** | `DAT 07, VN 03` | Ban hành Quyết định riêng số `03/2026/QĐ-P1-OPT1`: Tạm hoãn Tùy chọn O1 ở G0, chỉ triển khai thuần túy Base Scope (2 CSV). | **ĐẠT (100%)** |
+| STT | Nhóm bằng chứng Cổng G0 | Hồ sơ / Bằng chứng nghiệm thu | Kết luận thẩm định |
+|:---:|---|---|:---:|
+| **1** | Xác nhận 3 Họ chính sách (POL-001..003) | DEL01-B: Ma trận thẩm quyền 5 lớp, loại trừ 5 mảng ngoài scope | **ĐẠT (100%)** |
+| **2** | Mẫu duyệt 30 passages + 10 critical fields | DEL01-C: Đã ký duyệt, đối soát nguyên vẹn SHA-256 | **ĐẠT (100%)** |
+| **3** | Năng lực Curation & Ngân sách trước G1 | DEL 05 (CKPA-39): Khoản mục 2 (Curation assistance) đã chuẩn hóa phạm vi $\le 300$ đoạn / $\le 50$ fields; cam kết hoàn tất trước G1 | **ĐẠT (100%)** |
+| **4** | Ma trận Thẩm quyền & Ngày chi phối UTC+7 | DEL01-B: Ngày UTC+7 & đúng 6 chiều phạm vi DAT 04 | **ĐẠT (100%)** |
+| **5** | Question Inventory $\ge$ 4w & Baseline Effort | DEL01-A: Hồ sơ Question Log 4 tuần thực tế (520 câu hỏi tại CKPA-06); Baseline Effort đo thực tế 5 NSD độc lập Bên mua | **ĐẠT (100%)** |
+| **6** | So sánh 3 Route có giá & TCO 3 năm | DEL01-I & DEL 05 (CKPA-39): Chuẩn hóa 14 dòng chi tiết ↔ 13 nhóm DEL 05; mô hình Annex E minh họa; chọn Route 3 Bounded Custom | **ĐẠT (100%)** |
+| **7** | Quyết định riêng cho Tùy chọn O1 | Quyết định số 03/2026/QĐ-P1-OPT1: Tạm hoãn Tùy chọn O1 | **ĐẠT (100%)** |
 
 ---
 
-### II. BỘ QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1] MỸ VÂN
+### II. QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1] MỸ VÂN
 
 #### 1. QUYẾT ĐỊNH BASE SCOPE (GO / STOP):
-* **QUYẾT ĐỊNH: CHẤP THUẬN (GO BASE SCOPE).**
-* Cho phép dự án chính thức đóng Giai đoạn Khảo sát (Discovery G0) và chuyển sang Giai đoạn Xây dựng Lõi có kiểm soát (**Gate G1 — Controlled Offline Implementation**).
-* **Lộ trình thực hiện:** Phê duyệt lựa chọn **Phương án 3 (Bounded Custom Work)** kết hợp tái sử dụng các thành phần nguồn mở có sẵn (FastAPI, PostgreSQL pgvector + unaccent, Redis) để đảm bảo toàn quyền kiểm soát logic thẩm quyền và bảo mật dữ liệu.
+* Căn cứ kết quả thẩm định toàn diện 7 nhóm bằng chứng Cổng G0 và điểm đánh giá kỹ thuật 88.45/100 tại SUB28.
+* **QUYẾT ĐỊNH: CHẤP THUẬN (GO BASE SCOPE).** Cho phép dự án chính thức đóng Giai đoạn Khảo sát (Discovery G0) và chuyển sang Giai đoạn Xây dựng Lõi có kiểm soát (**Gate G1 — Controlled Offline Implementation**).
+* **Phương án kiến trúc:** Phê duyệt lựa chọn **Phương án 3 (Bounded Custom Work)** trên nền tảng nguồn mở kiểm soát dữ liệu nội bộ (FastAPI, PostgreSQL pgvector + unaccent, Redis).
 
-#### 2. QUYẾT ĐỊNH TÁCH RIÊNG ĐỐI VỚI TÙY CHỌN O1 (VĂN BẢN SỐ: `03/2026/QĐ-P1-OPT1`):
-* **Căn cứ pháp lý:** Theo Mục 1 và DAT 07 của RFP, Tùy chọn O1 (Selected CRM Context) phải được thẩm định và quyết định độc lập bằng văn bản riêng.
+#### 2. QUYẾT ĐỊNH RIÊNG CHO TÙY CHỌN O1 (VĂN BẢN SỐ: `03/2026/QĐ-P1-OPT1`):
+* Căn cứ Mục 1 và DAT 07 RFP: Tùy chọn O1 (Selected CRM Context) phải được thẩm định và quyết định tách biệt bằng văn bản riêng.
 * **QUYẾT ĐỊNH: TẠM HOÃN / CHƯA KÍCH HOẠT TÙY CHỌN O1 TRONG GIAI ĐOẠN G0/G1.**
-* **Lý do:** Ở giai đoạn G0/G1, hệ thống tập trung hoàn thiện tri thức quy trình trên 2 schema CSV cơ sở (`passages` và `critical_fields`). Việc không nạp hồ sơ khách hàng CRM thật giúp:
-  - Triệt tiêu 100% rủi ro lộ lọt PII theo Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15.
-  - Tiết kiệm chi phí đầu tư và vận hành connector CRM khi chưa đo lường được hiệu quả thực tế.
-  - Tùy chọn O1 sẽ chỉ được xem xét kích hoạt lại tại Cổng G2/G3 nếu có nhu cầu phát sinh và được cấp thẩm quyền duyệt riêng.
+* **Lý do:** Hệ thống tập trung tối ưu hóa tri thức trên 2 cấu trúc phẳng cơ sở (Policy Corpus và Critical Fields). Việc không kết nối và không nạp dữ liệu khách hàng CRM thật giúp triệt tiêu 100% nguy cơ lộ lọt PII theo Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 và tiết kiệm chi phí tích hợp connector.
+* Tùy chọn O1 sẽ chỉ được xem xét kích hoạt lại tại Cổng G2 hoặc G3 khi có nhu cầu thực tế và được phê duyệt riêng.
 
-#### 3. PHÊ DUYỆT LỆNH GIẢI NGÂN THANH TOÁN 10% CỔNG G0 (RFP MỤC 12):
-* Căn cứ quy định tiến độ thanh toán tại Mục 12 RFP (10% tại G0, 25% tại G1, 25% tại G2, 25% tại G3, 15% tại G4):
-* **LỆNH GIẢI NGÂN ĐỢT 1:** Phê duyệt thanh toán **10% Tổng giá trị Hợp đồng cơ sở** (tương đương **10.000.000 VND / 100.000.000 VND**) cho Nhà cung cấp sau khi toàn bộ sản phẩm bàn giao thiết kế DEL 01 và 7 bằng chứng Cổng G0 được nghiệm thu đạt chuẩn.
+#### 3. NGUYÊN TẮC GIẢI NGÂN THANH TOÁN MỐC 10% CỔNG G0 (RFP MỤC 12 & HỒ SƠ THƯƠNG MẠI DEL 05):
+* Căn cứ quy định tiến độ thanh toán tại Mục 12 RFP (RFP-S12-08): Tiến độ giải ngân đề xuất gồm 5 đợt: 10% tại G0, 25% tại G1, 25% tại G2, 25% tại G3, và 15% tại G4, phụ thuộc vào bằng chứng được chấp nhận và hợp đồng ký kết.
+* Căn cứ Hồ sơ thương mại DEL 05 chuẩn hóa Sprint 2 (CKPA-39 do [S1] Hoàng Tiến đệ trình): Toàn bộ 14 dòng chi phí chi tiết (ánh xạ thành 13 nhóm hợp đồng DEL 05) hiện đang ở trạng thái minh bạch `PENDING_SUPPLIER_QUOTE`. Nhà cung cấp và Bên mua thống nhất **tuyệt đối không sử dụng các con số kịch bản minh họa của Phụ lục E (như 100 triệu VND, trần công thức 64,8 triệu VND, 2 triệu/tháng hay 10 triệu VND) làm báo giá thật hay căn cứ phát hành lệnh giải ngân**.
+* **QUYẾT ĐỊNH CỦA [P1] PRODUCT OWNER:**
+  1. **Nghiệm thu mặt kỹ thuật và cấu trúc của Hồ sơ thương mại DEL 05:** Đạt yêu cầu về cấu trúc 14 dòng bóc tách chi tiết, phân tách rõ Base Scope vs Tùy chọn O1, gắn kèm mô hình kiểm thử sức chịu đựng Annex E minh họa.
+  2. **Xác lập nguyên tắc giải ngân Đợt 1 (Mốc G0):** Giá trị thanh toán 10% mốc G0 sẽ được tính toán và chi trả chính thức bằng đúng **10% Tổng giá trị Hợp đồng cơ sở (Base Scope)** ngay sau khi Nhà cung cấp hoàn tất điền đơn giá VND ràng buộc và thuế VAT thực tế cho 14 dòng DEL 05 theo đúng cam kết tại CKPA-39.
+  3. **Quyền dữ liệu và quyền xuất bản nguồn:** Luôn do Bên mua kiểm soát theo vai trò, độc lập hoàn toàn với tiến độ giải ngân (Mục 12 RFP).
+* **Chứng từ kèm theo:** Bộ hồ sơ thiết kế DEL 01 (DEL01-A..I), Biểu mẫu báo giá 14 dòng DEL 05 (CKPA-39), Báo cáo so sánh 3 phương án và Biên bản nghiệm thu Cổng G0.
 
 ---
 
@@ -70,7 +77,6 @@
 
 *(Ký ban hành ngày 20/11/2026)*
 
-| ĐẠI DIỆN CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1] | ĐẠI DIỆN NHÀ CUNG CẤP / PROJECT MANAGER [S1] |
+| ĐẠI DIỆN CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1]<br>*(Chủ trì ký duyệt ngày 20/11/2026)* | ĐẠI DIỆN NHÀ CUNG CẤP / PROJECT MANAGER [S1]<br>*(Đệ trình hồ sơ ngày 20/11/2026)* |
 |:---:|:---:|
-| *(Chủ trì ký duyệt ngày 20/11/2026)* | *(Đệ trình hồ sơ ngày 20/11/2026)* |
 | <br><br>**MỸ VÂN** | <br><br>**HOÀNG TIẾN** |
