@@ -171,7 +171,7 @@ Hệ thống định nghĩa chính xác 8 vai trò RFP tại `backend/src/shared
 | `/api/v1/feedback` (gửi phản hồi) | ✓ | ✓ | ✓ | ✓ | ✓ | — | — | — |
 | `/api/v1/feedback/candidates` (duyệt) | — | ✓ | ✓ | ✓ | ✓ | — | — | — |
 | `/api/v1/ingestion/*` (CSV / Quarantine) | — | ✓ | ✓ | ✓ | ✓ | — | — | — |
-| `/api/v1/admin/policies/transition` | — | ✓ | ✓ | ✓ | ✓ | — | — | — |
+| `/api/v1/admin/policies/transition` | — | ✓ | ✓ | ✓ | DENY | — | — | — |
 | `/api/v1/admin/policies/withdraw` | — | ✓ | ✓ | — | ✓ | — | — | — |
 | `/api/v1/admin/emergency-disable` | — | — | — | — | ✓ | — | — | — |
 | `/api/v1/admin/ops-summary` | — | ✓ | ✓ | ✓ | ✓ | — | — | — |
@@ -180,7 +180,7 @@ Hệ thống định nghĩa chính xác 8 vai trò RFP tại `backend/src/shared
 | `/api/v1/audit/export-open` | — | ✓ | ✓ | ✓ | ✓ | — | — | — |
 | `/api/v1/evaluation/runs` (POST) | — | — | — | — | ✓ | ✓ | — | — |
 | `/api/v1/evaluation/runs` (GET dev/val) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | — | — |
-| `/api/v1/evaluation/runs` (GET sealed_100) | — | — | — | — | ✓ | ✓ | — | — |
+| `/api/v1/evaluation/runs` (GET sealed_100) | — | — | — | — | DENY | ✓ | — | — |
 
 ---
 
