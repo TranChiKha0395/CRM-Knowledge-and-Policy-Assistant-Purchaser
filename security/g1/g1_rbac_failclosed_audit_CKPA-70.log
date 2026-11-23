@@ -1,14 +1,22 @@
-=== [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_URI, CACHE & FAIL-CLOSED AUDIT LOG ===
+=== [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_REF, CACHE & FAIL-CLOSED AUDIT LOG (NO-MOCK) ===
 Jira Issue       : CKPA-70 (Parent: CKPA-44 | Relates: CKPA-69 | Blocks: CKPA-71)
 RFP Traceability : SEC 01, SEC 05, SEC 08, ANS 02 | Gate Criteria: G1-AC03, G1-AC04
-Test Environment : SUB01 (Test) & SUB07 (Pre-retrieval) | Cross-Role Matrix: 4 Roles
-Execution Time   : 2026-11-22T10:58:18.619925+07:00
------------------------------------------------------------------------------------
-[PASS] TC-RBAC-01 | Selection & Source URI Leakage (SEC 01 / ANS 02) | Role=Purchaser_Junior_Buyer (Tier-3) | Result=DENY_403_NO_CITATION_OR_SOURCE_URI | Leaked=0 | SEC08_Log=True | Sig=b165ac6105d15fc3
-[PASS] TC-RBAC-02 | Cross-Role Cache Isolation & Replay (SEC 01) | Role=External_Auditor_ReadOnly (Tier-4) | Result=CACHE_MISS_ACL_KEY_MISMATCH_BLOCKED | Leaked=0 | SEC08_Log=True | Sig=dd70e57ba787c5f6
-[PASS] TC-REV-03 | Immediate Withdrawal Fail-Closed (SEC 05) | Role=Purchaser_Senior_Manager (Tier-1) | Result=FAIL_CLOSED_BLOCKED_IMMEDIATELY | Leaked=0 | SEC08_Log=True | Sig=b1dbff5eb393a407
-[PASS] TC-LOG-04 | Audit Log Redaction & Tamper Check (SEC 08) | Role=Supplier_Support_Lead (S1) | Result=REDACTED_HASH_ONLY_ZERO_PII_TITLE | Leaked=0 | SEC08_Log=True | Sig=146c8e642d086f07
------------------------------------------------------------------------------------
-SUMMARY: 4/4 unauthorized/revoked attempts blocked (100.0% Fail-Closed).
-LEAKAGE RATE: 0.0% (0 leaked titles, 0 leaked source_uri, 0 cross-role cache hits).
-FINAL VERDICT: PASSED (G1-AC03 & G1-AC04 COMPLIANT).
+Execution Time   : 2026-11-23T11:37:52.256391+07:00
+Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
+---------------------------------------------------------------------------------------------
+[PART 1] REAL G1 CORPUS RBAC & SCOPE METADATA AUDIT (data/g1/full/Policy_Corpus_G1_Full.csv)
+  - Documents Verified : 11 (DOC-001, DOC-002, DOC-003, DOC-004, DOC-005, DOC-006, DOC-007, DOC-008, DOC-009, DOC-010, DOC-011)
+  - Passages Verified  : 96 | Manifest Checksums: 136
+  - Invalid UserRoles  : []
+  - Missing Scope Docs : []
+  - Part 1 Verdict     : PASS
+---------------------------------------------------------------------------------------------
+[PART 2] LIVE RUNTIME API AUDIT (SUB01 / SUB07 - NO-MOCK HTTP EXECUTION)
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/query | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-02 | Role=legal_owner | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/query | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-REV-03 | Role=policy_owner | Target=DOC-007 (DOC007-VER-001) | POST /api/v1/admin/policies/DOC007-VER-001/withdraw | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-LOG-04 | Role=privacy_security_owner | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+---------------------------------------------------------------------------------------------
+PART 1 SUMMARY (Real G1 Corpus RBAC/Scope Metadata): PASSED (11/11 docs verified).
+PART 2 SUMMARY (Live Runtime API Execution)        : 0/4 executed live; 4/4 BLOCKED pending staging endpoint & tokens.
+OVERALL VERDICT: PARTIAL_PASS_DATA_VERIFIED / RUNTIME_BLOCKED_PENDING_LIVE_STAGING (ZERO MOCK DATA USED).
