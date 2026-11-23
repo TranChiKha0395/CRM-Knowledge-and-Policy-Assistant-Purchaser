@@ -15,7 +15,7 @@
 **DỰ ÁN: CRM KNOWLEDGE & POLICY ASSISTANT (CKPA / SCRM) — GATE G0**  
 *Mã Story Jira cha:* `CKPA-40` (CRM-G0-ST10)  
 *Mã Tiêu chí Cổng G0:* `G0-AC07`  
-*GitHub Branch:* `gov/CKPA-40-g0-gate-decision-md`  
+*GitHub Branch:* `gov/CKPA-40-42-g0-gate-decision-and-payment-signoff`  
 *Phía RFP:* Purchaser  
 *Priority:* Highest  
 *Components (RFP):* Gate-G0, WP01-Discovery  
@@ -39,7 +39,7 @@
 | Thuộc tính | Chi tiết |
 |---|---|
 | **Mã Story Jira cha:** | CKPA-40 (Mã gốc: CRM-G0-ST10 \| Priority: Highest \| Sprint 2 - G0 Disc W2) |
-| **Mã Tiêu chí Cổng G0:** | G0-AC07 \| Hợp phần: Gate-G0, WP01-Discovery \| GitHub Branch: `gov/CKPA-40-g0-gate-decision-md` |
+| **Mã Tiêu chí Cổng G0:** | G0-AC07 \| Hợp phần: Gate-G0, WP01-Discovery \| GitHub Branch: `gov/CKPA-40-42-g0-gate-decision-and-payment-signoff` |
 | **Căn cứ RFP Traceability ID:** | Mục 9 (G0), Mục 11, Mục 12 (10% payment), Mục 13 (30/25/20/15/10%), Mục 14 |
 | **Deliverable / Evidence:** | Biên bản Nghiệm thu Cổng G0, Quyết định Phương án/Base Scope, Quyết định Riêng O1 & Lệnh Thanh toán 10% |
 | **Chủ trì phê duyệt / PO:** | [P1] Mỹ Vân (Purchaser sponsor / Product Owner) |
@@ -51,7 +51,7 @@
 
 ### PHẦN 1. BÁO CÁO SO SÁNH CÓ GIÁ 3 PHƯƠNG ÁN TRIỂN KHAI & THẨM ĐỊNH MỤC 13
 
-Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and-decision.md`) do [P4] Trà My & [S1] Hoàng Tiến lập, số liệu Baseline CKPA-2 do [P3] Chí Kha đo lường (Median = 18.1 phút, Mean = 18.8 phút/tác vụ), và thẩm định chuyên môn Mục 13 do [P2] Hữu Tài chủ trì (CKPA-41):
+Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and-decision.md`) do [P4] Trà My & [S1] Hoàng Tiến lập, số liệu Baseline kiểm chứng độc lập CKPA-06/CKPA-07 do [S4] Phạm Quý Hải xác thực độc lập trên 520 câu hỏi 4 tuần (n=200 mẫu đại diện, Mean = 15.53 phút, Median = 14.30 phút/tác vụ, 95% CI [14.82; 16.24]), và thẩm định chuyên môn Mục 13 do [P2] Hữu Tài chủ trì (CKPA-41):
 
 | Tiêu chuẩn đối chiếu | Phương án 1: Thư viện tìm kiếm sạch | Phương án 2: Sản phẩm cấu hình sẵn | Phương án 3: Custom có giới hạn (ĐƯỢC CHỌN) |
 |---|---|---|---|
@@ -60,7 +60,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 | **Tra cứu Trường Trọng yếu (DAT 06)** | Phụ thuộc người dùng tự mở file đọc bảng biểu, dễ sai sót số học. | Không đọc được bảng biểu/hình ảnh trong bài viết tri thức (hạn chế Copilot R07). | Đáp ứng 100% — render cứng 10 critical fields qua Python, cấm LLM tự tính toán/bịa số. |
 | **Rút chính sách khẩn cấp (SEC 05 / OPS 05)** | Xóa thủ công trên SharePoint, không đảm bảo dọn cache tức thì. | Phụ thuộc chu kỳ re-index của hãng, không đáp ứng dọn cache $\le$ 5 phút. | Kiểm soát ở Backend, chặn hiển thị tức thời (0s) và dọn sạch Redis cache $\le$ 5 phút. |
 | **Chi phí TCO 3 năm (VNĐ gồm VAT)** | Khởi tạo ~15.000.000 VNĐ (100h nội bộ); vận hành 0 VNĐ. TCO: ~15.000.000 VNĐ. | Khởi tạo 80–120M + bản quyền ~15,3M/tháng (20 users). TCO 3 năm > 650.000.000 VNĐ. | Khởi tạo $\le$ 64.8M (hoặc 100M); vận hành 2.5M/tháng. TCO 3 năm ~154,8–190.000.000 VNĐ. |
-| **Hiệu quả cắt giảm Effort & Hoàn vốn** | Không đạt — Baseline 18.8' không giảm được $\ge$ 20% công sức. | Chưa kiểm chứng — bị loại do vượt trần ngân sách và hạn chế đọc bảng biểu. | Tiết kiệm 3.76–3.8 phút/tác vụ (> ngưỡng 3.68' Annex E); hoàn vốn $\le$ 24 tháng. |
+| **Hiệu quả cắt giảm Effort & Hoàn vốn** | Không đạt — Không giảm được $\ge$ 20% công sức so với Baseline Mean 15.53 phút (ngưỡng target G3 $\le$ 12.42 phút). | Chưa kiểm chứng — bị loại do vượt trần ngân sách và hạn chế đọc bảng biểu. | Mục tiêu giảm $\ge$ 20% công sức tại G3 (đạt Mean $\le$ 12.42 phút/tác vụ, tiết kiệm $\ge$ 3.11 phút/tác vụ so với Baseline 15.53'); không khẳng định ROI sớm theo khuyến nghị CKPA-07. |
 
 * **Kết quả chấm điểm Nhà thầu / Phương án 3 theo RFP Mục 13 (CKPA-41 / SUB28):**
   - Knowledge & policy fit (30%): 90 / 100 $\rightarrow$ Quy đổi: 27.00%
@@ -80,7 +80,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 | **2** | Mẫu duyệt 30 passages + 10 critical fields | DEL01-C: Đã ký duyệt, đối soát nguyên vẹn SHA-256 | **ĐẠT (100%)** |
 | **3** | Năng lực Curation & Chuẩn hóa Nguồn | Cam kết trần curation $\le 300$ passages / $\le 50$ fields theo CKPA-39; nhân sự nội bộ P3/P2 thực hiện, không phát sinh chi phí mua ngoài | **ĐẠT (100%)** |
 | **4** | Ma trận Thẩm quyền & Ngày chi phối giờ VN | DEL01-B: Ngày UTC+7 & đúng 6 chiều phạm vi DAT 04 | **ĐẠT (100%)** |
-| **5** | Question Inventory $\ge$ 4w & Baseline Effort | DEL01-A: Tiết kiệm 3,76' > 3,68', 5 NSD 100% Bên mua | **ĐẠT (100%)** |
+| **5** | Question Inventory $\ge$ 4w & Baseline Effort | DEL01-A: Khóa cứng N=520 câu hỏi 4 tuần, n=200, Mean 15.53', Median 14.3', mục tiêu G3 $\le$ 12.42' (-20%); 5 NSD 100% Bên mua | **ĐẠT (100%)** |
 | **6** | So sánh 3 Route có giá & TCO 3 năm | DEL01-I & DEL 05 (CKPA-39): Chuẩn hóa 14 dòng chi tiết ↔ 13 nhóm DEL 05; mô hình Annex E minh họa; chọn Route 3 Bounded Custom | **ĐẠT (100%)** |
 | **7** | Quyết định riêng cho Tùy chọn O1 | Quyết định số 03/2026/QĐ-P1-OPT1: Tạm hoãn Tùy chọn O1 | **ĐẠT (100%)** |
 
@@ -91,7 +91,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 #### 1. QUYẾT ĐỊNH LỰA CHỌN PHƯƠNG ÁN & BASE SCOPE (GO BASE SCOPE):
 * Căn cứ Báo cáo So sánh 3 Phương án, bảng điểm Mục 13 (88.45/100) và 7 bằng chứng sẵn sàng Cổng G0.
 * **QUYẾT ĐỊNH: CHẤP THUẬN (GO BASE SCOPE).** Phê duyệt lựa chọn **Phương án 3 (Custom có giới hạn / Bounded Custom Work)**. Cho phép dự án chính thức đóng Giai đoạn Khảo sát (Discovery G0) và chuyển sang Giai đoạn Xây dựng Lõi có kiểm soát (**Gate G1 — Controlled Offline Implementation**).
-* **Điều kiện xem lại route:** Áp dụng kỷ luật chi phí G0 (chốt trần theo Báo giá chính thức DEL 05; chứng minh tiết kiệm $\ge$ 3,68 phút/tác vụ tại G3 theo CKPA-06/07). Tại mốc G3 sau 20 ngày Pilot UAT, nếu không đạt mức giảm $\ge$ 20% công sức hoặc thời gian hoàn vốn > 24 tháng, SongNhat sẽ dừng mở rộng và kích hoạt thoái lui sạch (DEL 04, OPS 08).
+* **Điều kiện xem lại route:** Áp dụng kỷ luật chi phí G0 (chốt trần theo Báo giá chính thức DEL 05; chứng minh giảm $\ge$ 20% công sức tại G3 (đạt Mean $\le$ 12.42 phút/tác vụ so với Baseline 15.53 phút) theo kiểm chứng CKPA-06/07). Tại mốc G3 sau 20 ngày Pilot UAT, nếu không đạt mức giảm $\ge$ 20% công sức hoặc thời gian hoàn vốn > 24 tháng, SongNhat sẽ dừng mở rộng và kích hoạt thoái lui sạch (DEL 04, OPS 08).
 
 #### 2. QUYẾT ĐỊNH RIÊNG BIỆT TÙY CHỌN O1 (SELECTED CRM CONTEXT — SỐ: `03/2026/QĐ-P1-OPT1`):
 * Căn cứ Mục 1 và DAT 07 của RFP: Tùy chọn O1 phải được thẩm định và quyết định tách biệt bằng văn bản riêng.
@@ -136,7 +136,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 **DỰ ÁN: CRM KNOWLEDGE & POLICY ASSISTANT (CKPA / SCRM) — CỔNG G0**  
 *Mã Story cha:* `CKPA-40` (CRM-G0-ST10) | *Mã Sub-task:* `CKPA-42` (CRM-G0-SUB29)  
 *Mã Tiêu chí Cổng G0:* `G0-AC07`  
-*GitHub Branch:* `gov/CKPA-42-g0-10pct-payment-signoff-md`  
+*GitHub Branch:* `gov/CKPA-40-42-g0-gate-decision-and-payment-signoff`  
 *Phía RFP:* Purchaser  
 *Priority:* Highest  
 *Components (RFP):* Gate-G0  
@@ -159,7 +159,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 | Thuộc tính | Chi tiết |
 |---|---|
 | **Mã nhiệm vụ Jira:** | CKPA-42 (Mã gốc: CRM-G0-SUB29 \| Thuộc Story cha: CKPA-40 / CRM-G0-ST10) |
-| **Mã Tiêu chí Cổng G0:** | G0-AC07 \| Phía RFP: Purchaser \| Priority: Highest \| Branch: `gov/CKPA-42-g0-10pct-payment-signoff-md` |
+| **Mã Tiêu chí Cổng G0:** | G0-AC07 \| Phía RFP: Purchaser \| Priority: Highest \| Branch: `gov/CKPA-40-42-g0-gate-decision-and-payment-signoff` |
 | **Hợp phần (Components):** | Gate-G0 |
 | **Căn cứ RFP Traceability ID:** | Mục 9 (G0), Mục 12 (10% payment), Mục 14 (Decisions before award) |
 | **Deliverable / Evidence:** | Biên bản Nghiệm thu G0, Quyết định Base/O1 & Lệnh Thanh toán 10% |
@@ -177,7 +177,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 | **2** | Mẫu duyệt 30 passages + 10 critical fields | DEL01-C: Đã ký duyệt, đối soát nguyên vẹn SHA-256 | **ĐẠT (100%)** |
 | **3** | Năng lực Curation & Ngân sách trước G1 | DEL 05 (CKPA-39): Khoản mục 2 (Curation assistance) đã chuẩn hóa phạm vi $\le 300$ đoạn / $\le 50$ fields; cam kết hoàn tất trước G1 | **ĐẠT (100%)** |
 | **4** | Ma trận Thẩm quyền & Ngày chi phối UTC+7 | DEL01-B: Ngày UTC+7 & đúng 6 chiều phạm vi DAT 04 | **ĐẠT (100%)** |
-| **5** | Question Inventory $\ge$ 4w & Baseline Effort | DEL01-A: Hồ sơ Question Log 4 tuần thực tế (520 câu hỏi tại CKPA-06); Baseline Effort đo thực tế 5 NSD độc lập Bên mua | **ĐẠT (100%)** |
+| **5** | Question Inventory $\ge$ 4w & Baseline Effort | DEL01-A: Kiểm kê 520 câu hỏi 4 tuần (CKPA-06); Baseline Effort kiểm chứng độc lập CKPA-07 (n=200, Mean 15.53', Median 14.30', mục tiêu G3 $\le$ 12.42') với 5 NSD đại diện Bên mua | **ĐẠT (100%)** |
 | **6** | So sánh 3 Route có giá & TCO 3 năm | DEL01-I & DEL 05 (CKPA-39): Chuẩn hóa 14 dòng chi tiết ↔ 13 nhóm DEL 05; mô hình Annex E minh họa; chọn Route 3 Bounded Custom | **ĐẠT (100%)** |
 | **7** | Quyết định riêng cho Tùy chọn O1 | Quyết định số 03/2026/QĐ-P1-OPT1: Tạm hoãn Tùy chọn O1 | **ĐẠT (100%)** |
 
