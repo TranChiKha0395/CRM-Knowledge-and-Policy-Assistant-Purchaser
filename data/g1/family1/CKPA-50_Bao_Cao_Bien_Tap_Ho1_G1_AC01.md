@@ -1,7 +1,7 @@
 # BÁO CÁO BIÊN TẬP CORPUS HỌ 1 (`POL-001`) — `CKPA-50` (`CRM-G1-SUB04`)
 
 - **Dự án Jira chính thức:** `CKPA` — SongNhat CRM Knowledge and Policy Assistant (`Board 2: CKPA board`)
-- **Jira Issue:** `CKPA-50` (`CRM-G1-SUB04`, Sub-task của Story `CKPA-49` / `CRM-G1-ST02`, Sprint 3 - G1 Impl W1) *(tương ứng mã cũ `CKPAOLD-77` trên board cũ đã lưu trữ)*
+- **Jira Issue:** `CKPA-50` (`CRM-G1-SUB04`, Sub-task của Story `CKPA-49` / `CRM-G1-ST02`, Sprint 3 - G1 Impl W1)
 - **GitHub Branch:**
   - Theo **Onboarding Guide v1.0 (§15):** `data/CKPA-50-curate-family1-dat01-08` *(khuyến nghị)*
   - Theo **Description import từ Excel:** `data/CRM-G1-SUB04-curate-family1-dat01-08` *(cần xác nhận nhanh với `[S1]` Hoàng Tiến trước khi push)*
@@ -28,7 +28,7 @@
 
 | Tài liệu (`document_id`) | Lớp thẩm quyền (`DAT 03`) | Phiên bản (`document_version_id`) | Trạng thái (`KNW 03`) | Dải `passage_id` | Số đoạn | Dải `field_id` | Mục đích kiểm soát RFP |
 |---|---|---|---|---|---:|---|---|
-| `DOC-001` | `policy` | `VER-001` *(G0 bảo toàn)* | `effective` | `PAS-001..010` | 10 | `CF-001..004` | Giữ nguyên 100% ID/nội dung G0 (khớp 60 Dev Tasks `CKPAOLD-10`) + bổ sung chiều thứ 6 `transaction_scope` |
+| `DOC-001` | `policy` | `VER-001` *(G0 bảo toàn)* | `effective` | `PAS-001..010` | 10 | `CF-001..004` | Giữ nguyên 100% ID/nội dung G0 (khớp 60 Dev Tasks `CKPA-55` / `CKPA-65`) + bổ sung chiều thứ 6 `transaction_scope` |
 | `DOC-001` | `policy` | `VER-001` *(Mở rộng phụ lục)* | `effective` | `PAS-031..040` | 10 | `CF-011..015, CF-021` | Động cơ 3 pha, Ex-d (`<=3%`), Biến tần trung thế (`<=12%`), Gearbox, Tạm ứng `>=30%`, Gia hạn báo giá (`>3%` tỷ giá), Chi nhánh `HN/DN/HCM`, **1 đoạn hạn chế `SEC 01` (`PAS-039` / `CF-015` không có `reader`)**, **1 đoạn `DAT 08 = false` (`PAS-040`)** |
 | `DOC-001` | `policy` | `DOC001-VER-000` | `superseded` | `PAS-041..043` | 3 | `CF-016..018` | Phiên bản lịch sử `2025-01-01..2026-11-06 08:59:59 +07:00` (test Worked Case 3 & biên giờ VN `OPS 03`) |
 | `DOC-001` | `policy` | `DOC001-VER-002` | `scheduled` | `PAS-044..045` | 2 | `CF-019..020` | Phiên bản tương lai `2027-01-01 00:00:00 +07:00` (`supersedes=VER-001`; test Worked Case 4 & `OPS 03`) |
