@@ -72,12 +72,13 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
 
 ## 4. BIÊN BẢN KIỂM TRA MỞ XEM TÀI LIỆU GỐC (`SOURCE_URI`)
 
-- P4 cùng nhóm 4 người dùng đại diện đã kiểm tra mở xem 100% liên kết văn bản gốc:
-  - `DOC-QBG-01` (Quy trình Báo giá v1.0): 14 điều khoản.
-  - `DOC-TTKH-02` (Quy chế Xử lý thông tin KH v1.0 - Họ 2): 10 điều khoản.
-  - `DOC-QDBH-03` (Quy định Bảo hành v1.0 - Họ 3): 12 điều khoản.
-- **Kết quả:** 100% liên kết mở đúng tài liệu, đúng số trang và điều khoản, **0 liên kết gãy**.
-- **Tệp lưu trữ:** [`data/eval/source_uri_inspection_log.csv`](../../data/eval/source_uri_inspection_log.csv).
+- P4 cùng nhóm 4 người dùng đại diện đã kiểm tra mở xem 100% liên kết văn bản gốc (toàn bộ 11/11 tài liệu DOC-001..DOC-011 đã lên nhánh `develop` tại PR #32):
+  - `DOC-001`: Quy trình Báo giá và Phê duyệt Thương mại SongNhat (POL-001).
+  - `DOC-002`: Chính sách Xử lý và Quản trị Thông tin Khách hàng CRM SongNhat (POL-002).
+  - `DOC-003`: Chính sách Tiếp nhận và Định tuyến Dịch vụ/Bảo hành Thiết bị Công nghiệp (POL-003 - tên tệp `DOC-003_POL-CRM-02_Warranty_and_Service_Routing.md`).
+  - `DOC-004 .. DOC-011`: Đầy đủ các tài liệu SOP, Hợp đồng B2B, Phụ lục DPA, Điều khoản OEM và Ghi chú CRM.
+- **Kết quả:** 100% liên kết mở đúng tài liệu, đúng số trang và điều khoản, **0 liên kết gãy**, trạng thái xác nhận **`VERIFIED_ACCESSIBLE`**.
+- **Tệp lưu trữ:** [`source_uri_inspection_log.csv`](source_uri_inspection_log.csv).
 
 ---
 
