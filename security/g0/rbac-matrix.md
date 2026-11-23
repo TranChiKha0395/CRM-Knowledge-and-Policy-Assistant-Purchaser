@@ -51,7 +51,7 @@ Hệ thống backend triển khai trên FastAPI tại `backend/src/main.py`, mou
 | | | | `/export-open` | GET | `administrator`, `policy_owner`, `publisher`, `steward` | Xuất dữ liệu mở không phụ thuộc công nghệ khóa (OPS 08) |
 | **11** | **Evaluation**| `/api/v1/evaluation` | `/runs` | POST | `independent_evaluator`, `administrator` | Ghi nhận phiên đánh giá Chinese Wall theo ngưỡng Section 8 |
 | | | | `/runs` | GET | Mọi user (theo partition cho phép) | Xem kết quả đánh giá (chặn dev/reader tiếp cận sealed_100) |
-| **12** | **Admin** | `/api/v1/admin` | `/policies/{policy_version_id}/transition` | POST | `steward`, `policy_owner`, `publisher`, `administrator` | Chuyển đổi trạng thái vòng đời chính sách (7 trạng thái) |
+| **12** | **Admin** | `/api/v1/admin` | `/policies/{policy_version_id}/transition` | POST | `steward`, `policy_owner`, `publisher` | Chuyển đổi trạng thái vòng đời chính sách (7 trạng thái) |
 | | | | `/policies/{policy_version_id}/withdraw` | POST | `policy_owner`, `publisher`, `administrator` | Thu hồi tức thời chính sách, xóa cache trong <= 5 phút |
 | | | | `/emergency-disable` | POST | `administrator` | Kích hoạt chế độ khẩn cấp (chuyển sang tra cứu thủ công) |
 | | | | `/ops-summary` | GET | `steward`, `policy_owner`, `publisher`, `administrator` | Giám sát giới hạn Base Scope runtime và cờ hệ thống |
@@ -186,9 +186,9 @@ Hệ thống định nghĩa chính xác 8 vai trò RFP tại `backend/src/shared
 
 ## 5. THỐNG NHẤT CẤU HÌNH MÔI TRƯỜNG LLM
 
-Các tham số giới hạn mô hình LLM được chốt đồng bộ giữa backend (`backend/src/config.py`), S4 application (`app/config.py`) và template môi trường (`.env.example`):
+Các tham số giới hạn mô hình LLM được chốt đồng bộ giữa backend (`backend/src/config.py`), S3 application (`app/config.py`) và template môi trường (`.env.example`):
 
-| Tham số cấu hình | Giá trị khóa cứng | Backend (`backend/src/config.py`) | Ứng dụng S4 (`app/config.py`) | Ghi chú quy chuẩn RFP / SRS |
+| Tham số cấu hình | Giá trị khóa cứng | Backend (`backend/src/config.py`) | Ứng dụng S3 (`app/config.py`) | Ghi chú quy chuẩn RFP / SRS |
 |:---|:---:|:---:|:---:|:---|
 | **Max Input Tokens** | `6000` | `LLM_MAX_INPUT_TOKENS = 6000` | `MAX_INPUT_TOKENS = 6000` | Giới hạn budget prompt tiếng Việt bảo thủ |
 | **Max Output Tokens** | `900` | `LLM_MAX_OUTPUT_TOKENS = 900` | `MAX_OUTPUT_TOKENS = 900` | Tối đa 250 từ giải thích + trích dẫn |
@@ -200,7 +200,7 @@ Các tham số giới hạn mô hình LLM được chốt đồng bộ giữa ba
 
 ---
 
-## 6. KHUNG KÝ CHỐT VÀ NGHIỆM THU GATE G0 (SQUAD B & SQUAD C)
+## 6. KHUNG KÝ CHỐT VÀ NGHIỆM THU GATE G0 (Nhóm triển khai (S1–S5) & Nhóm nghiệm thu (P1–P5))
 
 Trước khi chuyển sang cài đặt Phase G1, các thành viên đại diện Bên Mua (P1–P5) và Nhà Cung Cấp (S1–S5) xác nhận sự đồng thuận về bản hợp đồng API, ma trận RBAC và cấu hình LLM này trên Pull Request của nhánh `docs/CKPA-16 / CKPA-17 / CKPA-20 / CKPA-21-freeze-api-contracts-and-rbac-matrix`:
 
