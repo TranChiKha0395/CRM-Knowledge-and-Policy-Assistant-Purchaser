@@ -1,7 +1,7 @@
 === [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_REF, CACHE & FAIL-CLOSED AUDIT LOG (NO-MOCK) ===
 Jira Issue       : CKPA-70 (Parent: CKPA-44 | Relates: CKPA-69 | Blocks: CKPA-71)
 RFP Traceability : SEC 01, SEC 05, SEC 08, ANS 02 | Gate Criteria: G1-AC03, G1-AC04
-Execution Time   : 2026-11-23T11:37:52.256391+07:00
+Execution Time   : 2026-11-23T18:24:06.223269+07:00
 Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
 ---------------------------------------------------------------------------------------------
 [PART 1] REAL G1 CORPUS RBAC & SCOPE METADATA AUDIT (data/g1/full/Policy_Corpus_G1_Full.csv)
@@ -12,8 +12,8 @@ Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
   - Part 1 Verdict     : PASS
 ---------------------------------------------------------------------------------------------
 [PART 2] LIVE RUNTIME API AUDIT (SUB01 / SUB07 - NO-MOCK HTTP EXECUTION)
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/query | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-02 | Role=legal_owner | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/query | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/answer/ | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-02 | Role=legal_owner | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/answer/ | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
   [BLOCKED_NO_LIVE_ENDPOINT] TC-REV-03 | Role=policy_owner | Target=DOC-007 (DOC007-VER-001) | POST /api/v1/admin/policies/DOC007-VER-001/withdraw | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
   [BLOCKED_NO_LIVE_ENDPOINT] TC-LOG-04 | Role=privacy_security_owner | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
 ---------------------------------------------------------------------------------------------

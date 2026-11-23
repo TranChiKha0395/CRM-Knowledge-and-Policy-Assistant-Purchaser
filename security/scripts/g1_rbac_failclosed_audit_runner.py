@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 import csv
 import datetime
 import hashlib
@@ -29,7 +29,7 @@ LIVE_TEST_MATRIX = [
         "target_doc": "DOC-006",
         "target_version": "DOC006-VER-001",
         "method": "POST",
-        "path": "/api/v1/query",
+        "path": "/api/v1/answer/",
         "payload": {
             "question": "Dieu khoan chiet khau co dinh trong hop dong khung B2B DOC-006 la gi?",
             "user_context": {"role": "sales", "customer_group": "standard_b2c"},
@@ -43,7 +43,7 @@ LIVE_TEST_MATRIX = [
         "target_doc": "DOC-008",
         "target_version": "DOC008-VER-001",
         "method": "POST",
-        "path": "/api/v1/query",
+        "path": "/api/v1/answer/",
         "payload": {
             "question": "Phu luc DPA Hop dong B2B DOC-008 quy dinh thoi han xoa du lieu bao lau?",
             "user_context": {"role": "cskh", "customer_group": "b2b"},

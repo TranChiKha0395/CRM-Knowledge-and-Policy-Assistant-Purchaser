@@ -1,4 +1,4 @@
-# BÁO CÁO KIỂM TOÁN LỘ LỌT RBAC, SOURCE_REF, CACHE & FAIL-CLOSED (GATE G1)
+﻿# BÁO CÁO KIỂM TOÁN LỘ LỌT RBAC, SOURCE_REF, CACHE & FAIL-CLOSED (GATE G1)
 
 - **Mã công việc Jira:** `CKPA-70` (Parent: `CKPA-44` | Liên quan: `CKPA-69` | Mở khóa: `CKPA-71`)
 - **Mã truy vết RFP & Cổng G1:** `SEC 01`, `SEC 05`, `SEC 08`, `ANS 02` | Tiêu chí: `G1-AC03`, `G1-AC04`
@@ -30,8 +30,8 @@ Kiểm toán tự động trực tiếp trên `data/g1/full/Policy_Corpus_G1_Ful
 
 | Mã TC | Hạng mục kiểm thử | `UserRole` (Chuẩn RFP) | Tài liệu & Phiên bản thật | Endpoint thực thi | Trạng thái hiện tại (No-Mock) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC-RBAC-01** | Selection & Scope/Source_Ref (`SEC 01`, `ANS 02`) | `reader` | `DOC-006` (`DOC006-VER-001`) | `POST /api/v1/query` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_READER`)* |
-| **TC-RBAC-02** | Cross-Role Cache Isolation (`SEC 01`) | `legal_owner` | `DOC-008` (`DOC008-VER-001`) | `POST /api/v1/query` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_LEGAL_OWNER`)* |
+| **TC-RBAC-01** | Selection & Scope/Source_Ref (`SEC 01`, `ANS 02`) | `reader` | `DOC-006` (`DOC006-VER-001`) | `POST /api/v1/answer/` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_READER`)* |
+| **TC-RBAC-02** | Cross-Role Cache Isolation (`SEC 01`) | `legal_owner` | `DOC-008` (`DOC008-VER-001`) | `POST /api/v1/answer/` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_LEGAL_OWNER`)* |
 | **TC-REV-03** | Immediate Withdrawal Fail-Closed (`SEC 05`) | `policy_owner` | `DOC-007` (`DOC007-VER-001`) | `POST /api/v1/admin/policies/DOC007-VER-001/withdraw` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_POLICY_OWNER`)* |
 | **TC-LOG-04** | Audit Log Redaction Check (`SEC 08`) | `privacy_security_owner` | `DOC-008` (`DOC008-VER-001`) | `GET /api/v1/audit/logs?limit=10` | **BLOCKED_NO_LIVE_ENDPOINT** *(Chờ `CKPA_BASE_URL` & `CKPA_TOKEN_PRIVACY_OWNER`)* |
 
