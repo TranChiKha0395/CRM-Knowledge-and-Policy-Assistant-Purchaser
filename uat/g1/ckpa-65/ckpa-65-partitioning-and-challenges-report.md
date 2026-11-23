@@ -36,8 +36,8 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
 
 | Phân vùng (Partition) | Mục đích sử dụng | POL-001 (Báo giá & CK) | POL-002 (Xử lý thông tin KH) | POL-003 (Dịch vụ & Bảo hành) | Tổng số ca |
 |---|---|:---:|:---:|:---:|:---:|
-| **`DEV` (60 ca)** | Công khai cho Squad B & C phát triển & tinh chỉnh hàng ngày | 24 ca | 18 ca | 18 ca | **60 ca** |
-| **`VAL` (40 ca)** | Dành cho Squad D tinh chỉnh ngưỡng truy xuất/chấm điểm trước G2 | 16 ca | 12 ca | 12 ca | **40 ca** |
+| **`DEV` (60 ca)** | Công khai cho đội Build (`S2` & `S3`) phát triển & tinh chỉnh hàng ngày | 24 ca | 18 ca | 18 ca | **60 ca** |
+| **`VAL` (40 ca)** | Dành cho đánh giá độc lập (`S4`) tinh chỉnh ngưỡng truy xuất/chấm điểm trước G2 | 16 ca | 12 ca | 12 ca | **40 ca** |
 | **`SEALED` (100 ca)** | **Niêm phong tuyệt đối trong `sealed-eval-repo`** phục vụ nghiệm thu độc lập G2 $\rightarrow$ G3 | 38 ca | 30 ca | 32 ca | **100 ca** |
 | **Tổng cộng** | **Bộ dữ liệu thực tế 200 Real Tasks** | **78 ca** | **60 ca** | **62 ca** | **200 ca** |
 
