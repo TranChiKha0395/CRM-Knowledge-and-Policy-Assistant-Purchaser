@@ -31,7 +31,7 @@ Option O1 (ngữ cảnh CRM): Không mua O1 ở mốc G0 (cắt hoàn toàn kh�
 
 RFP: dùng nội bộ hoặc có người xem xét lại không tự động tạo miễn trừ. Quyết định tự động về tư cách hưởng, tiết lộ dữ liệu hoặc giao dịch cần phạm vi và đánh giá mới.
 
-3. Bảng vai trò theo ba luật (79, 80)
+3. Bảng vai trò theo ba luật (CKPA-17, CKPA-34)
 
 | Bên | Luật BVDLCN (91/2025/QH15; NĐ 356/2025/NĐ-CP) | Luật AI (134/2025/QH15; NĐ 142/2026/NĐ-CP) | Luật An ninh mạng (116/2025/QH15) |
 | --- | --- | --- | --- |
