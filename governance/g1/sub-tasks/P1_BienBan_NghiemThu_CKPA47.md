@@ -17,7 +17,7 @@
 | Thành phần BDD | Nội dung đặc tả | Kết quả thẩm định của P1 | Trạng thái |
 |---|---|---|:---:|
 | **Given** | Hạ tầng Test SUB01 (CKPA-46) tách Prod & tập dữ liệu mẫu/test. | Đã xác nhận hạ tầng DB/Redis Test độc lập, không dùng chung secrets. | **ĐẠT** |
-| **When** | P5 thực hiện quét PII bằng Regex + audit script và đối chiếu Base vs O1. | Đã chạy script `sec_pii_audit.py`, quét toàn diện mọi tập dữ liệu. | **ĐẠT** |
+| **When** | P5 thực hiện quét PII bằng Regex + audit script và đối chiếu Base vs O1. | Đã chạy script `security/scripts/g1_security_audit_runner.py`, quét toàn diện mọi tập dữ liệu. | **ĐẠT** |
 | **Then** | 0% PII khách hàng thật trái phép; O1 allowlist tuân thủ SEC 02/DAT 07. | 0 SĐT, 0 Email, 0 CCCD; giữ nguyên Base Scope (2 CSV), không bật O1. | **ĐẠT** |
 
 ---

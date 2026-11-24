@@ -54,7 +54,7 @@ def collect_files(root_dir="."):
     return sorted(collected)
 
 
-def run_audit(root_dir=".", log_path="scripts/security/g1_pii_audit_CKPA-47.log"):
+def run_audit(root_dir=".", log_path="security/g1/g1_pii_audit_CKPA-47.log"):
     branch, sha = get_git_info()
     tz_vn = datetime.timezone(datetime.timedelta(hours=7))
     ts = datetime.datetime.now(tz_vn).strftime("%Y-%m-%d %H:%M:%S UTC+7")

@@ -65,14 +65,13 @@ Nhằm tránh gãy khóa ngoại khi Trưởng nhóm Kiểm định độc lập
   - Không chứa email cá nhân hoặc tài khoản ngân hàng thực của khách hàng (0 email).
 - **Trạng thái đồng thuận nhãn:** Đã cập nhật đúng thực tế là **`PENDING_P2_P3_REVIEW`** (Chờ rà soát và xác nhận chính thức từ Policy Reviewers `[P2]` Hữu Tài và `[P3]` Trần Chí Kha, không tự ý ghi khống `AGREED_BY_P2_AND_P3`).
 - **Tệp dữ liệu lưu trữ đã cập nhật:**
-  - Định dạng CSV: [`data/eval/100_real_questions_clean_pii.csv`](../../data/eval/100_real_questions_clean_pii.csv)
-  - Định dạng JSON: [`data/eval/100_real_questions_clean_pii.json`](../../data/eval/100_real_questions_clean_pii.json)
+  - Định dạng CSV: [`100_real_questions_clean_pii.csv`](100_real_questions_clean_pii.csv)
 
 ---
 
 ## 3. KẾT QUẢ BÀN GIAO 2: TỪ ĐIỂN VIẾT TẮT CRM & CHUẨN HÓA TRUY VẤN VN 01
 
-- **Tệp bàn giao:** [`data/eval/vn01_crm_dictionary.json`](../../data/eval/vn01_crm_dictionary.json)
+- **Tệp bàn giao:** [`vn01_crm_dictionary.json`](vn01_crm_dictionary.json)
 - **Nội dung:** Gồm 43 chữ viết tắt CRM (`kh`, `ck`, `hđ`, `cskh`, `cvkd`, `tpkd`, `gđcn`, `tgđ`, `bo`, `stock`...), 30 cụm từ tiếng Việt không dấu, thuật ngữ kỹ thuật song ngữ Anh - Việt và **14 từ phủ định tiếng Việt bắt buộc bảo toàn** (`không`, `chưa`, `chẳng`, `miễn`, `ngoại trừ`, `cấm`, `từ chối`...).
 - **Quy trình tích hợp:** P4 bàn giao tệp JSON định dạng mở cho `S3` (Yến Nhi) để S3 chủ động cập nhật vào module backend (`backend/src/modules/retrieval/models.py`) trên nhánh phát triển kỹ thuật của Supplier, bảo đảm P4 không can thiệp vào mã nguồn phần mềm.
 

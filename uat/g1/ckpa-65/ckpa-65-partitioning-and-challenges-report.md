@@ -50,9 +50,8 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
 ### 2.3 Kiểm tra An toàn Bảo mật PII (SEC 02 & SEC 06)
 - **Kết quả rà soát tự động & thủ công:** Toàn bộ 200 câu hỏi thực tế đạt **0% PII** (0 SĐT, 0 CCCD/CMND thật, 0 email cá nhân).
 - **Trạng thái đồng thuận nhãn:** Đặt ở mức **`PENDING_P2_P3_REVIEW`** chờ 2 Policy Reviewers ([P2] Hữu Tài & [P3] Trần Chí Kha) chính thức ký duyệt.
-- **Tệp dữ liệu lưu trữ:**
-  - Định dạng CSV: [`data/eval/200_real_tasks_partitioned.csv`](../../data/eval/200_real_tasks_partitioned.csv)
-  - Định dạng JSON: [`data/eval/200_real_tasks_partitioned.json`](../../data/eval/200_real_tasks_partitioned.json)
+- **Tệp dữ liệu lưu trữ (bản che hash 100 ca `SEALED` trên repo Purchaser):**
+  - Định dạng CSV: [`200_real_tasks_partitioned.csv`](200_real_tasks_partitioned.csv)
 
 ---
 
@@ -64,9 +63,7 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
   - 10 ca Ngày tháng & Múi giờ UTC+7 giờ Việt Nam, ranh giới 00:00:00, ngày nghỉ lễ Tết.
   - 10 ca Ngưỡng số tiền chiết khấu, tiền tệ USD/VND, ngoại lệ phê duyệt của Tổng Giám Đốc.
   - 10 ca Quyền truy cập direct link, RBAC snippet, cache purge 5 phút (OPS 05).
-- **Tệp dữ liệu lưu trữ:**
-  - Định dạng CSV: [`data/eval/80_constructed_challenges.csv`](../../data/eval/80_constructed_challenges.csv)
-  - Định dạng JSON: [`data/eval/80_constructed_challenges.json`](../../data/eval/80_constructed_challenges.json)
+- **Tệp dữ liệu lưu trữ:** Cô lập tuyệt đối trong kho riêng **`sealed-eval-repo`** (`CKPA-48` / `CKPA-67`, không lưu plaintext `80_constructed_challenges` trên repo Purchaser theo nguyên tắc Chinese Wall).
 
 ---
 
