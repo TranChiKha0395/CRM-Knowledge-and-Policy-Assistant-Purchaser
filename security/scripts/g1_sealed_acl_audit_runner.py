@@ -236,6 +236,10 @@ def audit_external_sealed_repo_acl():
             violations.append(f"row#{idx}:wrong_repo({repo_name}!={expected_repo})")
             continue
 
+        if outcome not in (ALLOWED_OUTCOMES | DENIED_OUTCOMES):
+            violations.append(f"row#{idx}:unknown_outcome({outcome})")
+            continue
+
         if rec_type in {"collaborator", "team_permission", "org_inherited_permission"}:
             if outcome in ALLOWED_OUTCOMES:
                 if actor in forbidden_users:

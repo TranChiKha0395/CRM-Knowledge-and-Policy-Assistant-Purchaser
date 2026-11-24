@@ -162,5 +162,21 @@ class TestSealedAclAuditRunner(unittest.TestCase):
         self.assertEqual(runner.compute_overall_verdict(True, "FAIL"), "FAIL")
 
 
+
+    def test_11_fail_closed_on_unknown_outcome(self):
+        self._write_json_log([
+            {
+                "record_type": "collaborator",
+                "repository": "sealed-eval-repo",
+                "actor": "quochung-dev",
+                "permission_or_action": "read",
+                "outcome": "permitted",
+            }
+        ])
+        res = runner.audit_external_sealed_repo_acl()
+        self.assertEqual(res["status"], "FAIL")
+        self.assertEqual(res["code"], "FAIL_ACL_POLICY_VIOLATION")
+        self.assertIn("unknown_outcome(permitted)", res["detail"])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
