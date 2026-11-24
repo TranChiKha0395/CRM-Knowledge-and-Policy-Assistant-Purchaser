@@ -99,8 +99,8 @@ Nhằm bảo đảm tính khách quan tuyệt đối cho giai đoạn kiểm đ�
 | **Chủ sở hữu Bảo mật (P5)** | **Nguyễn Anh Khoa** | Thẩm định độc lập tiêu chí 0% PII (SEC 02/06) trên 200 câu hỏi | **ĐÃ THẨM ĐỊNH (0% PII)** | CI Guard PASS 0 vi phạm PII |
 | **Quản lý Dữ liệu (P3)** | **Trần Chí Kha** | Thẩm định khớp nối tham chiếu gốc & mã băm SHA-256 | **ĐÃ MERGE DEVELOP (PR #32)** | 11/11 source_uri VERIFIED_ACCESSIBLE |
 | **Kiểm định Độc lập (S4)** | **Quý Hải** | Tiếp nhận 200 câu hỏi & nạp 100 Sealed vào sealed-eval-repo | **ĐÃ TIẾP NHẬN PHÂN VÙNG** | Độc lập tại CKPA-67 |
-| **Chủ đầu tư / PO (P1)** | **Mỹ Vân** | Phê duyệt nghiệm thu Sub-task CKPA-66 (G1-AC07) | **CHỜ KÝ DUYỆT ĐÓNG VÉ** | Đủ 3 file UAT chuẩn mực |
+| **Chủ đầu tư / PO (P1)** | **Mỹ Vân** | Phê duyệt nghiệm thu Sub-task CKPA-66 (G1-AC07) | **ĐÃ NGHIỆM THU (`Done` 23/11/2026)** | Đủ 3 file UAT chuẩn mực & đồng bộ 200/200 `source_uri` |
 
 ---
 
-*Hồ sơ cập nhật ngày 24/11/2026 (v1.1): Chuẩn hóa dòng `TASK-097` (`VAL-037`) thành nhóm biến thể độc lập `VG-17` (`PAS-009` — Quy tắc Ngày chi phối `Governing Date` & chính sách `scheduled`, `DOC-001`) để danh mục 200 tác vụ gồm **17 nhóm biến thể** (`7×13 + 9×12 + 1×1 = 200`), cho phép `[S4]` phân vùng đúng tròn **60 DEV / 40 VAL / 100 SEALED** mà giữ nguyên 100% nguyên tắc Mục 8 RFP (*Keep related variants and records in one partition*), không động tới 100 ca Sealed.*
+*Hồ sơ cập nhật ngày 24/11/2026 (v1.2): (1) Chuẩn hóa `TASK-097` (`VAL-037`) thành nhóm biến thể độc lập `VG-17` (`PAS-009`, `DOC-001`) để đạt **17 nhóm biến thể** (`7×13 + 9×12 + 1×1 = 200`) phục vụ phân vùng nguyên nhóm `60/40/100` tại `CKPA-67`; (2) Đồng bộ 122/122 đường dẫn `Source_URI` cho `POL-002` (`DOC-002_POL-CRM-03_Customer_Information_Handling.md`) và `POL-003` (`DOC-003_POL-CRM-02_Warranty_and_Service_Routing.md`) sang trạng thái `VERIFIED_ACCESSIBLE`; (3) Khử trùng lặp 21/100 câu mở (`DEV + VAL`) để đạt 100/100 câu hỏi công khai duy nhất, không đụng tới 100 ca Sealed.*

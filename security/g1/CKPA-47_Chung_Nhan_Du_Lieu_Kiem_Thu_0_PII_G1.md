@@ -6,7 +6,7 @@
 | Người lập & Kiểm toán (Assignee) | [P5] Nguyễn Anh Khoa — Privacy and Security Owner (Phía Purchaser) |
 | Phối hợp & Nghiệm thu (RACI) | Reporter/Nghiệm thu: [P1] Mỹ Vân \| Phối hợp: [S5] Ngọc Duy, [P3] Chí Kha |
 | Thời điểm & Commit kiểm toán | 2026-11-20 18:10:14 UTC+7 \| Nhánh: develop \| Commit SHA: a5a6a14 |
-| Công cụ & Bằng chứng đính kèm | scripts/security/g1_security_audit_runner.py & scripts/security/g1_pii_audit_CKPA-47.log |
+| Công cụ & Bằng chứng đính kèm | `security/scripts/g1_security_audit_runner.py` & `security/g1/g1_pii_audit_CKPA-47.log` |
 
 I. PHÂN TÁCH PHẠM VI KIỂM TOÁN DỮ LIỆU & HẠ TẦNG GATE G1 (PASS VS. PENDING)
 
@@ -31,10 +31,10 @@ II. ĐỐI CHIẾU QUYẾT ĐỊNH PHẠM VI GATE G0 & RANH GIỚI TÙY CHỌN O
 
 III. KẾT QUẢ THỰC THI CÔNG CỤ KIỂM TOÁN TỰ ĐỘNG & LOG ĐÍNH KÈM
 
-Công cụ kiểm toán tự động scripts/security/g1_security_audit_runner.py đã được đồng bộ quy tắc nhận diện PII với backend/src/shared/pii_guard.py (quét SĐT Việt Nam kể cả có dấu chấm/gạch ngang/khoảng trắng, email cá nhân ngoài domain @songnhat.vn, số CCCD 12 chữ số và MST 10 chữ số; tự động loại trừ .git/, venv/, node_modules/). Bản ghi thực thi chi tiết trên nhánh develop tại Commit SHA a5a6a14 (lúc 2026-11-20 18:10:14 UTC+7, quét 48 tệp, 0 PII hits) được lưu tại tệp scripts/security/g1_pii_audit_CKPA-47.log đính kèm cùng thẻ Jira CKPA-47.
+Công cụ kiểm toán tự động `security/scripts/g1_security_audit_runner.py` đã được đồng bộ quy tắc nhận diện PII với `backend/src/shared/pii_guard.py` (quét SĐT Việt Nam kể cả có dấu chấm/gạch ngang/khoảng trắng, email cá nhân ngoài domain `@songnhat.vn`, số CCCD 12 chữ số và MST 10 chữ số; tự động loại trừ `.git/`, `venv/`, `node_modules/`). Bản ghi thực thi chi tiết trên nhánh `develop` tại Commit SHA `a5a6a14` (lúc 2026-11-20 18:10:14 UTC+7, quét 48 tệp, 0 PII hits) được lưu tại tệp `security/g1/g1_pii_audit_CKPA-47.log` đính kèm cùng thẻ Jira `CKPA-47`.
 
 IV. XÁC NHẬN & PHÊ DUYỆT KIỂM TOÁN (GATE G1 — G1-AC07)
 
 | ĐẠI DIỆN KIỂM TOÁN BẢO MẬT ([P5]) | PHÊ DUYỆT NGHIỆM THU CỔNG G1 ([P1]) |
 | --- | --- |
-| Họ và tên: Nguyễn Anh KhoaVai trò: [P5] Privacy and Security OwnerTrạng thái: Đã kiểm toán & xác nhận 0% PII trên các gói dữ liệu hiện hữu (develop SHA a5a6a14, PR #18, PR #20 & PR #21).Ngày ký: 20/11/2026 | Họ và tên: Mỹ VânVai trò: [P1] Purchaser Sponsor / Product OwnerTrạng thái: Chờ xác nhận nghiệm thu G1-AC07Ngày phê duyệt: ____/11/2026 |
+| Họ và tên: Nguyễn Anh Khoa — Vai trò: `[P5]` Privacy and Security Owner — Trạng thái: Đã kiểm toán & xác nhận 0% PII trên các gói dữ liệu hiện hữu (`develop` SHA `a5a6a14`, PR #18, PR #20 & PR #21). Ngày ký: 20/11/2026 | Họ và tên: Mỹ Vân — Vai trò: `[P1]` Purchaser Sponsor / Product Owner — Trạng thái: Đã phê duyệt nghiệm thu (`governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA47.md`). Ngày phê duyệt: 20/11/2026 |
