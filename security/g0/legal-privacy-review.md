@@ -8,7 +8,7 @@
 > - SRS: `SRS-NFR-09`, `SRS-NFR-10`, `SRS-NFR-11`, `Mục 3.1`, `Mục 6.2`, `Mục 8.3`  
 > **Chủ trì rà soát Pháp lý & Quyền riêng tư ([P5] Privacy & Security Owner):** **Nguyễn Anh Khoa**
 > **Kê khai Hạ tầng & Nhà cung cấp phụ ([S5] Operations Specialist):** **Nguyễn Ngọc Duy**
-> **Chủ đầu tư phê duyệt ([P1] Purchaser Sponsor):** **Văn Mỹ Vân**  
+> **Chủ đầu tư phê duyệt ([P1] Purchaser Sponsor):** **Vắn Mỹ Vân**  
 > **Phối hợp & Xác nhận kỹ thuật:** [S1] **Hoàng Tiến** (Named Lead / Scrum Master), [P4] **Ngô Thị Trà My** (Staff Users Lead)  
 > **Đơn vị thẩm định & Ký duyệt thẩm quyền:** **Legal Owner** & **Privacy/Security Owner** (SongNhat)  
 > **Ngày lập:** `17/11/2026` *(Bản cập nhật sau PM Review của [S1] Hoàng Tiến & đồng bộ cấu hình repo với [S5] Nguyễn Ngọc Duy)*  
@@ -42,7 +42,7 @@
    - 2.3 [Luật An ninh mạng số 116/2025/QH15 (R05)](#23-luật-an-ninh-mạng-số-1162025qh15-r05)
    - 2.4 [Danh mục Hệ thống AI Rủi ro cao — Quyết định 33/2026/QĐ-TTg (R11)](#24-danh-mục-hệ-thống-ai-rủi-ro-cao--quyết-định-332026qđ-ttg-r11)
 3. [Phần 3: Đề xuất Lịch Lưu giữ Vận hành & Phân biệt Chặn Truy cập (Phụ lục C)](#phần-3-đề-xuất-lịch-lưu-giữ-vận-hành--phân-biệt-chặn-truy-cập-phụ-lục-c)
-4. [Phần 4: Lộ trình & Thủ tục Trình duyệt Chính thức tại Cổng G2 (CKPA-34)](#phần-4-lộ-trình--thủ-tục-trình-duyệt-chính-thức-tại-cổng-g2-ckpa-32)
+4. [Phần 4: Lộ trình & Thủ tục Trình duyệt Chính thức tại Cổng G2 (CKPA-34)](#phần-4-lộ-trình--thủ-tục-trình-duyệt-chính-thức-tại-cổng-g2-ckpa-34)
 
 ---
 
@@ -288,7 +288,7 @@ Căn cứ Phụ lục C của RFP và `SRS-NFR-11`, đội ngũ kỹ thuật đ�
 
 ```mermaid
 flowchart LR
-    G0["Gate G0 (Hiện tại)<br>CKPA-34 / CKPA-34 / CKPA-17 ([P4] Trà My chủ trì)<br>Khung Checklist & Luồng Dữ liệu"] --> G1["Gate G1 (Tuần 3–5)<br>Kiểm thử Ngoại tuyến<br>Chỉ dùng dữ liệu giả lập đã duyệt"]
+    G0["Gate G0 (Hiện tại)<br>CKPA-34 / CKPA-17 ([P5] Anh Khoa chủ trì)<br>Khung Checklist & Luồng Dữ liệu"] --> G1["Gate G1 (Tuần 3–5)<br>Kiểm thử Ngoại tuyến<br>Chỉ dùng dữ liệu giả lập đã duyệt"]
     G1 --> G2_PRE["Trước Gate G2 (Tuần 6–7)<br>CKPA-34 (P5, P1, S5, S1)<br>Hoàn thiện Hồ sơ Trình duyệt"]
     G2_PRE --> SIGN["LEGAL & PRIVACY SIGN-OFF<br>Legal Owner & Security Owner ký duyệt chính thức"]
     SIGN --> G2_PASS{"ĐẠT ĐIỀU KIỆN G2"}
@@ -309,7 +309,7 @@ flowchart LR
 
 ## XÁC NHẬN CỦA ĐỘI NGŨ LẬP KHUNG CƠ SỞ G0
 
-| KỸ SƯ THƯƠNG MẠI & TESTOPS ([P4] Trà My) | KỸ SƯ BẢO MẬT & DEVOPS ([S5] Ngọc Duy) | QUẢN TRỊ DỰ ÁN ([S1] Hoàng Tiến) |
+| CHỦ SỞ HỮU BẢO MẬT & QUYỀN RIÊNG TƯ ([P5] Anh Khoa) | KỸ SƯ BẢO MẬT & DEVOPS ([S5] Ngọc Duy) | QUẢN TRỊ DỰ ÁN ([S1] Hoàng Tiến) |
 |:---:|:---:|:---:|
 | *(Đã lập khung kiểm kê & checklist)* | *(Đã rà soát kỹ thuật, cấu hình repo & luồng API)* | *(Đã rà soát tiến độ & ranh giới G0)* |
-| **Ngô Thị Trà My** | **Nguyễn Ngọc Duy** | **Hoàng Tiến** |
+| **Nguyễn Anh Khoa** | **Nguyễn Ngọc Duy** | **Hoàng Tiến** |

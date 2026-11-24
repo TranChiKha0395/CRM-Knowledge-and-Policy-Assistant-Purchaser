@@ -1,7 +1,7 @@
 # BÁO CÁO TÌNH HÌNH JIRA, TIẾN ĐỘ, PHỤ THUỘC (BLOCKERS) & CẢNH BÁO KỸ THUẬT G1 — `[P3]` TRẦN CHÍ KHA
 
 - **Vai trò RFP:** `[P3]` Knowledge and Data Steward (Purchaser)
-- **Thời điểm đối soát live Jira & GitHub `develop`:** `2026-11-19 21:35 (+07)` (`Asia/Ho_Chi_Minh`)
+- **Thời điểm lập ban đầu:** `2026-11-19 21:35 (+07)` | **Đồng bộ tiến độ Gate G1:** `2026-11-24` (`CKPA-49`, `50`, `51`, `52`, `58`, `62`, `82` đều đã `Done` trên Jira)
 - **Phạm vi thực hiện:** Các hạng mục độc lập trong **Gate G1** (theo nền tảng G0 đã chốt, **Base Scope thuần túy — cắt O1**, khớp RFP 28 trang & **SCRM Team Onboarding & Workflow Guide v1.0**).
 
 ---
@@ -23,8 +23,8 @@
 | **`CKPA-49`** *(Story)* | **Story Owner** (§6.2) | Sprint 3 | **Đã lập bảng theo dõi Story, quy trình GitHub PR & mẫu comment Jira** | • `CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md` (theo dõi 3 Sub-task `CKPA-50/51/52`, DoD §22, PR template §17, SoD §4/§12) |
 | **`CKPA-50`** (`CRM-G1-SUB04`) | **Sub-task Owner** (§6.4) | Sprint 3 | **XONG 100% — Sẵn sàng tạo PR & chuyển `In Review`** | • `Policy_Corpus_Family1.csv` (40 passages, 21 cột UTF-8; `39 Accepted + 1 Quarantined PAS-040`)<br>• `Critical_Fields_Family1.csv` (16 fields, 23 cột UTF-8; `16 Accepted + 0 Quarantined`)<br>• `Source_URI_And_Checksum_Manifest_Family1.csv` (56/56 SHA-256 + `source_uri`)<br>• `CKPA-50_Bao_Cao_Bien_Tap_Ho1_G1_AC01.md` |
 | **`CKPA-58`** (`CRM-G1-SUB10`) | **Sub-task Owner** (§6.4) | Sprint 4 | **ĐÃ SOẠN XONG 100% BẢN FULL CORPUS GỐI ĐẦU** *(chờ Story cha `CKPA-57` mở block)* | • `Policy_Corpus_G1_Full.csv` (96 passages / 11 docs, `<= 300/30` trần; `93 Accepted + 3 Quarantined`)<br>• `Critical_Fields_G1_Full.csv` (40 fields, `<= 50` trần; `40 Accepted + 0 Quarantined`)<br>• `Source_URI_And_Checksum_Manifest_G1_Full.csv` (136/136 SHA-256 + `source_uri`)<br>• `CKPA-58_Bao_Cao_Bien_Tap_Full_Corpus_3Ho.md` |
-| **Test Fixtures + Self-Audit** | Hỗ trợ `[S2]` `CKPA-52/59` & `[S5]` `CKPA-60` | Sprint 3–4 | **XONG 100%** (tách riêng khỏi corpus chính) | • `Quarantine_Passages_Fixtures_G1.csv` (**6 ca** phủ 100% nhánh `IngestionService._validate_row`)<br>• `Quarantine_CriticalFields_Fixtures_G1.csv` (**4 ca**)<br>• `scripts/validate_corpus_g1.ps1` (kiểm đồng thời RFP + live `develop` + PII script `CKPA-47` của `[P5]`) |
-| **`CKPA-82`** (`CRM-G1-SUB28`) | **Sub-task Owner** (§6.4) | Sprint 5 | **BẢN NHÁP PRE-CHECK** *(chờ chốt Corpus cuối Sprint 4 mới ký chính thức)* | • `CKPA-82_Draft_Reverify_G1_AC01/CKPA-82_Bien_Ban_Reverify_Source_URI_G1_AC01_DRAFT.md` |
+| **Test Fixtures + Self-Audit** | Hỗ trợ `[S2]` `CKPA-52/59` & `[S5]` `CKPA-60` | Sprint 3–4 | **XONG 100%** (tách riêng khỏi corpus chính) | • `Quarantine_Passages_Fixtures_G1.csv` (**6 ca** phủ 100% nhánh `IngestionService._validate_row`)<br>• `Quarantine_CriticalFields_Fixtures_G1.csv` (**4 ca**)<br>• `data/g1/scripts/validate_g1_repo.ps1` (kiểm đồng thời RFP + live `develop` + PII script `CKPA-47` của `[P5]`) |
+| **`CKPA-82`** (`CRM-G1-SUB28`) | **Sub-task Owner** (§6.4) | Sprint 5 | **ĐÃ HOÀN TẤT & KÝ CHỐT `G1-AC01` (`Done` 24/11/2026)** | • `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md` |
 
 ---
 

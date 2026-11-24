@@ -4,11 +4,11 @@ Hồ sơ phân loại và pháp lý có ngày
 
 Ngày lập: 17/11/2026
 
-Người lập: [P5] Nguyễn Anh Khoa (Privacy & Security Owner) & [P1] Văn Mỹ Vân (Purchaser Sponsor / PO)
+Người lập: [P5] Nguyễn Anh Khoa (Privacy & Security Owner) & [P1] Vắn Mỹ Vân (Purchaser Sponsor / PO)
 
 Phiên bản: v1
 
-Mục ghi 'Chờ S5' do S5 cung cấp. Mục để trống do P1 điền sau khi đọc văn bản gốc (xem P1_GhiChu_AnnexF). Điều chưa chắc ghi vào mục 8, không tự kết luận.
+Mục ghi 'Chờ S5' do S5 cung cấp. Mục để trống do P1 điền sau khi đọc văn bản gốc (xem security/g0/legal-privacy-review.md). Điều chưa chắc ghi vào mục 8, không tự kết luận.
 
 1. Tóm tắt hệ thống
 
@@ -62,7 +62,7 @@ RFP: dùng nội bộ hoặc có người xem xét lại không tự động t�
 
 6. Lưu giữ (CKPA-19 (CRM-G0-SUB12), Annex C)
 
-Xem file P1_RaSoat_Retention_v1. Tóm tắt ý kiến sơ bộ: chấp thuận passage và critical field; CRM context cơ bản không lưu; answer/referral, raw export và backup chấp thuận có điều kiện. Đề xuất là vận hành, không phải thời hạn luật định.
+Xem file security/g0/P1_RaSoat_Retention_v1_HoanChinh.md. Tóm tắt ý kiến sơ bộ: chấp thuận passage và critical field; CRM context cơ bản không lưu; answer/referral, raw export và backup chấp thuận có điều kiện. Đề xuất là vận hành, không phải thời hạn luật định.
 
 7. Sự cố và thay đổi provider (SEC 07, SEC 08)
 

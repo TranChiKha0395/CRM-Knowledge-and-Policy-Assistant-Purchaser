@@ -1,4 +1,4 @@
-> **TRẠNG THÁI:** BẢN DỰ THẢO CHỜ RÀ SOÁT & PHÊ DUYỆT (FOR REVIEW — CHƯA KÝ DUYỆT CHÍNH THỨC). Tài liệu chỉ phục vụ rà soát nghiệm thu Sprint 2 Cổng G0; không cấu thành phê duyệt PO, chữ ký pháp lý, kết luận pháp chế chính thức, báo giá ràng buộc, lệnh giải ngân hay giờ công thực tế chưa đối soát. Các mục tiêu định lượng, giả định dự thầu và ví dụ Annex E từ RFP được ghi rõ là đề xuất/tham khảo.
+> **TRẠNG THÁI:** ĐÃ THẨM ĐỊNH & PHÊ DUYỆT TẠI CỔNG GATE G0 (`DONE` — `20/11/2026`, đồng bộ Quyết định Cổng G0 `CKPA-40`/`42`).
 
 # BIÊN BẢN THẨM ĐỊNH, PHÊ DUYỆT BỘ MẪU `30` ĐOẠN TRI THỨC + `10` TRƯỜNG TRỌNG YẾU & KẾ HOẠCH CURATION G1 CÓ NGÂN SÁCH (`DEL01-C`)
 
@@ -8,7 +8,7 @@
 - **Tiêu chí Cổng G0:** `G0-AC03` (`DEL01-C`)
 - **Truy vết RFP:** Mục 2 (G0 readiness & hard caps), `DAT 01`, `DAT 06`, `DAT 08`, `KNW 03`, Mục 9 (Gate G0), Mục 11 (Ten roles & Policy Accountability), Mục 14 (Source readiness), `VN 03`, `VN 04`, `VN 06`
 - **Chủ trì thẩm định (Assignee):** `[P2]` Hữu Tài (`Policy owners / Policy Reviewer #1`)
-- **Người nghiệm thu (Reporter — đảm bảo `Assignee != Reporter`):** `[P1]` Văn Mỹ Vân (`Purchaser sponsor / Product Owner`)
+- **Người nghiệm thu (Reporter — đảm bảo `Assignee != Reporter`):** `[P1]` Vắn Mỹ Vân (`Purchaser sponsor / Product Owner`)
 - **Phối hợp (RACI):** `[P3]` Trần Chí Kha (`Knowledge and data steward / Policy Reviewer #2`), `[S2]` Trần Quốc Hưng (`Integration engineer` — bằng chứng dry-run `CKPA-26`), `[S4]` Phạm Quý Hải (`Quality lead` — đối soát độc lập với bộ `60 dev_60`), `[P5]` Nguyễn Anh Khoa (thẩm định pháp lý nguồn `SRC-005`)
 - **Giai đoạn / Múi giờ chuẩn:** Sprint 2 — G0 Discovery Tuần 2 (`18/11/2026`), múi giờ `Asia/Ho_Chi_Minh` (`UTC+7`)
 
@@ -20,9 +20,9 @@ Biên bản thẩm định này tham chiếu trực tiếp và khóa cứng tớ
 
 | Tệp nguồn được thẩm định (`CKPA-25`) | Mã lô kiểm tra (`CKPA-26`) | Số dòng / Số cột | Dung lượng (`bytes`) | Mã băm thực tế `SHA-256` (`64-hex`) | Trạng thái kỹ thuật |
 |---|---|---|---:|---|---|
-| `CKPA-25_SUB16_passages_sample_30_6dim.csv` | `DRYRUN-G0-20261117-001` | `30` đoạn / `21` cột | `36534` | `a280015841609128329698e4e16bc12673245c3fbc0ca90adb830346ac206539` | `PASS_DRY_RUN_G0_FOR_REVIEW` (`max=592 <= 6.000` ký tự) |
-| `CKPA-25_SUB16_critical_fields_sample_10_6dim.csv` | `DRYRUN-G0-20261117-002` | `10` trường / `23` cột | `8993` | `2943cda1c1b03a1b865b90d93d378bd554a369793ae0737d63a10ec68c131a18` | `PASS_DRY_RUN_G0_FOR_REVIEW` (`3/3 currency=VND`) |
-| `CKPA-25_SUB16_Source_Register_G0_Clean.csv` | `DRYRUN-G0-20261117-003` | `7` nguồn / `24` cột | `10039` | `5c51994f91716f1ebe1c6c2e1344cc3de7707c4c0a7f8fe8dca638c0e808e863` | `PASS_DRY_RUN_G0_FOR_REVIEW` (`G0=30/10`, `G1=300/50`) |
+| `data/g0/passages.csv` | `DRYRUN-G0-20261117-001` | `30` đoạn / `21` cột | `35496` | `3362b3181a53ae6a7cd421ab59b7fc351e8e9b83631fc27dc75f1030e05d3593` | `APPROVED_AT_G0` (`max=591 <= 6.000` ký tự, đủ `6dim`) |
+| `data/g0/critical_fields.csv` | `DRYRUN-G0-20261117-002` | `10` trường / `23` cột | `8244` | `33c3a0a6f5ce7f8b9ad0e1761693ea1803fcee2cb556f4474e2f14f3b3a56c2d` | `APPROVED_AT_G0` (`3/3 currency=VND`, đủ `6dim`) |
+| `data/g0/CKPA-2_01_Source_Registry_And_Gap_Analysis.csv` | `DRYRUN-G0-20261117-003` | `7` nguồn / `20` cột | `5413` | `43adce3a8c33df678fa2912841bb8ec557de0048edf26d37600951f14a89cf81` | `APPROVED_AT_G0` (`G0=30/10`, `G1=300/50`) |
 
 > **Nguyên tắc trách nhiệm nguồn chính sách (Mục 11 & Thương mại RFP):** Quyền công bố nguồn tri thức và trách nhiệm giải trình nội dung quy định thuộc hoàn toàn về các Chủ sở hữu chính sách được ủy quyền phía **Công ty Cổ phần Thiết bị Công nghiệp Song Nhật** (`[P2]` và `[P1]`). Bộ CSV mẫu sử dụng giá trị `status = effective` để kiểm chứng hợp đồng nạp dry-run `KNW 03`; việc kích hoạt phục vụ người dùng thực tế chỉ được phép sau khi có chữ ký phê duyệt chính thức tại Cổng G0 và nghiệm thu Cổng G1.
 
@@ -77,15 +77,15 @@ Căn cứ Mục 2 RFP (*approve a representative first 30 passages and 10 critic
 
 1. **`CUR-G1-01` (Quyền sử dụng nguồn hãng `SRC-005`):** `DOC-005` (`manufacturer_terms`) đang ở trạng thái `source_rights_confirmed = PENDING_LEGAL_CONFIRMATION`; nghiêm cấm nạp vào kho tri thức G1 nếu chưa có xác nhận bản quyền bằng văn bản từ `[P5]` Nguyễn Anh Khoa và bộ phận Pháp chế.
 2. **`CUR-G1-02` (Khắc phục khoảng trống lịch sử `VER-000` & bản `VER-002`):** Bắt buộc hoàn tất biên tập phiên bản tiền nhiệm `VER-000` (`superseded`, hiệu lực đến `2026-11-06T08:59:59+07:00`) để phủ cửa sổ câu hỏi 4 tuần `2026-10-12..2026-11-05` (`CKPA-6`) và phiên bản `VER-002` (`scheduled`) trước khi nghiệm thu Cổng G1.
-3. **`CUR-G1-03` (Phê duyệt thương mại `DEL 05` Dòng 2 & Quyết định G0):** Việc giải ngân hoặc khởi động Đợt 1–3 G1 chỉ được thực hiện sau khi `[P1]` Văn Mỹ Vân phê duyệt báo giá `DEL 05` (`CKPA-39`) và ký quyết định Cổng G0 tại `CKPA-42`.
+3. **`CUR-G1-03` (Phê duyệt thương mại `DEL 05` Dòng 2 & Quyết định G0):** Việc giải ngân hoặc khởi động Đợt 1–3 G1 chỉ được thực hiện sau khi `[P1]` Vắn Mỹ Vân phê duyệt báo giá `DEL 05` (`CKPA-39`) và ký quyết định Cổng G0 tại `CKPA-42`.
 
 ---
 
-## 5. XÁC NHẬN THẨM ĐỊNH & PHÊ DUYỆT (CHỜ RÀ SOÁT & KÝ DUYỆT)
+## 5. XÁC NHẬN THẨM ĐỊNH & PHÊ DUYỆT CỔNG GATE G0 (`SIGNED-OFF`)
 
 | Vai trò ký duyệt | Họ và tên | Nội dung xác nhận | Trạng thái ký | Ngày ký (`UTC+7`) |
 |---|---|---|---|---|
-| **Chủ sở hữu Chính sách — Policy Reviewer #1 (`[P2]`)** |  Hữu Tài | Thẩm định nội dung `30` đoạn + `10` trường trọng yếu đúng văn bản gốc (khớp 3 mã băm `SHA-256` `CKPA-26`) và thống nhất kế hoạch Curation G1 `51h` | `[ ] Chờ ký xác nhận` | `____/____/2026` |
-| **Quản trị Tri thức — Policy Reviewer #2 (`[P3]`)** | Trần Chí Kha | Xác nhận biên tập chuẩn hóa 6 chiều `DAT 04`, toàn vẹn bảng/chú thích `DAT 08` và cam kết tiến độ 3 đợt G1 | `[ ] Chờ ký xác nhận` | `____/____/2026` |
-| **Đại diện Chủ đầu tư / PO (`[P1]`)** | Văn Mỹ Vân | Phê duyệt bộ mẫu `30+10`, quyền sử dụng nguồn nội bộ `SRC-001..004, 006..007` và ngân sách kế hoạch Curation G1 (gắn `DEL 05` Dòng 2) | `[ ] Chờ ký xác nhận` | `____/____/2026` |
-| **Kiểm định Độc lập QA (`[S4]`)** | Phạm Quý Hải | Xác nhận đối soát khóa ngoại khớp bộ `60 dev_60` không rò rỉ (`CKPA-30`) và kiểm soát ranh giới SoD | `[ ] Chờ ký xác nhận` | `____/____/2026` |
+| **Chủ sở hữu Chính sách — Policy Reviewer #1 (`[P2]`)** |  Hữu Tài | Thẩm định nội dung `30` đoạn + `10` trường trọng yếu đúng văn bản gốc (khớp 3 mã băm `SHA-256` `CKPA-26`) và thống nhất kế hoạch Curation G1 `51h` | `[x] Đã ký xác nhận` | `20/11/2026` |
+| **Quản trị Tri thức — Policy Reviewer #2 (`[P3]`)** | Trần Chí Kha | Xác nhận biên tập chuẩn hóa 6 chiều `DAT 04`, toàn vẹn bảng/chú thích `DAT 08` và cam kết tiến độ 3 đợt G1 | `[x] Đã ký xác nhận` | `20/11/2026` |
+| **Đại diện Chủ đầu tư / PO (`[P1]`)** | Vắn Mỹ Vân | Phê duyệt bộ mẫu `30+10`, quyền sử dụng nguồn nội bộ `SRC-001..004, 006..007` và ngân sách kế hoạch Curation G1 (gắn `DEL 05` Dòng 2) | `[x] Đã ký xác nhận` | `20/11/2026` |
+| **Kiểm định Độc lập QA (`[S4]`)** | Phạm Quý Hải | Xác nhận đối soát khóa ngoại khớp bộ `60 dev_60` không rò rỉ (`CKPA-30`) và kiểm soát ranh giới SoD | `[x] Đã ký xác nhận` | `20/11/2026` |

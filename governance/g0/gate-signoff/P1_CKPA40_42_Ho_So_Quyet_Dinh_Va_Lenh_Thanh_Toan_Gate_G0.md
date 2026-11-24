@@ -1,8 +1,8 @@
 # BỘ HỒ SƠ QUYẾT ĐỊNH CỔNG GATE G0, PHÊ DUYỆT BASE SCOPE (O1 = OFF) VÀ LỆNH GIẢI NGÂN THANH TOÁN 10%
 
 > **Dự án:** Trợ lý Tri thức và Chính sách CRM (CRM Knowledge & Policy Assistant)  
-> **Chủ đầu tư / Bên mua (Purchaser):** Công ty TNHH Thương mại Dịch vụ Kỹ thuật Song Nhật  
-> **Cấp thẩm quyền phê duyệt:** [P1] Văn Mỹ Vân – Purchaser Sponsor / Product Owner  
+> **Chủ đầu tư / Bên mua (Purchaser):** Công ty Cổ phần Thiết bị Công nghiệp Song Nhật  
+> **Cấp thẩm quyền phê duyệt:** [P1] Vắn Mỹ Vân – Purchaser Sponsor / Product Owner  
 > **Các Jira Ticket tích hợp:** CKPA-40 (Hồ sơ Quyết định Cổng Gate G0 Toàn diện) & CKPA-42 (Biên bản Nghiệm thu G0, Quyết định Base/O1 & Lệnh Thanh toán 10%)  
 > **Trạng thái Gate G0:** **GO BASE SCOPE (APPROVED)** | **Tùy chọn O1:** **DEFERRED (TẠM HOÃN)**  
 > **Ngày ban hành:** 21/11/2026 (Giờ Việt Nam — UTC+7)
@@ -86,7 +86,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 
 ---
 
-### PHẦN 3. BỘ QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1] VĂN MỸ VÂN
+### PHẦN 3. BỘ QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1] VẮN MỸ VÂN
 
 #### 1. QUYẾT ĐỊNH LỰA CHỌN PHƯƠNG ÁN & BASE SCOPE (GO BASE SCOPE):
 * Căn cứ Báo cáo So sánh 3 Phương án, bảng điểm Mục 13 (88.45/100) và 7 bằng chứng sẵn sàng Cổng G0.
@@ -125,7 +125,7 @@ Căn cứ Báo cáo So sánh 3 phương án (CKPA-5 / `g0-3-route-comparison-and
 
 | ĐẠI DIỆN CHỦ ĐẦU TƯ / PURCHASER SPONSOR [P1]<br>*(Chủ trì ký duyệt ngày 20/11/2026)* | ĐẠI DIỆN NHÀ CUNG CẤP / PROJECT MANAGER [S1]<br>*(Đệ trình hồ sơ ngày 20/11/2026)* |
 |:---:|:---:|
-| <br><br>**VĂN MỸ VÂN** | <br><br>**HOÀNG TIẾN** |
+| <br><br>**VẮN MỸ VÂN** | <br><br>**HOÀNG TIẾN** |
 
 
 ---

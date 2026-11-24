@@ -1,4 +1,4 @@
-﻿# BIÊN BẢN XÁC NHẬN CHUYÊN MÔN CHÍNH SÁCH CỦA POLICY REVIEWER #1 (`P2`) VỀ CORPUS, NGÀY, TRƯỜNG & HOLD (`CKPA-83`)
+# BIÊN BẢN XÁC NHẬN CHUYÊN MÔN CHÍNH SÁCH CỦA POLICY REVIEWER #1 (`P2`) VỀ CORPUS, NGÀY, TRƯỜNG & HOLD (`CKPA-83`)
 
 - **Dự án:** SongNhat CRM Knowledge and Policy Assistant (`SCRM` / `CKPA`)
 - **Mã nhiệm vụ Jira:** `CKPA-83` — `[G1][Mục8] Reviewer #1 xác nhận Ngày, Trường & Hold`

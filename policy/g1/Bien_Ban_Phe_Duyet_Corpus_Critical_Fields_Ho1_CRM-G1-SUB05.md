@@ -8,32 +8,32 @@
 * **Người thẩm định & Ký duyệt (Policy Owner):** `[P2] Hữu Tài`
 * **Cộng tác viên chuẩn bị dữ liệu (Steward):** `[P3] Chí Kha` (từ đầu ra `CRM-G1-SUB04`)
 * **Người nghiệm thu (Purchaser Sponsor):** `[P1] Mỹ Vân`
-* **Ngày phê duyệt:** `2026-11-12` (Múi giờ Việt Nam: `Asia/Ho_Chi_Minh`, `UTC+7`)
+* **Ngày phê duyệt:** `2026-11-20` (Múi giờ Việt Nam: `Asia/Ho_Chi_Minh`, `UTC+7`)
 
 ---
 
 ## 1. Kết quả Kiểm tra Toàn vẹn Schema & Đồng bộ Dữ liệu (`DAT 01`, `DAT 02`, `DAT 08`)
 
-Dữ liệu đầu vào từ nhiệm vụ `CRM-G1-SUB04` gồm hai tệp CSV chuẩn UTF-8 đã được đối soát toàn diện với Hợp đồng Dữ liệu Gate G0 (`CKPA-6`) và Từ điển trường dữ liệu:
+Dữ liệu đầu vào từ nhiệm vụ `CRM-G1-SUB04` gồm hai tệp CSV chuẩn UTF-8 đã được đối soát toàn diện với Hợp đồng Dữ liệu Gate G0 (`CKPA-15`) và Từ điển trường dữ liệu:
 
 1. **Tệp `Policy_Corpus_Family1.csv` (`40` bản ghi — `21` cột chuẩn UTF-8):**
-   * Khớp 100% tên cột và thứ tự với `passages_template.csv` (`CKPA-6`).
+   * Khớp 100% tên cột và thứ tự với `passages_template.csv` (`CKPA-15`).
    * Độ dài nội dung lớn nhất đạt `591` ký tự Unicode (đạt chuẩn `<= 6.000` ký tự, không cắt cụt âm thầm).
    * Không phát hiện trùng lặp `passage_id` (`0` bản ghi lỗi).
    * **Chuẩn hóa thời gian múi giờ Việt Nam (`Asia/Ho_Chi_Minh`):** 100% giá trị tại các trường `recorded_at`, `published_at`, `effective_from`, `effective_to` tuân thủ nghiêm ngặt định dạng ISO 8601 (`+07:00`).
    * **Kiểm tra đính kèm thiết yếu (`DAT 08`):** `39/40` bản ghi có `has_essential_attachments = True`; riêng `PAS-040` (*Phụ lục B1 - Bảng chiết khấu bậc thang Đại lý Cấp 1*) được chủ đích gắn `has_essential_attachments = False` để làm dữ liệu kiểm thử kích hoạt `HOLD_DAT08` tại G1.
 
 2. **Tệp `Critical_Fields_Family1.csv` (`16` bản ghi — `23` cột chuẩn UTF-8):**
-   * Khớp 100% tên cột và thứ tự với `critical_fields_template.csv` (`CKPA-6`).
+   * Khớp 100% tên cột và thứ tự với `critical_fields_template.csv` (`CKPA-15`).
    * **Liên kết khóa ngoại (`Referential Integrity`):** 100% (`16/16`) dòng `field_id` trỏ đúng `passage_id`, khớp `document_version_id` và đồng nhất trạng thái `status` với bảng `Policy_Corpus_Family1.csv`.
 
 ---
 
-## 2. Thẩm định Phân bổ Nguồn theo Ma trận Thẩm quyền 5 Lớp (`DAT 03` / `CKPA-4`)
+## 2. Thẩm định Phân bổ Nguồn theo Ma trận Thẩm quyền 5 Lớp (`DAT 03` / `CKPA-8`)
 
 Toàn bộ 40 đoạn tri thức của Họ 1 được phân định rạch ròi theo Ma trận Thẩm quyền 5 lớp nguồn đã ký duyệt tại Gate G0:
 
-| Mã Tài liệu | Lớp Thẩm quyền (`CKPA-4`) | Dải `passage_id` | Số lượng | Mục đích & Trạng thái Kiểm soát |
+| Mã Tài liệu | Lớp Thẩm quyền (`CKPA-8`) | Dải `passage_id` | Số lượng | Mục đích & Trạng thái Kiểm soát |
 | :--- | :--- | :--- | :---: | :--- |
 | **`DOC-001`** | `policy` (Chính sách công ty) | `PAS-001..010`, `PAS-031..049` | **29** | Quy định gốc v1.0 (`VER-001`), lịch sử v0.9 (`VER-000`), tương lai v2.0 (`VER-002`), và các bản nháp/thu hồi (`KNW 03`). |
 | **`DOC-004`** | `SOP` (Quy trình thao tác chuẩn) | `PAS-050..054` | **05** | Hướng dẫn 5 bước lập phiếu đề xuất chiết khấu trên CRM, khớp ngưỡng `DOC-001` và quy định Substitute Owner (`VN 04`). |
@@ -97,4 +97,4 @@ Tôi, **`[P2] Hữu Tài`** — Chủ sở hữu Chính sách (*Policy Owner —
 | :---: | :---: | :---: |
 | **[Đã đối soát chuẩn CSV]** | **[ĐÃ KÝ PHÊ DUYỆT — APPROVED]** | **[Xác nhận tiếp nhận cổng `G1-AC01`]** |
 | **`[P3] Chí Kha`** | **`[P2] Hữu Tài`** | **`[P1] Mỹ Vân`** |
-| Ngày: `2026-11-12` | Ngày: `2026-11-12` | Ngày: `....../11/2026` |
+| Ngày: `2026-11-20` | Ngày: `2026-11-20` | Ngày: `2026-11-20` |

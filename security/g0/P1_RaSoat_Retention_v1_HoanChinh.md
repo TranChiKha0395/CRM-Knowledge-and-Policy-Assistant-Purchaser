@@ -21,4 +21,4 @@ Xử lý quyền chủ thể phải bao gồm kho đang hoạt động, chỉ m�
 
 Quyết định của P1: ☐ Duyệt như trên   ☑ Duyệt có sửa   ☐ Chưa duyệt
 
-Ngày: 17/11/2026 — Người duyệt: [P1] Văn Mỹ Vân (Purchaser Sponsor / PO) | Đề xuất chuyên môn: [P5] Nguyễn Anh Khoa (Privacy & Security Owner) (Khung cơ sở G0; trình ký chính thức tại Gate G2)
+Ngày: 17/11/2026 — Người duyệt: [P1] Vắn Mỹ Vân (Purchaser Sponsor / PO) | Đề xuất chuyên môn: [P5] Nguyễn Anh Khoa (Privacy & Security Owner) (Khung cơ sở G0; trình ký chính thức tại Gate G2)
