@@ -1,47 +1,44 @@
-# BIÊN BẢN KIỂM TOÁN ACL KHO SEALED (`sealed-eval-repo`) & CHỐT BẢO MẬT GATE G1
+# BIÊN BẢN KIỂM TOÁN ACL KHO SEALED & CHỐT BẢO MẬT GATE G1
 
-- **Mã công việc Jira:** `CKPA-79` (Parent: `CKPA-44` | Mở khóa: `CKPA-80` | Liên quan hồ sơ DEL 03: `CKPA-77`)
-- **Mã truy vết RFP & Cổng G1:** Mục 8, Mục 11, `SEC 01`, `SEC 02`, `SEC 06`, `SEC 08` | Tiêu chí: `G1-AC04`, `G1-AC07`
-- **Phân hệ kiểm thử:** `SUB03` (`sealed-eval-repo`) & Môi trường Test
-- **Chủ trì thực hiện & Ký chứng nhận:** `[P5]` Anh Khoa (*Privacy and security owners*)
-- **Phối hợp RACI:** `[S4]` Quý Hải, `[S5]` Ngọc Duy | **Reviewer:** `[P3]` Chí Kha | **Nghiệm thu:** `[P1]` Mỹ Vân
-- **Chính sách kiểm toán:** **No-Mock** (Đối chiếu trực tiếp trên repository thật & file xuất log ACL thật từ `SUB03`; tuyệt đối không tạo dữ liệu giả lập)
-
----
-
-## 1. Mục tiêu & Nguyên tắc tách biệt nhiệm vụ (SoD — RFP Mục 8, Mục 11 & `SEC 06`)
-1. Bảo đảm kho đánh giá độc lập **`sealed-eval-repo`** (`SUB03`) lưu trữ bộ **100 Sealed Acceptance Cases** được cô lập hoàn toàn khỏi repository phát triển chung.
-2. Xác nhận **0 lượt truy cập (Read / Clone / Download / Admin)** của nhóm kỹ sư phát triển **`[S2]` Quốc Hưng** và **`[S3]` Yến Nhi** vào `sealed-eval-repo`.
-3. Xác nhận **0% dữ liệu cá nhân (PII)** trái phép trong toàn bộ repository chung và môi trường Test (`SEC 02`, `G1-AC04`).
-4. Cung cấp bằng chứng kiểm toán ACL hợp lệ phục vụ tổng hợp Hồ sơ Bằng chứng `DEL 03` (`CKPA-77`) và mở khóa `CKPA-80`.
+- **Mã công việc Jira:** `CKPA-79` (Parent: `CKPA-44` | Chặn / Mở khóa: `CKPA-80` | Liên quan: `CKPA-77`)
+- **Mã truy vết RFP & Tiêu chí G1:** `Mục 8`, `Mục 11`, `SEC 01`, `SEC 02`, `SEC 06` *(Ghi chú: mã `SEC 08` trên thẻ Jira cũ là mã import từ bảng Jira; theo RFP chuẩn của dự án, `SEC 08` thuộc kiểm soát thay đổi provider/model/prompt/selector và rollback nên không áp dụng cho task ACL kho Sealed này)* | Tiêu chí: `G1-AC04`, `G1-AC07`
+- **Phân hệ thực hiện:** `SUB03` (Evaluation — kho riêng `sealed-eval-repo`) & Repository chung Purchaser
+- **Chủ trì thực hiện:** `[P5]` Anh Khoa (Privacy & Security Owner)
+- **Phối hợp RACI:** `[S4]` Quý Hải, `[S5]` Ngọc Duy (xuất danh sách Collaborators & GitHub Audit Log của `sealed-eval-repo`) | **Review:** `[P3]` Chí Kha
+- **Chính sách kiểm thử:** **No-Mock** (100% quét dữ liệu thật trong repository chung và yêu cầu trích xuất JSON/CSV thật từ GitHub Audit Log của kho riêng `sealed-eval-repo`, đối soát theo GitHub username thật qua `CKPA_FORBIDDEN_USERS` và `CKPA_ALLOWED_USERS`; tuyệt đối không giả lập log truy cập)
 
 ---
 
-## 2. Kết quả kiểm toán Phần 1 — Cô lập Repository chung & Kiểm soát 0% PII (Thực thi tự động)
-Thực thi trực tiếp qua script `security/scripts/g1_sealed_acl_audit_runner.py` và `scripts/ci_purchaser_guard.py`:
-
-| Hạng mục kiểm toán | Phương pháp kiểm chứng | Kết quả thực tế | Trạng thái |
-| :--- | :--- | :--- | :---: |
-| **Cô lập tệp Sealed khỏi repo chung (`SEC 06`)** | Quét đệ quy toàn bộ cây thư mục repository & `Policy_Corpus_G1_Full.csv` | **0 tệp** & **0 bản ghi** Sealed lọt vào repo chung | **PASS** |
-| **Kiểm soát 0% PII & tệp cấm (`SEC 02`, `G1-AC04`)** | Thực thi `scripts/ci_purchaser_guard.py` | **0 forbidden files, 0 PII hits**, CSV contracts & Sealed redaction OK | **PASS** |
-| **Ranh giới phân quyền RBAC (`SEC 01`, `CKPA-70`)** | Đối chiếu `security/g0/rbac-matrix.md` & audit `CKPA-70` | `administrator` và nhóm kỹ sư phát triển bị chặn (`—`) trên `sealed_100` | **PASS** |
+## 1. Mục tiêu & Nguyên tắc tách biệt Chinese Wall (`Mục 8`, `Mục 11`, `SEC 01`, `SEC 06`)
+Theo kiến trúc tách biệt đánh giá độc lập (`Chinese Wall` / `SoD`) của dự án **SongNhat SCRM**:
+1. Toàn bộ **`100 Sealed Acceptance Cases`** và **`80 Constructed Challenges`** phải được lưu trữ cô lập tuyệt đối tại repository riêng **`sealed-eval-repo`** (`SUB03`), hoàn toàn tách khỏi repository phát triển chung.
+2. **Nhóm kỹ sư phát triển** (`[S2]` Quốc Hưng — Backend/RAG, `[S3]` Yến Nhi — Retrieval/App) có **0% quyền truy cập** (`Read / Clone / Download / Admin`) đối với kho riêng `sealed-eval-repo`. Trong khi đó, ở tầng API ứng dụng (`security/g0/rbac-matrix.md`), endpoint `GET /api/v1/evaluation/runs` với partition `sealed_100` chặn `administrator` (`—`) và chỉ cấp quyền xem cho `independent_evaluator` (`✓`), còn `POST /api/v1/evaluation/runs` chỉ cấp cho `independent_evaluator` và `administrator` (ma trận API không cấp quyền truy cập `sealed_100` cho nhóm kỹ sư phát triển).
+3. Chỉ **Chủ sở hữu dữ liệu đánh giá / Vận hành kho riêng** (`[S4]` Quý Hải — Read/Write), **Kiểm toán Bảo mật** (`[P5]` Anh Khoa — Audit/Read) và **Đánh giá độc lập** (`[P4]`) được cấp quyền hợp lệ trên `sealed-eval-repo`.
 
 ---
 
-## 3. Kết quả kiểm toán Phần 2 — Cấu hình ACL & Access Logs kho ngoài `sealed-eval-repo` (`SUB03`)
+## 2. Kết quả kiểm toán Phần 1 — Cô lập Repository chung & 0% PII (Đã hoàn thành)
+Kiểm toán tự động trực tiếp trên toàn bộ cây thư mục repository chung (`CRM-Knowledge-and-Policy-Assistant-Purchaser`) thông qua `security/scripts/g1_sealed_acl_audit_runner.py` (đồng bộ `FORBIDDEN_NAME_PATTERNS` từ `scripts/ci_purchaser_guard.py`) và `scripts/ci_purchaser_guard.py`:
+- **Tệp cấm theo `FORBIDDEN_NAME_PATTERNS` (`100_sealed`, `sealed_plaintext`, `80_constructed_challenges`, `.env`, keys):** **0 tệp vi phạm**.
+- **Rò rỉ bản ghi `sealed_100` / `80_constructed_challenges` trong `Policy_Corpus_G1_Full.csv`:** **0 dòng**.
+- **Kết quả chạy `scripts/ci_purchaser_guard.py`:** **PASS** (`0 forbidden files, 0 PII hits, CSV contracts & Sealed redaction OK`).
+- **Kết luận Phần 1:** **PASSED**.
 
-| Đối tượng / Role | Vai trò dự án | Quyền yêu cầu theo RFP (`SEC 06`) | Trạng thái kiểm chứng hiện tại (No-Mock) |
+---
+
+## 3. Kết quả kiểm toán Phần 2 — Kiểm tra ACL & GitHub Audit Log kho `sealed-eval-repo` (`SUB03`)
+
+| Hạng mục kiểm toán ACL (`sealed-eval-repo`) | Vai trò / Đối tượng | Quyền chuẩn RFP (`Mục 8`, `SEC 01`) | Trạng thái xác minh hiện tại (No-Mock) |
 | :--- | :--- | :--- | :--- |
-| **`[S2]` Quốc Hưng** | Integration engineer | **No Access** (0 Read / 0 Clone) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ export GitHub Audit Log từ `[S4]`/`[S5]`)* |
-| **`[S3]` Yến Nhi** | Retrieval & app engineer | **No Access** (0 Read / 0 Clone) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ export GitHub Audit Log từ `[S4]`/`[S5]`)* |
-| **`[S4]` Quý Hải** | Quality lead | **Read / Write** (Chủ trì kiểm định độc lập) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ xác nhận danh sách Collaborators từ `[S4]`)* |
-| **`[P5]` Anh Khoa** | Privacy & security owner | **Audit / Read** (Kiểm toán ACL độc lập) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ cấp quyền audit hoặc bản xuất log ACL)* |
+| **Chặn truy cập nhóm phát triển** | `[S2]` Quốc Hưng, `[S3]` Yến Nhi (`CKPA_FORBIDDEN_USERS`) | **Cấm 100%** (0 Read / 0 Clone / 0 Collaborator) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ `[S4]`/`[S5]` xuất JSON/CSV Collaborators & Audit Log từ `sealed-eval-repo`)* |
+| **Xác nhận quyền quản trị kho Sealed** | `[S4]` Quý Hải (`CKPA_ALLOWED_USERS`) | **Read / Write** (Quản lý kho đánh giá) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ log JSON/CSV thật từ `SUB03`)* |
+| **Xác nhận quyền kiểm toán bảo mật** | `[P5]` Anh Khoa (`CKPA_ALLOWED_USERS`) | **Audit / Read** (Giám sát độc lập) | **BLOCKED_EXTERNAL_REPO_ACCESS** *(Chờ log JSON/CSV thật từ `SUB03`)* |
 
-> **Cơ chế xác minh tự động khi nhận log từ `SUB03`:** Ngay khi `[S4]` Quý Hải hoặc `[S5]` Ngọc Duy xuất tệp GitHub Collaborators / Audit Log của kho `sealed-eval-repo`, `[P5]` sẽ chạy lại `python security/scripts/g1_sealed_acl_audit_runner.py --strict-external` với biến môi trường `CKPA_SEALED_ACL_LOG_PATH` để đối soát 0 lượt Read/Clone của `S2`/`S3` mà không sửa mã nguồn.
+- **Cơ chế chống False Negative:** Script `g1_sealed_acl_audit_runner.py` bắt buộc tệp `CKPA_SEALED_ACL_LOG_PATH` phải là tệp `.json` hoặc `.csv` không rỗng, có trường `actor`/`username`/`login` hợp lệ, đồng thời đối chiếu đầy đủ GitHub username thật qua `CKPA_FORBIDDEN_USERS` và `CKPA_ALLOWED_USERS` trước khi kết luận `PASS_VERIFIED_EXTERNAL_ACL`.
 
 ---
 
-## 4. Xác nhận & Chốt Bảo mật Gate G1 (`[P5]` Ký)
-- **Phần 1 — Cô lập dữ liệu repo chung & 0% PII (`G1-AC04`):** **ĐẠT (PASS)** — Đã xác minh tự động bằng script trên repository thật.
-- **Phần 2 — Kiểm toán Access Logs kho ngoài `sealed-eval-repo` (`SUB03`):** **CHỜ BỔ SUNG EXPORT LOG TỪ `SUB03`** (`BLOCKED_EXTERNAL_REPO_ACCESS`) trước khi đóng hoàn toàn `CKPA-79` và mở khóa `CKPA-80`.
-- **Chữ ký xác nhận kiểm toán Gate G1:** `[P5]` Anh Khoa — *Privacy and Security Owner*.
+## 4. Bằng chứng kỹ thuật & Điều kiện đóng thẻ Jira `CKPA-79`
+- **Script kiểm toán No-Mock:** `security/scripts/g1_sealed_acl_audit_runner.py` (hỗ trợ cờ `--strict-external` khi có tệp log JSON/CSV thật của `sealed-eval-repo`).
+- **Nhật ký thực thi thật:** `security/g1/g1_sealed_acl_audit_CKPA-79.log`.
+- **Trạng thái thẻ Jira `CKPA-79`:** Giữ nguyên **`In Progress`** theo đúng chính sách No-Mock; sẽ cập nhật kết quả `--strict-external`, chuyển `Done` và mở khóa `CKPA-80` (`Tổng hợp DEL03, Giờ W1-3 & Kế hoạch G2`) ngay sau khi `[S4]` Quý Hải / `[S5]` Ngọc Duy xuất log ACL thật từ kho riêng `sealed-eval-repo`.

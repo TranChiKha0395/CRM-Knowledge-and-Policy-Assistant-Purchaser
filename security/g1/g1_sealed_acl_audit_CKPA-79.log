@@ -1,20 +1,23 @@
-=== [P5] SONGNHAT SCRM - GATE G1 SEALED-EVAL-REPO ACL & SECURITY SIGN-OFF AUDIT LOG (NO-MOCK) ===
+=== [P5] SONGNHAT SCRM - GATE G1 SEALED REPO ACL & SECURITY SIGN-OFF AUDIT LOG (NO-MOCK) ===
 Jira Issue       : CKPA-79 (Parent: CKPA-44 | Blocks: CKPA-80 | Relates: CKPA-77)
-RFP Traceability : Sec 8, Sec 11, SEC 01, SEC 02, SEC 06, SEC 08 | Gate Criteria: G1-AC04, G1-AC07
-Execution Time   : 2026-11-24T12:17:10.162930+07:00
+RFP Traceability : Muc 8, Muc 11, SEC 01, SEC 02, SEC 06 (Jira legacy tag SEC 08 excluded per RFP) | Gate: G1-AC04, G1-AC07
+Execution Time   : 2026-11-24T14:04:30.548350+07:00
+Repository Scope : Shared Purchaser Repo (Anchored at CRM-Knowledge-and-Policy-Assistant-Purchaser-main) + External Private Repo 'sealed-eval-repo' (SUB03)
 ---------------------------------------------------------------------------------------------------------
-[PART 1] SHARED REPOSITORY ISOLATION & 0% PII GUARD AUDIT (REAL LOCAL EXECUTION)
-  - Forbidden Sealed Files in Shared Repo   : 0 ([])
-  - Sealed Cases Leaked into G1 Corpus CSV  : 0
-  - Purchaser CI Guard Execution            : PASS
-  - CI Guard Output                         : Purchaser CI Guard scanned 91 file(s).
-PASSED: 0 forbidden files, 0 PII hits, CSV contracts & Sealed redaction OK.
-  - Part 1 Verdict                          : PASSED
+[PART 1] SHARED REPOSITORY ISOLATION & 0% PII GUARD AUDIT (REAL REPO SCAN)
+  - Forbidden Files (CI Guard Patterns): []
+  - Sealed Cases Leakage in G1 Corpus  : []
+  - Purchaser CI Guard Execution       : PASS
+  - CI Guard Output                    : PASSED: 0 forbidden files, 0 PII hits, CSV contracts & Sealed redaction OK.
+  - Part 1 Verdict                     : PASSED
 ---------------------------------------------------------------------------------------------------------
-[PART 2] EXTERNAL ISOLATED REPO (sealed-eval-repo / SUB03) ACL & READ/CLONE LOG AUDIT (NO-MOCK)
-  - Zero-Access Enforced Subjects (SoD)     : [S2] Quoc Hung (Integration), [S3] Yen Nhi (Retrieval/App)
-  - Authorized Custodians                   : [S4] Quy Hai (Quality Lead), [P5] Anh Khoa (Privacy & Security Owner)
-  - External ACL Log Verification Status    : [BLOCKED_EXTERNAL_REPO_ACCESS]
-  - Detail                                  : sealed-eval-repo (URL_NOT_CONFIGURED) is isolated in SUB03 outside this repository; synthetic access logs prohibited per No-Mock policy. Awaiting real GitHub/Storage ACL & audit log export from [S4] Quy Hai / [S5] Ngoc Duy.
+[PART 2] EXTERNAL ISOLATED REPO ('sealed-eval-repo' / SUB03) ACL & AUDIT LOG VERIFICATION
+  - Zero-Access Enforced Subjects (0% Read/Clone): [S2] Quoc Hung (Backend/RAG), [S3] Yen Nhi (Retrieval/App)
+  - Authorized Custodians & Auditors             : [S4] Quy Hai (Read/Write), [P5] Anh Khoa (Audit/Read), [P4] Independent Evaluator
+  - Schema & Handle Verification Policy          : Requires non-empty JSON/CSV export + CKPA_FORBIDDEN_USERS & CKPA_ALLOWED_USERS
+  - External ACL Log Verification Status         : BLOCKED_EXTERNAL_REPO_ACCESS
+  - Detail                                       : External private repo 'sealed-eval-repo' (SUB03) is isolated outside this repository and CKPA_SEALED_ACL_LOG_PATH is not set; synthetic ACL mock data forbidden per No-Mock policy.
 ---------------------------------------------------------------------------------------------------------
-OVERALL GATE G1 SEALED ACL VERDICT        : PART1=PASSED | PART2=BLOCKED_EXTERNAL_REPO_ACCESS (ZERO MOCK DATA USED)
+PART 1 SUMMARY (Shared Repo Isolation & 0% PII): PASSED
+PART 2 SUMMARY (External sealed-eval-repo ACL) : BLOCKED_EXTERNAL_REPO_ACCESS
+OVERALL VERDICT: PARTIAL_PASS_SHARED_REPO_CLEAN / PENDING_EXTERNAL_SEALED_REPO_ACL_LOG (ZERO MOCK DATA USED).
