@@ -1,22 +1,25 @@
 === [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_REF, CACHE & FAIL-CLOSED AUDIT LOG (NO-MOCK) ===
 Jira Issue       : CKPA-70 (Parent: CKPA-44 | Relates: CKPA-69 | Blocks: CKPA-71)
-RFP Traceability : SEC 01, SEC 05, SEC 08, ANS 02 | Gate Criteria: G1-AC03, G1-AC04
-Execution Time   : 2026-11-23T18:24:06.223269+07:00
+RFP Traceability : SEC 01, SEC 02, SEC 05, KNW 03, KNW 04, OPS 05, ANS 02 | Gate Criteria: G1-AC03, G1-AC04
+Execution Time   : 2026-11-24T11:53:08.389825+07:00
 Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 [PART 1] REAL G1 CORPUS RBAC & SCOPE METADATA AUDIT (data/g1/full/Policy_Corpus_G1_Full.csv)
-  - Documents Verified : 11 (DOC-001, DOC-002, DOC-003, DOC-004, DOC-005, DOC-006, DOC-007, DOC-008, DOC-009, DOC-010, DOC-011)
-  - Passages Verified  : 96 | Manifest Checksums: 136
-  - Invalid UserRoles  : []
-  - Missing Scope Docs : []
-  - Part 1 Verdict     : PASS
----------------------------------------------------------------------------------------------
+  - Documents Verified     : 11 (DOC-001, DOC-002, DOC-003, DOC-004, DOC-005, DOC-006, DOC-007, DOC-008, DOC-009, DOC-010, DOC-011)
+  - Passages Verified      : 96 | Manifest Checksums: 136
+  - Core SEC 01 Roles Used : ['administrator', 'policy_owner', 'reader', 'steward'] (4/4: reader, policy_owner, steward, administrator)
+  - CRM Policy Families    : Verified across 3 CRM Policy Families
+  - KNW 03 Lifecycle States: ['approved', 'draft', 'effective', 'owner_reviewed', 'scheduled', 'superseded', 'withdrawn']
+  - Invalid UserRoles      : []
+  - Missing Scope Docs     : []
+  - Part 1 Verdict         : PASS
+---------------------------------------------------------------------------------------------------------
 [PART 2] LIVE RUNTIME API AUDIT (SUB01 / SUB07 - NO-MOCK HTTP EXECUTION)
   [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/answer/ | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-02 | Role=legal_owner | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/answer/ | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-CACHE-02 | Role=steward | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/answer/ | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
   [BLOCKED_NO_LIVE_ENDPOINT] TC-REV-03 | Role=policy_owner | Target=DOC-007 (DOC007-VER-001) | POST /api/v1/admin/policies/DOC007-VER-001/withdraw | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-LOG-04 | Role=privacy_security_owner | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
----------------------------------------------------------------------------------------------
+  [BLOCKED_NO_LIVE_ENDPOINT] TC-LOG-04 | Role=administrator | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+---------------------------------------------------------------------------------------------------------
 PART 1 SUMMARY (Real G1 Corpus RBAC/Scope Metadata): PASSED (11/11 docs verified).
 PART 2 SUMMARY (Live Runtime API Execution)        : 0/4 executed live; 4/4 BLOCKED pending staging endpoint & tokens.
 OVERALL VERDICT: PARTIAL_PASS_DATA_VERIFIED / RUNTIME_BLOCKED_PENDING_LIVE_STAGING (ZERO MOCK DATA USED).

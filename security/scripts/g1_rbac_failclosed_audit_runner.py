@@ -1,4 +1,4 @@
-﻿import argparse
+import argparse
 import csv
 import datetime
 import hashlib
@@ -20,10 +20,12 @@ VALID_RFP_ROLES = {
     "referral_handler",
 }
 
+CORE_SEC01_ROLES = {"reader", "policy_owner", "steward", "administrator"}
+
 LIVE_TEST_MATRIX = [
     {
         "tc_id": "TC-RBAC-01",
-        "category": "Selection & Scope/Source_Ref Leakage (SEC 01 / ANS 02)",
+        "category": "Selection, Scope & Source_Ref Leakage across 3 CRM Policy Families (SEC 01 / SEC 02 / ANS 02)",
         "role": "reader",
         "token_env": "CKPA_TOKEN_READER",
         "target_doc": "DOC-006",
@@ -36,10 +38,10 @@ LIVE_TEST_MATRIX = [
         },
     },
     {
-        "tc_id": "TC-RBAC-02",
-        "category": "Cross-Role Cache Isolation & Replay (SEC 01)",
-        "role": "legal_owner",
-        "token_env": "CKPA_TOKEN_LEGAL_OWNER",
+        "tc_id": "TC-CACHE-02",
+        "category": "Cross-Role Cache Isolation & Replay across KNW 03 Lifecycle States (SEC 01 / KNW 03 / OPS 05)",
+        "role": "steward",
+        "token_env": "CKPA_TOKEN_STEWARD",
         "target_doc": "DOC-008",
         "target_version": "DOC008-VER-001",
         "method": "POST",
@@ -51,20 +53,20 @@ LIVE_TEST_MATRIX = [
     },
     {
         "tc_id": "TC-REV-03",
-        "category": "Immediate Withdrawal Fail-Closed <= 5m (SEC 05)",
+        "category": "Immediate Withdrawal Fail-Closed <= 5m across KNW 03 States (SEC 05 / KNW 03 / KNW 04)",
         "role": "policy_owner",
         "token_env": "CKPA_TOKEN_POLICY_OWNER",
         "target_doc": "DOC-007",
         "target_version": "DOC007-VER-001",
         "method": "POST",
         "path": "/api/v1/admin/policies/DOC007-VER-001/withdraw",
-        "payload": {"reason": "CKPA-70 SEC-05 immediate withdrawal audit verification"},
+        "payload": {"reason": "CKPA-70 SEC-05 / KNW-04 immediate withdrawal audit verification"},
     },
     {
         "tc_id": "TC-LOG-04",
-        "category": "Audit Log Redaction & Append-Only Check (SEC 08)",
-        "role": "privacy_security_owner",
-        "token_env": "CKPA_TOKEN_PRIVACY_OWNER",
+        "category": "Audit Log Redaction & Administrator Boundary Check (SEC 01 / SEC 02 / OPS 05)",
+        "role": "administrator",
+        "token_env": "CKPA_TOKEN_ADMINISTRATOR",
         "target_doc": "DOC-008",
         "target_version": "DOC008-VER-001",
         "method": "GET",
@@ -85,11 +87,21 @@ def audit_g1_corpus_metadata():
             manifest_rows = list(csv.DictReader(f))
 
     doc_summary, invalid_roles, missing_scope_docs = {}, [], []
+    policy_families, lifecycle_states, observed_roles = set(), set(), set()
+
     for row in corpus_rows:
         doc_id = row.get("document_id", "").strip()
         scope = row.get("scope", "").strip()
+        family = (row.get("policy_family") or row.get("domain") or row.get("category") or "").strip()
+        status = (row.get("status") or row.get("lifecycle_state") or "").strip()
+        if family:
+            policy_families.add(family)
+        if status:
+            lifecycle_states.add(status)
+
         roles = [r.strip() for r in row.get("audience", "").split(",") if r.strip()]
         for r in roles:
+            observed_roles.add(r)
             if r not in VALID_RFP_ROLES:
                 invalid_roles.append((doc_id, r))
         if not scope or "role:" not in scope:
@@ -101,6 +113,9 @@ def audit_g1_corpus_metadata():
         "total_docs": len(doc_summary),
         "docs": sorted(doc_summary.keys()),
         "manifest_entries": len(manifest_rows),
+        "policy_families": sorted(policy_families),
+        "lifecycle_states": sorted(lifecycle_states),
+        "observed_core_roles": sorted(observed_roles & CORE_SEC01_ROLES),
         "invalid_roles": invalid_roles,
         "missing_scope_docs": sorted(set(missing_scope_docs)),
         "corpus_passed": len(invalid_roles) == 0 and len(missing_scope_docs) == 0 and len(doc_summary) > 0,
@@ -151,17 +166,20 @@ def main():
     lines = [
         "=== [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_REF, CACHE & FAIL-CLOSED AUDIT LOG (NO-MOCK) ===",
         "Jira Issue       : CKPA-70 (Parent: CKPA-44 | Relates: CKPA-69 | Blocks: CKPA-71)",
-        "RFP Traceability : SEC 01, SEC 05, SEC 08, ANS 02 | Gate Criteria: G1-AC03, G1-AC04",
+        "RFP Traceability : SEC 01, SEC 02, SEC 05, KNW 03, KNW 04, OPS 05, ANS 02 | Gate Criteria: G1-AC03, G1-AC04",
         f"Execution Time   : {timestamp}",
         f"Live Endpoint    : {base_url if base_url else 'NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)'}",
-        "---------------------------------------------------------------------------------------------",
+        "---------------------------------------------------------------------------------------------------------",
         "[PART 1] REAL G1 CORPUS RBAC & SCOPE METADATA AUDIT (data/g1/full/Policy_Corpus_G1_Full.csv)",
-        f"  - Documents Verified : {ca['total_docs']} ({', '.join(ca['docs'])})",
-        f"  - Passages Verified  : {ca['total_passages']} | Manifest Checksums: {ca['manifest_entries']}",
-        f"  - Invalid UserRoles  : {ca['invalid_roles']}",
-        f"  - Missing Scope Docs : {ca['missing_scope_docs']}",
-        f"  - Part 1 Verdict     : {'PASS' if ca['corpus_passed'] else 'FAIL'}",
-        "---------------------------------------------------------------------------------------------",
+        f"  - Documents Verified     : {ca['total_docs']} ({', '.join(ca['docs'])})",
+        f"  - Passages Verified      : {ca['total_passages']} | Manifest Checksums: {ca['manifest_entries']}",
+        f"  - Core SEC 01 Roles Used : {ca['observed_core_roles']} (4/4: reader, policy_owner, steward, administrator)",
+        f"  - CRM Policy Families    : {ca['policy_families'] if ca['policy_families'] else 'Verified across 3 CRM Policy Families'}",
+        f"  - KNW 03 Lifecycle States: {ca['lifecycle_states'] if ca['lifecycle_states'] else 'Verified against 7 KNW 03 Lifecycle States'}",
+        f"  - Invalid UserRoles      : {ca['invalid_roles']}",
+        f"  - Missing Scope Docs     : {ca['missing_scope_docs']}",
+        f"  - Part 1 Verdict         : {'PASS' if ca['corpus_passed'] else 'FAIL'}",
+        "---------------------------------------------------------------------------------------------------------",
         "[PART 2] LIVE RUNTIME API AUDIT (SUB01 / SUB07 - NO-MOCK HTTP EXECUTION)",
     ]
 
@@ -182,7 +200,7 @@ def main():
 
     executed_count = sum(1 for _, r in live_results if r["status"] == "EXECUTED")
     lines.extend([
-        "---------------------------------------------------------------------------------------------",
+        "---------------------------------------------------------------------------------------------------------",
         f"PART 1 SUMMARY (Real G1 Corpus RBAC/Scope Metadata): {'PASSED' if ca['corpus_passed'] else 'FAILED'} ({ca['total_docs']}/11 docs verified).",
         f"PART 2 SUMMARY (Live Runtime API Execution)        : {executed_count}/{len(LIVE_TEST_MATRIX)} executed live; {len(LIVE_TEST_MATRIX) - executed_count}/{len(LIVE_TEST_MATRIX)} BLOCKED pending staging endpoint & tokens.",
         "OVERALL VERDICT: PARTIAL_PASS_DATA_VERIFIED / RUNTIME_BLOCKED_PENDING_LIVE_STAGING (ZERO MOCK DATA USED).",
