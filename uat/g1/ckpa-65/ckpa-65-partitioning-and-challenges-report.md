@@ -43,9 +43,10 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
 
 ### 2.2 Quy tắc Gom nhóm Chống Rò rỉ (*Keep related variants and records in one partition*)
 - **Ràng buộc RFP Mục 8 (trang 10):** Tuyệt đối không để xảy ra hiện tượng rò rỉ dữ liệu (data leakage) giữa tập học/phát triển (`DEV`) và tập niêm phong nghiệm thu (`SEALED`).
-- **Giải pháp triển khai:**
-  - Toàn bộ các biến thể câu hỏi trong cùng một cụm nghiệp vụ (`Variant_Group_ID`) và bản ghi chính sách liên quan được gom trọn vẹn vào **duy nhất một phân vùng**.
-  - 100 ca SEALED chỉ lưu trữ mã băm xác thực SHA-256 (`Record_SHA256`) và metadata trạng thái trên nhánh phát triển chung (`develop`), trong khi nội dung câu hỏi và đáp án chi tiết được mã hóa và bàn giao độc quyền cho Independent QA S4 để đưa vào `sealed-eval-repo`.
+- **Trạng thái bàn giao & Phân định trách nhiệm (`SoD`):**
+  - Trên kho chung Purchaser, tệp `200_real_tasks_partitioned.csv` đặt trường `Partition = PENDING_S4_PARTITION_CKPA67` (cột `Provisional_Partition` chỉ phản ánh cơ cấu số lượng sơ bộ `60 DEV / 40 VAL / 100 SEALED` từ 2 đợt thu thập, kèm **17 nhóm biến thể `VG-01..VG-17`** đã chuẩn hóa khóa ngoại điều khoản `PAS-xxx` và trường trọng yếu `CF-xxx`).
+  - Thuật toán gom cụm toàn bộ các biến thể cùng `Variant_Group_ID` vào **duy nhất một phân vùng chính thức** (`60 DEV / 40 VAL / 100 SEALED`) thuộc thẩm quyền độc lập của **`[S4]` Phạm Quý Hải tại Sub-task `CKPA-67`** trên kho cách ly `sealed-eval-repo`.
+  - 100 ca `SEALED` trên repo chung chỉ hiển thị mã băm xác thực `SHA-256` (`Record_SHA256`) và nhãn khóa `[LOCKED]`, tuyệt đối không lộ nội dung câu hỏi hay đáp án chi tiết.
 
 ### 2.3 Kiểm tra An toàn Bảo mật PII (SEC 02 & SEC 06)
 - **Kết quả rà soát tự động & thủ công:** Toàn bộ 200 câu hỏi thực tế đạt **0% PII** (0 SĐT, 0 CCCD/CMND thật, 0 email cá nhân).

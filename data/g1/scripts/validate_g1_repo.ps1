@@ -1,4 +1,4 @@
-﻿# Portable Repo Self-Validator for SongNhat CKPA Gate G1 Data Deliverables ([P3] Knowledge & Data Steward)
+# Portable Repo Self-Validator for SongNhat CKPA Gate G1 Data Deliverables ([P3] Knowledge & Data Steward)
 # Usage: powershell -NoProfile -ExecutionPolicy Bypass -File data/g1/scripts/validate_g1_repo.ps1
 $ErrorActionPreference = "Stop"
 

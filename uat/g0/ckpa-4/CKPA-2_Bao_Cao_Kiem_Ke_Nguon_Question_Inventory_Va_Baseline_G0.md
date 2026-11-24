@@ -5,14 +5,14 @@
 - **Tham chiếu SRS & RFP:** `SRS-FR-01.1`, `SRS-FR-01.2`, `SRS Mục 1.2 & 2.1` | `WP 01`, `DEL 01`
 - **Chủ trì thực hiện (`[P3] Knowledge Steward`):** Trần Chí Kha (*BA & Policy/Knowledge Steward *)
 - **Phối hợp (`[S1] Named Lead`):** Hoàng Tiến (*PM / BA Lead *)
-- **Nhánh Git gợi ý:** `docs/CKPA-2-inventory-sources-and-4-week-baseline`
+- **Nhánh Git gợi ý:** `uat/CKPA-4-inventory-sources-and-4-week-baseline`
 - **Ngày hoàn tất:** `16/11/2026` (Múi giờ `Asia/Ho_Chi_Minh`)
 
 ---
 
 ## 1. Kiểm kê Quy trình, Tài liệu Nguồn Được Phép & Phân tích Khoảng trống (`Source Registry & Gap Analysis`)
 
-Thực hiện yêu cầu của `WP 01` và `SRS-FR-01.1`, `[P3] Trần Chí Kha` (Knowledge Steward) chủ trì cùng `[S1] Hoàng Tiến` (Named Lead) đã kiểm kê toàn bộ nguồn tài liệu nghiệp vụ liên quan đến `03` nhóm chính sách khởi đầu của SongNhat, xác nhận chủ sở hữu chính sách (`Policy Owner`) cùng người thay thế (`Backup Owner`), phân lớp theo `5` tầng thẩm quyền (`DAT 03`) và chỉ rõ khoảng trống cần xử lý trước `Gate G1` (chi tiết trong tệp đính kèm `CKPA-2_01_Source_Registry_And_Gap_Analysis.csv`):
+Thực hiện yêu cầu của `WP 01` và `SRS-FR-01.1`, `[P3] Trần Chí Kha` (Knowledge Steward) chủ trì cùng `[S1] Hoàng Tiến` (Named Lead) đã kiểm kê toàn bộ nguồn tài liệu nghiệp vụ liên quan đến `03` nhóm chính sách khởi đầu của SongNhat, xác nhận chủ sở hữu chính sách (`Policy Owner`) cùng người thay thế (`Backup Owner`), phân lớp theo `5` tầng thẩm quyền (`DAT 03`) và chỉ rõ khoảng trống cần xử lý trước `Gate G1` (chi tiết trong tệp đính kèm `data/g0/CKPA-2_01_Source_Registry_And_Gap_Analysis.csv`):
 
 | Mã Nguồn (`source_id`) | Mã Tài liệu & Phiên bản | Nhóm Chính sách (`Policy_ID`) | Lớp Thẩm quyền (`DAT 03`) | Chủ sở hữu Chính (`Policy Owner`) | Người Thay thế (`Backup Owner`) | Quy mô Đã duyệt ở `G0` | Quy mô Mục tiêu ở `G1` | Khoảng trống Hiện hữu (`Gaps`) & Biện pháp Xử lý |
 | :---: | :---: | :--- | :---: | :--- | :--- | :---: | :---: | :--- |
@@ -58,7 +58,7 @@ Từ `N = 520` lượt hỏi trong 4 tuần lịch sử, `[P3] Knowledge Steward
 5. **Dự phòng (`fallback_min`):** Thời gian nhắn tin/gọi hỏi lại Policy Owner hoặc Trưởng bộ phận khi gặp điều khoản mâu thuẫn/không chắc chắn.
 
 ### 3.2 Kết quả Thống kê Baseline (Mẫu số, Trung vị, Khoảng Tứ phân vị IQR & Độ bất định 95% CI)
-*(Chi tiết dữ liệu từng phân khúc được lưu tại tệp `CKPA-2_03_Baseline_Effort_Measurement_Log.csv`)*
+*(Chi tiết phân bố 16 nhóm câu hỏi lưu tại `uat/g0/ckpa-6/CKPA-2_02_Question_Inventory_4Week_Representative.csv`. Bảng dưới ghi nhận thời gian tra cứu trên kho văn bản thô chưa chuẩn hóa; sau khi làm sạch thư viện tìm kiếm theo kiểm chứng độc lập `CKPA-7` & Quyết định Cổng G0 `P1_CKPA40_42`, mốc **Cleaned Searchable Baseline** chính thức khóa cứng tại **`Mean = 15,53 phút`, `Median = 14,30 phút`, `95% CI: [14,82' ; 16,24']`**)*
 
 | Phân khúc Chính sách | Mẫu số (`n` / `N` 4 tuần) | Chuẩn bị (TV) | Tra cứu (TV) | Kiểm tra (TV) | Làm lại (TV) | Dự phòng (TV) | **Tổng Công sức Trung vị (`Median`)** | **Khoảng Tứ phân vị (`IQR`)** | **Trung bình (`Mean`) & Độ bất định (`95% CI`)** | Tỷ lệ phải làm lại / hỏi lại (`Rework Rate`) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -71,7 +71,7 @@ Từ `N = 520` lượt hỏi trong 4 tuần lịch sử, `[P3] Knowledge Steward
 1. **Độ phủ & Độ bất định (`Coverage & Uncertainty`):**
    - Mẫu cơ sở `n = 200` tác vụ đại diện cho `38,5%` tổng lưu lượng `N = 520` câu hỏi trong 4 tuần lịch sử của `20` nhân sự mục tiêu (`Sales`, `CRM`, `CSKH`).
    - Độ phân tán (`IQR = 6,1 phút`) tập trung chủ yếu ở các ca biên: đơn hàng `>= 1 tỷ VND`, xung đột Hợp đồng khung (`Worked Case 5`), yêu cầu ngoài giờ hành chính (`CF-008`) và thiết bị mất tem Serial (`Worked Case 7`), nơi thời gian chờ phản hồi dự phòng (`fallback_min`) dao động từ `0` đến `12` phút.
-   - Tại `Gate G3`, hệ thống có hỗ trợ AI (`Assisted Use`) sẽ được đo đối chứng trực tiếp với **Thư viện hiện tại đã làm sạch có thể tìm kiếm (`Cleaned Searchable Baseline`)** trên cùng bộ tiêu chí, mục tiêu giảm **`>= 20%` tổng công sức trung bình** (tức đưa mức trung bình từ `~18,8 phút` xuống `<= 15,0 phút/tác vụ` mà vẫn giữ `0` lỗi trọng yếu).
+   - Tại `Gate G3`, hệ thống có hỗ trợ AI (`Assisted Use`) sẽ được đo đối chứng trực tiếp với **Thư viện hiện tại đã làm sạch có thể tìm kiếm (`Cleaned Searchable Baseline`)** trên cùng bộ tiêu chí, mục tiêu giảm **`>= 20%` tổng công sức trung bình** so với mốc Cleaned Searchable Baseline đã kiểm chứng tại `CKPA-7` & chốt cứng tại Quyết định Cổng G0 `CKPA-40`/`42` (tức đưa mức trung bình từ **`15,53 phút`** — `Median 14,30 phút` — xuống **`<= 12,42 phút/tác vụ`**, tiết kiệm `>= 3,11 phút/tác vụ` mà vẫn giữ `0` lỗi trọng yếu; đối với kho văn bản thô ban đầu `18,8 phút` tương ứng mức giảm `<= 15,0 phút`).
 2. **Tuyên bố Tuân thủ Ranh giới Thương mại (`No Unproven ROI Claim`):**
    - Tuân thủ nghiêm ngặt `RFP Mục 1.2` và `SRS Mục 1.2`, báo cáo đường cơ sở này **CHỈ ghi nhận thời gian thao tác tra cứu, kiểm tra và chuyển tuyến quy trình nội bộ**.
    - **TUYỆT ĐỐI KHÔNG tuyên bố** việc giảm sự cố tuân thủ pháp lý, giảm tỷ lệ khách hàng rời bỏ (`churn`), tăng tỷ lệ chốt đơn hay lợi tức đầu tư (`ROI`) là kết quả đã được chứng minh tại cổng `Gate G0`. Mọi đánh giá hiệu quả kinh tế và hoàn vốn (`Payback <= 24 tháng`) sẽ chỉ được tính toán dựa trên số liệu quan sát thực tế tối thiểu `20` ngày làm việc tại `Gate G3` (`DEL 03` & `DEL 05`).

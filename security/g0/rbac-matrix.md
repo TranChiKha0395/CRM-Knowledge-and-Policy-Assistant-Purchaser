@@ -4,7 +4,7 @@
 > **Tài liệu quy chuẩn:** SRS Mục 4.3, Mục 7.2, SRS-FR-02, SRS-FR-06.1 | RFP: ANS03, SEC01, DEL01  
 > **Chủ trì Hợp đồng API & AnswerPackage ([S3] Retrieval & App Engineer):** Phạm Lương Yến Nhi
 > **Chủ trì Ma trận RBAC 20-User & Bảo mật ([P5] Privacy & Security Owner):** Nguyễn Anh Khoa  
-> **Phối hợp:** [P2] Lý Hữu Tài (Policy Owner), [S5] Nguyễn Ngọc Duy (Operations Specialist), [P1] Văn Mỹ Vân (Purchaser Sponsor / PO)  
+> **Phối hợp:** [P2] Trương Đình Hữu Tài (Policy Owner), [S5] Nguyễn Ngọc Duy (Operations Specialist), [P1] Vắn Mỹ Vân (Purchaser Sponsor / PO)  
 > **Trạng thái:** KHÓA CỨNG (FROZEN) trước khi bước vào Phase G1
 
 ---
@@ -65,53 +65,53 @@ Mọi câu trả lời trả về cho người dùng CRM bắt buộc phải tu�
 
 ```json
 {
-  "answer_id": "ans-20261117-uuid",
-  "task_id": "task-crm-12345",
+  "answer_id": "ans-20261117-0001",
+  "task_id": "DEV-008",
   "status": "answered",
 
-  "original_question": "Chính sách bảo hành đổi mới sản phẩm X trong bao nhiêu ngày?",
+  "original_question": "Thiết bị động cơ công nghiệp 3 pha công suất 22 kW đã nộp đủ 03 chứng từ bảo hành hợp lệ thì định tuyến về đâu và SLA bao lâu?",
 
   "governing_date": "2026-11-17",
   "timezone": "Asia/Ho_Chi_Minh",
-  "scope": "company:SN;branch:all;role:all;customer_group:all;product:all",
+  "scope": "company:SN;branch:all;role:cskh;customer_group:b2b;product:motor_3phase;transaction_scope:warranty_tier1_internal",
   "is_historical": false,
   "is_future_preview": false,
 
-  "guidance_text": "Theo quy định hiện hành, sản phẩm X được áp dụng chính sách đổi mới trong vòng 30 ngày kể từ ngày xuất hóa đơn bán lẻ nếu phát sinh lỗi phần cứng do nhà sản xuất.",
+  "guidance_text": "Theo Chính sách Tiếp nhận và Định tuyến Bảo hành hiện hành (DOC-003, VER-001), thiết bị động cơ công nghiệp có công suất định mức từ 37 kW trở xuống (22 kW <= 37 kW) và đã có đủ 03 chứng từ hợp lệ được định tuyến Tuyến 1 về Trưởng bộ phận Kỹ thuật nội bộ (Internal Tech Lead) trong thời hạn tối đa 4 giờ làm việc.",
   "verbatim_quotes": [
-    "Sản phẩm nhóm X được quyền áp dụng 01 lần đổi mới sản phẩm tương đương trong thời hạn 30 ngày dương lịch tính từ ngày xuất hóa đơn nếu phát sinh lỗi kỹ thuật phần cứng."
+    "Đối với thiết bị có công suất định mức <= 37 kW (không thuộc dòng phòng nổ Ex-d) đã kiểm tra hợp lệ đủ 03 chứng từ bắt buộc, nhân viên CSKH định tuyến hồ sơ Tuyến 1 về Trưởng bộ phận Kỹ thuật nội bộ trong vòng 04 giờ làm việc."
   ],
 
   "citations": [
     {
-      "document_id": "DOC-WAR-001",
-      "document_version_id": "DOC-WAR-001-V2",
-      "passage_id": "PSG-WAR-042",
-      "title": "Quy chế bảo hành và đổi trả thiết bị 2026",
-      "page_number": 12,
-      "clause_ref": "Điều 5.1.a",
-      "quoted_text": "Sản phẩm nhóm X được quyền áp dụng 01 lần đổi mới sản phẩm tương đương trong thời hạn 30 ngày dương lịch...",
-      "evidence_url": "/api/v1/knowledge/passages/PSG-WAR-042"
+      "document_id": "DOC-003",
+      "document_version_id": "VER-001",
+      "passage_id": "PAS-023",
+      "title": "Chính sách Tiếp nhận & Định tuyến Bảo hành - Định tuyến Tuyến 1 (<= 37 kW)",
+      "page_number": 1,
+      "clause_ref": "Điều 2.1 (BH-02-04)",
+      "quoted_text": "Đối với thiết bị có công suất định mức <= 37 kW (không thuộc dòng phòng nổ Ex-d) đã kiểm tra hợp lệ đủ 03 chứng từ bắt buộc...",
+      "evidence_url": "/api/v1/knowledge/passages/PAS-023"
     }
   ],
 
   "critical_fields": [
     {
-      "field_id": "CF-WAR-001",
-      "policy_id": "POL-WAR",
-      "policy_version_id": "POL-WAR-V2",
-      "document_version_id": "DOC-WAR-001-V2",
-      "field_name": "thoi_han_doi_moi_ngay",
-      "field_type": "duration",
+      "field_id": "CF-009",
+      "policy_id": "POL-003",
+      "policy_version_id": "VER-001",
+      "document_version_id": "VER-001",
+      "field_name": "Ngưỡng công suất định tuyến bảo hành nội bộ Tuyến 1 (<= 37 kW) & Kiểm tra 3 chứng từ",
+      "field_type": "number",
       "operator": "<=",
-      "value": "30",
-      "unit": "ngày",
+      "value": "37",
+      "unit": "kW",
       "currency": null,
-      "approval_role": "service_steward",
-      "time_limit": "24h",
-      "exception_condition": "Không áp dụng đối với sản phẩm có dấu hiệu vào nước hoặc va đập ngoại lực",
-      "required_documents": ["hoa_don_vat", "bien_ban_kiem_dinh_kt"],
-      "source_clause": "Điều 5.1.a",
+      "approval_role": "Internal Tech Lead",
+      "time_limit": "4 giờ làm việc",
+      "exception_condition": "Động cơ phòng nổ Ex-d bắt buộc chuyển Tuyến 2 bất kể công suất (CF-032)",
+      "required_documents": "Warranty Card;Nameplate S/N Photo;Handover Minutes or VAT Invoice",
+      "source_clause": "Điều 2.1 (PAS-023)",
       "status": "effective"
     }
   ],
@@ -120,8 +120,8 @@ Mọi câu trả lời trả về cho người dùng CRM bắt buộc phải tu�
   "hold_reason": null,
   "uncertainty_note": null,
 
-  "referral_target": "truong_phong_chinh_sach_dich_vu",
-  "internal_use_warning": "Tài liệu lưu hành nội bộ SongNhat. Không cung cấp nguyên văn trích dẫn cho khách hàng.",
+  "referral_target": "Internal Tech Lead",
+  "internal_use_warning": "Tài liệu lưu hành nội bộ SongNhat (KNW 02). Không cung cấp nguyên văn trích dẫn cho khách hàng.",
 
   "pii_warning": null,
   "snapshot_age_hours": 1.25,
@@ -207,9 +207,9 @@ Trước khi chuyển sang cài đặt Phase G1, các thành viên đại diện
 | Đại diện | Vai trò dự án | Họ và tên | Trạng thái ký duyệt |
 |:---|:---|:---|:---:|
 | **Nhà Cung Cấp ([S3])** | S3 — Kỹ sư Truy xuất & Ứng dụng | **Phạm Lương Yến Nhi** | **ĐÃ DUYỆT (Signed)** |
-| **Bên Mua ([P2])** | P2 — Chủ sở hữu chính sách | **Lý Hữu Tài** | **ĐÃ DUYỆT (Signed)** |
+| **Bên Mua ([P2])** | P2 — Chủ sở hữu chính sách | **Trương Đình Hữu Tài** | **ĐÃ DUYỆT (Signed)** |
 | **Nhà Cung Cấp ([S4])** | S4 — Trưởng nhóm Chất lượng | **Phạm Quý Hải** | **ĐÃ DUYỆT (Signed)** |
-| **Bên Mua ([P1])** | P1 — Chủ đầu tư / Product Owner | **Văn Mỹ Vân** | **ĐÃ DUYỆT (Signed)** |
+| **Bên Mua ([P1])** | P1 — Chủ đầu tư / Product Owner | **Vắn Mỹ Vân** | **ĐÃ DUYỆT (Signed)** |
 | **Nhà Cung Cấp ([S5])** | S5 — Chuyên viên Vận hành | **Nguyễn Ngọc Duy** | **ĐÃ DUYỆT (Signed)** |
 
 ---

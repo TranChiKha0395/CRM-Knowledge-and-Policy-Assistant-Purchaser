@@ -18,6 +18,7 @@ Gói dữ liệu nguồn Base Scope (0% O1, 0% PII thật) do `[P3]` Trần Chí
 - [Quarantine_Passages_Fixtures_G1.csv](fixtures/Quarantine_Passages_Fixtures_G1.csv) & [Quarantine_CriticalFields_Fixtures_G1.csv](fixtures/Quarantine_CriticalFields_Fixtures_G1.csv) — Bộ fixture kiểm thử Quarantine cho `[S2]` (`CKPA-52`/`CKPA-59`).
 - [BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md](reports/BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md) — Báo cáo phụ thuộc & cảnh báo kỹ thuật schema `develop`.
 - [CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md](reports/CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md) — Bảng theo dõi Story `CKPA-49` & hướng dẫn PR.
+- [CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md](reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md) & [CKPA-82_source_uri_dat08_reverify.log](reports/CKPA-82_source_uri_dat08_reverify.log) — Biên bản & nhật ký kiểm lại 100% `source_uri`, `SHA-256` và `DAT 08` ký chốt `G1-AC01`.
 
 ## Tự kiểm định cục bộ
 ```powershell

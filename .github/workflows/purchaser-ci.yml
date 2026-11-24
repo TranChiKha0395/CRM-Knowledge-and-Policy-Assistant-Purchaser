@@ -18,5 +18,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Purchaser Guardrails (SoD, PII, CSV Schema)
+      - name: Run Purchaser Guardrails (SoD, 0% PII, Exact CSV Schema, Sealed Redaction)
         run: python scripts/ci_purchaser_guard.py
+
+      - name: Run Security Audit Runner Unit & Negative Tests
+        run: python -m unittest discover -s security/scripts -p "test_*.py" -v

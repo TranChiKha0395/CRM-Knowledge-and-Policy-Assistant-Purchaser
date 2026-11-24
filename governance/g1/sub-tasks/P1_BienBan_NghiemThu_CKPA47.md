@@ -29,8 +29,8 @@
 | `passages_template.csv` & Corpus G1 | <= 300 đoạn | Văn bản chính sách nội bộ SongNhat đã chuẩn hóa | 0 SĐT, 0 Email cá nhân, 0 CCCD/MST KH thật | **PASS (0% PII)** |
 | `critical_fields_template.csv` | <= 50 dòng | Tham số ngưỡng chiết khấu, SLA, thẩm quyền duyệt | Chỉ chứa giá trị định lượng & vai trò tổ chức | **PASS (0% PII)** |
 | Tập công khai 60 Dev Tasks | 60 tác vụ | Dữ liệu giả lập B2B (Synthetic data) đã làm sạch | 0% thông tin định danh khách hàng thật | **PASS (0% PII)** |
-| Tập 40 Validation & 80 Challenges (VN 02) | 120 tác vụ | Dữ liệu kiểm thử biên tổng hợp & mẫu câu hỏi sạch | 0% hồ sơ khách hàng thật; đạt chuẩn SEC 02 | **PASS (0% PII)** |
-| Tập 100 Sealed Acceptance (Kho cách ly) | 100 tác vụ | Dữ liệu nghiệm thu ẩn danh được phê duyệt | Lưu riêng tại kho sealed-eval-repo; 0% PII | **PASS (0% PII)** |
+| Tập công khai 60 Dev + 40 Validation (`CKPA-55`/`66`) | 100 tác vụ mở | Dữ liệu nghiệp vụ ẩn danh hóa trên kho Purchaser | 0% thông tin định danh khách hàng thật; đạt chuẩn SEC 02 | **PASS (0% PII)** |
+| Bản che hash 100 Sealed & Ranh giới 80 Challenges | 100 dòng khóa hash | Trên kho Purchaser chỉ lưu mã băm `[SEALED_TASK_HIDDEN]`, cấm lưu plaintext; bản gốc cô lập tại `sealed-eval-repo` (`CKPA-48`/`79`) | 0% lộ câu hỏi hoặc PII trên kho chung; kiểm toán ACL kho ngoài theo dõi riêng tại `CKPA-79` | **PASS (Cô lập chuẩn SoD)** |
 
 ---
 

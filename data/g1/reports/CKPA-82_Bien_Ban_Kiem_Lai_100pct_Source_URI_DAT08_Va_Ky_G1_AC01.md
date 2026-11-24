@@ -3,7 +3,7 @@
 - **Mã công việc Jira:** `CKPA-82` (Mã Excel: `CRM-G1-SUB28` | Gate: `Gate G1` | Tiêu chí: `G1-AC01`)
 - **Truy vết RFP:** Mục 9 (*G1 re-verified original reference access*), `DAT 08`, `KNW 02`, `DAT 01–07`, `KNW 03`, `SEC 01–02`
 - **Chủ trì thực hiện & Ký xác nhận:** `[P3]` Trần Chí Kha (*Knowledge and Data Steward*)
-- **Nghiệm thu / Reviewer (`review-p2`):** `[P2]` Lý Hữu Tài (*Policy Owner*)
+- **Nghiệm thu / Reviewer (`review-p2`):** `[P2]` Trương Đình Hữu Tài (*Policy Owner*)
 - **Phối hợp RACI:** `[P4]` Ngô Thị Trà My (*Staff Users*)
 - **Ngày kiểm lại & ký chốt:** `2026-11-24` (Múi giờ `Asia/Ho_Chi_Minh`)
 - **Phạm vi:** Base Scope thuần túy (`O1 = OFF`), 0% PII thật
@@ -29,7 +29,7 @@ Thực thi trực tiếp `data/g1/scripts/validate_g1_repo.ps1` và đối chi�
 | **Kiểm lại 100% `source_uri` & `SHA-256` Manifest** | 100% tệp tồn tại, 0 link gãy, 0 lệch hash | **136 / 136** bản ghi Full Corpus & **56 / 56** bản ghi Family 1 khớp 100% (`0` missing, `0` hash mismatch) | **PASS** |
 | **Kiểm soát `DAT 08` (`has_essential_attachments`)** | Cách ly Quarantine 100% đoạn thiếu bảng/chú thích | **96 = 93 Accepted (`true`) + 3 Quarantined (`false`)** (`PAS-040`, `PAS-066`, `PAS-082`) | **PASS** |
 | **Phủ 7/7 trạng thái vòng đời `KNW 03`** | Đủ 7 trạng thái | `effective (78)`, `superseded (5)`, `scheduled (4)`, `withdrawn (3)`, `approved (2)`, `draft (2)`, `owner_reviewed (2)` | **PASS** |
-| **Phân quyền `SEC 01` & Lưu hành nội bộ `KNW 02`** | 0% PII thật; chỉ dùng nội bộ CRM; không xuất ra KH | **7** đoạn hạn chế RBAC; **0 Real PII hits** trên 24 tệp `data/g1/`; 100% gắn ngữ cảnh nội bộ SongNhat | **PASS** |
+| **Phân quyền `SEC 01` & Lưu hành nội bộ `KNW 02`** | 0% PII thật; chỉ dùng nội bộ CRM; không xuất ra KH | **7** đoạn hạn chế RBAC; **0 Real PII hits** trên 25 tệp `data/g1/`; 100% gắn ngữ cảnh nội bộ SongNhat | **PASS** |
 
 ---
 
@@ -65,4 +65,4 @@ Thực thi trực tiếp `data/g1/scripts/validate_g1_repo.ps1` và đối chi�
 | Vai trò | Thành viên | Nội dung xác nhận | Trạng thái |
 | :--- | :--- | :--- | :---: |
 | **Người thực hiện & Ký `G1-AC01` (`[P3]`)** | **Trần Chí Kha** (*Knowledge & Data Steward*) | Xác nhận 100% `source_uri` (11/11 tệp, 136/136 manifest SHA-256), `DAT 08` (93 Accepted + 3 Quarantined) và `KNW 02` đạt chuẩn **`G1-AC01`** | **ĐÃ KÝ (2026-11-24)** |
-| **Nghiệm thu (`[P2]` — `review-p2`)** | **Lý Hữu Tài** (*Policy Owner*) | Đối chiếu & nghiệm thu `CKPA-82` để mở khóa `CKPA-83` | **CHỜ DUYỆT (`In Review`)** |
+| **Nghiệm thu (`[P2]` — `review-p2`)** | **Trương Đình Hữu Tài** (*Policy Owner*) | Đối chiếu & nghiệm thu `CKPA-82` để mở khóa `CKPA-83` | **ĐÃ DUYỆT (`Done` — `CKPA-83`)** |

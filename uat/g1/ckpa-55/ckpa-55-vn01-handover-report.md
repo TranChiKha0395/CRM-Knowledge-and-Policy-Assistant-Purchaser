@@ -4,7 +4,7 @@
 > **Mã công việc (Jira):** `CKPA-55` | **Mã gốc (Excel G1):** `CRM-G1-SUB08`  
 > **Tiêu chí nghiệm thu Cổng G1:** `G1-AC07`  
 > **Nhánh Git làm việc:** `uat/CRM-G1-SUB08-100-real-tasks-vn01-terms` (đồng bộ trên PR #20)  
-> **Vị trí file chuẩn:** `docs/work-packages/ckpa-55-vn01-handover-report.md`  
+> **Vị trí file chuẩn:** `uat/g1/ckpa-55/ckpa-55-vn01-handover-report.md`  
 > **Phía phụ trách:** Purchaser (SongNhat)  
 > **Assignee / Lead:** `[P4] Ngô Thị Trà My (Staff users)`  
 > **Collaborators / RACI:** `[P5] Nguyễn Anh Khoa`, `[S3] Yến Nhi`  
@@ -44,12 +44,12 @@ Nhằm tránh gãy khóa ngoại khi Trưởng nhóm Kiểm định độc lập
 | `CRIT-QBG-02` | **`CF-002`** | Hạn mức chiết khấu cấp trung | Họ 1 | $> 5\%$ đến $\le 15\%$, Trưởng phòng Kinh doanh (TPKD) duyệt |
 | `CRIT-QBG-03` | **`CF-003`** | Hạn mức chiết khấu đặc biệt | Họ 1 | $> 15\%$, Giám đốc Kinh doanh / GĐ Thương mại duyệt |
 | `CRIT-QBG-04` | **`CF-004`** | Thời hạn hiệu lực báo giá | Họ 1 | Báo giá có hiệu lực tối đa 15 ngày kể từ ngày ban hành |
-| `CRIT-CRM-01` | **`CF-005`** | Cập nhật thông tin liên hệ / email GTGT | Họ 2 | TPKD phê duyệt cập nhật trên CRM; xuất hóa đơn theo thông tin mới |
-| `CRIT-CRM-02` | **`CF-006`** | Đổi đại diện pháp luật ($\le 500$M) | Họ 2 | Hợp đồng lũy kế $\le 500$ triệu VND, TPKD duyệt thẩm tra hồ sơ |
-| `CRIT-CRM-03` | **`CF-007`** | Đổi đại diện pháp luật ($> 500$M) | Họ 2 | Hợp đồng lũy kế $> 500$ triệu VND, GĐ Chi nhánh trực tiếp ký duyệt |
-| `CRIT-CRM-04` | **`CF-008`** | Quyền tiếp cận dữ liệu cá nhân PII | Họ 2 | Tuân thủ Luật Bảo vệ DLCN 91/2025/QH15, phân quyền RBAC SYS-01 reader |
-| `CRIT-BH-01` | **`CF-009`** | Thời hạn bảo hành tiêu chuẩn | Họ 3 | Bảo hành tiêu chuẩn 24 tháng cho thiết bị động cơ/biến tần |
-| `CRIT-BH-02` | **`CF-010`** | Thời hạn đổi mới thiết bị lỗi kỹ thuật | Họ 3 | Đổi mới 1:1 trong vòng 7 ngày kể từ ngày nhận hàng nếu lỗi NSX |
+| `CRIT-CRM-01` | **`CF-005`** | Thời hạn cập nhật thông tin liên hệ / email GTGT | Họ 2 | SLA xử lý $\le 2$ giờ làm việc (`CRM Staff` — `reader`) |
+| `CRIT-CRM-02` | **`CF-006`** | Cập nhật pháp lý DN dưới ngưỡng ($< 500$M) | Họ 2 | Hợp đồng lũy kế $< 500$ triệu VND, `CRM Staff` xử lý trong 4 giờ làm việc |
+| `CRIT-CRM-03` | **`CF-007`** | Phê duyệt pháp lý KH trọng yếu ($\ge 500$M) | Họ 2 | Hợp đồng lũy kế $\ge 500$ triệu VND, `CRM Manager` phê duyệt trong 4 giờ làm việc |
+| `CRIT-CRM-04` | **`CF-008`** | Cập nhật pháp lý khẩn cấp ngoài giờ hành chính | Họ 2 | SLA xử lý $\le 1$ giờ khi có phê duyệt của `CRM Director` |
+| `CRIT-BH-01` | **`CF-009`** | Ngưỡng công suất định tuyến bảo hành Tuyến 1 | Họ 3 | Công suất $\le 37$ kW (kiểm tra đủ 03 chứng từ), định tuyến `Internal Tech Lead` |
+| `CRIT-BH-02` | **`CF-010`** | Ngưỡng công suất định tuyến giám định Hãng Tuyến 2 | Họ 3 | Công suất $> 37$ kW (hoặc lỗi bo mạch chính), định tuyến `Vendor Chief Engineer` |
 
 *(Ghi chú cấu trúc mã CF: Nhóm mã mở rộng `CF-011` đến `CF-022` thuộc Họ 1; Họ 2 sử dụng dải chuẩn `CF-005`..`CF-008`; Họ 3 sử dụng dải chuẩn `CF-009`..`CF-010` theo đúng cấu trúc dữ liệu G0 & CKPA-50).*
 
@@ -72,20 +72,20 @@ Nhằm tránh gãy khóa ngoại khi Trưởng nhóm Kiểm định độc lập
 ## 3. KẾT QUẢ BÀN GIAO 2: TỪ ĐIỂN VIẾT TẮT CRM & CHUẨN HÓA TRUY VẤN VN 01
 
 - **Tệp bàn giao:** [`vn01_crm_dictionary.json`](vn01_crm_dictionary.json)
-- **Nội dung:** Gồm 43 chữ viết tắt CRM (`kh`, `ck`, `hđ`, `cskh`, `cvkd`, `tpkd`, `gđcn`, `tgđ`, `bo`, `stock`...), 30 cụm từ tiếng Việt không dấu, thuật ngữ kỹ thuật song ngữ Anh - Việt và **14 từ phủ định tiếng Việt bắt buộc bảo toàn** (`không`, `chưa`, `chẳng`, `miễn`, `ngoại trừ`, `cấm`, `từ chối`...).
+- **Nội dung:** Gồm **42 nhóm từ viết tắt CRM** (`kh`, `ck`, `hđ`, `cskh`, `cvkd`, `tpkd`, `gđcn`, `tgđ`, `bo`, `stock`...), **31 cụm từ tiếng Việt không dấu**, **16 thuật ngữ kỹ thuật song ngữ Anh - Việt** và **14 từ phủ định tiếng Việt bắt buộc bảo toàn** (`không`, `chưa`, `chẳng`, `miễn`, `ngoại trừ`, `cấm`, `từ chối`...).
 - **Quy trình tích hợp:** P4 bàn giao tệp JSON định dạng mở cho `S3` (Yến Nhi) để S3 chủ động cập nhật vào module backend (`backend/src/modules/retrieval/models.py`) trên nhánh phát triển kỹ thuật của Supplier, bảo đảm P4 không can thiệp vào mã nguồn phần mềm.
 
 ---
 
-## 4. BẢNG THEO DÕI TRẠNG THÁI KÝ NHẬN VÀ BÀN GIAO (ĐÃ HIỆU CHỈNH MINH BẠCH)
+## 4. BẢNG THEO DÕI TRẠNG THÁI KÝ NHẬN VÀ BÀN GIAO (ĐÃ NGHIỆM THU `DONE`)
 
 | Vai trò | Thành viên | Nhiệm vụ đối soát | Trạng thái thực tế | Ghi chú theo dõi |
 |---|---|---|:---:|---|
-| **Lead bàn giao (P4)** | **Ngô Thị Trà My** | Hoàn tất dữ liệu 100 câu hỏi sạch PII & Từ điển VN 01 | **ĐÃ BÀN GIAO (CHỜ DUYỆT)** | Đã đẩy đủ dữ liệu lên PR #20 |
-| **Chủ sở hữu Bảo mật (P5)** | **Nguyễn Anh Khoa** | Thẩm định độc lập tiêu chí 0% PII (SEC 02/06) | **CHỜ RÀ SOÁT (PENDING)** | Kính mời P5 vào đối soát PII trên PR #20 |
-| **Kiểm định Độc lập (S4)** | **Quý Hải** | Tiếp nhận 100 câu hỏi phục vụ đánh giá offline G1 | **CHỜ TIẾP NHẬN (PENDING)** | Kính mời S4 kiểm tra định dạng và bảng map CF-xxx |
-| **Kỹ sư Truy xuất (S3)** | **Yến Nhi** | Tiếp nhận Từ điển VN 01 tích hợp vào module retrieval | **ĐÃ NHẬN TỪ ĐIỂN (CHỜ TÍCH HỢP)** | S3 tiếp nhận file JSON để tự tích hợp vào code |
-| **Chủ đầu tư / PO (P1)** | **Mỹ Vân** | Phê duyệt nghiệm thu Sub-task Cổng G1 (G1-AC07) | **CHỜ NGHIỆM THU (PENDING)** | Chờ ý kiến của P5 và S4 trước khi đóng ticket |
+| **Lead bàn giao (P4)** | **Ngô Thị Trà My** | Hoàn tất dữ liệu 100 câu hỏi sạch PII & Từ điển VN 01 | **ĐÃ HOÀN TẤT BÀN GIAO** | Đồng bộ chuẩn `PAS-001..030` & `CF-001..010` |
+| **Chủ sở hữu Bảo mật (P5)** | **Nguyễn Anh Khoa** | Thẩm định độc lập tiêu chí 0% PII (SEC 02/06) | **ĐÃ THẨM ĐỊNH (`0% PII`)** | CI Guard & PII Audit PASS 0 vi phạm |
+| **Kiểm định Độc lập (S4)** | **Phạm Quý Hải** | Tiếp nhận 100 câu hỏi phục vụ đánh giá offline G1 | **ĐÃ TIẾP NHẬN** | Chuyển tiếp phân vùng tại `CKPA-67` |
+| **Kỹ sư Truy xuất (S3)** | **Phạm Lương Yến Nhi** | Tiếp nhận Từ điển VN 01 tích hợp vào module retrieval | **ĐÃ TIẾP NHẬN TỪ ĐIỂN** | Tích hợp vào module chuẩn hóa truy vấn |
+| **Chủ đầu tư / PO (P1)** | **Vắn Mỹ Vân** | Phê duyệt nghiệm thu Sub-task Cổng G1 (G1-AC07) | **ĐÃ NGHIỆM THU (`Done` 19/11/2026)** | Xem `governance/g1/sub-tasks/P1_CKPA55_BienBan_NghiemThu_100CauHoi_Va_TuDien_VN01.md` |
 
 ---
 

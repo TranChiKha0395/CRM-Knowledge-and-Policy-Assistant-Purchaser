@@ -20,7 +20,7 @@
 2. **`Critical_Fields_Family1.csv`** — **16 critical fields** (`CF-001..CF-004`, `CF-011..CF-022`), UTF-8 (no BOM), đúng **23 cột** khớp tuyệt đối `CRITICAL_FIELDS_CSV_COLUMNS` trong `develop/backend/src/modules/ingestion/service.py`.
 3. **`Source_URI_And_Checksum_Manifest_Family1.csv`** — Bảng đối soát **56/56 bản ghi** (40 passages + 16 critical fields) kèm `source_uri` mở kiểm tra được 100%, mã băm `SHA-256`, độ dài Unicode và cờ `DAT 08`.
 4. **Hồ sơ nguồn tham chiếu (`sources/DOC-001`, `DOC-004`, `DOC-006`, `DOC-007`)** — Cho phép re-verify thực tế `source_uri` theo `G1-AC01` và `DAT 08`.
-5. **Bộ Test Fixture lỗi tách riêng (`Test_Fixtures_Quarantine_OPS01_04/`)** — **6 passages** + **4 critical fields** tiêm lỗi bao phủ **100% nhánh lỗi** của `IngestionService._validate_row()` trên nhánh `develop` (`PASSAGE_TOO_LONG`, `MISSING_ESSENTIAL_ATTACHMENTS`, `INVALID_RECORD_ACTION`, `MISSING_CURRENCY_UNIT`, thiếu `unit`, trùng `passage_id`, sai enum `KNW 03`, và `tombstone`).
+5. **Bộ Test Fixture lỗi tách riêng (`data/g1/fixtures/`)** — **6 passages** (`Quarantine_Passages_Fixtures_G1.csv`) + **4 critical fields** (`Quarantine_CriticalFields_Fixtures_G1.csv`) tiêm lỗi bao phủ **100% nhánh lỗi** của `IngestionService._validate_row()` trên nhánh `develop` (`PASSAGE_TOO_LONG`, `MISSING_ESSENTIAL_ATTACHMENTS`, `INVALID_RECORD_ACTION`, `MISSING_CURRENCY_UNIT`, thiếu `unit`, trùng `passage_id`, sai enum `KNW 03`, và `tombstone`).
 
 ---
 
@@ -40,7 +40,7 @@
 
 ---
 
-## 3. Kết quả Tự kiểm định (`scripts/validate_corpus_g1.ps1` — Đối chiếu Live `develop` & Script `[P5]`)
+## 3. Kết quả Tự kiểm định (`data/g1/scripts/validate_g1_repo.ps1` — Đối chiếu Live `develop` & Script `[P5]`)
 
 - **Hợp đồng CSV & Live `develop/backend/src/modules/ingestion/service.py`:**
   - `Policy_Corpus_Family1.csv`: đúng 21/21 cột UTF-8, đối soát dự kiến khi chạy qua `IngestionService.validate_csv_bytes()`: **`Expected = 40 = Accepted 39 + Quarantined 1 (PAS-040: MISSING_ESSENTIAL_ATTACHMENTS)`**.
