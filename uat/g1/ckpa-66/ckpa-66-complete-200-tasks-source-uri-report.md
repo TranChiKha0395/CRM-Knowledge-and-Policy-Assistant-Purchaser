@@ -103,4 +103,4 @@ Nhằm bảo đảm tính khách quan tuyệt đối cho giai đoạn kiểm đ�
 
 ---
 
-*Hồ sơ cập nhật ngày 23/11/2026. Sẵn sàng nghiệm thu Sub-task CKPA-66 trên Jira và GitHub.*
+*Hồ sơ cập nhật ngày 24/11/2026 (v1.1): Chuẩn hóa dòng `TASK-097` (`VAL-037`) thành nhóm biến thể độc lập `VG-17` (`PAS-009` — Quy tắc Ngày chi phối `Governing Date` & chính sách `scheduled`, `DOC-001`) để danh mục 200 tác vụ gồm **17 nhóm biến thể** (`7×13 + 9×12 + 1×1 = 200`), cho phép `[S4]` phân vùng đúng tròn **60 DEV / 40 VAL / 100 SEALED** mà giữ nguyên 100% nguyên tắc Mục 8 RFP (*Keep related variants and records in one partition*), không động tới 100 ca Sealed.*
