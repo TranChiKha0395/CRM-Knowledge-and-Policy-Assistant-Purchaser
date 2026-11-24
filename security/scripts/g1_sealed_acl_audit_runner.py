@@ -42,7 +42,7 @@ def audit_shared_repo_isolation(repo_root: Path = REPO_ROOT):
         if p.is_symlink():
             try:
                 target = p.resolve()
-                if not str(target).startswith(str(repo_root.resolve())):
+                if not target.is_relative_to(repo_root.resolve()):
                     symlink_violations.append(f"{rel} -> {target}")
             except Exception as exc:
                 symlink_violations.append(f"{rel} (broken symlink: {exc})")
