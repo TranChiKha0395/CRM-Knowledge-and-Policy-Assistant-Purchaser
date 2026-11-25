@@ -35,7 +35,7 @@ LIVE_TEST_MATRIX = [
         "target_doc": "DOC-006",
         "target_version": "DOC006-VER-001",
         "method": "POST",
-        "endpoint": "/api/v1/answer/",
+        "endpoint": "/api/v1/answer",
         "payload": {
             "question": "Dieu khoan chiet khau co dinh trong hop dong khung B2B DOC-006 la gi?",
             "scope": "company:SN;branch:all;role:sales;customer_group:standard_b2c;product:commercial;transaction_scope:standard_b2c",
@@ -49,7 +49,7 @@ LIVE_TEST_MATRIX = [
         "category": "Cross-Role Cache Isolation 2-Step Replay across KNW 03 Lifecycle States (SEC 01 / KNW 03 / OPS 05)",
         "role": "steward -> reader",
         "warmup_token_envs": ("CKPA_TOKEN_STEWARD", "CKPA_STEWARD_BEARER_TOKEN"),
-        "warmup_endpoint": "/api/v1/answer/",
+        "warmup_endpoint": "/api/v1/answer",
         "warmup_payload": {
             "question": "Phu luc DPA Hop dong B2B DOC-008 quy dinh thoi han xoa du lieu bao lau?",
             "scope": "company:SN;branch:all;role:crm;customer_group:b2b;product:industrial;transaction_scope:all_commercial",
@@ -58,7 +58,7 @@ LIVE_TEST_MATRIX = [
         "target_doc": "DOC-008",
         "target_version": "DOC008-VER-001",
         "method": "POST",
-        "endpoint": "/api/v1/answer/",
+        "endpoint": "/api/v1/answer",
         "payload": {
             "question": "Phu luc DPA Hop dong B2B DOC-008 quy dinh thoi han xoa du lieu bao lau?",
             "scope": "company:SN;branch:all;role:sales;customer_group:standard_b2c;product:commercial;transaction_scope:standard_b2c",
@@ -78,7 +78,7 @@ LIVE_TEST_MATRIX = [
         "target_doc": "DOC-007",
         "target_version": "DOC007-VER-001",
         "method": "POST",
-        "endpoint": "/api/v1/answer/",
+        "endpoint": "/api/v1/answer",
         "payload": {
             "question": "Quy dinh ap dung tai lieu DOC-007 hien hanh nhu the nao?",
             "scope": "company:SN;branch:all;role:sales;customer_group:b2b;product:industrial;transaction_scope:all_commercial",

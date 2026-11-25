@@ -24,7 +24,7 @@ class TestRbacFailClosedAuditRunner(unittest.TestCase):
 
     def test_02_contract_uses_answer_root_and_6d_dat04_scope(self):
         for tc in runner.LIVE_TEST_MATRIX[:3]:
-            self.assertEqual(tc["endpoint"], "/api/v1/answer/")
+            self.assertEqual(tc["endpoint"], "/api/v1/answer")
             self.assertIn("question", tc["payload"])
             self.assertNotIn("user_context", tc["payload"])
             for key in runner.REQUIRED_SCOPE_KEYS:
