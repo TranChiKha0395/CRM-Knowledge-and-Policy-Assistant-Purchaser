@@ -1,33 +1,34 @@
-# BỘ HỒ SƠ CHÍNH THỨC NGHIỆM THU CỔNG GATE G1 (CONTROLLED OFFLINE PILOT & BENCHMARKS), QUYẾT ĐỊNH CẤP PHÉP MỞ CỔNG G2 VÀ LỆNH GIẢI NGÂN THANH TOÁN MỐC 2 (25%)
+# HỒ SƠ BÁO CÁO RÀ SOÁT CỔNG GATE G1 (CONTROLLED OFFLINE PILOT & BENCHMARKS), ĐỐI SOÁT 7 TIÊU CHÍ G1-AC01..07, QUYẾT ĐỊNH TREO ĐIỀU KIỆN MỞ G2 VÀ LỆNH GIẢI NGÂN MỐC 2 (25%)
 
-> **Dự án:** Trợ lý Tri thức và Chính sách CRM (CRM Knowledge & Policy Assistant — SCRM / CKPA)  
+> **Dự án:** Trợ lý Tri thức và Chính sách CRM (SongNhat CRM Knowledge & Policy Assistant — SCRM / CKPA)  
 > **Chủ đầu tư / Bên mua (Purchaser):** Công ty Cổ phần Thiết bị Công nghiệp Song Nhật  
-> **Cấp thẩm quyền phê duyệt:** [P1] Vắn Mỹ Vân – Purchaser Sponsor / Product Owner  
+> **Cấp thẩm quyền rà soát:** [P1] Vắn Mỹ Vân – Purchaser Sponsor / Product Owner  
 > **Mã Story Jira cha:** `CKPA-81` (Mã gốc Excel: `CRM-G1-ST10` — *[G1][Mục9] Nghiệm thu G1 (25%) & Sprint 5 Retro*) | **Epic:** `CKPA-44`  
-> **Các Sub-tasks trực thuộc đã tích hợp và hoàn tất:**  
-> - `CKPA-82` (`CRM-G1-SUB28`): Rà soát lại 100% source_uri & bảng/chú thích DAT 08 (`[P3]` Trần Chí Kha hoàn thành, PR #52 & PR #55 đã merge)  
-> - `CKPA-83` (`CRM-G1-SUB29`): Xác nhận chuyên môn Policy Reviewer #1 về Ngày/Trường/Hold (`[P2]` Trương Đình Hữu Tài hoàn thành, PR #54 đã merge)  
-> - `CKPA-84` (`CRM-G1-SUB30`): Họp Hội đồng Ký G1 (25%) & Biên bản Sprint 5 Retro (`[P1]` Vắn Mỹ Vân chủ trì)  
-> **Trạng thái Cổng G1:** **NGHIỆM THU CHÍNH THỨC (APPROVED & SIGNED-OFF)**  
-> **Thời điểm ban hành:** Ngày 24/11/2026 (Giờ Việt Nam — UTC+7)
+> **Các Sub-tasks trực thuộc tích hợp đối soát:**  
+> - `CKPA-82` (`CRM-G1-SUB28`): Rà soát lại 100% source_uri & bảng/chú thích DAT 08 (`[P3]` Trần Chí Kha hoàn thành, PR #52 & PR #55 đã merge — ĐẠT)  
+> - `CKPA-83` (`CRM-G1-SUB29`): Xác nhận chuyên môn Policy Reviewer #1 về Ngày/Trường/Hold (`[P2]` Trương Đình Hữu Tài hoàn thành, PR #54 đã merge — ĐẠT)  
+> - `CKPA-84` (`CRM-G1-SUB30`): Họp Hội đồng Ký G1 (25%) & Biên bản Sprint 5 Retro (`[P1]` Vắn Mỹ Vân chủ trì — Đang rà soát)  
+> **Trạng thái Văn kiện:** **BẢN DỰ THẢO RÀ SOÁT CHỜ GIẢI TỎA BLOCKERS (DRAFT v0.9 — PENDING_G1_BLOCKERS)**  
+> **Khuyến nghị Quyết định Cổng G1:** **TẠM DỪNG CHỜ GIẢI TỎA (HOLD / PENDING_G1_BLOCKERS)**  
+> **Thời điểm ban hành rà soát:** Ngày 25/11/2026 (Giờ Việt Nam — UTC+7)
 
 ---
 
-## MỤC LỤC VĂN KIỆN NGHIỆM THU
+## MỤC LỤC VĂN KIỆN RÀ SOÁT
 
-- **PHẦN I:** TỔNG HỢP CĂN CỨ VÀ KẾT QUẢ THẨM ĐỊNH TỪ CÁC SUB-TASKS (CKPA-82 & CKPA-83)
-- **PHẦN II:** BẢNG ĐỐI SOÁT TOÀN DIỆN 7/7 TIÊU CHÍ NGHIỆM THU CỔNG G1 (G1-AC01 .. G1-AC07)
-- **PHẦN III:** QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: PHÊ DUYỆT CỔNG G1 VÀ CẤP PHÉP MỞ CỔNG G2 (LIVE PILOT)
-- **PHẦN IV:** LỆNH GIẢI NGÂN THANH TOÁN MỐC 2 (25% GIÁ TRỊ HỢP ĐỒNG BASE SCOPE)
+- **PHẦN I:** TỔNG HỢP CĂN CỨ VÀ KẾT QUẢ THẨM ĐỊNH TỪ CÁC SUB-TASKS ĐÃ HOÀN TẤT (CKPA-82 & CKPA-83)
+- **PHẦN II:** BẢNG ĐỐI SOÁT TRUNG THỰC 7/7 TIÊU CHÍ CỔNG G1 (G1-AC01 .. G1-AC07) THEO LOG THỰC TẾ
+- **PHẦN III:** QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: XÁC LẬP TRẠNG THÁI HOLD VÀ 4 BLOCKERS BẮT BUỘC TRƯỚC KHI MỞ G2
+- **PHẦN IV:** LỆNH GIẢI NGÂN THANH TOÁN MỐC 2 (25%) VÀ ĐIỀU KIỆN TREO PENDING_SUPPLIER_QUOTE
 - **PHẦN V:** BIÊN BẢN SPRINT 5 RETROSPECTIVE & BẢNG KÝ DUYỆT 10 VAI TRÒ HỘI ĐỒNG
 
 ---
 
-# PHẦN I: TỔNG HỢP CĂN CỨ VÀ KẾT QUẢ THẨM ĐỊNH TỪ CÁC SUB-TASKS
+# PHẦN I: TỔNG HỢP CĂN CỨ VÀ KẾT QUẢ THẨM ĐỊNH TỪ CÁC SUB-TASKS ĐÃ HOÀN TẤT
 
-Hội đồng Nghiệm thu Cổng G1 do **`[P1]` Vắn Mỹ Vân** chủ trì ghi nhận và tiếp nhận toàn diện kết quả thực hiện độc lập từ các Sub-tasks kỹ thuật và chuyên môn:
+Hội đồng Nghiệm thu Cổng G1 do **`[P1]` Vắn Mỹ Vân** chủ trì ghi nhận và tiếp nhận toàn diện kết quả thực hiện độc lập từ các Sub-tasks kỹ thuật và chuyên môn đã hoàn tất:
 
-### 1.1 Tiếp nhận Kết quả Rà soát Nguồn Tri thức từ `CKPA-82` (`[P3]` Trần Chí Kha)
+### 1.1 Tiếp nhận Kết quả Rà soát Nguồn Tri thức từ `CKPA-82` (`[P3]` Trần Chí Kha — ĐÃ HOÀN THÀNH)
 Căn cứ Biên bản kiểm lại `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md` và nhật ký `CKPA-82_source_uri_dat08_reverify.log` (đã đối soát thực tế qua PR #52 và PR #55 trên nhánh `develop`):
 - **Trần quy mô dữ liệu Base Scope G1:**
   - Tài liệu nguồn gốc: Đạt **11 / 30** tài liệu (phủ đủ 3 họ chính sách `POL-001`, `POL-002`, `POL-003` và 5 lớp thẩm quyền `DAT 03`: Policy, SOP, Customer Contract, Staff Note, Manufacturer Terms).
@@ -41,7 +42,7 @@ Căn cứ Biên bản kiểm lại `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_10
 - **Tuân thủ phân quyền và bảo vệ quyền riêng tư:**
   - 100% tệp dữ liệu đạt chuẩn **0% PII thật** (được tái kiểm tra và xác nhận qua nhật ký `security/g1/g1_pii_audit_CKPA-47.log`).
 
-### 1.2 Tiếp nhận Thẩm định Chuyên môn Chính sách từ `CKPA-83` (`[P2]` Trương Đình Hữu Tài)
+### 1.2 Tiếp nhận Thẩm định Chuyên môn Chính sách từ `CKPA-83` (`[P2]` Trương Đình Hữu Tài — ĐÃ HOÀN THÀNH)
 Căn cứ Biên bản chuyên môn `policy/g1/CKPA-83_Xac_Nhan_Policy_Reviewer1_P2_Corpus_Ngay_Truong_Hold.md` (PR #54):
 - **Trụ cột Ngày hiệu lực chi phối (`OPS 03`) & Vòng đời tri thức (`KNW 03`):**
   - Toàn bộ các mốc thời gian được chuẩn hóa theo múi giờ Việt Nam (`Asia/Ho_Chi_Minh`, `UTC+7`).
@@ -50,88 +51,90 @@ Căn cứ Biên bản chuyên môn `policy/g1/CKPA-83_Xac_Nhan_Policy_Reviewer1_
   - Chặn 100% ở tầng Pre-Retrieval đối với 4 trạng thái chưa hoặc ngừng hiệu lực (`withdrawn`, `draft`, `owner_reviewed`, `approved`).
 - **Trụ cột 6 Chiều ngữ cảnh (`DAT 04`) & 40 Trường trọng yếu (`OPS 04`):**
   - 100% (136/136 bản ghi) khai báo đầy đủ 6 chiều: `company`, `branch`, `role`, `customer_group`, `product`, `transaction_scope`.
-  - Chuẩn hóa các ngưỡng số học: Chiết khấu từ 5% trở xuống (CVKD duyệt trong 2h), trên 5% đến 15% (TPKD duyệt trong 4h), trên 15% hoặc đơn từ 1 tỷ VND (GĐKD duyệt trong 48h); Hợp đồng lũy kế dưới 500 triệu VND (CRM Staff, 4h) vs từ 500 triệu VND trở lên (CRM Manager, 4h); Công suất động cơ thường từ 37.0 kW trở xuống (Tuyến 1 Kỹ thuật nội bộ) vs trên 37.0 kW (Tuyến 2 Hãng), riêng động cơ phòng nổ Ex-d bắt buộc Tuyến 2.
+  - Chuẩn hóa các ngưỡng số học qua Decimal thuần (0% LLM số học): Chiết khấu từ 5% trở xuống (CVKD duyệt trong 2h), trên 5% đến 15% (TPKD duyệt trong 4h), trên 15% hoặc đơn từ 1 tỷ VND (GĐKD duyệt trong 48h); Hợp đồng lũy kế dưới 500 triệu VND (CRM Staff, 4h) vs từ 500 triệu VND trở lên (CRM Manager, 4h); Công suất động cơ thường từ 37.0 kW trở xuống (Tuyến 1 Kỹ thuật nội bộ) vs trên 37.0 kW (Tuyến 2 Hãng), riêng động cơ phòng nổ Ex-d bắt buộc Tuyến 2.
 - **Trụ cột Cơ chế HOLD & Ranh giới Fail-Closed (`DAT 05`, `DAT 08`, `ANS 05/06`):**
   - Mã hóa chuẩn 4 kịch bản HOLD: Quarantine Hold (thiếu bảng biểu), Conflict Hold (xung đột Hợp đồng khung/OEM cấm tự suy diễn thứ bậc ưu tiên, bắt buộc trích dẫn song song), Evidence Hold (mờ chứng từ, tạo phiếu chuyển tiếp xử lý trong 8 giờ làm việc), và Từ chối tiền lệ ghi chú CRM (`staff_note` không ghi đè chính sách).
 
 ---
 
-# PHẦN II: BẢNG ĐỐI SOÁT TOÀN DIỆN 7/7 TIÊU CHÍ NGHIỆM THU CỔNG G1 (G1-AC01 .. G1-AC07)
+# PHẦN II: BẢNG ĐỐI SOÁT TRUNG THỰC 7/7 TIÊU CHÍ CỔNG G1 (G1-AC01 .. G1-AC07) THEO LOG THỰC TẾ
 
-Hội đồng Nghiệm thu Cổng G1 đã tiến hành kiểm tra độc lập và đối soát chi tiết từng tiêu chí chấp nhận:
+Hội đồng Nghiệm thu đối soát chi tiết từng tiêu chí chấp nhận dựa trên bằng chứng kỹ thuật và nhật ký kiểm toán thực tế (No-Mock) trên nhánh `develop`:
 
-| Mã Tiêu chí | Tên Tiêu chí Cổng G1 | Yêu cầu Kỹ thuật Kiểm soát RFP | Bằng chứng Thực tế Đối soát | Kết luận |
+| Mã Tiêu chí | Tên Tiêu chí Cổng G1 | Yêu cầu Kỹ thuật Kiểm soát RFP | Bằng chứng Thực tế Đối soát (No-Mock) | Kết luận Đánh giá |
 | :---: | :--- | :--- | :--- | :---: |
 | **`G1-AC01`** | **Toàn vẹn Dữ liệu Curation Full Corpus 3 Họ Chính sách** | Đủ 11 tài liệu nguồn (DOC-001..011); dưới 300 đoạn văn; dưới 50 trường trọng yếu; 100% bản ghi đủ 6 chiều DAT 04; 0 link gãy source_uri; 136 SHA-256 khớp 100%. | Biên bản CKPA-82 của [P3], PR #52 & PR #55; Xác nhận của [P2] tại CKPA-83; File Policy_Corpus_G1_Full.csv. | **ĐẠT (PASS)** |
-| **`G1-AC02`** | **Bộ Dữ liệu Kiểm thử Độc lập 200 Tasks & 80 Challenges** | Phân vùng chuẩn 60 Dev / 40 Val / 100 Sealed chống rò rỉ; Niêm phong 100 Sealed + 80 Challenges trong sealed-eval-repo; 2 Policy Reviewers đồng duyệt. | Báo cáo CKPA-65, CKPA-66; Biên bản CKPA-83 của [P2]; Kho niêm phong độc lập của [S4] Quý Hải. | **ĐẠT (PASS)** |
-| **`G1-AC03`** | **Bảo vệ Quyền Riêng tư & Tuân thủ An toàn Bảo mật** | Đạt 0% PII thật (SEC 02/06); Kiểm thử Pre-Retrieval RBAC chặn 100% quyền trái phép (SEC 01); Không rò rỉ snippet/link khi bị từ chối; Ẩn danh nhật ký SEC 08. | Báo cáo Kiểm toán Bảo mật CKPA-70 của [P5]; Log g1_rbac_failclosed_audit_CKPA-70.log; Chứng nhận CKPA-47. | **ĐẠT (PASS)** |
-| **`G1-AC04`** | **Kiểm soát Vòng đời, Ngày chi phối & Cơ chế Fail-Closed** | Xử lý chuẩn 7 trạng thái KNW 03; Phân định ranh giới ngày 2026-11-06 09:00:00 UTC+7 (OPS 03); Ngưỡng số học chuẩn (OPS 04); Thu hồi khẩn cấp tức thì Fail-Closed dưới 5 phút (SEC 05). | Biên bản CKPA-83; Test runner g1_rbac_failclosed_audit_runner.py (TC-REV-03 PASS); Biên bản CKPA-62. | **ĐẠT (PASS)** |
-| **`G1-AC05`** | **Hiệu năng Pipeline Benchmark Offline & Bàn giao DEL 02/03** | Đóng băng mã nguồn tag v0.2.0-g1-offline; Pipeline RAG đạt các chỉ số kiểm chuẩn trên tập Dev/Val; Bàn giao trọn bộ Kiến trúc DEL 02 và Báo cáo kiểm định DEL 03. | Git tag v0.2.0-g1-offline; Gói hồ sơ kỹ thuật DEL 02 / DEL 03 từ nhóm kỹ sư S2/S3/S5; Xác nhận của [P2]. | **ĐẠT (PASS)** |
-| **`G1-AC06`** | **Tuân thủ Tuyệt đối Ranh giới Tách vai (SoD & Chinese Wall)** | QA Lead [S4] độc lập 100% với code/prompt S2/S3; 100 Sealed không lộ cho dev; 5 NSD đại diện thuộc 100% Bên Mua ngoài S1-S5; Nguyên tắc Assignee khác Reporter. | Rà soát phân quyền kho sealed-eval-repo; Ma trận 5 NSD thực tế tại CKPA-5 / CKPA-31; 100% task Jira tuân thủ SoD. | **ĐẠT (PASS)** |
-| **`G1-AC07`** | **Quản trị Scrum, Giờ công W1-3 & Chữ ký Đồng thuận** | Toàn bộ các Sub-tasks con của Sprint 3, 4, 5 hoàn tất; Nhịp làm việc bền vững dưới 40 giờ/tuần/vai trò; Đủ chữ ký của 10 vai trò trên biên bản tổng kết. | Báo cáo đối soát giờ công W1-3 của Scrum Master [S1]; Biên bản Sprint 5 Retrospective (Mục V). | **ĐẠT (PASS)** |
+| **`G1-AC02`** | **Bộ Dữ liệu Kiểm thử Độc lập 200 Tasks & 80 Challenges** | Phân vùng chuẩn 60 Dev / 40 Val / 100 Sealed chống rò rỉ; Niêm phong 100 Sealed + 80 Challenges trong sealed-eval-repo; 2 Policy Reviewers đồng duyệt. | [S4] cảnh báo nguồn câu hỏi bị công khai lúc 12:07 ngày 25/11 -> 100 SEALED hiện tại không dùng làm holdout độc lập được, đang yêu cầu [P4] cấp bộ thay thế; CKPA-68 (2 Policy Reviewers đồng duyệt) vẫn In Progress chưa có kết quả. | **CHƯA ĐẠT<br>(PENDING_SEALED_REPLACEMENT & CKPA-68)** |
+| **`G1-AC03`** | **Immediate Withdrawal & Khóa O1 Mặc định (Base Scope)** | Rút hồi tức thì commit trước ack, fail-closed (SEC 05, KNW 04); Khóa Option O1 mặc định trong Base Scope (OPTION_O1_ENABLED=False, DAT 07); An ninh log truy cập (SEC 01, SEC 02). | PR #28 đã merge logic commit trước ack; cờ O1 khóa mặc định 403; tuy nhiên nhật ký g1_rbac_failclosed_audit_CKPA-70.log đang ở mức PARTIAL_PASS (4/4 BLOCKED_NO_LIVE_ENDPOINT do chờ Staging URL thật và xử lý lệch dấu / tại /api/v1/answer/). | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_NO_LIVE_ENDPOINT)** |
+| **`G1-AC04`** | **Pre-retrieval RBAC 4 Vai trò & 7 Trạng thái Vòng đời** | Thực thi RBAC 4 vai trò (reader, policy_owner, steward, administrator) tại Pre-Retrieval (SEC 01); Quản lý đúng 7 trạng thái KNW 03; 0% rò rỉ link/citation/cache/log khi từ chối; Kiểm toán kho Sealed (SEC 06). | Unit tests PR #20 & PR #49 pass; nhưng log chạy runtime thật g1_rbac_failclosed_audit_CKPA-70.log đang 0/4 PASS_VERIFIED, 4/4 BLOCKED_NO_LIVE_ENDPOINT; g1_sealed_acl_audit_CKPA-79.log Part 2 đang BLOCKED_EXTERNAL_REPO_ACCESS (chờ log thật kho ngoài). | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_EXTERNAL_ACCESS)** |
+| **`G1-AC05`** | **Hiệu năng Pipeline Benchmark Offline & Bàn giao DEL 02/03** | Đóng băng mã nguồn tag v0.2.0-g1-offline; Pipeline RAG đạt chỉ số kiểm chuẩn; Bàn giao trọn bộ Kiến trúc DEL 02 và Báo cáo kiểm định DEL 03. | Đã gắn tag v0.2.0-g1-offline; tuy nhiên báo cáo kiểm định CKPA-75 của [S4] và PR #33 bên repo Supplier vẫn OPEN với kết luận NEEDS_SIGNOFF (lỗi fresh-DB Alembic migration thiếu passages, đang bàn giao DEF-CKPA75-01..05 sang Swarming CKPA-76 để cắt patch tag v0.2.1-g1-offline). | **CHƯA ĐẠT<br>(NEEDS_SIGNOFF — Chờ Swarming CKPA-76)** |
+| **`G1-AC06`** | **Deterministic Field Lookup (DAT 06) & Cơ chế HOLD** | Tra cứu trường trọng yếu định lượng qua Python Decimal thuần (0% số học qua LLM); Tự động kích hoạt HOLD khi thiếu ngày chi phối (OPS 03), thiếu bảng (DAT 08) hoặc xung đột nguồn (DAT 05, OPS 04). | CKPA-63 (PR #23: 52/52 tests PASS); CKPA-64 S4 retest đạt 30/30 tests PASS; Thẩm định chuyên môn CKPA-83 của [P2] đã xác nhận. | **ĐẠT (PASS)** |
+| **`G1-AC07`** | **Môi trường Test tách Prod, 0% PII & Tách vai SoD** | Môi trường Test tách Prod (SEC 06); 0% PII thật (SEC 02); QA Lead [S4] độc lập code S2/S3; 5 NSD đại diện thuộc 100% Bên Mua; kho sealed-eval-repo cô lập S2/S3. | Môi trường Test đã dựng (PR #25); Quét nội bộ 0% PII (PR #50 Part 1 PASS); Ma trận 5 NSD tại CKPA-5/31; tuy nhiên xác nhận kiểm toán ACL kho ngoài tại CKPA-79 Part 2 vẫn đang BLOCKED chờ log thật từ S4/S5. | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — Chờ log ACL kho ngoài)** |
+
+**KẾT LUẬN ĐỐI SOÁT:** Hiện tại mới đạt **2 / 7 tiêu chí (G1-AC01, G1-AC06)**; còn **5 / 7 tiêu chí (G1-AC02, G1-AC03, G1-AC04, G1-AC05, G1-AC07)** đang ở trạng thái `PARTIAL_PASS`, `BLOCKED` hoặc `NEEDS_SIGNOFF`. Hệ thống **chưa đủ điều kiện tuyên bố 0 lỗi Critical Control**.
 
 ---
 
-# PHẦN III: QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: PHÊ DUYỆT CỔNG G1 VÀ CẤP PHÉP MỞ CỔNG G2 (LIVE PILOT)
+# PHẦN III: QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: XÁC LẬP TRẠNG THÁI HOLD VÀ 4 BLOCKERS BẮT BUỘC TRƯỚC KHI MỞ G2
 
-Căn cứ kết quả kiểm tra **ĐẠT TOÀN DIỆN 7/7 Tiêu chí Nghiệm thu Cổng G1** và hệ thống đạt **0 lỗi Critical Control**:
+Căn cứ nguyên tắc kiểm định trung thực (No-Mock) và bảo vệ an toàn dự án:
 
-1. **Phê duyệt Nghiệm thu Cổng Gate G1 (Controlled Offline Pilot & Benchmarks):**
-   - Chủ đầu tư công nhận Nhà cung cấp đã hoàn thành đầy đủ, trung thực và đúng hạn các kết quả bàn giao của Cổng G1 theo đúng cam kết trong Hợp đồng và Hồ sơ Yêu cầu (RFP).
-   - Chính thức đóng User Story cha **`CKPA-81`** ở trạng thái **`Done`** trên hệ thống Jira.
+1. **Quyết định Xác lập Trạng thái Cổng G1:**
+   - Chủ đầu tư **CHƯA KÝ NGHIỆM THU ĐÓNG CỔNG G1**, tạm thời xác lập trạng thái **`HOLD / PENDING_G1_BLOCKERS`**.
+   - Tiếp tục giữ User Story cha **`CKPA-81`** ở trạng thái **`In Progress`** trên hệ thống Jira cho đến khi giải tỏa toàn bộ các điểm nghẽn kỹ thuật.
 
-2. **Quyết định Cấp phép Mở Cổng Gate G2 (Live Pilot Authorization):**
-   - Cấp phép cho phép dự án chuyển tiếp sang Giai đoạn Thử nghiệm Nội bộ Giới hạn (Sprint 6 — Gate G2 Live Pilot) theo đúng kế hoạch triển khai 10 tuần.
-   - **Ràng buộc kiểm soát bắt buộc tại Cổng G2:**
-     - Duy trì cờ cấu hình an toàn: **`OPTION_O1_ENABLED = False` (Base Scope thuần túy)**. Tuyệt đối không kết nối dữ liệu khách hàng CRM sống khi chưa có Tờ trình pháp lý được Legal Owner phê duyệt riêng.
-     - Hạ tầng Staging và môi trường kiểm thử thực tế phải được Security Owner `[P5]` thẩm định độc lập các cổng mạng và chứng chỉ bảo mật trước khi kích hoạt.
-     - Giao `[P4]` Ngô Thị Trà My điều phối 5 Người dùng đại diện thực hiện nghiêm ngặt Giao thức đo đạc năng suất 20 ngày (`Observed Effort Protocol`) làm đối trọng kiểm chứng với Baseline Effort đã chốt tại G0.
+2. **Danh mục 4 Điểm nghẽn Bắt buộc (Blockers) phải giải tỏa trước khi cấp phép mở Cổng G2:**
+   - **`BLOCKER-01` (G1-AC02 / CKPA-67, CKPA-68):** [P4] Ngô Thị Trà My cung cấp bộ 100 câu hỏi Sealed thay thế bảo mật do bộ cũ bị công khai trên repo; [P2] Hữu Tài và [P3] Chí Kha hoàn thành đồng duyệt nhãn vàng độc lập tại `CKPA-68`.
+   - **`BLOCKER-02` (G1-AC03, G1-AC04 / CKPA-70):** [S1] Hoàng Tiến và [S5] Ngọc Duy sửa triệt để lỗi route `/api/v1/answer/`, cấp Staging live endpoint để [P5] Anh Khoa thực thi kiểm thử `--strict-live` đạt 4/4 PASS thật, xóa bỏ hoàn toàn trạng thái `BLOCKED_NO_LIVE_ENDPOINT`.
+   - **`BLOCKER-03` (G1-AC04, G1-AC07 / CKPA-79):** [S4] Quý Hải và [S5] Ngọc Duy xuất tệp JSON/CSV Collaborators & GitHub Audit Log thật từ kho riêng `sealed-eval-repo` để [P5] Anh Khoa chạy `--strict-external` đạt PASS thật, xóa bỏ trạng thái `BLOCKED_EXTERNAL_REPO_ACCESS`.
+   - **`BLOCKER-04` (G1-AC05 / CKPA-75, CKPA-76):** Đội Build [S2] hoàn tất xử lý 5 defects (DEF-CKPA75-01..05) trong đợt Swarming `CKPA-76`, cắt patch tag **`v0.2.1-g1-offline`** và QA Lead [S4] delta retest đạt 100% PASS (đóng PR #33 bên repo Supplier).
 
 ---
 
-# PHẦN IV: LỆNH GIẢI NGÂN THANH TOÁN MỐC 2 (25% GIÁ TRỊ HỢP ĐỒNG BASE SCOPE)
+# PHẦN IV: LỆNH GIẢI NGÂN THANH TOÁN MỐC 2 (25%) VÀ ĐIỀU KIỆN TREO PENDING_SUPPLIER_QUOTE
 
-Căn cứ Điều 12 Hợp đồng Dịch vụ Phần mềm số 01/2026/HDDV-CKPA và Biên bản Nghiệm thu Đạt Cổng G1:
+Căn cứ Điều 12 Hợp đồng Dịch vụ Phần mềm số 01/2026/HDDV-CKPA và nguyên tắc bảo vệ quyền lợi Bên Mua tại Cổng G0 (`CKPA-42`):
 
 1. **Tên mốc thanh toán:** Mốc 2 — Nghiệm thu Cổng Gate G1 (Milestone 2: Controlled Offline Sign-off).
-2. **Tỷ lệ giải ngân:** **25% (Hai mươi lăm phần trăm)** Tổng giá trị Hợp đồng Base Scope.
-3. **Giá trị thanh toán thực tế:**
-   - Được xác định chính xác theo công thức: Giá trị giải ngân Mốc 2 = 25% * Tổng giá trị Hợp đồng Base Scope (đã bao gồm thuế VAT)
-   - Số tiền cụ thể căn cứ trên Bảng giá Thương mại DEL 05 chính thức đã được thống nhất tại task `CKPA-39`.
-4. **Điều kiện và Thời hạn thanh toán:**
-   - Ban Tài chính - Kế toán Công ty Cổ phần Thiết bị Công nghiệp Song Nhật thực hiện chuyển khoản vào tài khoản ngân hàng của Bên Cung cấp trong thời hạn 10 (mười) ngày làm việc kể từ ngày nhận đủ:
-     - 01 bản gốc Biên bản Nghiệm thu Cổng G1 này có đầy đủ chữ ký xác nhận của đại diện hai bên.
-     - 01 bản Hóa đơn Giá trị gia tăng (VAT) hợp lệ tương ứng với giá trị giải ngân Mốc 2 do Bên Cung cấp phát hành.
+2. **Tỷ lệ giải ngân quy định:** **25% (Hai mươi lăm phần trăm)** Tổng giá trị Hợp đồng Base Scope (đã bao gồm thuế VAT).
+3. **Công thức xác định giá trị thanh toán thực tế:**
+   `Giá trị giải ngân Mốc 2 = 25% * Tổng giá trị Hợp đồng Base Scope (đã bao gồm thuế VAT)`
+4. **Điều kiện Tiên quyết Giải ngân (ĐIỀU KIỆN TREO — PENDING_SUPPLIER_QUOTE):**
+   - Lệnh giải ngân 25% này **chỉ có giá trị dự thảo và TẠM TREO HIỆU LỰC THI HÀNH**.
+   - Ban Tài chính - Kế toán Công ty Cổ phần Thiết bị Công nghiệp Song Nhật **TUYỆT ĐỐI CHƯA GIẢI NGÂN** cho đến khi hội đủ cả 2 điều kiện bắt buộc:
+     1. Toàn bộ **4 Blockers kỹ thuật** nêu tại Phần III được giải tỏa và Hội đồng ký Biên bản Nghiệm thu Cổng G1 chính thức.
+     2. Nhà cung cấp hoàn tất nộp Bảng giá Thương mại DEL 05 chính thức với đầy đủ **14 dòng đơn giá VND + thuế VAT thực tế** tại task `CKPA-39` (xóa bỏ trạng thái `PENDING_SUPPLIER_QUOTE`, tuyệt đối không sử dụng bảng số liệu minh họa của Phụ lục E).
 
 ---
 
 # PHẦN V: BIÊN BẢN SPRINT 5 RETROSPECTIVE & BẢNG KÝ DUYỆT 10 VAI TRÒ HỘI ĐỒNG
 
 ### 5.1 Đánh giá và Rút kinh nghiệm Sprint 5 Retrospective
-- **Những điểm thực hiện xuất sắc (What went well):**
-  - Sự phối hợp nhịp nhàng giữa `[P3]` Trần Chí Kha và `[P2]` Trương Đình Hữu Tài giúp quy trình kiểm tra chéo dữ liệu nguồn và thẩm định chính sách diễn ra chặt chẽ, phát hiện sớm và cách ly đúng 3 tài liệu thiếu bảng biểu vào Quarantine theo chuẩn `DAT 08`.
-  - Hàng rào độc lập Chinese Wall được duy trì tuyệt đối: Kho niêm phong 100 câu hỏi Sealed trong `sealed-eval-repo` được cô lập hoàn toàn khỏi đội ngũ kỹ sư phát triển `S2/S3/S5`.
-  - Toàn bộ kho lưu trữ Purchaser đã được dọn sạch các tag citation AI thừa, chuẩn hóa 100% UTF-8 và nâng cấp CI Guard chạy tự động 21/21 unit tests PASS.
-- **Những điểm cần tối ưu cho Cổng G2 (What to improve):**
-  - Tăng cường tốc độ đồng bộ và cấp phát endpoint thật (`CKPA_BASE_URL`) để đội kiểm toán bảo mật `[P5]` triển khai kiểm thử Runtime API trực tiếp mà không cần chờ đợi.
-  - Phổ biến sâu hơn cho 5 người dùng đại diện về quy trình ghi nhận nhật ký thao tác trong 20 ngày thử nghiệm Pilot.
+- **Những điểm thực hiện tốt:**
+  - Quy trình kiểm soát dữ liệu nguồn 2 lớp của `[P3]` Trần Chí Kha (`CKPA-82`) và `[P2]` Trương Đình Hữu Tài (`CKPA-83`) đạt độ chính xác 100%, cách ly chuẩn 3 ca thiếu bảng biểu `DAT 08`.
+  - Giữ vững kỷ luật No-Mock: Không chấp nhận các báo cáo giả lập, kiên quyết yêu cầu bằng chứng thật trên live endpoint và log thật từ kho ngoài.
+- **Những điểm cần tập trung giải quyết ngay:**
+  - Khẩn trương khắc phục lỗi rò rỉ đề bài 100 Sealed để bảo toàn tính độc lập của kỳ đánh giá Cổng G1.
+  - Sớm cấp endpoint Staging và export log kho ngoài để đội Bảo mật [P5] hoàn tất các bài kiểm thử bị nghẽn.
 
 ---
 
-### 5.2 BẢNG KÝ DUYỆT ĐỒNG THUẬN CỦA 10 THÀNH VIÊN HỘI ĐỒNG NGHIỆM THU
+### 5.2 BẢNG GHI NHẬN TRẠNG THÁI KÝ DUYỆT CỦA 10 THÀNH VIÊN HỘI ĐỒNG
 
-| Vai trò RFP | Họ và tên | Chức danh / Đại diện | Chữ ký xác nhận |
+*(Bảng phản ánh trung thực tiến độ thực tế: Các vai trò chưa hoàn tất sub-task hoặc đang vướng blocker được để trạng thái **PENDING**, không ký khống khi chưa giải tỏa lỗi kỹ thuật)*:
+
+| Vai trò RFP | Họ và tên | Chức danh / Đại diện | Trạng thái Ký duyệt Hiện tại |
 | :--- | :--- | :--- | :---: |
-| **`[P1]` Purchaser Sponsor / PO** | **Vắn Mỹ Vân** | Chủ tịch Hội đồng Thẩm định & Nghiệm thu | *(Đã ký duyệt chính thức)* |
-| **`[P2]` Policy Owners** | **Trương Đình Hữu Tài** | Trưởng nhóm Quản trị Chính sách | *(Đã ký duyệt chuyên môn)* |
-| **`[P3]` Knowledge & Data Steward** | **Trần Chí Kha** | Quản trị Dữ liệu & Nguồn Tri thức | *(Đã ký duyệt dữ liệu)* |
-| **`[P4]` Staff Users Representative** | **Ngô Thị Trà My** | Đại diện Người dùng Nghiệp vụ SongNhat | *(Đã ký duyệt nghiệp vụ)* |
-| **`[P5]` Privacy & Security Owners** | **Nguyễn Anh Khoa** | Quản trị An toàn Thông tin & Quyền riêng tư | *(Đã ký duyệt bảo mật)* |
-| **`[S1]` Named Lead / Scrum Master** | **Hoàng Tiến** | Đại diện Quản lý Nhà cung cấp | *(Đã ký xác nhận bàn giao)* |
-| **`[S2]` Integration Engineer** | **Trần Quốc Hưng** | Kỹ sư Tích hợp Hệ thống | *(Đã ký xác nhận kỹ thuật)* |
-| **`[S3]` Retrieval & App Engineer** | **Phạm Lương Yến Nhi** | Kỹ sư Truy xuất & Ứng dụng | *(Đã ký xác nhận kỹ thuật)* |
-| **`[S4]` Quality Lead (Independent QA)** | **Phạm Quý Hải** | Trưởng nhóm Đảm bảo Chất lượng Độc lập | *(Đã ký kiểm định độc lập)* |
-| **`[S5]` Operations Specialist** | **Nguyễn Ngọc Duy** | Chuyên viên Vận hành Hệ thống | *(Đã ký xác nhận vận hành)* |
+| **`[P1]` Purchaser Sponsor / PO** | **Vắn Mỹ Vân** | Chủ tịch Hội đồng Thẩm định & Nghiệm thu | *(Ký ban hành Bản dự thảo Rà soát & Quyết định HOLD)* |
+| **`[P2]` Policy Owners** | **Trương Đình Hữu Tài** | Trưởng nhóm Quản trị Chính sách | *(Đã ký duyệt Corpus & CKPA-83 / PENDING đồng duyệt CKPA-68)* |
+| **`[P3]` Knowledge & Data Steward** | **Trần Chí Kha** | Quản trị Dữ liệu & Nguồn Tri thức | *(Đã ký duyệt dữ liệu CKPA-82 / PENDING chờ giải tỏa Blockers)* |
+| **`[P4]` Staff Users Representative** | **Ngô Thị Trà My** | Đại diện Người dùng Nghiệp vụ SongNhat | **PENDING** *(Đang phối hợp cấp bộ 100 Sealed thay thế)* |
+| **`[P5]` Privacy & Security Owners** | **Nguyễn Anh Khoa** | Quản trị An toàn Thông tin & Quyền riêng tư | **PENDING** *(Chờ live endpoint tại CKPA-70 & log kho ngoài CKPA-79)* |
+| **`[S1]` Named Lead / Scrum Master** | **Hoàng Tiến** | Đại diện Quản lý Nhà cung cấp | **PENDING** *(Đang điều phối cấp live endpoint & hoàn thiện DEL 05)* |
+| **`[S2]` Integration Engineer** | **Trần Quốc Hưng** | Kỹ sư Tích hợp Hệ thống | **PENDING** *(Đang thực hiện Swarming fix tại CKPA-76)* |
+| **`[S3]` Retrieval & App Engineer** | **Phạm Lương Yến Nhi** | Kỹ sư Truy xuất & Ứng dụng | **PENDING** *(Đang hỗ trợ fix route /api/v1/answer/)* |
+| **`[S4]` Quality Lead (Independent QA)** | **Phạm Quý Hải** | Trưởng nhóm Đảm bảo Chất lượng Độc lập | **PENDING** *(Báo cáo NEEDS_SIGNOFF tại CKPA-75, chờ retest tag v0.2.1)* |
+| **`[S5]` Operations Specialist** | **Nguyễn Ngọc Duy** | Chuyên viên Vận hành Hệ thống | **PENDING** *(Đang triển khai môi trường Staging & hỗ trợ S4)* |
 
 ---
-*Biên bản này được lập thành 04 (bốn) bản gốc bằng tiếng Việt có giá trị pháp lý như nhau. Bên Mua giữ 02 bản, Bên Cung cấp giữ 02 bản để làm căn cứ giải ngân Mốc 2 và triển khai Cổng Gate G2.*
+*Văn kiện này là Bản dự thảo rà soát Cổng G1 phục vụ công tác đối soát kỹ thuật và giám sát dự án của Bên Mua. Lệnh giải ngân 25% và Quyết định mở Cổng G2 chỉ được ký ban hành chính thức sau khi toàn bộ 4 Blockers kỹ thuật được giải tỏa và Nhà cung cấp nộp đủ báo giá DEL 05 thực tế.*
