@@ -3,7 +3,7 @@
 
 > **Mã công việc (Jira):** `CKPA-55` | **Mã gốc (Excel G1):** `CRM-G1-SUB08`  
 > **Tiêu chí nghiệm thu Cổng G1:** `G1-AC07`  
-> **Nhánh Git làm việc:** `uat/CRM-G1-SUB08-100-real-tasks-vn01-terms` (đồng bộ trên PR #20)  
+> **Nhánh Git làm việc:** `uat/CKPA-55-100-real-tasks-vn01-terms` (PR #14; biên bản PO đồng bộ tại PR #20 & PR #29)  
 > **Vị trí file chuẩn:** `uat/g1/ckpa-55/ckpa-55-vn01-handover-report.md`  
 > **Phía phụ trách:** Purchaser (SongNhat)  
 > **Assignee / Lead:** `[P4] Ngô Thị Trà My (Staff users)`  
@@ -35,26 +35,26 @@ Thứ tự 3 họ chính sách đã được hiệu chỉnh chính xác, tránh 
 | **`POL-003`** *(Họ 3)* | Quy trình Tiếp nhận Dịch vụ & Bảo hành Kỹ thuật | 18 ca | 12 ca | **30 câu** (30%) | **Đã sửa:** Chuyển về đúng Họ 3 (trước bị nhầm là Họ 2) |
 | **Tổng cộng** | **3 họ chính sách cốt lõi SongNhat** | **60 ca** | **40 ca** | **100 ca thực tế** | Khớp 100% thứ tự với CKPA-50 & CKPA-58 |
 
-### 2.2 Bảng Ánh xạ Mã Trường Trọng yếu (Mapping Table: Legacy ID $\rightarrow$ Canonical ID)
+### 2.2 Bảng Ánh xạ Mã Trường Trọng yếu (Mapping Table: Legacy ID -> Canonical ID)
 Nhằm tránh gãy khóa ngoại khi Trưởng nhóm Kiểm định độc lập (`S4` Quý Hải) chạy script chấm tự động, toàn bộ các mã trường trọng yếu đã được đồng bộ chuẩn xác với bộ mã `CF-xxx` của bộ Corpus (CKPA-50 & G0):
 
 | Mã trường ban đầu (Legacy ID) | Mã chuẩn hóa Corpus (`CF-xxx`) | Tên trường trọng yếu | Thuộc Họ | Ngưỡng / Quy tắc áp dụng chuẩn CKPA-50 |
 |---|---|---|:---:|---|
-| `CRIT-QBG-01` | **`CF-001`** | Hạn mức chiết khấu tiêu chuẩn | Họ 1 | $\le 5\%$, Chuyên viên Kinh doanh (CVKD) duyệt |
-| `CRIT-QBG-02` | **`CF-002`** | Hạn mức chiết khấu cấp trung | Họ 1 | $> 5\%$ đến $\le 15\%$, Trưởng phòng Kinh doanh (TPKD) duyệt |
-| `CRIT-QBG-03` | **`CF-003`** | Hạn mức chiết khấu đặc biệt | Họ 1 | $> 15\%$, Giám đốc Kinh doanh / GĐ Thương mại duyệt |
-| `CRIT-QBG-04` | **`CF-004`** | Thời hạn hiệu lực báo giá | Họ 1 | Báo giá có hiệu lực tối đa 15 ngày kể từ ngày ban hành |
-| `CRIT-CRM-01` | **`CF-005`** | Thời hạn cập nhật thông tin liên hệ / email GTGT | Họ 2 | SLA xử lý $\le 2$ giờ làm việc (`CRM Staff` — `reader`) |
-| `CRIT-CRM-02` | **`CF-006`** | Cập nhật pháp lý DN dưới ngưỡng ($< 500$M) | Họ 2 | Hợp đồng lũy kế $< 500$ triệu VND, `CRM Staff` xử lý trong 4 giờ làm việc |
-| `CRIT-CRM-03` | **`CF-007`** | Phê duyệt pháp lý KH trọng yếu ($\ge 500$M) | Họ 2 | Hợp đồng lũy kế $\ge 500$ triệu VND, `CRM Manager` phê duyệt trong 4 giờ làm việc |
-| `CRIT-CRM-04` | **`CF-008`** | Cập nhật pháp lý khẩn cấp ngoài giờ hành chính | Họ 2 | SLA xử lý $\le 1$ giờ khi có phê duyệt của `CRM Director` |
-| `CRIT-BH-01` | **`CF-009`** | Ngưỡng công suất định tuyến bảo hành Tuyến 1 | Họ 3 | Công suất $\le 37$ kW (kiểm tra đủ 03 chứng từ), định tuyến `Internal Tech Lead` |
-| `CRIT-BH-02` | **`CF-010`** | Ngưỡng công suất định tuyến giám định Hãng Tuyến 2 | Họ 3 | Công suất $> 37$ kW (hoặc lỗi bo mạch chính), định tuyến `Vendor Chief Engineer` |
+| `CRIT-QBG-01` | **`CF-001`** | Hạn mức chiết khấu tiêu chuẩn | Họ 1 | `<= 5%`, Chuyên viên Kinh doanh (CVKD) duyệt |
+| `CRIT-QBG-02` | **`CF-002`** | Hạn mức chiết khấu cấp trung | Họ 1 | `> 5%` đến `<= 15%`, Trưởng phòng Kinh doanh (TPKD) duyệt |
+| `CRIT-QBG-03` | **`CF-003`** | Hạn mức chiết khấu đặc biệt | Họ 1 | `> 15%` (hoặc đơn `>= 1 tỷ VND`), Giám đốc Kinh doanh / GĐ Thương mại duyệt |
+| `CRIT-QBG-04` | **`CF-004`** | Thời hạn hiệu lực báo giá | Họ 1 | Báo giá có hiệu lực tối đa `15 ngày làm việc` kể từ ngày ban hành |
+| `CRIT-CRM-01` | **`CF-005`** | Thời hạn cập nhật thông tin liên hệ / email GTGT | Họ 2 | SLA xử lý `<= 2 giờ làm việc` (`CRM Staff` — `reader`) |
+| `CRIT-CRM-02` | **`CF-006`** | Cập nhật pháp lý DN dưới ngưỡng (`< 500M`) | Họ 2 | Hợp đồng lũy kế `< 500 triệu VND`, `CRM Staff` xử lý trong `4 giờ làm việc` |
+| `CRIT-CRM-03` | **`CF-007`** | Phê duyệt pháp lý KH trọng yếu (`>= 500M`) | Họ 2 | Hợp đồng lũy kế `>= 500 triệu VND`, `CRM Manager` phê duyệt trong `4 giờ làm việc` |
+| `CRIT-CRM-04` | **`CF-008`** | Cập nhật pháp lý khẩn cấp ngoài giờ hành chính | Họ 2 | SLA xử lý `<= 1 giờ` khi có phê duyệt của `CRM Director` |
+| `CRIT-BH-01` | **`CF-009`** | Ngưỡng công suất định tuyến bảo hành Tuyến 1 | Họ 3 | Công suất `<= 37 kW` (động cơ/hộp giảm tốc/truyền lực thường, đủ 03 chứng từ), định tuyến `Internal Tech Lead` |
+| `CRIT-BH-02` | **`CF-010`** | Ngưỡng công suất định tuyến giám định Hãng Tuyến 2 | Họ 3 | Công suất `> 37 kW` (hoặc lỗi bo mạch chính / biến tần trung thế), định tuyến `Vendor Chief Engineer` |
 
-*(Ghi chú cấu trúc mã CF: Nhóm mã mở rộng `CF-011` đến `CF-022` thuộc Họ 1; Họ 2 sử dụng dải chuẩn `CF-005`..`CF-008`; Họ 3 sử dụng dải chuẩn `CF-009`..`CF-010` theo đúng cấu trúc dữ liệu G0 & CKPA-50).*
+*(Ghi chú cấu trúc mã CF Full Corpus `CKPA-58`: Họ 1 gồm `CF-001..004` và `CF-011..022`; Họ 2 gồm `CF-005..008` và `CF-023..031`; Họ 3 gồm `CF-009..010` và `CF-032..040`, trong đó `CF-032` quy định động cơ phòng nổ `Ex-d` bắt buộc định tuyến Tuyến 2 bất kể công suất).*
 
 ### 2.3 Phân định Rõ ràng về Phân nhóm Biến thể (Variant Groups) & Chống Rò rỉ Dữ liệu (RFP Mục 8)
-- **Hiện trạng bộ 100 câu đợt 1:** Dữ liệu gắn nhãn ban đầu chứa 16 nhóm biến thể (`VG-01` đến `VG-16`). Việc gán nhãn `DEV` (60 ca) và `VAL` (40 ca) trong đợt 1 là phân bổ định lượng sơ bộ để kiểm định tỷ lệ câu hỏi theo 3 Họ chính sách (40 POL-001 / 30 POL-002 / 30 POL-003).
+- **Hiện trạng bộ 100 câu mở đợt 1:** Sau khi chuẩn hóa và khử trùng lặp (PR #53 & PR #56), bộ 100 câu mở chứa **18 nhóm biến thể độc lập (`VG-01` đến `VG-18`)**, hoàn toàn tách rời với 25 nhóm biến thể (`VG-19` đến `VG-43`) của bộ 100 câu `SEALED` trên `sealed-eval-repo`. Việc gán nhãn `Provisional_Partition` (`60 DEV` / `40 VAL`) trong đợt 1 là phân bổ định lượng sơ bộ theo 3 Họ chính sách (`40 POL-001 / 30 POL-002 / 30 POL-003`).
 - **Nguyên tắc chống rò rỉ dữ liệu (RFP Mục 8):** RFP quy định rõ: *"Keep related variants and records in one partition"* (phải gom toàn bộ các biến thể thuộc cùng một nhóm vào duy nhất một phân vùng, tuyệt đối không tách sang cả DEV và VAL để tránh việc mô hình học thuộc đáp án trong tập DEV rồi trả lời tập VAL).
 - **Phân định trách nhiệm (SoD Boundary):** Trách nhiệm thực hiện thuật toán phân vùng chính thức 60 DEV / 40 VAL / 100 SEALED và gom cụm toàn bộ `Variant_Group_ID` chống rò rỉ thuộc thẩm quyền độc lập của **[S4] Quý Hải tại Sub-task CKPA-67** (trên không gian độc lập `sealed-eval-repo`). P4 thực hiện bàn giao toàn bộ các nhóm biến thể sạch PII để S4 xử lý triệt để bài toán phân vùng tại CKPA-67.
 
@@ -81,7 +81,7 @@ Nhằm tránh gãy khóa ngoại khi Trưởng nhóm Kiểm định độc lập
 
 | Vai trò | Thành viên | Nhiệm vụ đối soát | Trạng thái thực tế | Ghi chú theo dõi |
 |---|---|---|:---:|---|
-| **Lead bàn giao (P4)** | **Ngô Thị Trà My** | Hoàn tất dữ liệu 100 câu hỏi sạch PII & Từ điển VN 01 | **ĐÃ HOÀN TẤT BÀN GIAO** | Đồng bộ chuẩn `PAS-001..030` & `CF-001..010` |
+| **Lead bàn giao (P4)** | **Ngô Thị Trà My** | Hoàn tất dữ liệu 100 câu hỏi sạch PII & Từ điển VN 01 | **ĐÃ HOÀN TẤT BÀN GIAO** | Đồng bộ chuẩn `PAS-001..030`, `PAS-079` & `CF-001..010`, `CF-032` |
 | **Chủ sở hữu Bảo mật (P5)** | **Nguyễn Anh Khoa** | Thẩm định độc lập tiêu chí 0% PII (SEC 02/06) | **ĐÃ THẨM ĐỊNH (`0% PII`)** | CI Guard & PII Audit PASS 0 vi phạm |
 | **Kiểm định Độc lập (S4)** | **Phạm Quý Hải** | Tiếp nhận 100 câu hỏi phục vụ đánh giá offline G1 | **ĐÃ TIẾP NHẬN** | Chuyển tiếp phân vùng tại `CKPA-67` |
 | **Kỹ sư Truy xuất (S3)** | **Phạm Lương Yến Nhi** | Tiếp nhận Từ điển VN 01 tích hợp vào module retrieval | **ĐÃ TIẾP NHẬN TỪ ĐIỂN** | Tích hợp vào module chuẩn hóa truy vấn |
@@ -95,4 +95,4 @@ Thực hiện nghiêm túc cảnh báo về an toàn dữ liệu nghiệm thu:
 1. **Đối với Đợt 1 (CKPA-55):** Bao gồm 60 ca DEV và 40 ca VAL là tập dữ liệu mở, phục vụ phát triển và tinh chỉnh mô hình.
 2. **Đối với Đợt 2 (CKPA-65 / CKPA-66):** Bao gồm kho **100 Sealed Acceptance Cases**:
    - **CAM KẾT TUYỆT ĐỐI:** Không gửi cho các kỹ sư phát triển `S2`, `S3`, `S5` và **không bao giờ push nội dung câu hỏi/đáp án của 100 Sealed lên nhánh `develop` hoặc repo chung**.
-   - Nội dung 100 Sealed chỉ được bàn giao trực tiếp, riêng biệt cho **[S4] Quý Hải** để nạp vào kho cách ly `sealed-eval-repo` theo đúng quy định RFP Mục 8 & Điều R10 của `rules.md`.
+   - Nội dung 100 Sealed chỉ được bàn giao trực tiếp, riêng biệt cho **[S4] Quý Hải** để nạp vào kho cách ly `sealed-eval-repo` theo đúng quy định RFP Mục 8 & **SCRM Team Onboarding & Workflow Guide v1.0 (§4, §23)**.

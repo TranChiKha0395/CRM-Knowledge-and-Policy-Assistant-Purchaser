@@ -1,6 +1,7 @@
 # HƯỚNG DẪN STORY OWNER `CKPA-49`, QUY TRÌNH GITHUB PR & MẪU CẬP NHẬT JIRA (`[P3]` TRẦN CHÍ KHA)
 
 > Tài liệu tuân thủ **SCRM Team Onboarding & Workflow Guide v1.0** (§6.2 Story Owner, §6.4 Sub-task Owner, §9 Cập nhật Jira, §11–19 GitHub Workflow, §22 DoD, §23 SoD) và **RFP SongNhat CKPA**.
+> **Đồng bộ `2026-11-26`:** Toàn bộ Story `CKPA-49` và 3/3 Sub-tasks (`CKPA-50`, `CKPA-51`, `CKPA-52`) đã hoàn tất `Done` 100%; `Assignee` trên Jira `CKPA-49` đã được đồng bộ về đúng Story Owner `[P3]` Trần Chí Kha để bảo đảm `Assignee != Reporter`.
 
 ---
 

@@ -3,8 +3,8 @@
 - **Dự án Jira chính thức:** `CKPA` — SongNhat CRM Knowledge and Policy Assistant (`Board 2: CKPA board`)
 - **Jira Issue:** `CKPA-50` (`CRM-G1-SUB04`, Sub-task của Story `CKPA-49` / `CRM-G1-ST02`, Sprint 3 - G1 Impl W1)
 - **GitHub Branch:**
-  - Theo **Onboarding Guide v1.0 (§15):** `data/CKPA-50-curate-family1-dat01-08` *(khuyến nghị)*
-  - Theo **Description import từ Excel:** `data/CRM-G1-SUB04-curate-family1-dat01-08` *(cần xác nhận nhanh với `[S1]` Hoàng Tiến trước khi push)*
+  - Theo **Onboarding Guide v1.0 (§15):** `data/CKPA-50-curate-family1-dat01-08` *(đã merge qua PR #9 & nghiệm thu `Done` trên Jira `CKPA-50`)*
+  - Theo **Description import từ Excel:** `data/CRM-G1-SUB04-curate-family1-dat01-08` *(mã tham chiếu lịch sử khi import bảng G1)*
 - **Tiêu chí Cổng G1:** `G1-AC01`
 - **RFP Traceability:** `Mục 2`, `DEL 01`, `DAT 01`, `DAT 02`, `DAT 03`, `DAT 04`, `DAT 05`, `DAT 06`, `DAT 08`, `KNW 03`, `SEC 01`, `SEC 02`, `VN 01`, `VN 03`, `VN 04`, `Annex B`, `Annex C`
 - **Phạm vi dữ liệu:** **Base Scope thuần túy — 0% O1 Selected CRM Context** (đúng quyết định G0 `CKPA-5` và chứng nhận `CKPA-47` của `[P5]` Anh Khoa)
@@ -33,7 +33,7 @@
 | `DOC-001` | `policy` | `DOC001-VER-000` | `superseded` | `PAS-041..043` | 3 | `CF-016..018` | Phiên bản lịch sử `2025-01-01..2026-11-06 08:59:59 +07:00` (test Worked Case 3 & biên giờ VN `OPS 03`) |
 | `DOC-001` | `policy` | `DOC001-VER-002` | `scheduled` | `PAS-044..045` | 2 | `CF-019..020` | Phiên bản tương lai `2027-01-01 00:00:00 +07:00` (`supersedes=VER-001`; test Worked Case 4 & `OPS 03`) |
 | `DOC-001` | `policy` | `DOC001-VER-001-DRAFT` / `REV` / `APP` / `WD` | `draft`, `owner_reviewed`, `approved`, `withdrawn` | `PAS-046..049` | 4 | `CF-022` (`withdrawn`) | Đủ **7/7 trạng thái `KNW 03`** để `[S3]` Yến Nhi (`CKPA-54`) & `[S4]` Quý Hải (`CKPA-56`) smoke test bộ lọc Pre-Retrieval |
-| `DOC-004` | `SOP` | `DOC004-VER-001` | `effective` *(chờ `[P2]` ký tại `CKPA-51`)* | `PAS-050..054` | 5 | — | Quy trình lập phiếu chiết khấu, bảng Gross Margin `BM-KD-02`, luồng duyệt & Backup Owner (`VN 04`) |
+| `DOC-004` | `SOP` | `DOC004-VER-001` | `effective` *(đã được `[P2]` ký duyệt tại `CKPA-51`)* | `PAS-050..054` | 5 | — | Quy trình lập phiếu chiết khấu, bảng Gross Margin `BM-KD-02`, luồng duyệt & Backup Owner (`VN 04`) |
 | `DOC-006` | `customer_contract` | `DOC006-VER-001` | `effective` | `PAS-055..057` | 3 | — | Hợp đồng khung B2B xung đột chiết khấu/hiệu lực/tạm ứng -> test **Conflict Hold (`DAT 05` — Worked Case 5)** |
 | `DOC-007` | `staff_note` | `DOC007-VER-001` | `effective` | `PAS-058..060` | 3 | — | Ghi chú CRM cũ tiền lệ VIP -> test **No Inferred Approval (`ANS 05` — Worked Case 6)**, 0% PII thật |
 | **TỔNG HỌ 1** | **4/5 lớp `DAT 03`** | **9 phiên bản** | **Đủ 7/7 `KNW 03`** | `PAS-001..010, 031..060` | **40 / 100** | **16 / 18** | **PASS 100% (`0` lỗi)** |

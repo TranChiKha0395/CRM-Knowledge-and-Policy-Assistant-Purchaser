@@ -8,7 +8,7 @@
 > **Assignee / Lead điều phối Story:** `[P4] Ngô Thị Trà My (Staff users)`  
 > **Collaborators / RACI:** `[S4] Quý Hải (Quality Lead)`, `[P2] Hữu Tài (Policy Owner)`, `[P3] Trần Chí Kha (Data Steward)`  
 > **Reporter / Nghiệm thu (PO):** `[P1] Mỹ Vân (Purchaser sponsor)`  
-> **Thời gian thực hiện:** 2026-11-16 $\rightarrow$ 2026-11-20 (Sprint 4 - G1 Impl W2)  
+> **Thời gian thực hiện:** 2026-11-16 -> 2026-11-26 (Sprint 4–5 - Đồng bộ chốt `CKPA-65`, `CKPA-67`, `CKPA-68`)  
 > **Truy vết RFP:** Mục 8 (60/40/100 + 80 challenges), Mục 11, DAT 08, SEC 02, SEC 06, Mục 9 (G1), VN 01, VN 02.
 
 ---
@@ -19,38 +19,37 @@
 > **Là [P4] Người dùng nghiệp vụ đại diện (Staff users)**, tôi muốn hoàn tất đủ 200 câu hỏi thực tế sạch 0% PII (kèm kiểm tra mở xem `source_uri` văn bản gốc) để **[S4] Quý Hải** phân vùng 60/40/100 theo quy tắc gom nhóm chống rò rỉ (*"Keep related variants and records in one partition"*) và lưu trữ 80 Challenges vào kho riêng `sealed-eval-repo`, đồng thời chuyển giao cho 2 Policy Reviewers (**[P2] Hữu Tài**, **[P3] Chí Kha**) rà soát và đồng gán nhãn đáp án chuẩn, nhằm xác lập bộ dữ liệu nghiệm thu độc lập không thể bị thao túng cho Cổng G1 và G2.
 
 ### 1.2 Tiến độ 3 Sub-tasks trực thuộc Story CKPA-65 (DoD Tiêu chí a)
-Toàn bộ 3/3 Sub-tasks thành phần được theo dõi minh bạch theo phân vai:
+Toàn bộ 3/3 Sub-tasks thành phần đã hoàn tất và đóng `Done` trên Jira:
 
 | Mã Sub-task | Người phụ trách chính | Nội dung công việc | Trạng thái thực tế |
 |---|---|---|:---:|
-| **CRM-G1-SUB16** | **`[P4]` Ngô Thị Trà My** | Thu thập, làm sạch đủ 200 câu hỏi thực tế (0% PII theo SEC 02/06) & thực hiện kiểm tra mở xem 100% liên kết tài liệu gốc `source_uri`. | **ĐÃ HOÀN THÀNH BÀN GIAO** |
-| **CRM-G1-SUB17** | **`[S4]` Quý Hải** | Phân vùng 60 Dev / 40 Val / 100 Sealed theo quy tắc chống rò rỉ; thiết lập kho riêng `sealed-eval-repo` cách ly với S2/S3. | **ĐANG TIẾP NHẬN / PHÂN VÙNG** |
-| **CRM-G1-SUB18** | **`[P2]` Hữu Tài & `[P3]` Chí Kha** | Rà soát nhãn độc lập (Two Policy Reviewers) và đồng ký duyệt nhãn vàng chuẩn cho 200 Real Tasks & 80 Challenges. | **CHỜ RÀ SOÁT NHÃN (PENDING)** |
+| **`CKPA-66` (`CRM-G1-SUB16`)** | **`[P4]` Ngô Thị Trà My** | Thu thập, làm sạch đủ 200 câu hỏi thực tế (0% PII theo SEC 02/06) & thực hiện kiểm tra mở xem 100% liên kết tài liệu gốc `source_uri`. | **ĐÃ HOÀN THÀNH (`Done`)** |
+| **`CKPA-67` (`CRM-G1-SUB17`)** | **`[S4]` Quý Hải** | Niêm phong bộ `100 SEALED` thay thế V2 (`VG-19..VG-43`, `52/24/24`, SHA-256 `372988c4...`) + `80 Challenges` tại `ckpa-dev-val-eval/sealed-eval-repo` (`33180db`), cách ly tuyệt đối khỏi `S2/S3`. | **ĐÃ ĐÓNG BĂNG (`Done`)** |
+| **`CKPA-68` (`CRM-G1-SUB18`)** | **`[P2]` Hữu Tài & `[P3]` Chí Kha** | Rà soát nhãn độc lập (Two Policy Reviewers) và đồng ký duyệt nhãn vàng chuẩn cho `100 Sealed` & `80 Challenges` (`CKPA-68_Bien_Ban_Dong_Gan_Nhan_Va_Ky_Xac_Nhan_Kep_P2_P3.md`). | **ĐÃ ĐỒNG KÝ DUYỆT (`Done`)** |
 
 ---
 
 ## 2. KẾT QUẢ PHÂN VÙNG 200 REAL TASKS (60 DEV / 40 VAL / 100 SEALED)
 
-### 2.1 Ma trận Phân bổ 200 Câu hỏi Thực tế (Đã chuẩn hóa thứ tự Họ chính sách)
-Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA-58:
+### 2.1 Ma trận Phân bổ 200 Câu hỏi Thực tế (Đồng bộ Gói Thay thế V2 `sealed-eval-repo @ 33180db`)
+Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1, `CKPA-58` và `CKPA-67` / `CKPA-68`:
 
 | Phân vùng (Partition) | Mục đích sử dụng | POL-001 (Báo giá & CK) | POL-002 (Xử lý thông tin KH) | POL-003 (Dịch vụ & Bảo hành) | Tổng số ca |
 |---|---|:---:|:---:|:---:|:---:|
-| **`DEV` (60 ca)** | Công khai cho đội Build (`S2` & `S3`) phát triển & tinh chỉnh hàng ngày | 24 ca | 18 ca | 18 ca | **60 ca** |
-| **`VAL` (40 ca)** | Dành cho đánh giá độc lập (`S4`) tinh chỉnh ngưỡng truy xuất/chấm điểm trước G2 | 16 ca | 12 ca | 12 ca | **40 ca** |
-| **`SEALED` (100 ca)** | **Niêm phong tuyệt đối trong `sealed-eval-repo`** phục vụ nghiệm thu độc lập G2 $\rightarrow$ G3 | 38 ca | 30 ca | 32 ca | **100 ca** |
-| **Tổng cộng** | **Bộ dữ liệu thực tế 200 Real Tasks** | **78 ca** | **60 ca** | **62 ca** | **200 ca** |
+| **`DEV` (60 ca sơ bộ / Open)** | Phục vụ đội Build (`S2` & `S3`) phát triển & tinh chỉnh hàng ngày (`VG-01..VG-18`) | 24 ca | 18 ca | 18 ca | **60 ca** |
+| **`VAL` (40 ca sơ bộ / Open)** | Phục vụ đánh giá độc lập (`S4`) tinh chỉnh ngưỡng trước G2 (`VG-01..VG-18`) | 16 ca | 12 ca | 12 ca | **40 ca** |
+| **`SEALED` (100 ca V2)** | **Niêm phong đóng băng trong `sealed-eval-repo @ 33180db`** (`VG-19..VG-43`, phục vụ nghiệm thu G2 -> G3) | 52 ca | 24 ca | 24 ca | **100 ca** |
+| **Tổng cộng** | **Bộ dữ liệu thực tế 200 Real Tasks (`VG-01..VG-43`)** | **92 ca** | **54 ca** | **54 ca** | **200 ca** |
 
 ### 2.2 Quy tắc Gom nhóm Chống Rò rỉ (*Keep related variants and records in one partition*)
-- **Ràng buộc RFP Mục 8 (trang 10):** Tuyệt đối không để xảy ra hiện tượng rò rỉ dữ liệu (data leakage) giữa tập học/phát triển (`DEV`) và tập niêm phong nghiệm thu (`SEALED`).
+- **Ràng buộc RFP Mục 8 (trang 10):** Tuyệt đối không để xảy ra hiện tượng rò rỉ dữ liệu (data leakage) giữa tập mở (`DEV`/`VAL`) và tập niêm phong nghiệm thu (`SEALED`).
 - **Trạng thái bàn giao & Phân định trách nhiệm (`SoD`):**
-  - Trên kho chung Purchaser, tệp `200_real_tasks_partitioned.csv` đặt trường `Partition = PENDING_S4_PARTITION_CKPA67` (cột `Provisional_Partition` chỉ phản ánh cơ cấu số lượng sơ bộ `60 DEV / 40 VAL / 100 SEALED` từ 2 đợt thu thập, kèm **18 nhóm biến thể `VG-01..VG-18`** [`6×13 + 10×12 + 2×1 = 200`] đã chuẩn hóa khóa ngoại điều khoản `PAS-xxx` và trường trọng yếu `CF-xxx`, đảm bảo cả 3 phân vùng đều có đủ 3 họ `POL-001`, `POL-002`, `POL-003` khi gom nguyên nhóm).
-  - Thuật toán gom cụm toàn bộ các biến thể cùng `Variant_Group_ID` vào **duy nhất một phân vùng chính thức** (`60 DEV / 40 VAL / 100 SEALED`) thuộc thẩm quyền độc lập của **`[S4]` Phạm Quý Hải tại Sub-task `CKPA-67`** trên kho cách ly `sealed-eval-repo`.
-  - 100 ca `SEALED` trên repo chung chỉ hiển thị mã băm xác thực `SHA-256` (`Record_SHA256`) và nhãn khóa `[LOCKED]`, tuyệt đối không lộ nội dung câu hỏi hay đáp án chi tiết.
+  - Tập 100 câu mở (`TASK-001..TASK-100`) thuộc **18 nhóm biến thể `VG-01..VG-18`**; tập 100 câu niêm phong thay thế V2 (`TASK-101..TASK-200` / `SEALED-001..100`) thuộc **25 nhóm biến thể độc lập `VG-19..VG-43`** (`25 x 4 = 100` ca), bảo đảm **0% trùng lặp hoặc giao cắt `Variant_Group_ID`** giữa Open 100 và Sealed 100.
+  - Trên kho chung Purchaser, 100 ca mở giữ `Partition = PENDING_S4_PARTITION_CKPA67` để `[S4]` gom nguyên nhóm `VG` khi chia `60 DEV / 40 VAL`, còn 100 ca `SEALED` ghi nhận `Partition = SEALED`, mã băm `Record_SHA256` đồng bộ từ `sealed_100.csv` (`33180db`), `P2_P3_Consensus_Status = P2_P3_CO_SIGNED_APPROVED` và khóa toàn bộ câu hỏi/đáp án dưới nhãn `[SEALED_TASK_HIDDEN_PER_GUARDRAIL_1]` / `[LOCKED]`.
 
 ### 2.3 Kiểm tra An toàn Bảo mật PII (SEC 02 & SEC 06)
 - **Kết quả rà soát tự động & thủ công:** Toàn bộ 200 câu hỏi thực tế đạt **0% PII** (0 SĐT, 0 CCCD/CMND thật, 0 email cá nhân).
-- **Trạng thái đồng thuận nhãn:** Đặt ở mức **`PENDING_P2_P3_REVIEW`** chờ 2 Policy Reviewers ([P2] Hữu Tài & [P3] Trần Chí Kha) chính thức ký duyệt.
+- **Trạng thái đồng thuận nhãn:** 100 ca `SEALED` và 80 `Challenges` đã đạt **`P2_P3_CO_SIGNED_APPROVED`** tại `CKPA-68`; 100 ca mở trên repo Purchaser đã được `[P3]` rà soát đồng bộ điều khoản `PAS-xxx` và trường trọng yếu `CF-xxx` khớp 100% với `DOC-001..DOC-011`.
 - **Tệp dữ liệu lưu trữ (bản che hash 100 ca `SEALED` trên repo Purchaser):**
   - Định dạng CSV: [`200_real_tasks_partitioned.csv`](200_real_tasks_partitioned.csv)
 
@@ -85,16 +84,16 @@ Phân bổ chính xác theo 3 họ chính sách chuẩn của RFP Mục 1 & CKPA
 - **CẢNH BÁO ĐỎ TUÂN THỦ:**
   - Kho câu hỏi và đáp án của **100 Sealed Acceptance Cases** tuyệt đối **KHÔNG ĐƯỢC GỬI CHO S2/S3/S5** và **KHÔNG COMMIT LÊN DEVELOP**.
   - P4 chỉ bàn giao trực tiếp file niêm phong cho **[S4] Quý Hải** để đưa vào `sealed-eval-repo` sau khi hoàn thành CKPA-48.
-  - Bất kỳ hành vi làm lộ câu hỏi 100 Sealed cho đội phát triển đều vi phạm nghiêm trọng quy chế R10 (`rules.md`) và nguyên tắc SoD của RFP Mục 8 & 11.
+  - Bất kỳ hành vi làm lộ câu hỏi 100 Sealed cho đội phát triển đều vi phạm nghiêm trọng quy chế tách vai tại **SCRM Team Onboarding & Workflow Guide v1.0 (§4, §23)** và nguyên tắc SoD của RFP Mục 8 & 11.
 
 ---
 
-## 6. BẢNG THEO DÕI KÝ NHẬN VÀ PHÊ DUYỆT STORY CKPA-65 (MINH BẠCH)
+## 6. BẢNG THEO DÕI KÝ NHẬN VÀ PHÊ DUYỆT STORY CKPA-65 (ĐÃ ĐÓNG `DONE` 26/11/2026)
 
 | Vai trò | Thành viên | Nhiệm vụ xác nhận | Trạng thái thực tế |
 |---|---|---|:---:|
-| **Lead điều phối Story (P4)** | **Ngô Thị Trà My** | Hoàn thành đủ 200 câu hỏi sạch PII & kiểm tra mở xem `source_uri` | **ĐÃ HOÀN THÀNH BÀN GIAO** |
-| **Kiểm định Độc lập (S4)** | **Quý Hải** | Tiếp nhận phân vùng 60/40/100 & lưu 100 Sealed vào `sealed-eval-repo` | **CHỜ TIẾP NHẬN BÀN GIAO (PENDING)** |
-| **Policy Reviewer 1 (P2)** | **Hữu Tài** | Thẩm định và ký duyệt nhãn đáp án chuẩn 3 họ chính sách | **CHỜ RÀ SOÁT NHÃN (PENDING)** |
-| **Policy Reviewer 2 (P3)** | **Trần Chí Kha** | Thẩm định dữ liệu tham chiếu gốc và tính toàn vẹn băm SHA-256 | **CHỜ RÀ SOÁT NHÃN (PENDING)** |
-| **Chủ đầu tư / PO (P1)** | **Mỹ Vân** | Phê duyệt đóng Story CKPA-65 / CRM-G1-ST06 (Tiêu chí G1-AC07) | **CHỜ NGHIỆM THU (PENDING)** |
+| **Lead điều phối Story (P4)** | **Ngô Thị Trà My** | Hoàn thành đủ 200 câu hỏi sạch PII (gồm gói 100 Sealed V2) & kiểm tra mở xem `source_uri` | **ĐÃ HOÀN THÀNH (`Done`)** |
+| **Kiểm định Độc lập (S4)** | **Quý Hải** | Niêm phong đóng băng `100 Sealed` (`VG-19..VG-43`) & `80 Challenges` trên `sealed-eval-repo @ 33180db` | **ĐÃ ĐÓNG BĂNG (`Done` — `CKPA-67`)** |
+| **Policy Reviewer 1 (P2)** | **Hữu Tài** | Thẩm định và đồng ký duyệt nhãn đáp án chuẩn 3 họ chính sách (`CKPA-68`) | **ĐÃ KÝ DUYỆT (`Done` — `CKPA-68`)** |
+| **Policy Reviewer 2 (P3)** | **Trần Chí Kha** | Thẩm định tham chiếu gốc, toàn vẹn SHA-256 & đồng ký duyệt nhãn vàng (`CKPA-68`) | **ĐÃ KÝ DUYỆT (`Done` — `CKPA-68`)** |
+| **Chủ đầu tư / PO (P1)** | **Mỹ Vân** | Phê duyệt đóng Story `CKPA-65` / `CRM-G1-ST06` (Tiêu chí `G1-AC07`) | **ĐÃ NGHIỆM THU (`Done` 26/11/2026)** |

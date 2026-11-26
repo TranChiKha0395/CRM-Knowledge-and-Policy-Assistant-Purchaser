@@ -1,7 +1,7 @@
 # BÁO CÁO TÌNH HÌNH JIRA, TIẾN ĐỘ, PHỤ THUỘC (BLOCKERS) & CẢNH BÁO KỸ THUẬT G1 — `[P3]` TRẦN CHÍ KHA
 
 - **Vai trò RFP:** `[P3]` Knowledge and Data Steward (Purchaser)
-- **Thời điểm lập ban đầu:** `2026-11-19 21:35 (+07)` | **Đồng bộ tiến độ Gate G1:** `2026-11-24` (`CKPA-49`, `50`, `51`, `52`, `58`, `62`, `82` đều đã `Done` trên Jira)
+- **Thời điểm lập ban đầu:** `2026-11-19 21:35 (+07)` | **Đồng bộ tiến độ Gate G1:** `2026-11-26` (Toàn bộ hạng mục `[P3]` tại G0 & G1 gồm `CKPA-49`, `50`, `51`, `52`, `58`, `62`, `65`, `66`, `67`, `68`, `82`, `83` đều đã `Done` trên Jira; các mục bên dưới lưu vết lịch sử phát hiện kỹ thuật Sprint 3–4)
 - **Phạm vi thực hiện:** Các hạng mục độc lập trong **Gate G1** (theo nền tảng G0 đã chốt, **Base Scope thuần túy — cắt O1**, khớp RFP 28 trang & **SCRM Team Onboarding & Workflow Guide v1.0**).
 
 ---
