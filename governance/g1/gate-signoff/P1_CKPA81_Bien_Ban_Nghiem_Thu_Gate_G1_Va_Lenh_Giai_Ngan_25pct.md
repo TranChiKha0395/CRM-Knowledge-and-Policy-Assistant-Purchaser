@@ -10,7 +10,7 @@
 > - `CKPA-84` (`CRM-G1-SUB30`): Họp Hội đồng Ký G1 (25%) & Biên bản Sprint 5 Retro (`[P1]` Vắn Mỹ Vân chủ trì — Đang rà soát)  
 > **Trạng thái Văn kiện:** **BẢN DỰ THẢO RÀ SOÁT CHỜ GIẢI TỎA BLOCKERS (DRAFT v0.9 — PENDING_G1_BLOCKERS)**  
 > **Khuyến nghị Quyết định Cổng G1:** **TẠM DỪNG CHỜ GIẢI TỎA (HOLD / PENDING_G1_BLOCKERS)**  
-> **Thời điểm ban hành rà soát:** Ngày 25/11/2026 (Giờ Việt Nam — UTC+7)
+> **Thời điểm cập nhật đối soát:** Ngày 26/11/2026 (Giờ Việt Nam — UTC+7; đồng bộ sau khi `CKPA-65`, `67`, `68`, `83` hoàn tất `Done`)
 
 ---
 
@@ -63,31 +63,31 @@ Hội đồng Nghiệm thu đối soát chi tiết từng tiêu chí chấp nh�
 
 | Mã Tiêu chí | Tên Tiêu chí Cổng G1 | Yêu cầu Kỹ thuật Kiểm soát RFP | Bằng chứng Thực tế Đối soát (No-Mock) | Kết luận Đánh giá |
 | :---: | :--- | :--- | :--- | :---: |
-| **`G1-AC01`** | **Toàn vẹn Dữ liệu Curation Full Corpus 3 Họ Chính sách** | Đủ 11 tài liệu nguồn (DOC-001..011); dưới 300 đoạn văn; dưới 50 trường trọng yếu; 100% bản ghi đủ 6 chiều DAT 04; 0 link gãy source_uri; 136 SHA-256 khớp 100%. | Biên bản CKPA-82 của [P3], PR #52 & PR #55; Xác nhận của [P2] tại CKPA-83; File Policy_Corpus_G1_Full.csv. | **ĐẠT (PASS)** |
-| **`G1-AC02`** | **Bộ Dữ liệu Kiểm thử Độc lập 200 Tasks & 80 Challenges** | Phân vùng chuẩn 60 Dev / 40 Val / 100 Sealed chống rò rỉ; Niêm phong 100 Sealed + 80 Challenges trong sealed-eval-repo; 2 Policy Reviewers đồng duyệt. | [S4] cảnh báo nguồn câu hỏi bị công khai lúc 12:07 ngày 25/11 -> 100 SEALED hiện tại không dùng làm holdout độc lập được, đang yêu cầu [P4] cấp bộ thay thế; CKPA-68 (2 Policy Reviewers đồng duyệt) vẫn In Progress chưa có kết quả. | **CHƯA ĐẠT<br>(PENDING_SEALED_REPLACEMENT & CKPA-68)** |
-| **`G1-AC03`** | **Immediate Withdrawal & Khóa O1 Mặc định (Base Scope)** | Rút hồi tức thì commit trước ack, fail-closed (SEC 05, KNW 04); Khóa Option O1 mặc định trong Base Scope (OPTION_O1_ENABLED=False, DAT 07); An ninh log truy cập (SEC 01, SEC 02). | PR #28 đã merge logic commit trước ack; cờ O1 khóa mặc định 403; tuy nhiên nhật ký g1_rbac_failclosed_audit_CKPA-70.log đang ở mức PARTIAL_PASS (4/4 BLOCKED_NO_LIVE_ENDPOINT do chờ Staging URL thật và xử lý lệch dấu / tại /api/v1/answer/). | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_NO_LIVE_ENDPOINT)** |
-| **`G1-AC04`** | **Pre-retrieval RBAC 4 Vai trò & 7 Trạng thái Vòng đời** | Thực thi RBAC 4 vai trò (reader, policy_owner, steward, administrator) tại Pre-Retrieval (SEC 01); Quản lý đúng 7 trạng thái KNW 03; 0% rò rỉ link/citation/cache/log khi từ chối; Kiểm toán kho Sealed (SEC 06). | Unit tests PR #20 & PR #49 pass; nhưng log chạy runtime thật g1_rbac_failclosed_audit_CKPA-70.log đang 0/4 PASS_VERIFIED, 4/4 BLOCKED_NO_LIVE_ENDPOINT; g1_sealed_acl_audit_CKPA-79.log Part 2 đang BLOCKED_EXTERNAL_REPO_ACCESS (chờ log thật kho ngoài). | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_EXTERNAL_ACCESS)** |
-| **`G1-AC05`** | **Hiệu năng Pipeline Benchmark Offline & Bàn giao DEL 02/03** | Đóng băng mã nguồn tag v0.2.0-g1-offline; Pipeline RAG đạt chỉ số kiểm chuẩn; Bàn giao trọn bộ Kiến trúc DEL 02 và Báo cáo kiểm định DEL 03. | Đã gắn tag v0.2.0-g1-offline; tuy nhiên báo cáo kiểm định CKPA-75 của [S4] và PR #33 bên repo Supplier vẫn OPEN với kết luận NEEDS_SIGNOFF (lỗi fresh-DB Alembic migration thiếu passages, đang bàn giao DEF-CKPA75-01..05 sang Swarming CKPA-76 để cắt patch tag v0.2.1-g1-offline). | **CHƯA ĐẠT<br>(NEEDS_SIGNOFF — Chờ Swarming CKPA-76)** |
-| **`G1-AC06`** | **Deterministic Field Lookup (DAT 06) & Cơ chế HOLD** | Tra cứu trường trọng yếu định lượng qua Python Decimal thuần (0% số học qua LLM); Tự động kích hoạt HOLD khi thiếu ngày chi phối (OPS 03), thiếu bảng (DAT 08) hoặc xung đột nguồn (DAT 05, OPS 04). | CKPA-63 (PR #23: 52/52 tests PASS); CKPA-64 S4 retest đạt 30/30 tests PASS; Thẩm định chuyên môn CKPA-83 của [P2] đã xác nhận. | **ĐẠT (PASS)** |
-| **`G1-AC07`** | **Môi trường Test tách Prod, 0% PII & Tách vai SoD** | Môi trường Test tách Prod (SEC 06); 0% PII thật (SEC 02); QA Lead [S4] độc lập code S2/S3; 5 NSD đại diện thuộc 100% Bên Mua; kho sealed-eval-repo cô lập S2/S3. | Môi trường Test đã dựng (PR #25); Quét nội bộ 0% PII (PR #50 Part 1 PASS); Ma trận 5 NSD tại CKPA-5/31; tuy nhiên xác nhận kiểm toán ACL kho ngoài tại CKPA-79 Part 2 vẫn đang BLOCKED chờ log thật từ S4/S5. | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — Chờ log ACL kho ngoài)** |
+| **`G1-AC01`** | **Toàn vẹn Dữ liệu Curation Full Corpus 3 Họ Chính sách** | Đủ 11 tài liệu nguồn (DOC-001..011); dưới 300 đoạn văn; dưới 50 trường trọng yếu; 100% bản ghi đủ 6 chiều DAT 04; 0 link gãy source_uri; 136 SHA-256 khớp 100%. | Biên bản CKPA-82 của [P3], PR #52 & PR #55; Xác nhận của [P2] tại CKPA-83 (`Done`); File Policy_Corpus_G1_Full.csv. | **ĐẠT (PASS)** |
+| **`G1-AC02`** | **Bộ Dữ liệu Kiểm thử Độc lập 200 Tasks & 80 Challenges** | Phân vùng chuẩn 60 Dev / 40 Val / 100 Sealed chống rò rỉ; Niêm phong 100 Sealed + 80 Challenges trong sealed-eval-repo; 2 Policy Reviewers đồng duyệt. | Gói 100 SEALED thay thế V2 (`VG-19..VG-43`, `52/24/24`, SHA-256 `372988c4...`) + 80 Challenges đã đóng băng tại `ckpa-dev-val-eval/sealed-eval-repo @ 33180db` (`CKPA-67` Done); `[P2]` & `[P3]` đã đồng ký duyệt nhãn vàng tại `CKPA-68` (`Done`); `CKPA-65` đã `Done`. | **ĐẠT (PASS)** |
+| **`G1-AC03`** | **Immediate Withdrawal & Khóa O1 Mặc định (Base Scope)** | Rút hồi tức thì commit trước ack, fail-closed (SEC 05, KNW 04); Khóa Option O1 mặc định trong Base Scope (OPTION_O1_ENABLED=False, DAT 07); An ninh log truy cập (SEC 01, SEC 02). | PR #28 đã merge logic commit trước ack; cờ O1 khóa mặc định 403; PR #61 bên Purchaser đã sửa route `POST /api/v1/answer`; tuy nhiên nhật ký `g1_rbac_failclosed_audit_CKPA-70.log` vẫn ở mức `PARTIAL_PASS` (`4/4 BLOCKED_NO_LIVE_ENDPOINT` do chờ Supplier vá `KnowledgeService` & cấp Staging URL thật). | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_NO_LIVE_ENDPOINT)** |
+| **`G1-AC04`** | **Pre-retrieval RBAC 4 Vai trò & 7 Trạng thái Vòng đời** | Thực thi RBAC 4 vai trò (reader, policy_owner, steward, administrator) tại Pre-Retrieval (SEC 01); Quản lý đúng 7 trạng thái KNW 03; 0% rò rỉ link/citation/cache/log khi từ chối; Kiểm toán kho Sealed (SEC 06). | Unit tests pass; nhưng trên Jira `CKPA-70` ghi nhận lỗi `KnowledgeService.get_document_lineage()` lộ metadata `SCHEDULED`/`DRAFT`/`WITHDRAWN` chưa vá, log runtime `CKPA-70` còn `BLOCKED_NO_LIVE_ENDPOINT`, và log `g1_sealed_acl_audit_CKPA-79.log` Part 2 trên repo vẫn `BLOCKED_EXTERNAL_REPO_ACCESS` chờ snapshot Collaborators JSON/CSV. | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — BLOCKED_LIVE_AND_ACL_EXPORT)** |
+| **`G1-AC05`** | **Hiệu năng Pipeline Benchmark Offline & Bàn giao DEL 02/03** | Đóng băng mã nguồn tag v0.2.0-g1-offline; Pipeline RAG đạt chỉ số kiểm chuẩn; Bàn giao trọn bộ Kiến trúc DEL 02 và Báo cáo kiểm định DEL 03. | Nhánh `develop` bên Supplier (`0a1bff1`) đã xanh CI và mở **PR #39** (`fix(ckpa-76): bound version IDs and stabilize retest`, 4/4 checks pass); tuy nhiên PR #39 chưa merge, tag **`v0.2.1-g1-offline`** chưa cắt và `CKPA-75` của `[S4]` vẫn `In Progress` chờ delta retest. | **CHƯA ĐẠT<br>(NEEDS_SIGNOFF — Chờ merge PR #39 & Retest `CKPA-75`)** |
+| **`G1-AC06`** | **Deterministic Field Lookup (DAT 06) & Cơ chế HOLD** | Tra cứu trường trọng yếu định lượng qua Python Decimal thuần (0% số học qua LLM); Tự động kích hoạt HOLD khi thiếu ngày chi phối (OPS 03), thiếu bảng (DAT 08) hoặc xung đột nguồn (DAT 05, OPS 04). | CKPA-63 (PR #23: 52/52 tests PASS); CKPA-64 S4 retest đạt 30/30 tests PASS; Thẩm định chuyên môn CKPA-83 của [P2] đã xác nhận (`Done`). | **ĐẠT (PASS)** |
+| **`G1-AC07`** | **Môi trường Test tách Prod, 0% PII & Tách vai SoD** | Môi trường Test tách Prod (SEC 06); 0% PII thật (SEC 02); QA Lead [S4] độc lập code S2/S3; 5 NSD đại diện thuộc 100% Bên Mua; kho sealed-eval-repo cô lập S2/S3. | Môi trường Test đã dựng (PR #25); Quét nội bộ 0% PII (`CKPA-47` PASS); `sealed_manifest.json @ 33180db` xác nhận cô lập `S2/S3/S5`; tuy nhiên log kỹ thuật `g1_sealed_acl_audit_CKPA-79.log` Part 2 trên repo Purchaser vẫn `PARTIAL_PASS` chờ file export Collaborators JSON/CSV thật từ `[S4]`. | **CHƯA ĐẠT TOÀN DIỆN<br>(PARTIAL_PASS — Chờ export Collaborators JSON/CSV)** |
 
-**KẾT LUẬN ĐỐI SOÁT:** Hiện tại mới đạt **2 / 7 tiêu chí (G1-AC01, G1-AC06)**; còn **5 / 7 tiêu chí (G1-AC02, G1-AC03, G1-AC04, G1-AC05, G1-AC07)** đang ở trạng thái `PARTIAL_PASS`, `BLOCKED` hoặc `NEEDS_SIGNOFF`. Hệ thống **chưa đủ điều kiện tuyên bố 0 lỗi Critical Control**.
+**KẾT LUẬN ĐỐI SOÁT (`26/11/2026`):** Đã đạt **3 / 7 tiêu chí (`G1-AC01`, `G1-AC02`, `G1-AC06`)** sau khi giải tỏa dứt điểm `CKPA-65/67/68/83`; còn **4 / 7 tiêu chí (`G1-AC03`, `G1-AC04`, `G1-AC05`, `G1-AC07`)** đang vướng các điểm nghẽn runtime/retest/export log cuối cùng. Hệ thống **chưa đủ điều kiện tuyên bố đóng cổng G1 trước phiên họp 27/11/2026**.
 
 ---
 
-# PHẦN III: QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: XÁC LẬP TRẠNG THÁI HOLD VÀ 4 BLOCKERS BẮT BUỘC TRƯỚC KHI MỞ G2
+# PHẦN III: QUYẾT ĐỊNH CỦA CHỦ ĐẦU TƯ: XÁC LẬP TRẠNG THÁI HOLD VÀ CẬP NHẬT 4 BLOCKERS TRƯỚC KHI MỞ G2
 
 Căn cứ nguyên tắc kiểm định trung thực (No-Mock) và bảo vệ an toàn dự án:
 
 1. **Quyết định Xác lập Trạng thái Cổng G1:**
    - Chủ đầu tư **CHƯA KÝ NGHIỆM THU ĐÓNG CỔNG G1**, tạm thời xác lập trạng thái **`HOLD / PENDING_G1_BLOCKERS`**.
-   - Tiếp tục giữ User Story cha **`CKPA-81`** ở trạng thái **`In Progress`** trên hệ thống Jira cho đến khi giải tỏa toàn bộ các điểm nghẽn kỹ thuật.
+   - Tiếp tục giữ User Story cha **`CKPA-81`** và Sub-task **`CKPA-84`** ở trạng thái **`In Progress`** trên hệ thống Jira cho đến phiên họp Hội đồng chính thức ngày `27/11/2026`.
 
-2. **Danh mục 4 Điểm nghẽn Bắt buộc (Blockers) phải giải tỏa trước khi cấp phép mở Cổng G2:**
-   - **`BLOCKER-01` (G1-AC02 / CKPA-67, CKPA-68):** [P4] Ngô Thị Trà My cung cấp bộ 100 câu hỏi Sealed thay thế bảo mật do bộ cũ bị công khai trên repo; [P2] Hữu Tài và [P3] Chí Kha hoàn thành đồng duyệt nhãn vàng độc lập tại `CKPA-68`.
-   - **`BLOCKER-02` (G1-AC03, G1-AC04 / CKPA-70):** [S1] Hoàng Tiến và [S5] Ngọc Duy sửa triệt để lỗi route `/api/v1/answer/`, cấp Staging live endpoint để [P5] Anh Khoa thực thi kiểm thử `--strict-live` đạt 4/4 PASS thật, xóa bỏ hoàn toàn trạng thái `BLOCKED_NO_LIVE_ENDPOINT`.
-   - **`BLOCKER-03` (G1-AC04, G1-AC07 / CKPA-79):** [S4] Quý Hải và [S5] Ngọc Duy xuất tệp JSON/CSV Collaborators & GitHub Audit Log thật từ kho riêng `sealed-eval-repo` để [P5] Anh Khoa chạy `--strict-external` đạt PASS thật, xóa bỏ trạng thái `BLOCKED_EXTERNAL_REPO_ACCESS`.
-   - **`BLOCKER-04` (G1-AC05 / CKPA-75, CKPA-76):** Đội Build [S2] hoàn tất xử lý 5 defects (DEF-CKPA75-01..05) trong đợt Swarming `CKPA-76`, cắt patch tag **`v0.2.1-g1-offline`** và QA Lead [S4] delta retest đạt 100% PASS (đóng PR #33 bên repo Supplier).
+2. **Trạng thái Giải tỏa 4 Điểm nghẽn Bắt buộc (Blockers) tính đến `26/11/2026`:**
+   - **`BLOCKER-01` (`G1-AC02` / `CKPA-65, 67, 68`) — [ĐÃ GIẢI TỎA 26/11/2026]:** `[P4]` Trà My đã bàn giao bộ 100 câu Sealed thay thế V2 (`VG-19..VG-43`); `[S4]` Quý Hải đã đóng băng tại `ckpa-dev-val-eval/sealed-eval-repo @ 33180db` (`CKPA-67` Done); `[P2]` Hữu Tài & `[P3]` Chí Kha đã đồng ký duyệt nhãn vàng tại `CKPA-68` (`Done`).
+   - **`BLOCKER-02` (`G1-AC03, G1-AC04` / `CKPA-69, 70`) — [CÒN HIỆU LỰC]:** PR #61 bên Purchaser đã sửa route `POST /api/v1/answer`; cần `[S1]`/`[S3]` vá lỗi lộ metadata `KnowledgeService.get_document_lineage()` + kiểm tra `effective_from` tại `get_passage()`, đồng thời `[S5]` cấp Staging `CKPA_BASE_URL` để `[P5]` Anh Khoa chạy `--strict-live` đạt `4/4 PASS_VERIFIED`.
+   - **`BLOCKER-03` (`G1-AC04, G1-AC07` / `CKPA-79`) — [CHỜ BỔ SUNG EXPORT LOG TRÊN GIT]:** Dù `[S1]` đã đóng `CKPA-79` trên Jira dựa theo `sealed_manifest.json @ 33180db`, `[S4]` Quý Hải vẫn cần xuất snapshot JSON/CSV Collaborators & Audit Log của `sealed-eval-repo` để `[P5]` chạy `--strict-external` chuyển `g1_sealed_acl_audit_CKPA-79.log` từ `PARTIAL_PASS` sang `PASS`.
+   - **`BLOCKER-04` (`G1-AC05` / `CKPA-73, 75, 76`) — [CÒN HIỆU LỰC]:** PR #33 & PR #37 bên Supplier đã đóng; cần review/merge **PR #39** (`fix(ckpa-76): bound version IDs and stabilize retest`), cắt patch tag **`v0.2.1-g1-offline`** và QA Lead `[S4]` hoàn tất delta retest đóng `CKPA-75` & `CKPA-73`.
 
 ---
 
@@ -126,15 +126,15 @@ Căn cứ Điều 12 Hợp đồng Dịch vụ Phần mềm số 01/2026/HDDV-CK
 | Vai trò RFP | Họ và tên | Chức danh / Đại diện | Trạng thái Ký duyệt Hiện tại |
 | :--- | :--- | :--- | :---: |
 | **`[P1]` Purchaser Sponsor / PO** | **Vắn Mỹ Vân** | Chủ tịch Hội đồng Thẩm định & Nghiệm thu | *(Ký ban hành Bản dự thảo Rà soát & Quyết định HOLD)* |
-| **`[P2]` Policy Owners** | **Trương Đình Hữu Tài** | Trưởng nhóm Quản trị Chính sách | *(Đã ký duyệt Corpus & CKPA-83 / PENDING đồng duyệt CKPA-68)* |
-| **`[P3]` Knowledge & Data Steward** | **Trần Chí Kha** | Quản trị Dữ liệu & Nguồn Tri thức | *(Đã ký duyệt dữ liệu CKPA-82 / PENDING chờ giải tỏa Blockers)* |
-| **`[P4]` Staff Users Representative** | **Ngô Thị Trà My** | Đại diện Người dùng Nghiệp vụ SongNhat | **PENDING** *(Đang phối hợp cấp bộ 100 Sealed thay thế)* |
-| **`[P5]` Privacy & Security Owners** | **Nguyễn Anh Khoa** | Quản trị An toàn Thông tin & Quyền riêng tư | **PENDING** *(Chờ live endpoint tại CKPA-70 & log kho ngoài CKPA-79)* |
-| **`[S1]` Named Lead / Scrum Master** | **Hoàng Tiến** | Đại diện Quản lý Nhà cung cấp | **PENDING** *(Đang điều phối cấp live endpoint & hoàn thiện DEL 05)* |
-| **`[S2]` Integration Engineer** | **Trần Quốc Hưng** | Kỹ sư Tích hợp Hệ thống | **PENDING** *(Đang thực hiện Swarming fix tại CKPA-76)* |
-| **`[S3]` Retrieval & App Engineer** | **Phạm Lương Yến Nhi** | Kỹ sư Truy xuất & Ứng dụng | **PENDING** *(Đang hỗ trợ fix route /api/v1/answer/)* |
-| **`[S4]` Quality Lead (Independent QA)** | **Phạm Quý Hải** | Trưởng nhóm Đảm bảo Chất lượng Độc lập | **PENDING** *(Báo cáo NEEDS_SIGNOFF tại CKPA-75, chờ retest tag v0.2.1)* |
-| **`[S5]` Operations Specialist** | **Nguyễn Ngọc Duy** | Chuyên viên Vận hành Hệ thống | **PENDING** *(Đang triển khai môi trường Staging & hỗ trợ S4)* |
+| **`[P2]` Policy Owners** | **Trương Đình Hữu Tài** | Trưởng nhóm Quản trị Chính sách | *(Đã ký duyệt Corpus, `CKPA-83` & đồng ký `CKPA-68` / PENDING họp Hội đồng 27/11)* |
+| **`[P3]` Knowledge & Data Steward** | **Trần Chí Kha** | Quản trị Dữ liệu & Nguồn Tri thức | *(Đã ký duyệt dữ liệu `CKPA-82` & đồng ký `CKPA-68` / PENDING họp Hội đồng 27/11)* |
+| **`[P4]` Staff Users Representative** | **Ngô Thị Trà My** | Đại diện Người dùng Nghiệp vụ SongNhat | *(Đã bàn giao gói 100 Sealed V2 `CKPA-65/66` / PENDING họp Hội đồng 27/11)* |
+| **`[P5]` Privacy & Security Owners** | **Nguyễn Anh Khoa** | Quản trị An toàn Thông tin & Quyền riêng tư | **PENDING** *(Chờ live endpoint tại `CKPA-70` & export Collaborators tại `CKPA-79`)* |
+| **`[S1]` Named Lead / Scrum Master** | **Hoàng Tiến** | Đại diện Quản lý Nhà cung cấp | **PENDING** *(Đang điều phối vá `KnowledgeService`, cấp live endpoint & hoàn thiện DEL 05)* |
+| **`[S2]` Integration Engineer** | **Trần Quốc Hưng** | Kỹ sư Tích hợp Hệ thống | **PENDING** *(Đã mở PR #39 cho `CKPA-76`, chờ merge & cắt tag `v0.2.1-g1-offline`)* |
+| **`[S3]` Retrieval & App Engineer** | **Phạm Lương Yến Nhi** | Kỹ sư Truy xuất & Ứng dụng | **PENDING** *(Hỗ trợ vá lỗi lộ metadata `KnowledgeService` tại `CKPA-70`)* |
+| **`[S4]` Quality Lead (Independent QA)** | **Phạm Quý Hải** | Trưởng nhóm Đảm bảo Chất lượng Độc lập | **PENDING** *(Đã đóng băng `CKPA-67 @ 33180db`; chờ delta retest tag `v0.2.1-g1-offline` tại `CKPA-75`)* |
+| **`[S5]` Operations Specialist** | **Nguyễn Ngọc Duy** | Chuyên viên Vận hành Hệ thống | **PENDING** *(Đang triển khai môi trường Staging cấp `CKPA_BASE_URL`)* |
 
 ---
 *Văn kiện này là Bản dự thảo rà soát Cổng G1 phục vụ công tác đối soát kỹ thuật và giám sát dự án của Bên Mua. Lệnh giải ngân 25% và Quyết định mở Cổng G2 chỉ được ký ban hành chính thức sau khi toàn bộ 4 Blockers kỹ thuật được giải tỏa và Nhà cung cấp nộp đủ báo giá DEL 05 thực tế.*

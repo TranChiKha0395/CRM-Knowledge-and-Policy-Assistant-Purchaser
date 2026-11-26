@@ -58,24 +58,24 @@ Toàn bộ **96/96 passages** và **40/40 critical fields** (tổng **136/136 b�
 ### 3.2. Bộ đáp án chuẩn kiểm thử biên ngày & ngưỡng số học (`OPS 03` / `OPS 04`)
 
 1. **Quy tắc múi giờ & Ngày chi phối (`OPS 03` — `Asia/Ho_Chi_Minh`, `UTC+7`):**
-   - **Câu hỏi quy trình chung (không nêu ngày giao dịch):** Bắt buộc lấy phiên bản `effective` tại thời điểm hiện tại (`2026-11-23 +07:00` $\rightarrow$ dùng `VER-001` có hiệu lực từ `2026-11-06T09:00:00+07:00`).
-   - **Mốc chuyển giao phiên bản `v0.9` $\rightarrow$ `VER-001` (`2026-11-06 09:00:00 +07:00`):**
-     - Giao dịch phát sinh lúc `2026-11-06 08:59:59 +07:00` $\rightarrow$ Áp dụng `DOC00X-VER-000` (`superseded`: chiết khấu tiêu chuẩn `<= 3%`, hiệu lực báo giá `10 ngày`, ngưỡng pháp lý `< 300 triệu VND`, bảo hành Tuyến 1 `<= 22 kW`) + gắn nhãn **`Hướng dẫn lịch sử`**.
-     - Giao dịch phát sinh từ `2026-11-06 09:00:00 +07:00` $\rightarrow$ Áp dụng `VER-001` (`effective`: chiết khấu tiêu chuẩn `<= 5%`, hiệu lực báo giá `15 ngày`, ngưỡng pháp lý `< 500 triệu VND`, bảo hành Tuyến 1 `<= 37 kW`).
-   - **Mốc lên lịch tương lai `VER-002` (`2027-01-01 00:00:00 +07:00`):** Mọi truy vấn năm 2026 tuyệt đối không dùng `CF-019` (`1,5 tỷ VND`), `CF-020` (`20 ngày`), `CF-029` (`1 giờ`), `CF-037` (`<= 45 kW`).
+   - **Câu hỏi quy trình chung (không nêu ngày giao dịch):** Bắt buộc lấy phiên bản `effective` tại thời điểm hiện tại (`2026-11-23 +07:00` -> dùng `VER-001` có hiệu lực từ `2026-11-06T09:00:00+07:00`).
+   - **Mốc chuyển giao phiên bản `v0.9` -> `VER-001` (`2026-11-06 09:00:00 +07:00`):**
+     - Giao dịch phát sinh lúc `2026-11-06 08:59:59 +07:00` -> Áp dụng `DOC00X-VER-000` (`superseded`: chiết khấu tiêu chuẩn `<= 3%`, hiệu lực báo giá `10 ngày làm việc`, ngưỡng pháp lý `< 300 triệu VND`, bảo hành Tuyến 1 `<= 22 kW`) + gắn nhãn **`Hướng dẫn lịch sử`**.
+     - Giao dịch phát sinh từ `2026-11-06 09:00:00 +07:00` -> Áp dụng `VER-001` (`effective`: chiết khấu tiêu chuẩn `<= 5%`, hiệu lực báo giá `15 ngày làm việc`, ngưỡng pháp lý `< 500 triệu VND`, bảo hành Tuyến 1 `<= 37 kW`).
+   - **Mốc lên lịch tương lai `VER-002` (`2027-01-01 00:00:00 +07:00`):** Mọi truy vấn năm 2026 tuyệt đối không dùng `CF-019` (`1,5 tỷ VND`), `CF-020` (`20 ngày làm việc`), `CF-029` (`1 giờ`), `CF-037` (`<= 45 kW`).
 
 2. **Quy tắc kiểm thử biên toán tử nghiêm ngặt (`OPS 04` — `<`, `<=`, `=`, `>=`, `>`, `between`):**
    - **Họ 1 — Chiết khấu & Đơn hàng (`CF-001..003`):**
-     - `discount = 5.0%` (đơn `< 500 triệu`): Thuộc `<= 5%` (`CF-001`) $\rightarrow$ `Sales Staff` tự duyệt (2h).
-     - `discount = 5.01%` hoặc `15.0%`: Thuộc `between 5;15` (`5% < discount <= 15%`, `CF-002`) $\rightarrow$ `Sales Manager` duyệt (4h).
-     - `discount = 15.01%` hoặc `order_value = 1.000.000.000 VND`: Thuộc `>= 1.000.000.000 VND` / `> 15%` (`CF-003`) $\rightarrow$ `Sales Director` duyệt (48h).
+     - `discount = 5.0%` (đơn `< 500 triệu`): Thuộc `<= 5%` (`CF-001`) -> `Sales Staff` tự duyệt (2h).
+     - `discount = 5.01%` hoặc `15.0%`: Thuộc `between 5;15` (`5% < discount <= 15%`, `CF-002`) -> `Sales Manager` duyệt (4h).
+     - `discount = 15.01%` hoặc `order_value = 1.000.000.000 VND`: Thuộc `>= 1.000.000.000 VND` / `> 15%` (`CF-003`) -> `Sales Director` duyệt (48h).
    - **Họ 2 — Ngưỡng pháp lý KH trọng yếu (`CF-006`, `CF-007`):**
-     - `cumulative_contract = 499.999.999 VND` (`< 500.000.000 VND`, `CF-006`) $\rightarrow$ `CRM Staff` xử lý (4h).
-     - `cumulative_contract = 500.000.000 VND` (`>= 500.000.000 VND`, `CF-007`) $\rightarrow$ Bắt buộc trình `CRM Manager` phê duyệt (4h).
+     - `cumulative_contract = 499.999.999 VND` (`< 500.000.000 VND`, `CF-006`) -> `CRM Staff` xử lý (4h).
+     - `cumulative_contract = 500.000.000 VND` (`>= 500.000.000 VND`, `CF-007`) -> Bắt buộc trình `CRM Manager` phê duyệt (4h).
    - **Họ 3 — Công suất định tuyến bảo hành (`CF-009`, `CF-010`, `CF-032`):**
-     - Động cơ thường `37.0 kW` (`<= 37 kW`, `CF-009`) $\rightarrow$ Tuyến 1 nội bộ (`Internal Tech Lead`).
-     - Động cơ thường `37.1 kW` (`> 37 kW`, `CF-010`) $\rightarrow$ Tuyến 2 giám định Hãng (`Vendor Chief Engineer`).
-     - Động cơ phòng nổ `Ex-d` công suất `15 kW` (`<= 37 kW` nhưng thuộc `CF-032`) $\rightarrow$ **Bắt buộc Tuyến 2 (`Vendor Chief Engineer`)** bất kể công suất.
+     - Động cơ thường `37.0 kW` (`<= 37 kW`, `CF-009`) -> Tuyến 1 nội bộ (`Internal Tech Lead`).
+     - Động cơ thường `37.1 kW` (`> 37 kW`, `CF-010`) -> Tuyến 2 giám định Hãng (`Vendor Chief Engineer`).
+     - Động cơ phòng nổ `Ex-d` công suất `15 kW` (`<= 37 kW` nhưng thuộc `CF-032`) -> **Bắt buộc Tuyến 2 (`Vendor Chief Engineer`)** bất kể công suất.
 
 ---
 
@@ -101,5 +101,5 @@ Tôi xác nhận đã thẩm định độc lập toàn bộ **96 passages**, **
 
 | Đại diện Thẩm định & Phê duyệt (`P2` — Policy Owner) | Đại diện Nghiệm thu (`P1` — Purchaser Sponsor) |
 | :---: | :---: |
-| *(Đã ký xác nhận)* | *(Chờ nghiệm thu trên Jira `CKPA-62`)* |
+| *(Đã ký xác nhận)* | *(Đã nghiệm thu `Done` trên Jira `CKPA-62` — 23/11/2026)* |
 | **Trương Đình Hữu Tài** | **Vắn Mỹ Vân** |

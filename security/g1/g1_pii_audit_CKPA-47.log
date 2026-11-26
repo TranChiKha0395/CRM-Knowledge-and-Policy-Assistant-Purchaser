@@ -2,10 +2,10 @@
 Jira Issue     : CKPA-47 (CRM-G1-SUB02 | G1-AC07)
 Repository     : CRM-Knowledge-and-Policy-Assistant-Purchaser
 Auditor        : [P5] Nguyen Anh Khoa (Privacy & Security Owner)
-Timestamp      : 2026-11-24 20:28:09 UTC+7
-Git Branch     : data/CKPA-82-repo-wide-audit-hardening
-Git Commit SHA : a73d832
-Scanned Files  : 71
+Timestamp      : 2026-11-26 17:32:36 UTC+7
+Git Branch     : data/CKPA-82-g1-forensic-audit-sync
+Git Commit SHA : b9cbdb9
+Scanned Files  : 76
 Total PII Hits : 0
 --- Detailed Hits ---
   No unauthorized PII detected across Purchaser G0/G1 repository (0% PII).
@@ -44,40 +44,45 @@ Total PII Hits : 0
   032. data/templates/passages_template.csv
   033. governance/g0/gate-signoff/P1_CKPA40_42_Ho_So_Quyet_Dinh_Va_Lenh_Thanh_Toan_Gate_G0.md
   034. governance/g0/gate-signoff/P1_CKPA5_Discovery_Charter_Va_5_Representative_Users.md
-  035. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA47.md
-  036. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA51.md
-  037. governance/g1/sub-tasks/P1_CKPA55_BienBan_NghiemThu_100CauHoi_Va_TuDien_VN01.md
-  038. policy/g0/CKPA-27_SUB18_Approval_30_10_And_Funded_G1_Curation_Plan.md
-  039. policy/g0/CKPA-41_SUB28_Section13_Evaluation_Rubric_And_Section14_Readiness_Audit.md
-  040. policy/g0/CKPA-41_SUB28_Section13_Scorecard_30_25_20_15_10.csv
-  041. policy/g0/CKPA-41_SUB28_Section14_7Decisions_G0_Readiness_Checklist.csv
-  042. policy/g0/CKPA-8_01_Authority_Matrix_5_Layers.csv
-  043. policy/g0/CKPA-8_02_Governing_Date_And_Conflict_Hold_Rules.csv
-  044. policy/g0/CKPA-8_Ma_Tran_Tham_Quyen_5_Lop_Va_Quy_Tac_Ngay_Hieu_Luc_G0.md
-  045. policy/g0/CKPA-9_01_Policy_Families_And_Owners_Signoff.csv
-  046. policy/g0/CKPA-9_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv
-  047. policy/g0/CKPA-9_Bien_Ban_Xac_Nhan_Pham_Vi_G0_Va_3_Nhom_Chinh_Sach.md
-  048. policy/g1/Bien_Ban_Phe_Duyet_Corpus_Critical_Fields_Ho1_CRM-G1-SUB05.md
-  049. policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md
-  050. policy/g1/CKPA-83_Xac_Nhan_Policy_Reviewer1_P2_Corpus_Ngay_Truong_Hold.md
-  051. security/g0/CKPA-11_Bien_Ban_Tham_Dinh_Phap_Ly_DEL01-B_G0.md
-  052. security/g0/P1_HoSoPhapLy_CoNgay_v1_HoanChinh.md
-  053. security/g0/P1_RaSoat_Retention_v1_HoanChinh.md
-  054. security/g0/legal-privacy-review.md
-  055. security/g0/rbac-matrix.md
-  056. security/g1/CKPA-47_Chung_Nhan_Du_Lieu_Kiem_Thu_0_PII_G1.md
-  057. security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md
-  058. security/g1/CKPA-79_Bien_Ban_Kiem_Toan_ACL_Sealed_Va_Chot_Bao_Mat_G1.md
-  059. security/g1/g1_rbac_failclosed_audit_CKPA-70.log
-  060. security/g1/g1_sealed_acl_audit_CKPA-79.log
-  061. uat/g0/ckpa-4/CKPA-2_Bao_Cao_Kiem_Ke_Nguon_Question_Inventory_Va_Baseline_G0.md
-  062. uat/g0/ckpa-6/CKPA-2_02_Question_Inventory_4Week_Representative.csv
-  063. uat/g1/ckpa-55/100_real_questions_clean_pii.csv
-  064. uat/g1/ckpa-55/ckpa-55-vn01-handover-report.md
-  065. uat/g1/ckpa-55/vn01_crm_dictionary.json
-  066. uat/g1/ckpa-65/200_real_tasks_partitioned.csv
-  067. uat/g1/ckpa-65/ckpa-65-partitioning-and-challenges-report.md
-  068. uat/g1/ckpa-65/source_uri_inspection_log.csv
-  069. uat/g1/ckpa-66/200_clean_real_tasks.csv
-  070. uat/g1/ckpa-66/ckpa-66-complete-200-tasks-source-uri-report.md
-  071. uat/g1/ckpa-66/source_uri_inspection_log.csv
+  035. governance/g1/gate-signoff/P1_CKPA81_Bien_Ban_Nghiem_Thu_Gate_G1_Va_Lenh_Giai_Ngan_25pct.md
+  036. governance/g1/gate-signoff/P1_CKPA84_Bien_Ban_Hop_Hoi_Dong_Ky_G1_Va_Sprint5_Retro_Log.md
+  037. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA47.md
+  038. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA51.md
+  039. governance/g1/sub-tasks/P1_CKPA55_BienBan_NghiemThu_100CauHoi_Va_TuDien_VN01.md
+  040. policy/g0/CKPA-27_SUB18_Approval_30_10_And_Funded_G1_Curation_Plan.md
+  041. policy/g0/CKPA-41_SUB28_Section13_Evaluation_Rubric_And_Section14_Readiness_Audit.md
+  042. policy/g0/CKPA-41_SUB28_Section13_Scorecard_30_25_20_15_10.csv
+  043. policy/g0/CKPA-41_SUB28_Section14_7Decisions_G0_Readiness_Checklist.csv
+  044. policy/g0/CKPA-8_01_Authority_Matrix_5_Layers.csv
+  045. policy/g0/CKPA-8_02_Governing_Date_And_Conflict_Hold_Rules.csv
+  046. policy/g0/CKPA-8_Ma_Tran_Tham_Quyen_5_Lop_Va_Quy_Tac_Ngay_Hieu_Luc_G0.md
+  047. policy/g0/CKPA-9_01_Policy_Families_And_Owners_Signoff.csv
+  048. policy/g0/CKPA-9_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv
+  049. policy/g0/CKPA-9_Bien_Ban_Xac_Nhan_Pham_Vi_G0_Va_3_Nhom_Chinh_Sach.md
+  050. policy/g1/Bien_Ban_Phe_Duyet_Corpus_Critical_Fields_Ho1_CRM-G1-SUB05.md
+  051. policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md
+  052. policy/g1/CKPA-83_Xac_Nhan_Policy_Reviewer1_P2_Corpus_Ngay_Truong_Hold.md
+  053. security/g0/CKPA-11_Bien_Ban_Tham_Dinh_Phap_Ly_DEL01-B_G0.md
+  054. security/g0/P1_HoSoPhapLy_CoNgay_v1_HoanChinh.md
+  055. security/g0/P1_RaSoat_Retention_v1_HoanChinh.md
+  056. security/g0/legal-privacy-review.md
+  057. security/g0/rbac-matrix.md
+  058. security/g1/CKPA-47_Chung_Nhan_Du_Lieu_Kiem_Thu_0_PII_G1.md
+  059. security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md
+  060. security/g1/CKPA-79_Bien_Ban_Kiem_Toan_ACL_Sealed_Va_Chot_Bao_Mat_G1.md
+  061. security/g1/g1_rbac_failclosed_audit_CKPA-70.log
+  062. security/g1/g1_sealed_acl_audit_CKPA-79.log
+  063. uat/g0/ckpa-4/CKPA-2_Bao_Cao_Kiem_Ke_Nguon_Question_Inventory_Va_Baseline_G0.md
+  064. uat/g0/ckpa-6/CKPA-2_02_Question_Inventory_4Week_Representative.csv
+  065. uat/g1/ckpa-55/100_real_questions_clean_pii.csv
+  066. uat/g1/ckpa-55/ckpa-55-vn01-handover-report.md
+  067. uat/g1/ckpa-55/vn01_crm_dictionary.json
+  068. uat/g1/ckpa-65/200_real_tasks_partitioned.csv
+  069. uat/g1/ckpa-65/ckpa-65-partitioning-and-challenges-report.md
+  070. uat/g1/ckpa-65/source_uri_inspection_log.csv
+  071. uat/g1/ckpa-66/200_clean_real_tasks.csv
+  072. uat/g1/ckpa-66/ckpa-66-complete-200-tasks-source-uri-report.md
+  073. uat/g1/ckpa-66/source_uri_inspection_log.csv
+  074. uat/g2/ckpa-109/20_named_users_and_5_rep_users_matrix.csv
+  075. uat/g2/ckpa-109/ckpa-109-5-rep-users-and-uat-fallback-scenario.md
+  076. uat/g2/ckpa-109/usefulness_and_observed_effort_rubric.csv

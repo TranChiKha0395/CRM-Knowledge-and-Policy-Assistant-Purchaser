@@ -13,7 +13,7 @@
 Theo kiến trúc tách biệt đánh giá độc lập (`Chinese Wall` / `SoD`) của dự án **SongNhat SCRM**:
 1. Toàn bộ **`100 Sealed Acceptance Cases`** và **`80 Constructed Challenges`** phải được lưu trữ cô lập tuyệt đối tại repository riêng **`sealed-eval-repo`** (`SUB03`), hoàn toàn tách khỏi repository phát triển chung.
 2. **Nhóm kỹ sư phát triển** (`[S2]` Quốc Hưng — Backend/RAG, `[S3]` Yến Nhi — Retrieval/App) có **0% quyền truy cập** (`Read / Write / Clone / Org-Team Inherited`) đối với kho riêng `sealed-eval-repo`. Ở tầng API ứng dụng (`security/g0/rbac-matrix.md`), endpoint `GET /api/v1/evaluation/runs` với partition `sealed_100` chặn `administrator` (`—`) và chỉ cấp quyền xem cho `independent_evaluator` (`✓`), còn `POST /api/v1/evaluation/runs` chỉ cấp cho `independent_evaluator` và `administrator` (ma trận API không cấp quyền truy cập `sealed_100` cho nhóm kỹ sư phát triển).
-3. Chỉ **Chủ sở hữu dữ liệu đánh giá / Vận hành kho riêng** (`[S4]` Quý Hải — `write`/`maintain`/`admin`), **Kiểm toán Bảo mật** (`[P5]` Anh Khoa — `read`/`audit`) và **Đánh giá độc lập** (`[P4]`) được cấp quyền hợp lệ trên `sealed-eval-repo`.
+3. Chỉ **Chủ sở hữu dữ liệu đánh giá / Vận hành kho riêng** (`[S4]` Quý Hải — `write`/`maintain`/`admin`), **2 Policy Reviewers của Bên mua** (`[P2]` Hữu Tài, `[P3]` Chí Kha — `read`-only phục vụ đồng ký nhãn vàng `CKPA-68`), **Purchaser Sponsor / UAT** (`[P1]`, `[P4]`) và **Kiểm toán Bảo mật** (`[P5]` Anh Khoa — kiểm toán ACL/0% PII, thu hồi quyền xem dữ liệu thô sau audit theo `sealed_manifest.json @ 33180db`) được cấp quyền hợp lệ trên `sealed-eval-repo`; tuyệt đối cấm `S2`, `S3`, `S5`.
 
 ---
 
@@ -34,13 +34,13 @@ Kiểm toán tự động trực tiếp trên toàn bộ cây thư mục reposit
 | **Chặn quyền trực tiếp & kế thừa Team nhóm phát triển** | `[S2]` Quốc Hưng, `[S3]` Yến Nhi (`CKPA_FORBIDDEN_USERS`) | **Cấm 100%** (0 Collaborator / 0 Org-Team / 0 truy cập thành công) | **BLOCKED** (`BLOCKED_EXTERNAL_REPO_ACCESS` — chờ `[S4]`/`[S5]` xuất JSON/CSV thật từ `sealed-eval-repo`) |
 | **Xác nhận quyền quản trị kho Sealed** | `[S4]` Quý Hải (`CKPA_S4_USERS`) | **Read / Write** (`write` / `maintain` / `admin`) | **BLOCKED** (Chờ log JSON/CSV thật từ `SUB03`) |
 | **Xác nhận quyền kiểm toán bảo mật** | `[P5]` Anh Khoa (`CKPA_P5_USERS`) | **Audit / Read** (`read` / `triage` / `audit`) | **BLOCKED** (Chờ log JSON/CSV thật từ `SUB03`) |
-| **Chặn tài khoản lạ ngoài danh sách phê duyệt** | Mọi tài khoản ngoài `CKPA_S4_USERS` $\cup$ `CKPA_P5_USERS` $\cup$ `CKPA_EXTRA_APPROVED_USERS` (`[P4]`) | **Cấm 100%** | **BLOCKED** (Chờ log JSON/CSV thật từ `SUB03`) |
+| **Chặn tài khoản lạ ngoài danh sách phê duyệt** | Mọi tài khoản ngoài `CKPA_S4_USERS` + `CKPA_P5_USERS` + `CKPA_EXTRA_APPROVED_USERS` (`[P1]`, `[P2]`, `[P3]`, `[P4]`) | **Cấm 100%** | **BLOCKED** (Chờ log JSON/CSV thật từ `SUB03`) |
 
 - **Schema xuất dữ liệu bắt buộc từ `sealed-eval-repo`:** Tệp `.json` hoặc `.csv` không rỗng, có đủ 5 trường bắt buộc (`record_type`, `repository`, `actor`, `permission_or_action`, `outcome`), không trùng lặp bản ghi, phân biệt rõ `collaborator`/`team_permission` với `audit_event` (`allowed` vs `denied`), và đối chiếu SHA-256 nguồn xuất.
-- **Bộ kiểm thử tự động (Unit & Negative Tests):** Đã bổ sung `security/scripts/test_g1_sealed_acl_audit_runner.py` (10/10 test cases kiểm chứng đầy đủ các kịch bản `PASS`, `BLOCKED`, `FAIL`, `PARTIAL_PASS`).
+- **Bộ kiểm thử tự động (Unit & Negative Tests):** Đã bổ sung `security/scripts/test_g1_sealed_acl_audit_runner.py` (**11/11** test cases kiểm chứng đầy đủ các kịch bản `PASS`, `BLOCKED`, `FAIL`, `PARTIAL_PASS`).
 
 ---
 
-## 4. Kết luận tổng thể (`OVERALL VERDICT: PARTIAL_PASS`) & Điều kiện đóng Jira `CKPA-79`
-- **Trạng thái hiện tại:** **`PARTIAL_PASS`** (`Part 1 = PASS`, `Part 2 = BLOCKED` do chưa được cấp tệp JSON/CSV export từ kho ngoài `sealed-eval-repo`, `0%` dữ liệu giả lập).
-- **Trạng thái thẻ Jira `CKPA-79`:** Giữ nguyên **`In Progress`**; sẽ chạy `--strict-external` để đạt `OVERALL VERDICT: PASS`, chuyển `Done` và mở khóa `CKPA-80` ngay sau khi nhận được JSON/CSV Collaborators & Audit Log thật của `sealed-eval-repo` từ `[S4]` Quý Hải / `[S5]` Ngọc Duy.
+## 4. Kết luận tổng thể (`OVERALL VERDICT: PARTIAL_PASS`) & Đối soát Trạng thái Jira `CKPA-79`
+- **Trạng thái log kỹ thuật trên repo Purchaser (`No-Mock`):** **`PARTIAL_PASS`** (`Part 1 = PASS`, `Part 2 = BLOCKED_EXTERNAL_REPO_ACCESS` do kho `ckpa-dev-val-eval/sealed-eval-repo` chỉ cho phép Org Admin `[S4]` xuất danh sách Collaborators qua GitHub API — việc tài khoản Read-only của `[P3]` bị từ chối API `/collaborators` cũng xác nhận thực tế quyền Read-only nghiêm ngặt).
+- **Đối soát với `sealed-eval-repo @ 33180db` & Jira `CKPA-79`:** Sáng `26/11/2026`, `[S1]` Hoàng Tiến đã đối chiếu `sealed_manifest.json` (`acl_configuration.verified = true`, cấm 100% `S2/S3/S5`, cấp Read-only cho `P2/P3`, thu hồi quyền raw của `P5` sau kiểm toán) và chuyển thẻ Jira `CKPA-79` sang **`Done`**. Tuy nhiên, theo kỷ luật **No-Mock** của Purchaser, tệp log `g1_sealed_acl_audit_CKPA-79.log` trên repo vẫn giữ nguyên kết quả thực thi trung thực `PARTIAL_PASS` cho tới khi `[S4]` xuất kèm snapshot JSON/CSV Collaborators & Audit Log để chạy `--strict-external` (đồng bộ sang đầu cổng G2 `CKPA-104`).

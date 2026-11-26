@@ -2,7 +2,7 @@
 
 * **Dự án:** SongNhat CRM Knowledge and Policy Assistant (`CKPA`)
 * **Họ chính sách thẩm định:** Họ 1 — Quy trình Báo giá và Phê duyệt Thương mại (`POL-001`)
-* **Mã công việc & Tiêu chí Gate:** `CRM-G1-SUB05` | **Mã Tiêu chí Cổng G1:** `G1-AC01`
+* **Mã công việc Jira & Tiêu chí Gate:** `CKPA-51` (`CRM-G1-SUB05` | Story cha: `CKPA-49`) | **Mã Tiêu chí Cổng G1:** `G1-AC01`
 * **Chi nhánh GitHub:** `policy/CKPA-51-approve-family1-corpus`
 * **Mã truy xuất nguồn gốc RFP:** `DAT 03`, `DAT 06`, `KNW 03`, `Mục 9 (Gate G1)`
 * **Người thẩm định & Ký duyệt (Policy Owner):** `[P2] Hữu Tài`

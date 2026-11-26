@@ -6,7 +6,7 @@
 - **Hồ sơ đầu vào đối chiếu:**
   1. `CKPA-58` (`CRM-G1-SUB10`): `data/g1/full/CKPA-58_Bao_Cao_Bien_Tap_Full_Corpus_3Ho.md`, `data/g1/full/Policy_Corpus_G1_Full.csv`, `data/g1/full/Critical_Fields_G1_Full.csv`, `data/g1/full/Source_URI_And_Checksum_Manifest_G1_Full.csv`
   2. `CKPA-62`: `policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md`
-  3. `CKPA-82` (`CRM-G1-SUB28`): `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md` và `data/g1/reports/CKPA-82_source_uri_dat08_reverify.log` (commit `42f9ecc`)
+  3. `CKPA-82` (`CRM-G1-SUB28`): `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md` và `data/g1/reports/CKPA-82_source_uri_dat08_reverify.log` (PR #52 `40f9cf1` & PR #55 `c7fffa2`)
   4. `CKPA-70`: `security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md` và `security/g1/g1_rbac_failclosed_audit_CKPA-70.log`
 - **Người thực hiện & Ký xác nhận (`Policy Reviewer #1` / `Policy Owner`):** `[P2]` Trương Đình Hữu Tài (`Huutai12`)
 - **Người nghiệm thu (`Purchaser Sponsor` / `PO`):** `[P1]` Vắn Mỹ Vân (`vanvm26`)
@@ -28,7 +28,7 @@ Thực hiện rà soát độc lập và ký xác nhận chuyên môn chính sá
 ## 2. Kết quả Đối chiếu & Xác nhận 4 Trụ cột Chuyên môn
 
 ### 2.1. Trụ cột 1 — Xác nhận Corpus, `source_uri` (`SUB28`) & Hồ sơ nguồn `DEL 03` (`SUB27`) (`G1-AC01`)
-Qua đối chiếu trực tiếp `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md`, nhật ký `data/g1/reports/CKPA-82_source_uri_dat08_reverify.log` (commit `42f9ecc`) và `data/g1/full/CKPA-58_Bao_Cao_Bien_Tap_Full_Corpus_3Ho.md`:
+Qua đối chiếu trực tiếp `data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md`, nhật ký `data/g1/reports/CKPA-82_source_uri_dat08_reverify.log` (PR #52 `40f9cf1` & PR #55 `c7fffa2`) và `data/g1/full/CKPA-58_Bao_Cao_Bien_Tap_Full_Corpus_3Ho.md`:
 - **Danh mục tài liệu nguồn (`DEL 03` — `DOC-001..DOC-011`):** Đủ **11 / 30** tài liệu Base Scope, phủ trọn vẹn **3 họ chính sách** (`POL-001`: 4 tài liệu; `POL-002`: 3 tài liệu; `POL-003`: 4 tài liệu) và **5 / 5 lớp thẩm quyền `DAT 03`** (`policy`, `SOP`, `customer_contract`, `staff_note`, `manufacturer_terms`).
 - **Kiểm lại 100% `source_uri` & `SHA-256` (`Mục 9 G1 re-verified original reference access`):** Toàn bộ **136 / 136 bản ghi** trong `data/g1/full/Source_URI_And_Checksum_Manifest_G1_Full.csv` (96 passages + 40 critical fields) và **56 / 56 bản ghi** trong `data/g1/family1/Source_URI_And_Checksum_Manifest_Family1.csv` đều trỏ tới tệp tồn tại thực tế (`exists = true`), mở đọc trực tiếp thành công và khớp `0` sai lệch mã băm `SHA-256`.
 - **Kiểm soát bảng biểu & chú thích thiết yếu (`DAT 08`):** Cân bằng chính xác `96 = 93 Accepted (true) + 3 Quarantined (false)` đối với 3 ca kiểm thử thiếu chú thích bảng (`PAS-040`, `PAS-066`, `PAS-082`); toàn bộ `40 / 40` trường trọng yếu đạt `Accepted = true`.
@@ -60,7 +60,7 @@ Xác nhận 4 kịch bản kích hoạt trạng thái **HOLD / Từ chối suy d
 
 ## 3. Ghi nhận Phạm vi Kiểm thử Độc lập & Ràng buộc Runtime (`No-Mock`)
 - **Mức độ dữ liệu & đặc tả chính sách (`G1-AC01`, `G1-AC05`, `G1-AC06`):** Toàn bộ bộ dữ liệu Corpus (96 passages, 40 critical fields, 136 checksums), metadata phân quyền (`security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md` Phần 1: `11/11` tài liệu hợp lệ) và bộ đáp án chuẩn `OPS 03/04` & `HOLD` đã được đối chiếu độc lập và đạt **100%**.
-- **Lưu ý đối với kiểm thử Runtime API (`SUB01` / `SUB07`):** Theo ghi nhận trung thực tại `security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md` (Phần 2) và `security/g1/g1_rbac_failclosed_audit_CKPA-70.log`, các bài kiểm thử gọi HTTP trực tiếp tới endpoint Staging (`POST /api/v1/answer/`, `/withdraw`) đang ở trạng thái chờ cấp `CKPA_BASE_URL` và token thật từ đội triển khai (tuân thủ chính sách `No-Mock`, tuyệt đối không dùng dữ liệu giả lập). Ngay khi môi trường Staging được mở, bộ đáp án chuẩn đã chốt tại `policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md` và biên bản này là căn cứ đối chiếu nghiệm thu chính thức.
+- **Lưu ý đối với kiểm thử Runtime API (`SUB01` / `SUB07`):** Theo ghi nhận trung thực tại `security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md` (Phần 2) và `security/g1/g1_rbac_failclosed_audit_CKPA-70.log`, các bài kiểm thử gọi HTTP trực tiếp tới endpoint Staging (`POST /api/v1/answer`, `/withdraw`) đang ở trạng thái chờ cấp `CKPA_BASE_URL` và token thật từ đội triển khai (tuân thủ chính sách `No-Mock`, tuyệt đối không dùng dữ liệu giả lập). Ngay khi môi trường Staging được mở, bộ đáp án chuẩn đã chốt tại `policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md` và biên bản này là căn cứ đối chiếu nghiệm thu chính thức.
 
 ---
 
@@ -70,5 +70,5 @@ Tôi — **Trương Đình Hữu Tài** (`[P2]` Policy Owner / Policy Reviewer #
 
 | Policy Reviewer #1 (`[P2]` — Policy Owner) | Xác nhận đối soát (`[P3]` — Steward) | Nghiệm thu Gate G1 (`[P1]` — Sponsor / PO) |
 | :---: | :---: | :---: |
-| *(Đã ký xác nhận)* | *(Đã đối chiếu `CKPA-58` / `CKPA-82`)* | *(Trình nghiệm thu trên Jira `CKPA-83`)* |
+| *(Đã ký xác nhận)* | *(Đã đối chiếu `CKPA-58` / `CKPA-82`)* | *(Đã nghiệm thu `Done` trên Jira `CKPA-83` — 26/11/2026)* |
 | **Trương Đình Hữu Tài** | **Trần Chí Kha** | **Vắn Mỹ Vân** |
