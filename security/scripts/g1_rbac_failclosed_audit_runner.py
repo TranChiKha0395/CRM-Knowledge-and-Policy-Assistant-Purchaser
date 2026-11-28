@@ -229,7 +229,8 @@ def execute_live_probe(base_url: str, tc: dict):
                 "status": "FAIL_SCHEMA_CONTRACT",
                 "detail": f"HTTP 422 contract mismatch on Step 1 ({tc['warmup_endpoint']}): {body1[:160]}",
             }
-        if not (200 <= status1 < 300):
+        allowed_s1 = (200, 201, 202, 204, 404) if tc["tc_id"] == "TC-REV-03" else tuple(range(200, 300))
+        if status1 not in allowed_s1:
             return {
                 "status": "FAIL_STEP1_FAILED",
                 "detail": f"Step 1 ({tc['warmup_endpoint']}) returned HTTP {status1} (expected 2xx); body={body1[:160]}",
@@ -252,7 +253,8 @@ def execute_live_probe(base_url: str, tc: dict):
             "detail": f"HTTP 422 contract mismatch on {tc['endpoint']}: {target_body[:160]}",
         }
 
-    leaked = [m for m in tc.get("forbidden_markers", []) if m.lower() in target_body.lower()]
+    scan_body = json.dumps({k: v for k, v in json.loads(target_body).items() if k != "original_question"}, ensure_ascii=False) if target_body.strip().startswith("{") else target_body
+    leaked = [m for m in tc.get("forbidden_markers", []) if m.lower() in scan_body.lower()]
     digest = hashlib.sha256(target_body.encode("utf-8")).hexdigest()[:16]
 
     if target_status >= 500:

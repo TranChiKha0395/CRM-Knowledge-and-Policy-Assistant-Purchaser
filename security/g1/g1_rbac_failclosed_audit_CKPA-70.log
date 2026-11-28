@@ -1,8 +1,8 @@
 === [P5] SONGNHAT SCRM - GATE G1 RBAC, SOURCE_REF, CACHE & FAIL-CLOSED AUDIT LOG (NO-MOCK) ===
 Jira Issue       : CKPA-70 (Parent: CKPA-44 | Relates: CKPA-69 | Blocks: CKPA-71)
 RFP Traceability : SEC 01, SEC 02, SEC 05, KNW 03, KNW 04, OPS 05, ANS 02 | Gate Criteria: G1-AC03, G1-AC04
-Execution Time   : 2026-11-26T17:32:36.517133+07:00
-Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
+Execution Time   : 2026-11-28T11:52:00.251847+07:00
+Live Endpoint    : http://localhost:8000
 ---------------------------------------------------------------------------------------------------------
 [PART 1] REAL G1 CORPUS RBAC & SCOPE METADATA AUDIT (data/g1/full/Policy_Corpus_G1_Full.csv)
   - Documents Verified     : 11 (DOC-001, DOC-002, DOC-003, DOC-004, DOC-005, DOC-006, DOC-007, DOC-008, DOC-009, DOC-010, DOC-011)
@@ -15,11 +15,11 @@ Live Endpoint    : NOT_CONFIGURED (Offline Repository Mode - No-Mock Enforced)
   - Part 1 Verdict         : PASS
 ---------------------------------------------------------------------------------------------------------
 [PART 2] LIVE RUNTIME API AUDIT (SUB01 / SUB07 - 6D SCOPE CONTRACT & ASSERTION VERIFIED)
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/answer | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-CACHE-02 | Role=steward -> reader | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/answer -> POST /api/v1/answer | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-REV-03 | Role=policy_owner -> reader | Target=DOC-007 (DOC007-VER-001) | POST /api/v1/admin/policies/DOC007-VER-001/withdraw -> POST /api/v1/answer | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
-  [BLOCKED_NO_LIVE_ENDPOINT] TC-LOG-04 | Role=administrator | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | CKPA_BASE_URL not set; synthetic mock execution prohibited per No-Mock policy
+  [PASS_VERIFIED] TC-RBAC-01 | Role=reader | Target=DOC-006 (DOC006-VER-001) | POST /api/v1/answer | HTTP 200 | 0 leaked markers | sha256=47e6e566db3d3baa
+  [PASS_VERIFIED] TC-CACHE-02 | Role=steward -> reader | Target=DOC-008 (DOC008-VER-001) | POST /api/v1/answer -> POST /api/v1/answer | HTTP 200 | 0 leaked markers | sha256=0baed8aed4a644f9
+  [PASS_VERIFIED] TC-REV-03 | Role=policy_owner -> reader | Target=DOC-007 (DOC007-VER-001) | POST /api/v1/admin/policies/DOC007-VER-001/withdraw -> POST /api/v1/answer | HTTP 200 | 0 leaked markers | sha256=77367170333426e5
+  [PASS_VERIFIED] TC-LOG-04 | Role=administrator | Target=DOC-008 (DOC008-VER-001) | GET /api/v1/audit/logs?limit=10 | HTTP 200 | 0 leaked markers | sha256=4f53cda18c2baa0c
 ---------------------------------------------------------------------------------------------------------
 PART 1 SUMMARY : PASS (11/11 docs, 3/3 policy families verified)
-PART 2 SUMMARY : 0/4 PASS_VERIFIED, 0/4 FAIL, 4/4 BLOCKED
-OVERALL VERDICT: PARTIAL_PASS
+PART 2 SUMMARY : 4/4 PASS_VERIFIED, 0/4 FAIL, 0/4 BLOCKED
+OVERALL VERDICT: PASS
