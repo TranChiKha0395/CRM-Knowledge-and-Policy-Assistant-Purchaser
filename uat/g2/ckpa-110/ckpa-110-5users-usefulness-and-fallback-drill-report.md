@@ -8,7 +8,7 @@
 > **Tệp dữ liệu kiểm thử:** [5_rep_users_usefulness_evaluation.csv](file:///C:/Users/Admin/.gemini/antigravity/scratch/purchaser_repo/uat/g2/ckpa-110/5_rep_users_usefulness_evaluation.csv) (100 ca Sealed TASK-101 .. TASK-200)  
 > **Phía phụ trách:** Purchaser (SongNhat)  
 > **Assignee / Lead chấm điểm & diễn tập:** [P4] Ngô Thị Trà My (Staff users / Lead 5 Rep Users)  
-> **Collaborators / RACI:** [S4] Phạm Quý Hải (Quality Lead), [S5] Bùi Ngọc Duy (SecOps / Infra), [P2] Trương Đình Hữu Tài (Policy Owner)  
+> **Collaborators / RACI:** [S4] Phạm Quý Hải (Quality Lead), [S5] Nguyễn Ngọc Duy (SecOps / Infra), [P2] Trương Đình Hữu Tài (Policy Owner)  
 > **Ràng buộc SoD:** **Tuyệt đối KHÔNG có S1/S2/S3 tham gia chấm điểm độc lập hoặc nhóm 5 Rep Users.**  
 > **Ngày thực hiện:** 28/11/2026  
 
@@ -23,7 +23,7 @@ Căn cứ theo yêu cầu hồ sơ nghiệm thu Cổng G2 (Live Pilot Readiness)
    - Đạt tỷ lệ **>= 80,0%** câu trả lời hữu ích chỉ cần chỉnh sửa nhỏ (*minor edits <= 20%*) trên toàn bộ các ca *Answerable* (bao gồm cả các ca phản hồi trực tiếp, Local Referral và Conflict Hold).
    - Đạt tỷ lệ **<= 5,0%** ca *Unanswerable* (thiếu thông tin/ngoài phạm vi) nhận câu trả lời không có căn cứ (*unsupported hallucination*).
 2. **Tiêu chí G2-AC08 (Diễn tập chuyển đổi dự phòng thủ công - Manual Fallback Readiness):**  
-   Thực hành kịch bản ngắt khẩn cấp AI (*Emergency Disable / Service Degradation OPS 05* do [S5] Bùi Ngọc Duy giả lập) để 100% thành viên nhóm 5 Rep Users chuyển đổi trơn tru sang quy trình **Tra cứu chính sách thủ công (Manual Search)** và **Chuyển tuyến nội bộ (Local Referral KNW 05)**, bảo đảm dịch vụ khách hàng không bị gián đoạn khi AI dừng hoạt động.
+   Thực hành kịch bản ngắt khẩn cấp AI (*Emergency Disable / Service Degradation OPS 05* do [S5] Nguyễn Ngọc Duy giả lập) để 100% thành viên nhóm 5 Rep Users chuyển đổi trơn tru sang quy trình **Tra cứu chính sách thủ công (Manual Search)** và **Chuyển tuyến nội bộ (Local Referral KNW 05)**, bảo đảm dịch vụ khách hàng không bị gián đoạn khi AI dừng hoạt động.
 
 ---
 
@@ -35,10 +35,10 @@ Theo đúng ma trận phân quyền đã được phê duyệt tại task CKPA-1
 | Mã NSD | Họ và tên | Chức danh nghiệp vụ tại SongNhat | Vai trò RFP Mục 11 | Góc nhìn đánh giá UAT |
 | :---: | :--- | :--- | :---: | :--- |
 | **U1** | **Ngô Thị Trà My** | Chuyên viên CSKH Tier 1 (Lead nhóm 5 NSD) | [P4] Staff users | Đọc quét nhanh, tính ứng dụng ngay vào cuộc gọi/chat với khách hàng. |
-| **U2** | **Nguyễn Thị Mỹ Vân** | Trưởng phòng Vận hành CSKH / Sponsor | [P1] Purchaser sponsor | Tính chuẩn mực thương hiệu, giảm thiểu thời gian xử lý khiếu nại (AHT). |
+| **U2** | **Vắn Mỹ Vân** | Trưởng phòng Vận hành CSKH / Sponsor | [P1] Purchaser sponsor | Tính chuẩn mực thương hiệu, giảm thiểu thời gian xử lý khiếu nại (AHT). |
 | **U3** | **Trương Đình Hữu Tài** | Trưởng ban Pháp chế & Chính sách | [P2] Policy owners | Tính chuẩn xác của điều khoản, trích dẫn đúng số hiệu văn bản & thẩm quyền. |
 | **U4** | **Trần Chí Kha** | Chuyên viên Quản trị Tri thức & Dữ liệu | [P3] Knowledge steward | Cấu trúc dữ liệu Critical Fields, tính nhất quán với từ điển VN01. |
-| **U5** | **Lê Anh Khoa** | Chuyên viên An toàn Thông tin & Quyền riêng tư | [P5] Security owners | Kiểm soát rò rỉ dữ liệu, tuân thủ Base Scope (O1=OFF), chặn ảo giác. |
+| **U5** | **Nguyễn Anh Khoa** | Chuyên viên An toàn Thông tin & Quyền riêng tư | [P5] Security owners | Kiểm soát rò rỉ dữ liệu, tuân thủ Base Scope (O1=OFF), chặn ảo giác. |
 
 *Giám sát chất lượng độc lập:* [S4] Phạm Quý Hải (Supplier Quality Lead) chịu trách nhiệm cấp phát đầu ra câu trả lời đã được ẩn danh mã ca, thu nhận phiếu chấm độc lập và tính toán chỉ số thống kê, đảm bảo không có sự can thiệp từ nhóm phát triển (S2/S3).
 
@@ -93,7 +93,7 @@ Kế thừa nguyên vẹn bảng chuẩn usefulness_and_observed_effort_rubric.c
 
 ### 3.1. Mục tiêu và Môi trường diễn tập
 - **Mục tiêu:** Kiểm tra khả năng thích ứng và tính sẵn sàng của đội ngũ nhân viên khi hệ thống AI dừng đột ngột (do bảo trì, cạn quota hoặc sự cố hạ tầng), bảo đảm thời gian phục hồi dịch vụ (*RTO < 15 phút*).
-- **Điều phối kỹ thuật:** Kỹ sư Vận hành [S5] Bùi Ngọc Duy thực hiện ngắt mềm và giả lập sự cố theo cơ chế **Fail-Closed (OPS 05)** tại môi trường Staging/UAT.
+- **Điều phối kỹ thuật:** Kỹ sư Vận hành [S5] Nguyễn Ngọc Duy thực hiện ngắt mềm và giả lập sự cố theo cơ chế **Fail-Closed (OPS 05)** tại môi trường Staging/UAT.
 - **Giám sát:** [S4] Phạm Quý Hải bấm giờ và ghi nhận thao tác của từng thành viên.
 - **Thành phần tham gia diễn tập:** 100% 5 thành viên nhóm Rep Users (U1 Trà My, U2 Mỹ Vân, U3 Hữu Tài, U4 Chí Kha, U5 Anh Khoa).
 
@@ -101,7 +101,7 @@ Kế thừa nguyên vẹn bảng chuẩn usefulness_and_observed_effort_rubric.c
 
 | Bước thực hành | Thao tác kỹ thuật & Nghiệp vụ | Nhân sự thực hiện | Kết quả ghi nhận thực tế | Trạng thái |
 | :---: | :--- | :---: | :--- | :---: |
-| **Bước 1** | Kích hoạt cờ ngắt khẩn cấp AI (KILL_SWITCH = True). Hệ thống chuyển sang trạng thái Safe Fail-Closed. | [S5] Bùi Ngọc Duy | Thời gian cô lập hệ thống: **1 phút 45 giây** (đạt tiêu chuẩn <= 5 phút của OPS 05). | **PASS** |
+| **Bước 1** | Kích hoạt cờ ngắt khẩn cấp AI (KILL_SWITCH = True). Hệ thống chuyển sang trạng thái Safe Fail-Closed. | [S5] Nguyễn Ngọc Duy | Thời gian cô lập hệ thống: **1 phút 45 giây** (đạt tiêu chuẩn <= 5 phút của OPS 05). | **PASS** |
 | **Bước 2** | Thông báo tự động hiển thị trên Workspace CSKH. 5 Rep Users chuyển sang giao diện Tra cứu Tĩnh (Manual Search). | Nhóm 5 Rep Users (Lead: [P4] Trà My) | Toàn bộ 5/5 người dùng truy cập thành công kho Corpus tĩnh 3 họ chính sách bản quyền. | **PASS** |
 | **Bước 3** | Thực hành tra cứu thủ công và điền Mẫu phiếu chuyển tuyến nội bộ (Local Referral Template KNW 05). | Nhóm 5 Rep Users | Thời gian tra cứu và lập phiếu trung bình: **52 giây/ca**. Đúng 100% thẩm quyền tiếp nhận. | **PASS** |
 | **Bước 4** | Khôi phục kết nối AI (KILL_SWITCH = False). Kiểm toán tính toàn vẹn phiên làm việc và đối soát log. | [S5] Duy & [S4] Hải | Dịch vụ khôi phục trong **2 phút 10 giây**. 0% mất mát dữ liệu, audit log ghi nhận đầy đủ. | **PASS** |
@@ -129,9 +129,9 @@ Kế thừa nguyên vẹn bảng chuẩn usefulness_and_observed_effort_rubric.c
 | :--- | :--- | :--- | :---: | :---: |
 | **[P4] Staff users** | **Ngô Thị Trà My** | Lead 5 Rep Users / Tác giả báo cáo chấm điểm & drill | **ĐÃ HOÀN TẤT ĐÁNH GIÁ (DONE)** | 28/11/2026 |
 | **[S4] Quality lead** | **Phạm Quý Hải** | Độc lập giám sát điểm số 100 ca & thời gian drill | **PENDING (Chờ xác nhận)** | Chờ duyệt G2 |
-| **[S5] SecOps / Infra** | **Bùi Ngọc Duy** | Xác nhận hạ tầng Fail-Closed OPS 05 & khôi phục | **PENDING (Chờ xác nhận)** | Chờ duyệt G2 |
+| **[S5] SecOps / Infra** | **Nguyễn Ngọc Duy** | Xác nhận hạ tầng Fail-Closed OPS 05 & khôi phục | **PENDING (Chờ xác nhận)** | Chờ duyệt G2 |
 | **[P2] Policy owners** | **Trương Đình Hữu Tài** | Thẩm định tính chuẩn xác của các ca chấm điểm | **PENDING (Chờ thẩm định)** | Chờ duyệt G2 |
-| **[P1] Purchaser sponsor** | **Nguyễn Thị Mỹ Vân** | Phê duyệt nghiệm thu Cổng G2 (G2-AC06, G2-AC08) | **PENDING (Chờ nghiệm thu)** | Chờ duyệt G2 |
+| **[P1] Purchaser sponsor** | **Vắn Mỹ Vân** | Phê duyệt nghiệm thu Cổng G2 (G2-AC06, G2-AC08) | **PENDING (Chờ nghiệm thu)** | Chờ duyệt G2 |
 
 ---
 *Biên bản được lập hoàn chỉnh, lưu trữ độc lập tại [ckpa-110-5users-usefulness-and-fallback-drill-report.md](file:///C:/Users/Admin/.gemini/antigravity/scratch/purchaser_repo/uat/g2/ckpa-110/ckpa-110-5users-usefulness-and-fallback-drill-report.md) trên nhánh uat/CKPA-110-5users-usefulness-80pct-drill và sẵn sàng phục vụ tạo Pull Request hợp nhất vào nhánh develop.*
