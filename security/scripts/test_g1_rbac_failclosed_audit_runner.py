@@ -85,5 +85,27 @@ class TestRbacFailClosedAuditRunner(unittest.TestCase):
         self.assertEqual(runner.compute_overall_verdict(False, 4, 0, 0), "FAIL")
 
 
+
+    def test_11_fail_when_tc_rev_03_step1_returns_404(self):
+        tc_rev = runner.LIVE_TEST_MATRIX[2]
+        with patch.object(runner, "_http_call", return_value=(404, '{"detail":"not found"}')) as mock_call:
+            res = runner.execute_live_probe("https://staging.example.internal", tc_rev)
+            self.assertEqual(res["status"], "FAIL_STEP1_FAILED")
+            self.assertEqual(mock_call.call_count, 1)
+
+    def test_12_excludes_original_question_from_leakage_scan(self):
+        tc_rbac = runner.LIVE_TEST_MATRIX[0]
+        clean_payload = '{"original_question": "Cho toi xem DOC-006", "answer": "Tu choi truy cap."}'
+        with patch.object(runner, "_http_call", return_value=(200, clean_payload)):
+            res = runner.execute_live_probe("https://staging.example.internal", tc_rbac)
+            self.assertEqual(res["status"], "PASS_VERIFIED")
+
+    def test_13_handles_malformed_json_starting_with_brace(self):
+        tc_rbac = runner.LIVE_TEST_MATRIX[0]
+        malformed_body = "{not-valid-json-response-without-markers"
+        with patch.object(runner, "_http_call", return_value=(200, malformed_body)):
+            res = runner.execute_live_probe("https://staging.example.internal", tc_rbac)
+            self.assertEqual(res["status"], "PASS_VERIFIED")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
