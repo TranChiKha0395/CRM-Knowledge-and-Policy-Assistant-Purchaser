@@ -26,7 +26,7 @@ Option O1 (ngữ cảnh CRM): Không mua O1 ở mốc G0 (cắt hoàn toàn kh�
 | Văn bản đối chiếu | Luật AI 134/2025/QH15 (hiệu lực 01/03/2026); Nghị định 142/2026/NĐ-CP (hiệu lực 01/05/2026); QĐ 33/2026/QĐ-TTg (danh mục rủi ro cao). Kiểm tra phiên bản hiện hành. |
 | Đối chiếu danh mục rủi ro cao | Không thuộc danh mục AI rủi ro cao: Hệ thống chỉ tra cứu và giải thích quy trình nội bộ (báo giá, thông tin khách hàng, bảo hành); không tự động phê duyệt giao dịch, không quyết định quyền hưởng bảo hành, không cấp ngoại lệ thương mại và không tiết lộ dữ liệu khách hàng (cần đối chiếu lại toàn văn QĐ 33/2026/QĐ-TTg với Legal Owner trước Gate G2 - CKPA-34). |
 | Kết luận phân loại tạm | Hệ thống AI rủi ro thấp / trung bình (Đề xuất phân loại tạm G0 — Chờ Legal Owner SongNhat chính thức ký duyệt phân loại tại Gate G2 - CKPA-34). |
-| Lập luận | (1) Chỉ đóng vai trò công cụ hỗ trợ tra cứu nội bộ; (2) Toàn bộ 10 critical fields, ngưỡng số học và vai trò duyệt được xử lý cứng ở code backend (Deterministic), AI không tự suy diễn; (3) Bắt buộc giám sát con người (Human-in-the-loop): nhân viên phải đối chiếu trích dẫn gốc trước khi thao tác trên CRM. |
+| Lập luận | (1) Chỉ đóng vai trò công cụ hỗ trợ tra cứu nội bộ; (2) Toàn bộ 40 critical fields (mở rộng từ 10 critical fields ở G0), ngưỡng số học và vai trò duyệt được xử lý cứng ở code backend (Deterministic), AI không tự suy diễn; (3) Bắt buộc giám sát con người (Human-in-the-loop): nhân viên phải đối chiếu trích dẫn gốc trước khi thao tác trên CRM. |
 | Ngày đối chiếu và điều kiện thay đổi phân loại | Ngày đối chiếu: 17/11/2026. Điều kiện thay đổi phân loại: Nếu mở rộng sang tự động phê duyệt giao dịch, tự động quyết định quyền lợi khách hàng hoặc kích hoạt Option O1 (dữ liệu khách hàng thật), phải đánh giá lại phân loại rủi ro trước khi triển khai. |
 
 RFP: dùng nội bộ hoặc có người xem xét lại không tự động tạo miễn trừ. Quyết định tự động về tư cách hưởng, tiết lộ dữ liệu hoặc giao dịch cần phạm vi và đánh giá mới.
@@ -66,7 +66,7 @@ Xem file security/g0/P1_RaSoat_Retention_v1_HoanChinh.md. Tóm tắt ý kiến s
 
 7. Sự cố và thay đổi provider (SEC 07, SEC 08)
 
-S5 soạn quy trình; P1 duyệt. Yêu cầu RFP: thông báo cho bên mua trong 4 giờ trôi qua sau khi biết sự cố nghi ngờ về dữ liệu production hoặc kiểm soát chính sách trọng yếu; giữ bằng chứng hạn chế; tuân thủ nghĩa vụ luật định đã xác nhận. Review thay đổi provider, model, prompt, selector, phạm vi; đánh giá lại rủi ro, chạy lại test bị ảnh hưởng; giữ rollback, tắt khẩn cấp và chủ chịu trách nhiệm. Kết quả duyệt của P1: [chờ bản của S5].
+S5 soạn quy trình; P1 duyệt. Yêu cầu RFP: thông báo cho bên mua trong 4 giờ trôi qua sau khi biết sự cố nghi ngờ về dữ liệu production hoặc kiểm soát chính sách trọng yếu; giữ bằng chứng hạn chế; tuân thủ nghĩa vụ luật định đã xác nhận. Khi phục hồi, P4 đối chiếu fallback với rep users, P3 kiểm tra tính toàn vẹn và báo cáo kết thúc trong 2 giờ làm việc. Review thay đổi provider, model, prompt, selector, scope/data source; đánh giá lại rủi ro, chạy lại test bị ảnh hưởng; giữ rollback, emergency-disable và owner chịu trách nhiệm. Runbook tổng hợp của Jira `CKPA-104` (thuộc Parent `CKPA-85`, branch `sec/CKPA-104-sign-pre-g2-legal-sec03-08`, deadline `31/12/2026`, estimate `12h`) tại `security/g2/CKPA-104_Ho_So_Ky_Duyet_Pre_G2_SEC03_07_08.md` (kèm hồ sơ phân loại AI `CKPA-103` tại `security/g2/CKPA-103_Lap_Luan_Phan_Loai_AI_Va_Ho_So_Annex_F_G2.md`). Kết quả duyệt của P1: [chờ bản ký duyệt chính thức].
 
 8. Điểm chưa chắc chắn, cần hỏi chủ pháp lý hoặc giảng viên
 
