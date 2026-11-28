@@ -64,10 +64,10 @@ Hội đồng Nghiệm thu đã rà soát và tiếp nhận đầy đủ các v�
 
 ### 2.1. Tiếp nhận Hồ sơ Bằng chứng DEL 03 Part 1 (`CKPA-80`) & Bản vá Kỹ thuật (`CKPA-70`, `CKPA-75`, `CKPA-76` — Đã Done)
 - Căn cứ Báo cáo tổng hợp `CKPA-80` (CRM-G1-SUB27), Nhà cung cấp đã hoàn thiện trọn bộ Hồ sơ Bằng chứng DEL 03 Part 1 qua 3 Sprint (W1, W2, W3).
-- Toàn bộ các chốt chặn kỹ thuật cuối cùng (`CKPA-70`, `CKPA-75`, `CKPA-76`) đã hợp nhất lên nhánh chính **`develop @ 771b331`** (PR #39 & PR #40 merged):
+- Toàn bộ các chốt chặn kỹ thuật cuối cùng (`CKPA-70`, `CKPA-75`, `CKPA-76`) đã hợp nhất lên nhánh chính **`develop @ 771b331`** kèm tag bất biến **`v0.2.1-g1-offline`** (PR #39 & PR #40 merged):
   - Xử lý triệt để `OPS 03` (`DAT04_NO_GOVERNING_DATE`), `DAT 08` (kiểm soát `unit`/`currency`), nối chuỗi Alembic migration nền (`base -> b01d4334f030 -> 20261121_01 -> 20261123_01`), và khắc phục 5 defects `DEF-CKPA75-01..05`.
   - Xử lý benchmark PostgreSQL (`create_all` & `TRUNCATE ... CASCADE`), guard `withdrawn` passage (`CKPA-70`), hash SHA-256 cho `_compose_document_version_id` (<= 64 ký tự), nâng ngưỡng micro-benchmark 150ms, và kiểm thử migration round-trip PostgreSQL 16 trên CI.
-  - Kết quả kiểm thử trên `develop @ 771b331`: Ruff & Mypy sạch **77 files**, chạy test đạt **257 passed, 1 skipped**, toàn bộ `CKPA-70`, `CKPA-75`, `CKPA-76` chuyển **`Done`**.
+  - Kết quả kiểm thử trên `develop @ 771b331` (`v0.2.1-g1-offline`): Ruff & Mypy sạch **77 files**, chạy test đạt **257 passed, 1 skipped**, toàn bộ `CKPA-70`, `CKPA-75`, `CKPA-76` chuyển **`Done`**. *(Lưu ý truy vết `CKPA-70`: log `--strict-live` đang chờ `[P5]` chạy lại trên DB đã seed corpus thật ở **PR #65**).*
 
 ### 2.2. Tiếp nhận Kết quả Kiểm lại 100% source_uri từ `CKPA-82` (`[P3]` Trần Chí Kha — Đã Done)
 - Căn cứ Biên bản và Nhật ký tái thẩm định `CKPA-82` (PR #52 & PR #55 đã merge vào nhánh `develop`), toàn bộ **136 / 136 bản ghi** dữ liệu Full Corpus (96 Passages + 40 Critical Fields) và **56 / 56 bản ghi** Family 1 đều tồn tại thực tế trên hệ thống lưu trữ, mở xem trực tiếp thành công, khớp 100% mã băm SHA-256.
@@ -92,10 +92,10 @@ Hội đồng đã tiến hành rà soát từng tiêu chí chấp nhận kỹ t
 | Mã Tiêu chí | Tên Tiêu chí Cổng G1 | Yêu cầu Kỹ thuật Kiểm soát RFP | Bằng chứng Thực tế Đối soát | Kết luận Hội đồng |
 |:---:|---|---|---|:---:|
 | **`G1-AC01`** | **Toàn vẹn Curation Full Corpus 3 Họ Chính sách** | Đủ 11 tài liệu nguồn (DOC-001..DOC-011) thuộc 3 họ POL-001/002/003 và 5 lớp thẩm quyền DAT 03; dưới 300 đoạn văn (thực tế 96); dưới 50 trường (thực tế 40); 100% source_uri khớp SHA-256; DAT 08 cân bằng 93 Acc + 3 Qua. | Biên bản `CKPA-82` của [P3], PR #52 & PR #55 merged; Xác nhận `CKPA-83` của [P2] (`Done`); Manifest 136 bản ghi checksum SHA-256 sạch. | **ĐẠT (PASS)** |
-| **`G1-AC02`** | **Validators, Reconciliation & Benchmark Offline OPS 01** | 2 Base CSV Validators; Quarantine tự động; Full-Snapshot Reconciliation (Expected = Accepted + Quarantined); Benchmark OPS 01 trên 500 dòng <= 30 phút; LKG 100%; 100 Sealed + 80 Challenges. | `CKPA-52` (PR #26), `CKPA-59` (PR #28), `CKPA-60` (PR #29: 0.3738s, LKG 100%); Bộ `100 SEALED` V2 (`372988c4...`) + `80 Challenges` đạt **`APPROVED_RELEASED_FROZEN` (`33180db`)** tại `CKPA-67` & `CKPA-68` (`Done`); tối ưu batch prefetch `develop @ 771b331`. | **ĐẠT (PASS)** |
-| **`G1-AC03`** | **Immediate Withdrawal & Khóa O1 Mặc định (Base Scope)** | Rút hồi/thu hồi tài liệu có hiệu lực tức thì (commit trạng thái trước khi ack); Fail-closed đối với tài liệu đã thu hồi (`SEC 05`, `KNW 04`); Khóa cứng Option O1 trong Base Scope (`OPTION_O1_ENABLED = False`, `DAT 07`). | PR #28 logic commit trước ack; HTTP 403 khóa O1; PR #61 sửa route `POST /api/v1/answer`; kiểm soát `withdrawn` passage guard & sửa `CKPA-70` hợp nhất tại **`develop @ 771b331`** (PR #39 & #40 merged, `Done`). | **ĐẠT (PASS)** |
-| **`G1-AC04`** | **Pre-retrieval RBAC 4 Vai trò & 7 Trạng thái Vòng đời** | Thực thi RBAC 4 vai trò (`reader`, `policy_owner`, `steward`, `administrator`) tại Pre-Retrieval (`SEC 01`); Quản lý đúng 7 trạng thái `KNW 03`; 0% rò rỉ khi từ chối; Kiểm toán kho Sealed (`SEC 06`). | RBAC phân vùng `SEALED_100` (`8f89d1d`, 231 tests PASS); `CKPA-70` hợp nhất tại `develop @ 771b331` (`Done`); `CKPA-79` đạt `Done` (`sealed_manifest.json @ 33180db`). | **ĐẠT (PASS)** |
-| **`G1-AC05`** | **Governing Date UTC+7 (OPS 03) & Khớp 6 Chiều DAT 04** | Phân giải ngày sự kiện theo múi giờ Việt Nam UTC+7; Ranh giới lịch sử 2026-11-06T09:00:00+07:00; Khớp chính xác 6 chiều ngữ cảnh DAT 04; Tự động chuyển HOLD khi thiếu ngày chi phối. | `CKPA-62` (`Done`), `CKPA-63`, `CKPA-83` (`Done`); Toàn bộ `CKPA-75` & `CKPA-76` (`OPS 03`, `DAT 08`, Alembic migration round-trip PostgreSQL 16, `DEF-CKPA75-01..05`) hợp nhất tại **`develop @ 771b331`** (Ruff/Mypy 77 files sạch, **257 passed, 1 skipped**), chuyển `Done`. | **ĐẠT (PASS)** |
+| **`G1-AC02`** | **Validators, Reconciliation & Benchmark Offline OPS 01** | 2 Base CSV Validators; Quarantine tự động; Full-Snapshot Reconciliation (Expected = Accepted + Quarantined); Benchmark OPS 01 trên 500 dòng <= 30 phút; LKG 100%; 100 Sealed + 80 Challenges. | `CKPA-52` (PR #26), `CKPA-59` (PR #28), `CKPA-60` (PR #29: 0.3738s, LKG 100%); Bộ `100 SEALED` V2 (`372988c4...`) + `80 Challenges` đạt **`APPROVED_RELEASED_FROZEN` (`33180db`)** tại `CKPA-67` & `CKPA-68` (`Done`); tối ưu batch prefetch `develop @ 771b331` (`v0.2.1-g1-offline`). | **ĐẠT (PASS)** |
+| **`G1-AC03`** | **Immediate Withdrawal & Khóa O1 Mặc định (Base Scope)** | Rút hồi/thu hồi tài liệu có hiệu lực tức thì (commit trạng thái trước khi ack); Fail-closed đối với tài liệu đã thu hồi (`SEC 05`, `KNW 04`); Khóa cứng Option O1 trong Base Scope (`OPTION_O1_ENABLED = False`, `DAT 07`). | PR #28 logic commit trước ack; HTTP 403 khóa O1; PR #61 sửa route `POST /api/v1/answer`; kiểm soát `withdrawn` passage guard & sửa `CKPA-70` hợp nhất tại **`develop @ 771b331`** + tag **`v0.2.1-g1-offline`** (PR #39 & #40 merged, `Done`; log `--strict-live` `CKPA-70` chờ `[P5]` chạy lại trên DB seed thật ở **PR #65**). | **ĐẠT (PASS)** |
+| **`G1-AC04`** | **Pre-retrieval RBAC 4 Vai trò & 7 Trạng thái Vòng đời** | Thực thi RBAC 4 vai trò (`reader`, `policy_owner`, `steward`, `administrator`) tại Pre-Retrieval (`SEC 01`); Quản lý đúng 7 trạng thái `KNW 03`; 0% rò rỉ khi từ chối; Kiểm toán kho Sealed (`SEC 06`). | RBAC phân vùng `SEALED_100` (`8f89d1d`, 231 tests PASS); `CKPA-70` hợp nhất tại `develop @ 771b331` + tag `v0.2.1-g1-offline` (`Done`; log `--strict-live` `CKPA-70` chờ `[P5]` chạy lại trên DB seed thật ở **PR #65**); `CKPA-79` đạt `Done` (`sealed_manifest.json @ 33180db`). | **ĐẠT (PASS)** |
+| **`G1-AC05`** | **Governing Date UTC+7 (OPS 03) & Khớp 6 Chiều DAT 04** | Phân giải ngày sự kiện theo múi giờ Việt Nam UTC+7; Ranh giới lịch sử 2026-11-06T09:00:00+07:00; Khớp chính xác 6 chiều ngữ cảnh DAT 04; Tự động chuyển HOLD khi thiếu ngày chi phối. | `CKPA-62` (`Done`), `CKPA-63`, `CKPA-83` (`Done`); Toàn bộ `CKPA-75` & `CKPA-76` (`OPS 03`, `DAT 08`, Alembic migration round-trip PostgreSQL 16, `DEF-CKPA75-01..05`) hợp nhất tại **`develop @ 771b331`** + tag bất biến **`v0.2.1-g1-offline`** (Ruff/Mypy 77 files sạch, **257 passed, 1 skipped**), chuyển `Done`. | **ĐẠT (PASS)** |
 | **`G1-AC06`** | **Deterministic Field Lookup (DAT 06) & Cơ chế HOLD** | Tra cứu trường trọng yếu định lượng qua Python Decimal thuần (0% số học qua LLM); Tự động kích hoạt HOLD khi thiếu bảng/chú thích (DAT 08) hoặc xung đột nguồn văn bản (DAT 05, OPS 04). | `CKPA-63` (PR #23: Decimal thuần, `llm_used=False`, auto HOLD 4 kịch bản); `CKPA-64` (30/30 tests PASS); Biên bản `CKPA-83` (`Done`); `CKPA-78` đã merge. | **ĐẠT (PASS)** |
 | **`G1-AC07`** | **Bộ 200 Real Tasks, 80 Challenges & Cô lập Môi trường** | Môi trường Test tách Prod (`SEC 06`); 0% PII thật (`SEC 02`); Kho ngoài `sealed-eval-repo` chặn `S2/S3`; Bộ 200 câu hỏi (60 Dev / 40 Val / 100 Sealed) + 80 Challenges (`VN 02`); 5 Rep Users độc lập. | `0% PII` pass (`CKPA-47`); Ma trận 5 NSD (`CKPA-5/31`); Bộ `100 Sealed` V2 + `80 Challenges` (`CKPA-65/67/68 Done`); `CKPA-79` đạt `Done` (`sealed-eval-repo @ 33180db` khóa 100% `S2/S3/S5`; lưu ý kèm snapshot Collaborators JSON/CSV tại `CKPA-104`). | **ĐẠT (PASS)** |
 
@@ -134,7 +134,7 @@ Căn cứ quy định tại Mục 10, Mục 11 RFP và hồ sơ định mức DE
 # PHẦN 5: SPRINT 5 REVIEW & RETROSPECTIVE LOG (ĐÁNH GIÁ, BÀI HỌC & HÀNH ĐỘNG CHUYỂN GIAO)
 
 ### 5.1. Sprint 5 Review — Đánh giá Kết quả Đạt được (What Went Well)
-1. **Hợp nhất kỹ thuật sạch & Swarming hiệu quả:** Xử lý dứt điểm `CKPA-75` & `CKPA-76`, hợp nhất lên nhánh `develop @ 771b331` (PR #39 & PR #40 merged), Ruff/Mypy 77 files sạch, đạt **257 passed, 1 skipped**.
+1. **Hợp nhất kỹ thuật sạch & Swarming hiệu quả:** Xử lý dứt điểm `CKPA-75` & `CKPA-76`, hợp nhất lên nhánh `develop @ 771b331` kèm tag bất biến **`v0.2.1-g1-offline`** (PR #39 & PR #40 merged), Ruff/Mypy 77 files sạch, đạt **257 passed, 1 skipped**.
 2. **Quy trình kiểm soát dữ liệu nguồn 2 lớp hiệu quả:** Sự kết hợp độc lập giữa `[P3]` Trần Chí Kha (`CKPA-82`) và `[P2]` Trương Đình Hữu Tài (`CKPA-83`) đã xác thực 136/136 SHA-256 và cách ly chuẩn xác 3 ca thiếu bảng biểu `DAT 08`.
 3. **Kỷ luật No-Mock, Chinese Wall & SoD:** Thay thế thành công bộ 100 Sealed V2 (`33180db`), đồng ký nhãn vàng kép (`CKPA-68`), khóa hoàn toàn kho riêng cho `S2/S3/S5` (`CKPA-79`), và giữ vững nguyên tắc kiểm chứng thực tế trước khi ký duyệt.
 
@@ -147,7 +147,7 @@ Căn cứ quy định tại Mục 10, Mục 11 RFP và hồ sơ định mức DE
 | Mã Action | Nội dung Hành động Cụ thể | Người chịu trách nhiệm | Trạng thái / Hạn hoàn thành | Tiêu chí nghiệm thu |
 |---|---|---|---|---|
 | **`RETRO-S5-01`** | Duy trì cờ `OPTION_O1_ENABLED = False`, khóa toàn bộ tính năng thử nghiệm ngoài Base Scope. | `[S2]` Quốc Hưng & `[S5]` Ngọc Duy | Đã xác nhận (Duy trì liên tục G2) | File cấu hình `backend/src/config.py` được `[P5]` xác nhận |
-| **`RETRO-S5-02`** | Đóng băng cấu hình kiểm thử bảo mật và API `POST /api/v1/answer` sau khi `CKPA-70` hợp nhất `develop @ 771b331`. | `[S1]` Hoàng Tiến & `[P5]` Anh Khoa | **ĐÃ HOÀN TẤT (`Done` 27/11)** | `CKPA-70` chuyển `Done` |
+| **`RETRO-S5-02`** | Đóng băng cấu hình kiểm thử bảo mật và API `POST /api/v1/answer` sau khi `CKPA-70` hợp nhất `develop @ 771b331` (`v0.2.1-g1-offline`). | `[S1]` Hoàng Tiến & `[P5]` Anh Khoa | **ĐÃ HOÀN TẤT (`Done` 27/11)** *(Chờ `[P5]` chạy lại `--strict-live` trên DB seed thật tại PR #65)* | `CKPA-70` chuyển `Done` |
 | **`RETRO-S5-03`** | Đính kèm snapshot JSON/CSV Collaborators của `sealed-eval-repo` vào hồ sơ kiểm toán đầu Cổng G2 (`CKPA-104`). | `[S4]` Quý Hải & `[P5]` Anh Khoa | Ngày 1 Sprint 6 (`CKPA-104`) | Snapshot Collaborators lưu kèm trong kho bằng chứng G2 |
 | **`RETRO-S5-04`** | Nộp 14 dòng đơn giá VND + thuế VAT thực tế tại `CKPA-39` để kích hoạt chuyển khoản giải ngân Mốc 2 (25%). | `[S1]` Hoàng Tiến & `[P1]` Mỹ Vân | Trước khi Kế toán chuyển khoản | Bảng giá `DEL 05` xóa trạng thái `PENDING_SUPPLIER_QUOTE` |
 
@@ -157,15 +157,16 @@ Căn cứ quy định tại Mục 10, Mục 11 RFP và hồ sơ định mức DE
 
 Căn cứ Kế hoạch triển khai đã đồng bộ từ `PhanCongCongViec_G2_ChuanJira_RFP.xlsx` (DEL 05) tại `CKPA-80`, Hội đồng thống nhất kích hoạt Sprint 6 (Cổng G2 Live Pilot) với tổng dự toán **360 giờ** phân bổ cho 10 vai trò qua 3 giai đoạn:
 
-1. **Giai đoạn 1 (Ngày 1–2 Sprint 6 — Build Workspace, Lifecycle, Ops & Legal Prep — 144h):**
+1. **Giai đoạn 1 (Ngày 1–2 Sprint 6 — Build Workspace, Lifecycle, Ops & Legal Prep — 164h):**
    - **WP 04 Answer Package & Guardrails (`[S3]` Yến Nhi, 40h):** Answer Package chuẩn 100–250 từ, các trường cấu trúc cứng ANS 03-04; Local Referral và 9 kịch bản Annex B (KNW 05); chống Prompt Injection & khóa Streaming ANS 08.
    - **WP 04 Lifecycle & Feedback (`[S2]` Quốc Hưng, 38h):** Vòng đời 7 trạng thái và hiệu lực lịch KNW 03; ngăn chặn Stale Answer khi thu hồi (KNW 04); phân loại phản hồi và trích xuất ứng viên tri thức (KNW 06-07).
    - **Vận hành & Dự phòng (`[S5]` Ngọc Duy, 24h):** Xóa cache vật lý tự động <= 5 phút và cơ chế Fail-Closed (OPS 05); quy trình Emergency Disable và tìm kiếm dự phòng Mục 9.
-   - **Pháp lý, Bảo mật, Dữ liệu & Đóng gói (42h):** `[P5]` Anh Khoa 24h (rủi ro AI Annex F, báo cáo sự cố 4h, Change Control); `[P2]` Hữu Tài 10h; **`[P3]` Trần Chí Kha 6h** (`CKPA-96`); `[P4]` Trà My 10h (diễn tập thu hồi & đào tạo 5 Rep Users); `[S1]` Hoàng Tiến 12h (Working Core DEL 02).
+   - **Pháp lý, Bảo mật, Dữ liệu & Đào tạo (50h):** `[P5]` Anh Khoa 24h (rủi ro AI Annex F, báo cáo sự cố 4h, Change Control); `[P2]` Hữu Tài 10h; **`[P3]` Trần Chí Kha 6h** (`CKPA-96`); `[P4]` Trà My 10h (diễn tập thu hồi & đào tạo 5 Rep Users).
+   - **Đóng gói Working Core (`[S1]` Hoàng Tiến, 12h):** Đóng gói và bàn giao Working Core `DEL 02`.
 
-2. **Giai đoạn 2 (Ngày 3–4 Sprint 6 — Kiểm định Độc lập 180 Ca & Đào tạo — 142h):**
-   - **Kiểm định Hiệu năng & QA Độc lập (`[S5]` 12h, `[S4]` Quý Hải 40h):** Benchmark 5 người dùng đồng thời, p95 <= 25s trên 100 truy vấn (OPS 02); kiểm thử 80 Challenges; chấm điểm 100 câu Sealed; lập Báo cáo Điểm số Độc lập DEL 03.
-   - **Thẩm định Độc lập phía Bên Mua (80h):** `[P2]` Hữu Tài 26h; **`[P3]` Trần Chí Kha 18h** (`CKPA-108`: 14h & `CKPA-111`: 4h); `[P4]` Trà My 24h (mức độ chỉnh sửa nhỏ >= 80%); `[P5]` Anh Khoa 10h (0 lỗi rò rỉ dữ liệu).
+2. **Giai đoạn 2 (Ngày 3–4 Sprint 6 — Kiểm định Độc lập 180 Ca & Đào tạo — 140h):**
+   - **Kiểm định Hiệu năng & QA Độc lập (`[S5]` 12h, `[S4]` Quý Hải 40h — 52h):** Benchmark 5 người dùng đồng thời, p95 <= 25s trên 100 truy vấn (OPS 02); kiểm thử 80 Challenges; chấm điểm 100 câu Sealed; lập Báo cáo Điểm số Độc lập DEL 03.
+   - **Thẩm định Độc lập phía Bên Mua (78h):** `[P2]` Hữu Tài 26h; **`[P3]` Trần Chí Kha 18h** (`CKPA-108`: 14h & `CKPA-111`: 4h); `[P4]` Trà My 24h (mức độ chỉnh sửa nhỏ >= 80%); `[P5]` Anh Khoa 10h (0 lỗi rò rỉ dữ liệu).
    - **Đệ trình Hồ sơ G2 (`[S1]` 10h):** Tổng hợp Hồ sơ Điểm số Độc lập và Căn cứ Pháp lý G2.
 
 3. **Giai đoạn 3 (Ngày 5 Sprint 6 — Hội đồng Nghiệm thu G2 & Kích hoạt Pilot G3 — 74h):**
@@ -182,7 +183,7 @@ Căn cứ kết quả đối soát toàn diện đạt 7/7 tiêu chí Cổng G1,
 
 ### 7.1. Phê duyệt Nghiệm thu Chính thức Cổng Gate G1 (Sign-off Gate G1)
 - Nghiệm thu toàn diện Giai đoạn Thử nghiệm Nội bộ Ngoại tuyến có Kiểm soát (Controlled Offline Pilot & Benchmarks).
-- Công nhận các kết quả bàn giao: Bộ Corpus 3 họ chuẩn hóa, Pipeline RAG offline đạt chuẩn (`develop @ 771b331`, 257 passed), bộ 200 Tasks & 80 Challenges niêm phong độc lập (`33180db`), Hồ sơ Bằng chứng DEL 03 Part 1 và Báo cáo quyết toán 276 / 276 giờ công (100% Done).
+- Công nhận các kết quả bàn giao: Bộ Corpus 3 họ chuẩn hóa, Pipeline RAG offline đạt chuẩn (`develop @ 771b331`, tag bất biến `v0.2.1-g1-offline`, 257 passed), bộ 200 Tasks & 80 Challenges niêm phong độc lập (`33180db`), Hồ sơ Bằng chứng DEL 03 Part 1 và Báo cáo quyết toán 276 / 276 giờ công (100% Done). *(Log `--strict-live` của `CKPA-70` theo dõi đồng bộ trên DB seed thật tại PR #65).*
 - Chính thức chuyển User Story cha **`CKPA-81`** và Sub-task **`CKPA-84`** sang trạng thái **`Done`** trên hệ thống Jira.
 
 ### 7.2. Quyết định Cấp phép Chuyển tiếp Mở Cổng Gate G2 (Proceed to G2)
