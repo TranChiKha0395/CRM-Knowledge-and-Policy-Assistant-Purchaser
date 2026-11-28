@@ -9,7 +9,7 @@
 > **Phía phụ trách:** Purchaser (SongNhat)  
 > **Assignee / Lead kiểm thử:** [P4] Ngô Thị Trà My (Staff users / CSKH Reader)  
 > **Collaborators / RACI:** [P2] Trương Đình Hữu Tài (Policy Owner), [S3] Phạm Lương Yến Nhi (Frontend Workspace Engineer)  
-> **Nghiệm thu / Reporter:** [P1] Nguyễn Thị Mỹ Vân (Purchaser Sponsor)  
+> **Nghiệm thu / Reporter:** [P1] Vắn Mỹ Vân (Purchaser Sponsor)  
 > **Ngày thực hiện đánh giá:** 28/11/2026  
 > **Ràng buộc SoD & Chinese Wall:** **Tuyệt đối KHÔNG có dữ liệu 100 SEALED; Tuân thủ Base Scope (O1 = OFF).**
 
@@ -128,7 +128,7 @@ Từ kinh nghiệm thực tế xử lý vé hỗ trợ hàng ngày của nhân v
 | **[P4] Staff users** | **Ngô Thị Trà My** | Author / Lead Tester đánh giá UAT 40 ca Val | **ĐÃ HOÀN TẤT ĐÁNH GIÁ (DONE)** | 28/11/2026 |
 | **[P2] Policy owners** | **Trương Đình Hữu Tài** | Thẩm định tính chuẩn xác của điều khoản & thẩm quyền | **PENDING (Chờ thẩm định)** | Chờ duyệt G2 |
 | **[S3] Workspace Lead** | **Phạm Lương Yến Nhi** | Xác nhận độ tương thích của frontend Workspace | **PENDING (Chờ xác nhận)** | Chờ duyệt G2 |
-| **[P1] Purchaser Sponsor** | **Nguyễn Thị Mỹ Vân** | Phê duyệt nghiệm thu UAT Cổng G2 (G2-AC01) | **PENDING (Chờ nghiệm thu)** | Chờ duyệt G2 |
+| **[P1] Purchaser Sponsor** | **Vắn Mỹ Vân** | Phê duyệt nghiệm thu UAT Cổng G2 (G2-AC01) | **PENDING (Chờ nghiệm thu)** | Chờ duyệt G2 |
 
 ---
 *Biên bản được lập hoàn chỉnh, lưu trữ độc lập tại [ckpa-93-vn01-workspace-ux-validation-report.md](file:///C:/Users/Admin/.gemini/antigravity/scratch/purchaser_repo/uat/g2/ckpa-93/ckpa-93-vn01-workspace-ux-validation-report.md) trên nhánh uat/CKPA-93-verify-vn-ux-40-val-cases và sẵn sàng phục vụ tạo Pull Request hợp nhất vào nhánh develop.*
