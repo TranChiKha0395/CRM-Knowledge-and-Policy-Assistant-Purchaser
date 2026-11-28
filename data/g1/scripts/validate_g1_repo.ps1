@@ -1,4 +1,4 @@
-# Portable Repo Self-Validator for SongNhat CKPA Gate G1 Data Deliverables ([P3] Knowledge & Data Steward)
+﻿# Portable Repo Self-Validator for SongNhat CKPA Gate G1 Data Deliverables ([P3] Knowledge & Data Steward)
 # Usage: powershell -NoProfile -ExecutionPolicy Bypass -File data/g1/scripts/validate_g1_repo.ps1
 $ErrorActionPreference = "Stop"
 
@@ -103,7 +103,8 @@ function Validate-Bundle($label, $pasPath, $cfPath, $manifestPath, $maxDocs, $ma
     if ($man.Count -ne $expectedMan) { $errors += "Manifest rows=$($man.Count) != $expectedMan" }
     $missingUri = 0; $badHash = 0
     foreach ($m in $man) {
-        $absUri = Join-Path $repoRoot ($m.source_uri -replace '/','\')
+        $normRel = $m.source_uri -replace '[/\\]', [System.IO.Path]::DirectorySeparatorChar
+        $absUri = [System.IO.Path]::Combine($repoRoot, $normRel)
         if (-not (Test-Path $absUri) -or $m.source_uri_exists -ne "true") { $missingUri++ }
         if ($m.record_type -eq "passage") {
             $p = $pasById[$m.record_id]
@@ -128,19 +129,21 @@ function Validate-Bundle($label, $pasPath, $cfPath, $manifestPath, $maxDocs, $ma
     Write-Host "  RESULT: PASS (0 errors)" -ForegroundColor Green
 }
 
-$f1Pas = Join-Path $g1Root "family1\Policy_Corpus_Family1.csv"
+$f1Dir = Join-Path $g1Root "family1"
+$f1Pas = Join-Path $f1Dir "Policy_Corpus_Family1.csv"
 if (Test-Path $f1Pas) {
     Validate-Bundle "CKPA-50 Family 1 (POL-001)" $f1Pas `
-        (Join-Path $g1Root "family1\Critical_Fields_Family1.csv") `
-        (Join-Path $g1Root "family1\Source_URI_And_Checksum_Manifest_Family1.csv") `
+        (Join-Path $f1Dir "Critical_Fields_Family1.csv") `
+        (Join-Path $f1Dir "Source_URI_And_Checksum_Manifest_Family1.csv") `
         10 100 18
 }
 
-$fullPas = Join-Path $g1Root "full\Policy_Corpus_G1_Full.csv"
+$fullDir = Join-Path $g1Root "full"
+$fullPas = Join-Path $fullDir "Policy_Corpus_G1_Full.csv"
 if (Test-Path $fullPas) {
     Validate-Bundle "CKPA-58 Full G1 Corpus (3 Families)" $fullPas `
-        (Join-Path $g1Root "full\Critical_Fields_G1_Full.csv") `
-        (Join-Path $g1Root "full\Source_URI_And_Checksum_Manifest_G1_Full.csv") `
+        (Join-Path $fullDir "Critical_Fields_G1_Full.csv") `
+        (Join-Path $fullDir "Source_URI_And_Checksum_Manifest_G1_Full.csv") `
         30 300 50
 }
 
@@ -179,8 +182,8 @@ if (Test-Path $readme) {
     foreach ($m in [regex]::Matches($txt, '!?\[[^\]]*\]\(([^)\r\n]+)\)')) {
         $target = ($m.Groups[1].Value.Trim() -split '\s+')[0]
         if ($target -match '^(#|https?://|mailto:|tel:)') { continue }
-        $tClean = ($target -split '[#?]')[0]
-        $resolved = Join-Path (Split-Path -Parent $readme) ($tClean -replace '/','\')
+        $tClean = ($target -split '[#?]')[0] -replace '[/\\]', [System.IO.Path]::DirectorySeparatorChar
+        $resolved = [System.IO.Path]::Combine((Split-Path -Parent $readme), $tClean)
         if (-not (Test-Path $resolved)) { throw "Broken relative link in data/g1/README.md -> $target" }
     }
     Write-Host "data/g1/README.md CI check: PASS (0 broken links, 0 banned strings)" -ForegroundColor Green

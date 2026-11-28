@@ -1,4 +1,4 @@
-﻿# BÁO CÁO KIỂM TOÁN LỘ LỌT RBAC, SOURCE_REF, CACHE & FAIL-CLOSED (GATE G1)
+# BÁO CÁO KIỂM TOÁN LỘ LỌT RBAC, SOURCE_REF, CACHE & FAIL-CLOSED (GATE G1)
 
 - **Mã công việc Jira:** `CKPA-70` (Parent: `CKPA-44` | Liên quan: `CKPA-69` | Mở khóa: `CKPA-71`)
 - **Mã truy vết RFP & Cổng G1:** `SEC 01`, `SEC 02`, `SEC 05`, `KNW 03`, `KNW 04`, `OPS 05`, `ANS 02` | Tiêu chí: `G1-AC03`, `G1-AC04`

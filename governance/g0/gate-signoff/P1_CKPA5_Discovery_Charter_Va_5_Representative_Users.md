@@ -24,10 +24,10 @@
 Căn cứ Hồ sơ Yêu cầu (RFP) dự án CRM Knowledge & Policy Assistant, Ban Giám đốc và Nhà tài trợ dự án (**[P1] Mỹ Vân**) chính thức phê duyệt khởi động giai đoạn Khảo sát có giới hạn thời gian (**Capped Discovery — 2 tuần**, từ ngày 09/11/2026 đến ngày 22/11/2026).
 - **Sprint 1 (DUO W1):** 2026-11-09 đến 2026-11-13.
 - **Sprint 2 (DUO W2):** 2026-11-16 đến 2026-11-20.
-- **Cơ chế quản trị:** Áp dụng mô hình Scrum thích ứng (PO = `[P1] Mỹ Vân`, SM = `[S1] Hoàng Tiến`), tuân thủ nguyên tắc nhịp bền vững $\le 8$h/ngày và $\le 40$h/tuần/vai trò.
+- **Cơ chế quản trị:** Áp dụng mô hình Scrum thích ứng (PO = `[P1] Mỹ Vân`, SM = `[S1] Hoàng Tiến`), tuân thủ nguyên tắc nhịp bền vững <= 8h/ngày và <= 40h/tuần/vai trò.
 
 #### 2. Mục tiêu trọng tâm của Discovery (G0)
-1. **Khảo sát dữ liệu thực tế (WP01):** Trích xuất danh mục câu hỏi lịch sử thực tế $\ge 4$ tuần (Question Inventory $\ge 4$w) đã làm sạch 0% PII; đo lường thời gian thao tác cơ sở (Baseline Effort: minh họa RFP ~7,0 phút/tác vụ thủ công) làm mốc đánh giá giảm $\ge 20\%$ công sức tại G3.
+1. **Khảo sát dữ liệu thực tế (WP01):** Trích xuất danh mục câu hỏi lịch sử thực tế >= 4 tuần (Question Inventory >= 4w) đã làm sạch 0% PII; đo lường thời gian thao tác cơ sở (Baseline Effort: minh họa RFP ~7,0 phút/tác vụ thủ công) làm mốc đánh giá giảm >= 20% công sức tại G3.
 2. **Chuẩn hóa tri thức chính sách:** Đóng băng phạm vi 3 họ chính sách nghiệp vụ cốt lõi:
    - `POL-001`: Quy định Thẩm quyền Báo giá, Chiết khấu & Điều kiện Thương mại.
    - `POL-002`: Chính sách Thu thập, Quản trị & Bảo mật Dữ liệu Khách hàng (0% PII).
@@ -68,7 +68,7 @@ Nhà tài trợ dự án [P1] Mỹ Vân chính thức ký quyết định chốt
 
 | STT | Thành viên | Mã Role | Định danh RFP / Tên vai trò tiếng Việt | Phạm vi nghiệp vụ & Trách nhiệm tại G0 |
 |:---:|---|:---:|---|---|
-| **1** | **Trà My** | `[P4]` | **Staff users (Đầu mối 5 Representative Staff Users)** | Chủ trì trích xuất $\ge 4$ tuần lịch sử câu hỏi thực tế; xây dựng tập 60 DEV + 40 VAL; kiểm thử từ điển viết tắt CRM tiếng Việt VN 01. |
+| **1** | **Trà My** | `[P4]` | **Staff users (Đầu mối 5 Representative Staff Users)** | Chủ trì trích xuất >= 4 tuần lịch sử câu hỏi thực tế; xây dựng tập 60 DEV + 40 VAL; kiểm thử từ điển viết tắt CRM tiếng Việt VN 01. |
 | **2** | **Mỹ Vân** | `[P1]` | **Purchaser sponsor (Nhà tài trợ / Chủ đầu tư dự án)** | Chủ trì thẩm định trải nghiệm người dùng, giám sát đo lường Baseline Effort, duyệt Discovery Charter & quyết định Cổng G0. |
 | **3** | **Hữu Tài** | `[P2]` | **Policy owners (Chủ sở hữu chính sách)** | Cung cấp câu hỏi thực tế và thẩm định chuyên môn về thẩm quyền báo giá, biên độ chiết khấu, hạn mức công nợ theo `POL-001`. |
 | **4** | **Chí Kha** | `[P3]` | **Knowledge and data steward (Quản lý tri thức & Dữ liệu nguồn)** | Cung cấp câu hỏi về quy trình tra cứu dữ liệu, trường trọng yếu, liên kết footnotes và các trường hợp ngoại lệ theo `POL-002` & `POL-003`. |
