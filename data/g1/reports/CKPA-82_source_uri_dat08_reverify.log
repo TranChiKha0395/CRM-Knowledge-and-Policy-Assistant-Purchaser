@@ -1,0 +1,30 @@
+=== [P3] SONGNHAT SCRM - CKPA-82 RE-VERIFICATION LOG (100% SOURCE_URI, SHA-256 & DAT 08) ===
+Jira Issue       : CKPA-82 (CRM-G1-SUB28 | Gate G1 | AC: G1-AC01)
+RFP Traceability : Sec 9 (G1 re-verified original reference access), DAT 08, KNW 02
+Executed By      : [P3] Tran Chi Kha (Knowledge and Data Steward)
+Execution Time   : 2026-11-24T20:27:23+07:00
+Git Base Commit  : a73d832 (Initial Sign-off Baseline: 42f9ecc)
+---------------------------------------------------------------------------------------------
+================================================================
+VALIDATING: CKPA-50 Family 1 (POL-001)
+================================================================
+  Docs: 4/10 | Passages: 40/100 (max=591/6000) | CriticalFields: 16/18
+  IngestionService simulation: Passages Expected=40 = Accepted 39 + Quarantined 1 | CriticalFields Expected=16 = Accepted 16 + Quarantined 0
+  Manifest SHA-256 & repo source_uri: 56/56 verified (0 missing, 0 hash mismatch) | Restricted RBAC: 3
+  RESULT: PASS (0 errors)
+
+================================================================
+VALIDATING: CKPA-58 Full G1 Corpus (3 Families)
+================================================================
+  Docs: 11/30 | Passages: 96/300 (max=591/6000) | CriticalFields: 40/50
+  IngestionService simulation: Passages Expected=96 = Accepted 93 + Quarantined 3 | CriticalFields Expected=40 = Accepted 40 + Quarantined 0
+  Manifest SHA-256 & repo source_uri: 136/136 verified (0 missing, 0 hash mismatch) | Restricted RBAC: 7
+  RESULT: PASS (0 errors)
+
+=== [P5] CKPA-47 EXACT PII SCAN ON data/g1/ ===
+Scanned files: 25 | Real PII hits: 0
+
+=== CI docs-link-check SIMULATION ON data/g1/README.md ===
+data/g1/README.md CI check: PASS (0 broken links, 0 banned strings)
+
+ALL REPO G1 VALIDATIONS PASSED 100%!

@@ -22,7 +22,7 @@
 
 ### ĐỐI SOÁT TIÊU CHÍ NGHIỆM THU (ACCEPTANCE CRITERIA BDD: GIVEN - WHEN - THEN)
 
-* **GIVEN (Điều kiện tiền đề):** Đã có Question Inventory $\ge 4$ tuần từ Giai đoạn Discovery G0 và Hồ sơ Phân tích ngôn ngữ VN 01 Profile.
+* **GIVEN (Điều kiện tiền đề):** Đã có Question Inventory `>= 4` tuần từ Giai đoạn Discovery G0 và Hồ sơ Phân tích ngôn ngữ VN 01 Profile.
 * **WHEN (Hành động thực thi):** `[P4] Trà My` cùng 4 nhân viên nghiệp vụ Bên mua SongNhat (ngoài S1–S5) trích xuất, làm sạch 100 câu hỏi thực tế đầu tiên (0% PII theo SEC 02/06) và tổng hợp bảng Từ điển Viết tắt CRM tiếng Việt VN 01.
 * **THEN (Kết quả đầu ra):** Đã bàn giao đầy đủ tập 100 câu hỏi sạch PII (60 DEV + 40 VAL) cho `[S4] Quý Hải` phục vụ kiểm thử độc lập, và bàn giao Từ điển VN 01 cho `[S3] Yến Nhi` tích hợp vào module truy xuất ANS 02 (`backend/src/modules/retrieval/models.py`). `[P1] Mỹ Vân` xác nhận nghiệm thu đạt 100% yêu cầu.
 
@@ -50,7 +50,7 @@
 
 Bộ từ điển `vn01_crm_dictionary.json` do `[P4] Trà My` xây dựng gồm 4 cấu phần đáp ứng toàn diện ANS 02 & VN 01:
 1. **42 Nhóm từ viết tắt CRM (abbreviations):** Bao phủ toàn bộ thuật ngữ thương mại, chiết khấu, chức danh phê duyệt (`cvkd`, `tpkd`, `gdkd`, `gdcn`, `tgd`), dịch vụ bảo hành (`cskh`, `bh`, `bd`, `cvdv`, `ktv`) và kho vận pháp lý (`po`, `bo`, `stock`, `mst`, `cccd`, `pii`, `sla`, `sop`).
-2. **30 Cụm từ tiếng Việt không dấu (unaccent_mappings):** Tự động khôi phục dấu tiếng Việt chuẩn xác cho các truy vấn gõ nhanh (`chiet khau` $\rightarrow$ chiết khấu, `bao gia` $\rightarrow$ báo giá, `bien tan` $\rightarrow$ biến tần, `dong co` $\rightarrow$ động cơ...).
+2. **31 Cụm từ tiếng Việt không dấu (unaccent_mappings):** Tự động khôi phục dấu tiếng Việt chuẩn xác cho các truy vấn gõ nhanh (`chiet khau` -> chiết khấu, `bao gia` -> báo giá, `bien tan` -> biến tần, `dong co` -> động cơ...).
 3. **16 Thuật ngữ kỹ thuật & sản phẩm song ngữ (technical_and_product_terms):** Chuẩn hóa các dòng sản phẩm chủ lực (`motor 3 pha`, `inverter`, `gearbox`, `explosion proof motor`) và thuật ngữ vận hành (`tombstone`, `quarantine`, `hold`, `referral`).
 4. **Bảo toàn 14 từ phủ định tiếng Việt bắt buộc (vietnamese_negations_preserved):** Giữ nguyên các từ: `không`, `chưa`, `chẳng`, `miễn`, `ngoại trừ`, `ngoài`, `không được`, `cấm`, `loại trừ`, `không áp dụng`, `vắng mặt`, `thiếu`, `từ chối`, `hủy` để tránh làm đảo ngược hoàn toàn ngữ nghĩa truy vấn.
 

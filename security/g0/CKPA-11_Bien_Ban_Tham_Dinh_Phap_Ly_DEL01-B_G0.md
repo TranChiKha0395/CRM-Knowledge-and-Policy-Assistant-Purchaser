@@ -12,7 +12,7 @@
 
 ## 1. Mục tiêu & Cơ sở đối soát
 Thực hiện thẩm định tính tuân thủ pháp lý, quyền riêng tư và phân tách dữ liệu cho tài liệu **Ma trận thẩm quyền 5 lớp (`DAT 03`)** và **Đặc tả phân quyền (`DAT 04`)** trước khi ban hành chính thức `DEL01-B` tại cổng Gate G0:
-- Đối chiếu với Ma trận phạm vi cơ sở (`CKPA-1_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv`) về ranh giới giữa hợp đồng thương mại khách hàng và chính sách vận hành nội bộ.
+- Đối chiếu với Ma trận phạm vi cơ sở (`policy/g0/CKPA-9_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv`) về ranh giới giữa hợp đồng thương mại khách hàng và chính sách vận hành nội bộ.
 - Đối chiếu với các yêu cầu bảo mật cốt lõi: **SEC 01** (Kiểm soát truy cập theo vai trò RBAC), **SEC 02** (Bảo vệ dữ liệu cá nhân & 0% PII), và **Annex F** (Phụ lục tuân thủ pháp lý & quyền riêng tư).
 
 ---
@@ -22,7 +22,7 @@ Thực hiện thẩm định tính tuân thủ pháp lý, quyền riêng tư và
 | STT | Hạng mục thẩm định | Tiêu chí đối soát | Kết quả thẩm định chi tiết | Đánh giá |
 | :---: | :--- | :---: | :--- | :---: |
 | **1** | **Tính hợp lệ của Ma trận thẩm quyền 5 lớp (`DAT 03`, `DAT 04`)** | Mục 9 (G0) | Xác nhận phân cấp thẩm quyền rõ ràng từ Nhân viên CS tuyến đầu (`Tier-1`) đến Giám đốc CRM / Policy Owner (`Tier-5`); không phát sinh chồng chéo quyền phê duyệt hoặc miễn trừ ngoại lệ trái quy định (*No Inferred Approval*). | **ĐẠT (PASS)** |
-| **2** | **Ranh giới Hợp đồng khách hàng & Chính sách nội bộ** | `CKPA-1` Base Scope | Tách biệt rạch ròi điều khoản bảo mật thương mại riêng biệt của từng hợp đồng khách hàng với quy định vận hành nội bộ của Công ty TNHH TM DV Song Nhật; chặn truy xuất chéo ngoài phạm vi được cấp phép. | **ĐẠT (PASS)** |
+| **2** | **Ranh giới Hợp đồng khách hàng & Chính sách nội bộ** | `CKPA-9` Base Scope | Tách biệt rạch ròi điều khoản bảo mật thương mại riêng biệt của từng hợp đồng khách hàng với quy định vận hành nội bộ của Công ty Cổ phần Thiết bị Công nghiệp Song Nhật; chặn truy xuất chéo ngoài phạm vi được cấp phép. | **ĐẠT (PASS)** |
 | **3** | **Điều kiện bảo mật & Tách biệt dữ liệu khách hàng** | `SEC 01`, `SEC 02`, `Annex F` | Áp dụng nguyên tắc tối thiểu hóa dữ liệu (*Data Minimization*) và cô lập dữ liệu định danh khách hàng (0% PII rò rỉ giữa các phân vùng). Xác nhận **không tồn tại xung đột pháp lý hoặc vi phạm quyền riêng tư** trên `DEL01-B`. | **ĐẠT (PASS)** |
 
 ---

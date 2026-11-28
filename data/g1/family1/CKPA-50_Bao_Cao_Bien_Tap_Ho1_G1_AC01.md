@@ -3,8 +3,8 @@
 - **Dự án Jira chính thức:** `CKPA` — SongNhat CRM Knowledge and Policy Assistant (`Board 2: CKPA board`)
 - **Jira Issue:** `CKPA-50` (`CRM-G1-SUB04`, Sub-task của Story `CKPA-49` / `CRM-G1-ST02`, Sprint 3 - G1 Impl W1)
 - **GitHub Branch:**
-  - Theo **Onboarding Guide v1.0 (§15):** `data/CKPA-50-curate-family1-dat01-08` *(khuyến nghị)*
-  - Theo **Description import từ Excel:** `data/CRM-G1-SUB04-curate-family1-dat01-08` *(cần xác nhận nhanh với `[S1]` Hoàng Tiến trước khi push)*
+  - Theo **Onboarding Guide v1.0 (§15):** `data/CKPA-50-curate-family1-dat01-08` *(đã merge qua PR #9 & nghiệm thu `Done` trên Jira `CKPA-50`)*
+  - Theo **Description import từ Excel:** `data/CRM-G1-SUB04-curate-family1-dat01-08` *(mã tham chiếu lịch sử khi import bảng G1)*
 - **Tiêu chí Cổng G1:** `G1-AC01`
 - **RFP Traceability:** `Mục 2`, `DEL 01`, `DAT 01`, `DAT 02`, `DAT 03`, `DAT 04`, `DAT 05`, `DAT 06`, `DAT 08`, `KNW 03`, `SEC 01`, `SEC 02`, `VN 01`, `VN 03`, `VN 04`, `Annex B`, `Annex C`
 - **Phạm vi dữ liệu:** **Base Scope thuần túy — 0% O1 Selected CRM Context** (đúng quyết định G0 `CKPA-5` và chứng nhận `CKPA-47` của `[P5]` Anh Khoa)
@@ -20,7 +20,7 @@
 2. **`Critical_Fields_Family1.csv`** — **16 critical fields** (`CF-001..CF-004`, `CF-011..CF-022`), UTF-8 (no BOM), đúng **23 cột** khớp tuyệt đối `CRITICAL_FIELDS_CSV_COLUMNS` trong `develop/backend/src/modules/ingestion/service.py`.
 3. **`Source_URI_And_Checksum_Manifest_Family1.csv`** — Bảng đối soát **56/56 bản ghi** (40 passages + 16 critical fields) kèm `source_uri` mở kiểm tra được 100%, mã băm `SHA-256`, độ dài Unicode và cờ `DAT 08`.
 4. **Hồ sơ nguồn tham chiếu (`sources/DOC-001`, `DOC-004`, `DOC-006`, `DOC-007`)** — Cho phép re-verify thực tế `source_uri` theo `G1-AC01` và `DAT 08`.
-5. **Bộ Test Fixture lỗi tách riêng (`Test_Fixtures_Quarantine_OPS01_04/`)** — **6 passages** + **4 critical fields** tiêm lỗi bao phủ **100% nhánh lỗi** của `IngestionService._validate_row()` trên nhánh `develop` (`PASSAGE_TOO_LONG`, `MISSING_ESSENTIAL_ATTACHMENTS`, `INVALID_RECORD_ACTION`, `MISSING_CURRENCY_UNIT`, thiếu `unit`, trùng `passage_id`, sai enum `KNW 03`, và `tombstone`).
+5. **Bộ Test Fixture lỗi tách riêng (`data/g1/fixtures/`)** — **6 passages** (`Quarantine_Passages_Fixtures_G1.csv`) + **4 critical fields** (`Quarantine_CriticalFields_Fixtures_G1.csv`) tiêm lỗi bao phủ **100% nhánh lỗi** của `IngestionService._validate_row()` trên nhánh `develop` (`PASSAGE_TOO_LONG`, `MISSING_ESSENTIAL_ATTACHMENTS`, `INVALID_RECORD_ACTION`, `MISSING_CURRENCY_UNIT`, thiếu `unit`, trùng `passage_id`, sai enum `KNW 03`, và `tombstone`).
 
 ---
 
@@ -33,14 +33,14 @@
 | `DOC-001` | `policy` | `DOC001-VER-000` | `superseded` | `PAS-041..043` | 3 | `CF-016..018` | Phiên bản lịch sử `2025-01-01..2026-11-06 08:59:59 +07:00` (test Worked Case 3 & biên giờ VN `OPS 03`) |
 | `DOC-001` | `policy` | `DOC001-VER-002` | `scheduled` | `PAS-044..045` | 2 | `CF-019..020` | Phiên bản tương lai `2027-01-01 00:00:00 +07:00` (`supersedes=VER-001`; test Worked Case 4 & `OPS 03`) |
 | `DOC-001` | `policy` | `DOC001-VER-001-DRAFT` / `REV` / `APP` / `WD` | `draft`, `owner_reviewed`, `approved`, `withdrawn` | `PAS-046..049` | 4 | `CF-022` (`withdrawn`) | Đủ **7/7 trạng thái `KNW 03`** để `[S3]` Yến Nhi (`CKPA-54`) & `[S4]` Quý Hải (`CKPA-56`) smoke test bộ lọc Pre-Retrieval |
-| `DOC-004` | `SOP` | `DOC004-VER-001` | `effective` *(chờ `[P2]` ký tại `CKPA-51`)* | `PAS-050..054` | 5 | — | Quy trình lập phiếu chiết khấu, bảng Gross Margin `BM-KD-02`, luồng duyệt & Backup Owner (`VN 04`) |
+| `DOC-004` | `SOP` | `DOC004-VER-001` | `effective` *(đã được `[P2]` ký duyệt tại `CKPA-51`)* | `PAS-050..054` | 5 | — | Quy trình lập phiếu chiết khấu, bảng Gross Margin `BM-KD-02`, luồng duyệt & Backup Owner (`VN 04`) |
 | `DOC-006` | `customer_contract` | `DOC006-VER-001` | `effective` | `PAS-055..057` | 3 | — | Hợp đồng khung B2B xung đột chiết khấu/hiệu lực/tạm ứng -> test **Conflict Hold (`DAT 05` — Worked Case 5)** |
 | `DOC-007` | `staff_note` | `DOC007-VER-001` | `effective` | `PAS-058..060` | 3 | — | Ghi chú CRM cũ tiền lệ VIP -> test **No Inferred Approval (`ANS 05` — Worked Case 6)**, 0% PII thật |
 | **TỔNG HỌ 1** | **4/5 lớp `DAT 03`** | **9 phiên bản** | **Đủ 7/7 `KNW 03`** | `PAS-001..010, 031..060` | **40 / 100** | **16 / 18** | **PASS 100% (`0` lỗi)** |
 
 ---
 
-## 3. Kết quả Tự kiểm định (`scripts/validate_corpus_g1.ps1` — Đối chiếu Live `develop` & Script `[P5]`)
+## 3. Kết quả Tự kiểm định (`data/g1/scripts/validate_g1_repo.ps1` — Đối chiếu Live `develop` & Script `[P5]`)
 
 - **Hợp đồng CSV & Live `develop/backend/src/modules/ingestion/service.py`:**
   - `Policy_Corpus_Family1.csv`: đúng 21/21 cột UTF-8, đối soát dự kiến khi chạy qua `IngestionService.validate_csv_bytes()`: **`Expected = 40 = Accepted 39 + Quarantined 1 (PAS-040: MISSING_ESSENTIAL_ATTACHMENTS)`**.

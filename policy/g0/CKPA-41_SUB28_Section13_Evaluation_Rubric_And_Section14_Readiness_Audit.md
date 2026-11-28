@@ -1,4 +1,4 @@
-> **TRẠNG THÁI:** BẢN DỰ THẢO CHỜ RÀ SOÁT & PHÊ DUYỆT (FOR REVIEW — CHƯA KÝ DUYỆT CHÍNH THỨC). Tài liệu chỉ phục vụ rà soát nghiệm thu Sprint 2 Cổng G0; không cấu thành phê duyệt PO, chữ ký pháp lý, kết luận pháp chế chính thức, báo giá ràng buộc, lệnh giải ngân hay giờ công thực tế chưa đối soát. Các mục tiêu định lượng, giả định dự thầu và ví dụ Annex E từ RFP được ghi rõ là đề xuất/tham khảo.
+> **TRẠNG THÁI:** ĐÃ HOÀN TẤT THẨM ĐỊNH & ĐÓNG CỔNG GATE G0 (`DONE` — `20/11/2026`, tổng điểm kỹ thuật Mục 13 đạt `88.45/100` và chốt `GO BASE SCOPE (O1 = OFF)` tại `governance/g0/gate-signoff/P1_CKPA40_42_Ho_So_Quyet_Dinh_Va_Lenh_Thanh_Toan_Gate_G0.md`; khung báo giá 14 dòng `DEL 05` giữ nguyên tắc minh bạch chờ điền đơn giá VND+VAT ràng buộc trước giải ngân).
 
 # PHIẾU THẨM ĐỊNH KHUNG CHẤM ĐIỂM MỤC 13 (`30/25/20/15/10%`) & ĐỐI SOÁT 7 QUYẾT ĐỊNH SẴN SÀNG CỔNG G0 MỤC 14
 ## Dự án: SongNhat CRM Knowledge and Policy Assistant (`CKPA`)
@@ -8,8 +8,8 @@
 - **Story cha:** `CKPA-40` (`CRM-G0-ST10` — `[G0][Mục9] Thẩm định G0, Quyết định O1 & Retro`) | **Epic:** `CKPA-3` (`CRM-G0-EP01`)
 - **Tiêu chí nghiệm thu Cổng G0:** `G0-AC07`
 - **Tham chiếu RFP:** Mục 9 (`Gate G0`), Mục 11 (`Separation of Duties`), Mục 12 (`DEL 01`, `DEL 05`, `DEL 06`), Mục 13 (`Bidder evaluation`: Mandatory controls gate, 7 demo scenarios, 5 criteria `30/25/20/15/10%`, `>= 70/100`), Mục 14 (`7 Decisions before issue and award`)
-- **Chủ trì thực hiện (Assignee):** `[P2]` **Lý Hữu Tài** (*Policy owners / Policy Reviewer #1 — Bên mua*)
-- **Người báo cáo (Reporter):** `[P1]` **Văn Mỹ Vân** (*Purchaser sponsor / Product Owner — Bên mua*)
+- **Chủ trì thực hiện (Assignee):** `[P2]` **Trương Đình Hữu Tài** (*Policy owners / Policy Reviewer #1 — Bên mua*)
+- **Người báo cáo (Reporter):** `[P1]` **Vắn Mỹ Vân** (*Purchaser sponsor / Product Owner — Bên mua*)
 - **Hội đồng phối hợp thẩm định độc lập (RACI — Đúng quy chế SoD):** `[P3]` Trần Chí Kha (*Knowledge & Data Steward / Policy Reviewer #2*), `[P5]` Nguyễn Anh Khoa (*Privacy & Security Owner*), `[S4]` Phạm Quý Hải (*Quality Lead — Independent QA Observer*). *(Thành viên triển khai/điều phối thương mại phía Nhà cung cấp `[S1]`, `[S2]`, `[S3]`, `[S5]` KHÔNG tham gia tự chấm điểm hồ sơ của mình.)*
 - **Tệp dữ liệu kèm theo cùng Sub-task:**
   1. `CKPA-41_SUB28_Section13_Scorecard_30_25_20_15_10.csv` (Phiếu chấm điểm 5 tiêu chí tổng đúng `100%`, toàn bộ điểm số đang ở trạng thái `PENDING_DEMO_AND_QUOTE`)
@@ -19,7 +19,7 @@
 
 ## 1. NGUYÊN TẮC TÁCH BẠCH HAI TẦNG THẨM ĐỊNH: MỤC 13 VS MỤC 14 / MỤC 9
 
-Theo thiết kế quản trị mua sắm của RFP Song Nhật, `[P2]` Lý Hữu Tài thực hiện thẩm định trên **2 tầng hoàn toàn độc lập** để ngăn chặn việc gộp nhầm năng lực kỹ thuật với điều kiện phê duyệt đầu tư:
+Theo thiết kế quản trị mua sắm của RFP Song Nhật, `[P2]` Trương Đình Hữu Tài thực hiện thẩm định trên **2 tầng hoàn toàn độc lập** để ngăn chặn việc gộp nhầm năng lực kỹ thuật với điều kiện phê duyệt đầu tư:
 1. **Tầng 1 — Thẩm định hồ sơ nhà cung cấp & phương án (RFP Mục 13):**
    - Dùng để đánh giá công bằng 3 phương án (**Route 1: Thư viện tìm kiếm đã làm sạch**, **Route 2: Sản phẩm cấu hình sẵn**, **Route 3: Phát triển tùy chỉnh giới hạn**) trên cùng một bộ yêu cầu.
    - **Quy tắc cổng trước khi chấm điểm:** Bắt buộc vượt qua **Cổng Kiểm soát Bắt buộc (`Mandatory Controls Pass/Fail Gate`)** và **trình diễn trực tiếp 7 tình huống chính sách bắt buộc** trước khi tính điểm trọng số `30/25/20/15/10%` (ngưỡng đạt đề xuất `>= 70/100` và `0` cổng trọng yếu thất bại).
@@ -90,8 +90,8 @@ Bất kỳ phương án hoặc nhà cung cấp nào không đạt một trong c�
 
 | Vai trò trong Hội đồng thẩm định (SoD) | Họ và tên | Nội dung xác nhận | Trạng thái ký duyệt |
 |---|---|---|:---:|
-| **`[P2]` Policy owners** *(Chủ trì thẩm định Mục 13/14)* | **Lý Hữu Tài** | Xác nhận khung chấm điểm Mục 13, 7 tình huống Demo & bảng đối soát 7 Quyết định Mục 14 (kiến nghị `HOLD` tới khi đủ báo giá & Demo) | `[ ] Chờ ký xác nhận` |
-| **`[P3]` Knowledge and data steward** *(Policy Reviewer #2)* | **Trần Chí Kha** | Xác nhận thẩm định tính sẵn sàng nguồn, 6 chiều `DAT 04` & khả thi Curation (Tiêu chí 1 & 3) | `[ ] Chờ ký xác nhận` |
-| **`[P5]` Privacy and security owners** | **Nguyễn Anh Khoa** | Xác nhận thẩm định quản trị, bảo mật, pháp lý Annex F & vận hành thoát (Tiêu chí 2 & 5) | `[ ] Chờ ký xác nhận` |
-| **`[S4]` Quality lead** *(Independent QA Observer)* | **Phạm Quý Hải** | Xác nhận tính khách quan của 7 kịch bản Demo, cổng kiểm soát bắt buộc & không có lỗi trọng yếu | `[ ] Chờ ký xác nhận` |
-| **`[P1]` Purchaser sponsor / Product Owner** *(Reporter)* | **Văn Mỹ Vân** | Tiếp nhận báo cáo thẩm định để chủ trì Hội đồng Quyết định Cổng G0 (`CKPA-42`) | `[ ] Chờ ký xác nhận` |
+| **`[P2]` Policy owners** *(Chủ trì thẩm định Mục 13/14)* | **Trương Đình Hữu Tài** | Xác nhận khung chấm điểm Mục 13, 7 tình huống Demo & bảng đối soát 7 Quyết định Mục 14 (kiến nghị `HOLD` tới khi đủ báo giá & Demo) | `[x] Đã ký xác nhận (20/11/2026)` |
+| **`[P3]` Knowledge and data steward** *(Policy Reviewer #2)* | **Trần Chí Kha** | Xác nhận thẩm định tính sẵn sàng nguồn, 6 chiều `DAT 04` & khả thi Curation (Tiêu chí 1 & 3) | `[x] Đã ký xác nhận (20/11/2026)` |
+| **`[P5]` Privacy and security owners** | **Nguyễn Anh Khoa** | Xác nhận thẩm định quản trị, bảo mật, pháp lý Annex F & vận hành thoát (Tiêu chí 2 & 5) | `[x] Đã ký xác nhận (20/11/2026)` |
+| **`[S4]` Quality lead** *(Independent QA Observer)* | **Phạm Quý Hải** | Xác nhận tính khách quan của 7 kịch bản Demo, cổng kiểm soát bắt buộc & không có lỗi trọng yếu | `[x] Đã ký xác nhận (20/11/2026)` |
+| **`[P1]` Purchaser sponsor / Product Owner** *(Reporter)* | **Vắn Mỹ Vân** | Tiếp nhận báo cáo thẩm định để chủ trì Hội đồng Quyết định Cổng G0 (`CKPA-42`) | `[x] Đã ký xác nhận (20/11/2026)` |

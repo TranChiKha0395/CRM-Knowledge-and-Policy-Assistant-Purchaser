@@ -1,59 +1,88 @@
-=== [P5] SONGNHAT SCRM - GATE G1 PII SECURITY AUDIT LOG ===
+=== [P5] SONGNHAT SCRM - GATE G1 PII SECURITY AUDIT LOG (PURCHASER REPO) ===
 Jira Issue     : CKPA-47 (CRM-G1-SUB02 | G1-AC07)
+Repository     : CRM-Knowledge-and-Policy-Assistant-Purchaser
 Auditor        : [P5] Nguyen Anh Khoa (Privacy & Security Owner)
-Timestamp      : 2026-11-20 18:10:14 UTC+7
-Git Branch     : develop
-Git Commit SHA : a5a6a14
-Scanned Files  : 48
+Timestamp      : 2026-11-26 17:32:36 UTC+7
+Git Branch     : data/CKPA-82-g1-forensic-audit-sync
+Git Commit SHA : b9cbdb9
+Scanned Files  : 76
 Total PII Hits : 0
 --- Detailed Hits ---
-  No unauthorized PII detected (0% PII).
+  No unauthorized PII detected across Purchaser G0/G1 repository (0% PII).
 --- Scanned Files Inventory ---
-  001. CHANGELOG.md
-  002. README.md
-  003. backend/tests/eval/README.md
-  004. backend/tests/ops/README.md
-  005. data/eval/README.md
-  006. data/g1/README.md
-  007. data/g1/family1/CKPA-50_Bao_Cao_Bien_Tap_Ho1_G1_AC01.md
-  008. data/g1/family1/Critical_Fields_Family1.csv
-  009. data/g1/family1/Policy_Corpus_Family1.csv
-  010. data/g1/family1/Source_URI_And_Checksum_Manifest_Family1.csv
-  011. data/g1/fixtures/Quarantine_CriticalFields_Fixtures_G1.csv
-  012. data/g1/fixtures/Quarantine_Passages_Fixtures_G1.csv
-  013. data/g1/reports/BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md
-  014. data/g1/reports/CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md
-  015. data/g1/sources/DOC-001_POL-CRM-01_Quotation_Commercial_Approval.md
-  016. data/g1/sources/DOC-004_SOP-CRM-QBG-01_Discount_GrossMargin.md
-  017. data/g1/sources/DOC-006_HDNT-B2B-SYN-2026_Framework_Contract.md
-  018. data/g1/sources/DOC-007_CRM-STAFF-NOTES-SYN_Quotation_History.md
-  019. data/templates/README.md
-  020. data/templates/critical_fields_template.csv
-  021. data/templates/passages_template.csv
-  022. docker-compose.yml
-  023. docs/01-overview.md
-  024. docs/02-architecture.md
-  025. docs/03-database-and-contracts.md
-  026. docs/04-setup-and-operations.md
-  027. docs/05-roadmap-and-team.md
-  028. docs/HANDOVER.md
-  029. docs/OPEN_QUESTIONS.md
-  030. docs/README.md
-  031. docs/REQUIREMENTS_S4.md
-  032. docs/S3_QUESTIONS.md
-  033. docs/S4_README.md
-  034. docs/SAFETY.md
-  035. docs/STATUS.md
-  036. docs/SYSTEM_BEHAVIOR.md
-  037. docs/TRACEABILITY.md
-  038. frontend/package.json
-  039. frontend/tsconfig.json
-  040. prompts/README.md
-  041. prompts/answer_system_vi.txt
-  042. prompts/system_prompt_vi_v1.0.md
-  043. prompts/system_prompt_vi_v1.1.md
-  044. prompts/user_template_vi_v1.0.md
-  045. prompts/user_template_vi_v1.1.md
-  046. requirements.txt
-  047. tests/ANNEX_B_CHECKLIST.md
-  048. worker/requirements.txt
+  001. README.md
+  002. data/g0/CKPA-2_01_Source_Registry_And_Gap_Analysis.csv
+  003. data/g0/critical_fields.csv
+  004. data/g0/passages.csv
+  005. data/g1/README.md
+  006. data/g1/family1/CKPA-50_Bao_Cao_Bien_Tap_Ho1_G1_AC01.md
+  007. data/g1/family1/Critical_Fields_Family1.csv
+  008. data/g1/family1/Policy_Corpus_Family1.csv
+  009. data/g1/family1/Source_URI_And_Checksum_Manifest_Family1.csv
+  010. data/g1/fixtures/Quarantine_CriticalFields_Fixtures_G1.csv
+  011. data/g1/fixtures/Quarantine_Passages_Fixtures_G1.csv
+  012. data/g1/full/CKPA-58_Bao_Cao_Bien_Tap_Full_Corpus_3Ho.md
+  013. data/g1/full/Critical_Fields_G1_Full.csv
+  014. data/g1/full/Policy_Corpus_G1_Full.csv
+  015. data/g1/full/Source_URI_And_Checksum_Manifest_G1_Full.csv
+  016. data/g1/reports/BAO_CAO_BLOCKERS_VA_VAN_DE_G1_P3.md
+  017. data/g1/reports/CKPA-49_Story_Owner_Tracker_Va_PR_Guide.md
+  018. data/g1/reports/CKPA-82_Bien_Ban_Kiem_Lai_100pct_Source_URI_DAT08_Va_Ky_G1_AC01.md
+  019. data/g1/reports/CKPA-82_source_uri_dat08_reverify.log
+  020. data/g1/sources/DOC-001_POL-CRM-01_Quotation_Commercial_Approval.md
+  021. data/g1/sources/DOC-002_POL-CRM-03_Customer_Information_Handling.md
+  022. data/g1/sources/DOC-003_POL-CRM-02_Warranty_and_Service_Routing.md
+  023. data/g1/sources/DOC-004_SOP-CRM-QBG-01_Discount_GrossMargin.md
+  024. data/g1/sources/DOC-005_SOP-CRM-KH-01_Customer_Verification_Update.md
+  025. data/g1/sources/DOC-006_HDNT-B2B-SYN-2026_Framework_Contract.md
+  026. data/g1/sources/DOC-007_CRM-STAFF-NOTES-SYN_Quotation_History.md
+  027. data/g1/sources/DOC-008_DPA-B2B-SYN-2026_Customer_Data_Addendum.md
+  028. data/g1/sources/DOC-009_SOP-CRM-BH-01_Warranty_Intake_Routing.md
+  029. data/g1/sources/DOC-010_OEM-TERMS-SYN-2026_Manufacturer_Warranty_Terms.md
+  030. data/g1/sources/DOC-011_CRM-STAFF-NOTES-BH_Warranty_History.md
+  031. data/templates/critical_fields_template.csv
+  032. data/templates/passages_template.csv
+  033. governance/g0/gate-signoff/P1_CKPA40_42_Ho_So_Quyet_Dinh_Va_Lenh_Thanh_Toan_Gate_G0.md
+  034. governance/g0/gate-signoff/P1_CKPA5_Discovery_Charter_Va_5_Representative_Users.md
+  035. governance/g1/gate-signoff/P1_CKPA81_Bien_Ban_Nghiem_Thu_Gate_G1_Va_Lenh_Giai_Ngan_25pct.md
+  036. governance/g1/gate-signoff/P1_CKPA84_Bien_Ban_Hop_Hoi_Dong_Ky_G1_Va_Sprint5_Retro_Log.md
+  037. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA47.md
+  038. governance/g1/sub-tasks/P1_BienBan_NghiemThu_CKPA51.md
+  039. governance/g1/sub-tasks/P1_CKPA55_BienBan_NghiemThu_100CauHoi_Va_TuDien_VN01.md
+  040. policy/g0/CKPA-27_SUB18_Approval_30_10_And_Funded_G1_Curation_Plan.md
+  041. policy/g0/CKPA-41_SUB28_Section13_Evaluation_Rubric_And_Section14_Readiness_Audit.md
+  042. policy/g0/CKPA-41_SUB28_Section13_Scorecard_30_25_20_15_10.csv
+  043. policy/g0/CKPA-41_SUB28_Section14_7Decisions_G0_Readiness_Checklist.csv
+  044. policy/g0/CKPA-8_01_Authority_Matrix_5_Layers.csv
+  045. policy/g0/CKPA-8_02_Governing_Date_And_Conflict_Hold_Rules.csv
+  046. policy/g0/CKPA-8_Ma_Tran_Tham_Quyen_5_Lop_Va_Quy_Tac_Ngay_Hieu_Luc_G0.md
+  047. policy/g0/CKPA-9_01_Policy_Families_And_Owners_Signoff.csv
+  048. policy/g0/CKPA-9_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv
+  049. policy/g0/CKPA-9_Bien_Ban_Xac_Nhan_Pham_Vi_G0_Va_3_Nhom_Chinh_Sach.md
+  050. policy/g1/Bien_Ban_Phe_Duyet_Corpus_Critical_Fields_Ho1_CRM-G1-SUB05.md
+  051. policy/g1/CKPA-62_Bien_Ban_Duyet_Full_Corpus_3Ho_va_Dap_An_Chuan_OPS03-04.md
+  052. policy/g1/CKPA-83_Xac_Nhan_Policy_Reviewer1_P2_Corpus_Ngay_Truong_Hold.md
+  053. security/g0/CKPA-11_Bien_Ban_Tham_Dinh_Phap_Ly_DEL01-B_G0.md
+  054. security/g0/P1_HoSoPhapLy_CoNgay_v1_HoanChinh.md
+  055. security/g0/P1_RaSoat_Retention_v1_HoanChinh.md
+  056. security/g0/legal-privacy-review.md
+  057. security/g0/rbac-matrix.md
+  058. security/g1/CKPA-47_Chung_Nhan_Du_Lieu_Kiem_Thu_0_PII_G1.md
+  059. security/g1/CKPA-70_Bao_Cao_Kiem_Toan_Lo_Lot_RBAC_Cache_FailClosed_G1.md
+  060. security/g1/CKPA-79_Bien_Ban_Kiem_Toan_ACL_Sealed_Va_Chot_Bao_Mat_G1.md
+  061. security/g1/g1_rbac_failclosed_audit_CKPA-70.log
+  062. security/g1/g1_sealed_acl_audit_CKPA-79.log
+  063. uat/g0/ckpa-4/CKPA-2_Bao_Cao_Kiem_Ke_Nguon_Question_Inventory_Va_Baseline_G0.md
+  064. uat/g0/ckpa-6/CKPA-2_02_Question_Inventory_4Week_Representative.csv
+  065. uat/g1/ckpa-55/100_real_questions_clean_pii.csv
+  066. uat/g1/ckpa-55/ckpa-55-vn01-handover-report.md
+  067. uat/g1/ckpa-55/vn01_crm_dictionary.json
+  068. uat/g1/ckpa-65/200_real_tasks_partitioned.csv
+  069. uat/g1/ckpa-65/ckpa-65-partitioning-and-challenges-report.md
+  070. uat/g1/ckpa-65/source_uri_inspection_log.csv
+  071. uat/g1/ckpa-66/200_clean_real_tasks.csv
+  072. uat/g1/ckpa-66/ckpa-66-complete-200-tasks-source-uri-report.md
+  073. uat/g1/ckpa-66/source_uri_inspection_log.csv
+  074. uat/g2/ckpa-109/20_named_users_and_5_rep_users_matrix.csv
+  075. uat/g2/ckpa-109/ckpa-109-5-rep-users-and-uat-fallback-scenario.md
+  076. uat/g2/ckpa-109/usefulness_and_observed_effort_rubric.csv

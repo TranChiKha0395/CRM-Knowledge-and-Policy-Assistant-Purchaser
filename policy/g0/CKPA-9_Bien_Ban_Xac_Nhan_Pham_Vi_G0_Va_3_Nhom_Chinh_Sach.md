@@ -4,19 +4,19 @@
 - **Mã công việc Jira:** `CKPA-8` — *CRM-G0-ST02: [G0][WP01] Chốt 3 họ, Ma trận Thẩm quyền & Ngày* & `CKPA-9` — *CRM-G0-SUB04* (Thuộc Epic `CKPA-3`: *CRM-G0-EP01 [G0][WP01] Khảo sát Discovery & Hồ sơ Cổng G0*)
 - **Tham chiếu SRS & RFP:** `SRS Mục 2.1–2.3`, `SRS-FR-01.1` | `RFP Mục 2`, `WP 01`, `VN 04`, `DEL 01`
 - **Chủ trì thực hiện ([P2] Policy Owner):**Hữu Tài (*Chủ sở hữu chính sách — Purchaser*)
-- **Đại diện Bên Mua / Product Owner ([P1] Purchaser Sponsor):** Văn Mỹ Vân (*Chủ đầu tư dự án*)
+- **Đại diện Bên Mua / Product Owner ([P1] Purchaser Sponsor):** Vắn Mỹ Vân (*Chủ đầu tư dự án*)
 - **Điều phối Scrum / Đại diện Supplier ([S1] Named Lead):** Hoàng Tiến (*Trưởng nhóm Nhà cung cấp*)
 - **Phối hợp 10 thành viên chuẩn RFP Mục 11:**
-  - Phía Bên Mua (Purchaser): [P1] Văn Mỹ Vân, [P2] Hữu Tài, [P3] Trần Chí Kha, [P4] Ngô Thị Trà My, [P5] Nguyễn Anh Khoa
+  - Phía Bên Mua (Purchaser): [P1] Vắn Mỹ Vân, [P2] Hữu Tài, [P3] Trần Chí Kha, [P4] Ngô Thị Trà My, [P5] Nguyễn Anh Khoa
   - Phía Nhà Cung Cấp (Supplier): [S1] Hoàng Tiến, [S2] Trần Quốc Hưng, [S3] Phạm Lương Yến Nhi, [S4] Phạm Quý Hải, [S5] Nguyễn Ngọc Duy
-- **Nhánh Git gợi ý:** `docs/CKPA-1-define-g0-scope-and-policy-families`
+- **Nhánh Git gợi ý:** `policy/CKPA-9-policy-families-and-scope`
 - **Ngày hoàn tất & Ký duyệt:** `16/11/2026` (Múi giờ `Asia/Ho_Chi_Minh`)
 
 ---
 
 ## 1. Xác nhận 03 Nhóm Chính sách Khởi đầu & Sàng lọc Nhóm Thiếu Chủ sở hữu (`SRS Mục 2.1` & `VN 04`)
 
-Thực hiện yêu cầu của `WP 01`, `VN 04` và `SRS Mục 2.1`, `[S1] Named Lead` (Hoàng Tiến) đã chủ trì rà soát cùng các Chủ sở hữu Chính sách (`Policy Owners`) của SongNhat và thống nhất **chốt cứng `03` nhóm chính sách khởi đầu đưa vào Phạm vi Cơ sở (`In-Scope Base — M`)**, đồng thời **đánh dấu loại trừ (`EXCLUDED_AT_G0`) `02` nhóm đề xuất phụ chưa có Policy Owner / nằm ngoài ranh giới `ANS 07`** (chi tiết tại tệp đính kèm `CKPA-1_01_Policy_Families_And_Owners_Signoff.csv`):
+Thực hiện yêu cầu của `WP 01`, `VN 04` và `SRS Mục 2.1`, `[S1] Named Lead` (Hoàng Tiến) đã chủ trì rà soát cùng các Chủ sở hữu Chính sách (`Policy Owners`) của SongNhat và thống nhất **chốt cứng `03` nhóm chính sách khởi đầu đưa vào Phạm vi Cơ sở (`In-Scope Base — M`)**, đồng thời **đánh dấu loại trừ (`EXCLUDED_AT_G0`) `02` nhóm đề xuất phụ chưa có Policy Owner / nằm ngoài ranh giới `ANS 07`** (chi tiết tại tệp đính kèm `policy/g0/CKPA-9_01_Policy_Families_And_Owners_Signoff.csv`):
 
 | Mã Nhóm (`Policy_ID`) | Tên Nhóm Chính sách & Tài liệu Gốc | Quyết định tại `G0` | Phạm vi Hỗ trợ Được Phép (`M`) | Giới hạn Cứng Tuyệt đối Không Được Vượt (`ANS 07`) | Chủ sở hữu Chính (`Policy Owner`) | Người Thay thế (`Backup Owner`) | Quy mô Mẫu `G0` & Trần `G1` |
 | :---: | :--- | :---: | :--- | :--- | :--- | :--- | :---: |
@@ -32,7 +32,7 @@ Thực hiện yêu cầu của `WP 01`, `VN 04` và `SRS Mục 2.1`, `[S1] Named
 
 ## 2. Phân định Ranh giới Tuyệt đối: `In-Scope Base (M)` vs `Optional O1 (OFF)` vs `Out-of-Scope (O)` (`SRS Mục 2.2 & 2.3`)
 
-Toàn bộ kiến trúc, mã nguồn (`backend/`, `frontend/`, `worker/`), cơ sở dữ liệu và kế hoạch kiểm thử của đội `10` thành viên tuân thủ nghiêm ngặt ma trận phân định ranh giới dưới đây (chi tiết tại tệp đính kèm `CKPA-1_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv`):
+Toàn bộ kiến trúc, mã nguồn (`backend/`, `frontend/`, `worker/`), cơ sở dữ liệu và kế hoạch kiểm thử của đội `10` thành viên tuân thủ nghiêm ngặt ma trận phân định ranh giới dưới đây (chi tiết tại tệp đính kèm `policy/g0/CKPA-9_02_Base_Scope_O1_And_Out_Of_Scope_Matrix.csv`):
 
 ### 2.1 Danh mục Phạm vi Cơ sở Bắt buộc (`In-Scope Base — M` / Common Bid Basis)
 
@@ -49,10 +49,10 @@ Toàn bộ kiến trúc, mã nguồn (`backend/`, `frontend/`, `worker/`), cơ s
 
 ### 2.2 Quyết định Tách biệt Tùy chọn `O1 — Selected CRM Context` (`OFF` tại Base Scope)
 
-- **Mã hạng mục:** `SCP-O1` (`Optional O1 — Selected CRM Context`, tham chiếu `RFP Mục 2`, `DAT 07`, `SEC 08`, `SRS Mục 1.4 & 2.3`).
+- **Mã hạng mục:** `SCP-O1` (`Optional O1 — Selected CRM Context`, tham chiếu `RFP Mục 2`, `DAT 07`, `SEC 02`, `SEC 03`, `SRS Mục 1.4 & 2.3`).
 - **Quyết định chính thức tại Cổng G0:** **TÁCH RIÊNG VÀ TẮT HOÀN TOÀN (`OFF`) TRONG BASE SCOPE.**
   1. **Không trộn vào Codebase & DB Cơ sở:** Trong phạm vi cơ sở (`M`), hệ thống chỉ tiếp nhận đúng `02` tệp CSV UTF-8 (`passages.csv` 21 cột và `critical_fields.csv` 23 cột). Không mở đường dẫn `/api/v1/ingestion/o1-context`, không tạo bảng lưu trữ bản ghi khách hàng `O1` và không bật cờ `FEATURE_O1_CRM_CONTEXT_ENABLED` (được kiểm tra tự động bằng unit test tại `backend/tests/test_srs_scaffold_contracts.py`).
-  2. **Điều kiện kích hoạt trong tương lai (nếu có):** Tùy chọn `O1` (schema CSV thứ 3 cho tối đa `2.000` dòng đầu / `5.000` dòng lưu giữ, chọn tối đa `1` bản ghi được kiểm soát quyền `DAT 07`) chỉ được triển khai khi có **Báo giá riêng, Phụ lục hợp đồng / Change Request (`SEC 08`) và Phê duyệt Pháp lý (`SEC 03`) tách biệt**, tuyệt đối không giả định `O1` nằm sẵn trong tiến độ 10 tuần cơ sở.
+  2. **Điều kiện kích hoạt trong tương lai (nếu có):** Tùy chọn `O1` (schema CSV thứ 3 cho tối đa `2.000` dòng đầu / `5.000` dòng lưu giữ, chọn tối đa `1` bản ghi được kiểm soát quyền `DAT 07`) chỉ được triển khai khi có **Báo giá riêng, Phụ lục hợp đồng / Đánh giá Tác động Thay đổi và Phê duyệt Pháp lý (`SEC 03`) tách biệt**, tuyệt đối không giả định `O1` nằm sẵn trong tiến độ 10 tuần cơ sở.
 
 ---
 

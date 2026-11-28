@@ -3,11 +3,18 @@ name: Purchaser Repo Guardrails CI
 on:
   pull_request:
     branches: [develop, main]
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [develop, main]
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
-  purchaser-guardrails:
+  pr-governance-gate:
+    name: PR Branch & SoD Template Gate
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,5 +25,29 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Purchaser Guardrails (SoD, PII, CSV Schema)
+      - name: Validate Target Branch, Prefix & 5/5 SoD Checklist
+        run: python scripts/ci_pr_metadata_guard.py
+
+  purchaser-guardrails:
+    name: Repo Hygiene, Domain, No-Mock & Corpus Guardrails
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Purchaser Guardrails (0% PII, No-Mock, Domain, Links, CSV & SHA-256)
         run: python scripts/ci_purchaser_guard.py
+
+      - name: Run CI Guardrail Unit Tests
+        run: python -m unittest discover -s scripts -p "test_*.py" -v
+
+      - name: Run Security Audit Runner Unit & Negative Tests
+        run: python -m unittest discover -s security/scripts -p "test_*.py" -v
+
+      - name: Run G1 Corpus & Manifest Self-Validator (PowerShell Core)
+        run: pwsh -NoProfile -File data/g1/scripts/validate_g1_repo.ps1

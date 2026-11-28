@@ -12,7 +12,7 @@
 
 ## 1. Ma trận Thẩm quyền cho 05 Lớp Nguồn Tách biệt (`Authority Matrix — DAT 03 / SRS-FR-04.1`)
 
-Để đảm bảo hệ thống kiểm soát chính sách bằng logic ứng dụng xác định ngoài prompt (`INV-01`), toàn bộ nguồn tri thức đầu vào của SongNhat được phân định thành **05 lớp thẩm quyền tách biệt** (chi tiết trong tệp `CKPA-4_01_Authority_Matrix_5_Layers.csv`):
+Để đảm bảo hệ thống kiểm soát chính sách bằng logic ứng dụng xác định ngoài prompt (`INV-01`), toàn bộ nguồn tri thức đầu vào của SongNhat được phân định thành **05 lớp thẩm quyền tách biệt** (chi tiết trong tệp `policy/g0/CKPA-8_01_Authority_Matrix_5_Layers.csv`):
 
 | Thứ tự | Mã Lớp (`authority_layer`) | Tên Lớp Nguồn & Tài liệu Ánh xạ | Được tạo Quy tắc chung? | Được tự động ghi đè `policy`? | Quy tắc Áp dụng & Xử lý Xung đột (`DAT 03`, `DAT 05`) |
 | :---: | :---: | :--- | :---: | :---: | :--- |
@@ -26,7 +26,7 @@
 
 ## 2. Ma trận Quy tắc Ngày Áp dụng (`Governing Date — DAT 04 / OPS 03`) & Sửa Hồi tố
 
-Toàn bộ phép so sánh thời gian trong DB PostgreSQL, bộ lọc trước truy xuất (`Pre-retrieval Filter`) và worker Celery đều khóa cứng theo múi giờ Việt Nam **`Asia/Ho_Chi_Minh` (`UTC+7`)** (chi tiết trong tệp `CKPA-4_02_Governing_Date_And_Conflict_Hold_Rules.csv`):
+Toàn bộ phép so sánh thời gian trong DB PostgreSQL, bộ lọc trước truy xuất (`Pre-retrieval Filter`) và worker Celery đều khóa cứng theo múi giờ Việt Nam **`Asia/Ho_Chi_Minh` (`UTC+7`)** (chi tiết trong tệp `policy/g0/CKPA-8_02_Governing_Date_And_Conflict_Hold_Rules.csv`):
 
 | Mã Quy tắc | Tình huống Truy vấn | Cách xác định `governing_date` (`Asia/Ho_Chi_Minh`) | Trạng thái Nguồn được phép lấy | Nhãn hiển thị bắt buộc trên UI (`/chat`, `/evidence`) | Xử lý khi Thiếu thông tin hoặc Sửa hồi tố |
 | :---: | :--- | :--- | :---: | :--- | :--- |
