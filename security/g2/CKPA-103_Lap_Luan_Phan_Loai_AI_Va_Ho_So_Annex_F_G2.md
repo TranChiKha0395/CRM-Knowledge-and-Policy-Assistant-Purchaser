@@ -20,7 +20,7 @@ Căn cứ hồ sơ kiến trúc đã chốt từ Gate G0–G1 (`security/g0/P1_H
 2. **Giới hạn chức năng (Non-Autonomous Guardrails):**
    - Chỉ giải thích quy trình, nhận diện phiên bản chính sách hiệu lực (`effective`) và trả về trích dẫn nguyên văn kèm nguồn (`passage` / `document_lineage`).
    - **Không tự động ra quyết định đối với khách hàng:** Không tự phê duyệt giao dịch thương mại, không tự quyết định quyền hưởng bảo hành hoặc chiết khấu, không cấp ngoại lệ, không đưa ý kiến tư vấn pháp lý/thuế và không hướng dẫn sửa chữa kỹ thuật thiết bị (`ANS 07`).
-   - **Kiểm soát tất định (Deterministic Policy Core):** Toàn bộ 10 trường trọng yếu (*critical fields*), ngưỡng phê duyệt số học và phân quyền RBAC (`reader`, `policy_owner`, `steward`, `administrator`) được xử lý cứng tại tầng mã nguồn backend, không giao cho mô hình ngôn ngữ lớn (LLM) tự suy diễn.
+   - **Kiểm soát tất định (Deterministic Policy Core):** Toàn bộ 40 trường trọng yếu (*critical fields*), ngưỡng phê duyệt số học và phân quyền RBAC (`reader`, `policy_owner`, `steward`, `administrator`) được xử lý cứng tại tầng mã nguồn backend, không giao cho mô hình ngôn ngữ lớn (LLM) tự suy diễn.
    - **Loại trừ dữ liệu khách hàng thật (Base Scope):** Option O1 (kết nối ngữ cảnh hồ sơ CRM khách hàng thật) đã bị cắt hoàn toàn khỏi codebase theo quyết định `CKPA-40` / `CKPA-42`; lớp lọc `pii_guard.py` và quy chế nội bộ ngăn chặn nhập số CCCD, tài khoản ngân hàng hoặc hồ sơ định danh cá nhân vào luồng hỏi đáp.
 
 ---
