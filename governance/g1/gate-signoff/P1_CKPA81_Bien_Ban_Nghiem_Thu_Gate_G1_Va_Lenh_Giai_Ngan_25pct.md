@@ -88,7 +88,7 @@ Căn cứ kết quả đối soát đạt 7/7 tiêu chí và biên bản họp H
    - Quyết toán hoàn tất **276 / 276 giờ công (100% Done)** theo định mức `DEL 05` (W1: 100h, W2: 112h, W3: 64h).
 
 2. **Quyết định Cấp phép Chuyển tiếp Mở Cổng Gate G2 (Proceed to G2):**
-   - Cấp phép cho dự án chuyển tiếp chính thức sang **Sprint 6 — Cổng Gate G2 (Live Pilot)** theo kế hoạch `360h / 30 tasks` đã thống nhất.
+   - Cấp phép cho dự án chuyển tiếp chính thức sang **Sprint 6 — Cổng Gate G2 (Live Pilot — Epic `CKPA-85`)** theo kế hoạch **`242h` (`98h + 104h + 40h` / 30 tasks)** khớp 100% với `CKPA-80 v1.0` & `CKPA-85` (`2026-12-28 → 2027-01-01`).
    - Duy trì nghiêm ngặt ràng buộc Base Scope: Khóa cứng `OPTION_O1_ENABLED = False`, không nạp dữ liệu CRM sống khi chưa có phê duyệt riêng, và bổ sung snapshot Collaborators JSON/CSV kho ngoài tại nhiệm vụ đầu Cổng G2 (`CKPA-104`).
 
 ---

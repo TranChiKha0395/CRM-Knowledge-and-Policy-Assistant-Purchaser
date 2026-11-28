@@ -23,7 +23,7 @@
 - **PHẦN 3: BẢNG ĐỐI SOÁT CHI TIẾT 7/7 TIÊU CHÍ NGHIỆM THU CỔNG G1 (G1-AC01 .. G1-AC07)**
 - **PHẦN 4: ĐỐI SOÁT QUYẾT TOÁN GIỜ CÔNG G1 (W1–W3 = 276H / 276H — 100% DONE)**
 - **PHẦN 5: SPRINT 5 REVIEW & RETROSPECTIVE LOG (ĐÁNH GIÁ, BÀI HỌC & HÀNH ĐỘNG CHUYỂN GIAO)**
-- **PHẦN 6: KẾ HOẠCH TRIỂN KHAI SPRINT 6 — CỔNG G2 (360H / 3 GIAI ĐOẠN / 30 TASKS)**
+- **PHẦN 6: KẾ HOẠCH TRIỂN KHAI SPRINT 6 — CỔNG G2 (`242H = 98H + 104H + 40H` / 30 TASKS — EPIC `CKPA-85`)**
 - **PHẦN 7: NGHỊ QUYẾT HỘI ĐỒNG, CẤP PHÉP MỞ CỔNG G2 VÀ LỆNH GIẢI NGÂN MỐC 2 (25%)**
 - **PHẦN 8: BẢNG KÝ DUYỆT CHÍNH THỨC CỦA 10 THÀNH VIÊN HỘI ĐỒNG DỰ ÁN**
 
@@ -153,27 +153,25 @@ Căn cứ quy định tại Mục 10, Mục 11 RFP và hồ sơ định mức DE
 
 ---
 
-# PHẦN 6: KẾ HOẠCH TRIỂN KHAI SPRINT 6 — CỔNG G2 (360H / 3 GIAI ĐOẠN / 30 TASKS)
+# PHẦN 6: KẾ HOẠCH TRIỂN KHAI SPRINT 6 — CỔNG G2 (`242H = 98H + 104H + 40H` / 30 TASKS — EPIC `CKPA-85`)
 
-Căn cứ Kế hoạch triển khai đã đồng bộ từ `PhanCongCongViec_G2_ChuanJira_RFP.xlsx` (DEL 05) tại `CKPA-80`, Hội đồng thống nhất kích hoạt Sprint 6 (Cổng G2 Live Pilot) với tổng dự toán **360 giờ** phân bổ cho 10 vai trò qua 3 giai đoạn:
+Căn cứ Kế hoạch triển khai đã đồng bộ từ `CKPA-80 v1.0` (`PhanCongCongViec_G2_ChuanJira_RFP.xlsx` / `DEL 05`) và Epic **`CKPA-85`** (`[G2][WP04-05] Hoàn thiện Workspace & Kiểm định Độc lập G2`, nhánh `epic/CKPA-85-supervised-use-g2`, lịch `2026-12-28 → 2027-01-01`), Hội đồng thống nhất kích hoạt Sprint 6 (Cổng G2 Live Pilot) với tổng dự toán **`242 giờ`** (`98h + 104h + 40h`) cho 10 vai trò qua 3 giai đoạn:
 
-1. **Giai đoạn 1 (Ngày 1–2 Sprint 6 — Build Workspace, Lifecycle, Ops & Legal Prep — 164h):**
-   - **WP 04 Answer Package & Guardrails (`[S3]` Yến Nhi, 40h):** Answer Package chuẩn 100–250 từ, các trường cấu trúc cứng ANS 03-04; Local Referral và 9 kịch bản Annex B (KNW 05); chống Prompt Injection & khóa Streaming ANS 08.
-   - **WP 04 Lifecycle & Feedback (`[S2]` Quốc Hưng, 38h):** Vòng đời 7 trạng thái và hiệu lực lịch KNW 03; ngăn chặn Stale Answer khi thu hồi (KNW 04); phân loại phản hồi và trích xuất ứng viên tri thức (KNW 06-07).
-   - **Vận hành & Dự phòng (`[S5]` Ngọc Duy, 24h):** Xóa cache vật lý tự động <= 5 phút và cơ chế Fail-Closed (OPS 05); quy trình Emergency Disable và tìm kiếm dự phòng Mục 9.
-   - **Pháp lý, Bảo mật, Dữ liệu & Đào tạo (50h):** `[P5]` Anh Khoa 24h (rủi ro AI Annex F, báo cáo sự cố 4h, Change Control); `[P2]` Hữu Tài 10h; **`[P3]` Trần Chí Kha 6h** (`CKPA-96`); `[P4]` Trà My 10h (diễn tập thu hồi & đào tạo 5 Rep Users).
-   - **Đóng gói Working Core (`[S1]` Hoàng Tiến, 12h):** Đóng gói và bàn giao Working Core `DEL 02`.
+1. **Giai đoạn 1 (Ngày 1–2 Sprint 6 — Build Workspace, Lifecycle, Ops & Legal Prep — `98h`):**
+   - **WP 04 Answer Package & Guardrails (`[S3]` Yến Nhi):** `CKPA-91` (Answer Package 100–250 từ, O1 & nút KNW 01, ANS 03-04), `CKPA-92` (Referral 3 trạng thái & 9 kịch bản Annex B, KNW 05), `CKPA-97` (Chống Prompt Injection & khóa Streaming ANS 08).
+   - **WP 04 Lifecycle & Feedback (`[S2]` Quốc Hưng):** `CKPA-94` (7 trạng thái vòng đời KNW 03, Change Impact & 5 nhãn), ngăn chặn Stale Answer khi thu hồi (KNW 04), phân loại phản hồi & ứng viên tri thức (KNW 06-07).
+   - **Ops & Fallback (`[S5]` Ngọc Duy):** `CKPA-98` (Xóa cache vật lý <= 5 phút, Cap 1k/2k & Fail-Closed OPS 05), Emergency Disable & tìm kiếm dự phòng Mục 9.
+   - **Pháp lý, Bảo mật, Dữ liệu & Đóng gói:** `[P5]` Anh Khoa (`CKPA-103` rủi ro AI Annex F & SEC 03-08); `[P2]` Hữu Tài (`CKPA-95` nghiệm thu luồng duyệt, thu hồi & Refer); **`[P3]` Trần Chí Kha (`CKPA-96` Diễn tập Change Impact & 5 Nhãn KNW07 — `6h`)**; `[P4]` Trà My (`CKPA-93` UX Workspace trên 40 ca Val & `CKPA-109` đào tạo 5 Rep Users); `[S1]` Hoàng Tiến (đóng gói Working Core `DEL 02`).
 
-2. **Giai đoạn 2 (Ngày 3–4 Sprint 6 — Kiểm định Độc lập 180 Ca & Đào tạo — 140h):**
-   - **Kiểm định Hiệu năng & QA Độc lập (`[S5]` 12h, `[S4]` Quý Hải 40h — 52h):** Benchmark 5 người dùng đồng thời, p95 <= 25s trên 100 truy vấn (OPS 02); kiểm thử 80 Challenges; chấm điểm 100 câu Sealed; lập Báo cáo Điểm số Độc lập DEL 03.
-   - **Thẩm định Độc lập phía Bên Mua (78h):** `[P2]` Hữu Tài 26h; **`[P3]` Trần Chí Kha 18h** (`CKPA-108`: 14h & `CKPA-111`: 4h); `[P4]` Trà My 24h (mức độ chỉnh sửa nhỏ >= 80%); `[P5]` Anh Khoa 10h (0 lỗi rò rỉ dữ liệu).
-   - **Đệ trình Hồ sơ G2 (`[S1]` 10h):** Tổng hợp Hồ sơ Điểm số Độc lập và Căn cứ Pháp lý G2.
+2. **Giai đoạn 2 (Ngày 3–4 Sprint 6 — Kiểm định Độc lập 180 Ca & Đào tạo — `104h`):**
+   - **Kiểm định Hiệu năng & QA Độc lập (`[S5]` Ngọc Duy & `[S4]` Quý Hải):** Benchmark 5 concurrent users, `p95 <= 25s` trên 100 truy vấn (`OPS 02`); kiểm thử 80 Challenges; chấm điểm 100 câu Sealed; lập Báo cáo Điểm số Độc lập `DEL 03`.
+   - **Thẩm định Độc lập phía Bên Mua:** `[P2]` Hữu Tài (chấm độc lập điều khoản, ngoại lệ, ngày chi phối); **`[P3]` Trần Chí Kha (`CKPA-108` `14h` & `CKPA-111` `4h` = `18h`)**; `[P4]` Trà My (đánh giá Usefulness >= 80%); `[P5]` Anh Khoa (kiểm toán 0 lỗi rò rỉ trên 180 ca & snapshot Collaborators `CKPA-104`).
+   - **Đệ trình Hồ sơ G2 (`[S1]` Hoàng Tiến):** Tổng hợp Hồ sơ Điểm số Độc lập và Căn cứ Pháp lý G2.
 
-3. **Giai đoạn 3 (Ngày 5 Sprint 6 — Hội đồng Nghiệm thu G2 & Kích hoạt Pilot G3 — 74h):**
-   - **Báo cáo Quyết toán (`[S1]` 10h):** Báo cáo giờ công Tuần 4 và kế hoạch 20 ngày quan sát G3.
-   - **Rà soát Hồ sơ Cổng (`[P3]` 4h):** Khớp chính xác task Jira **`CKPA-117`**: 4h (Tổng Sprint 6 của `[P3]` = **28h**).
-   - **Hội đồng Thẩm định & Nghiệm thu G2 (`[P1]` Mỹ Vân 30h):** Chủ trì Hội đồng đánh giá 8 tiêu chí Cổng G2; ký lệnh kích hoạt 20 ngày sử dụng có giám sát; ký Biên bản G2 và lệnh giải ngân Mốc 3 (25%).
-   - **Kiểm định Đóng Cổng (`[S4]` 15h, `[S5]` 15h):** Kiểm tra kỹ thuật chốt cổng G2.
+3. **Giai đoạn 3 (Ngày 5 Sprint 6 — Hội đồng Nghiệm thu G2 & Kích hoạt Pilot G3 — `40h`):**
+   - **Báo cáo Quyết toán (`[S1]` Hoàng Tiến):** Báo cáo giờ công Tuần 4 và kế hoạch 20 ngày quan sát G3.
+   - **Rà soát Hồ sơ Cổng (`[P3]` Trần Chí Kha):** Khớp chính xác task Jira **`CKPA-117`** (`4h`; tổng Sprint 6 của `[P3]` = **`28h`**).
+   - **Hội đồng Thẩm định & Nghiệm thu G2 (`[P1]` Vắn Mỹ Vân):** Chủ trì Hội đồng đánh giá 8 tiêu chí Cổng G2 & các ngưỡng mục tiêu RFP (`Applicability >= 95%`, `Grounding >= 95%`, `Completeness >= 90%`, `Recall@5 >= 90%`, `Usefulness >= 80%`, `Unanswerable <= 5%`, `p95 <= 25s`, `0 lỗi Critical Control`); ký lệnh kích hoạt 20 ngày sử dụng có giám sát (Pilot G3); ký Biên bản G2 & Lệnh giải ngân Mốc 3 (25%).
 
 ---
 
